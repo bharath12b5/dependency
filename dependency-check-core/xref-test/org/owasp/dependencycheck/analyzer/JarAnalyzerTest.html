@@ -128,45 +128,46 @@
 <a class="jxr_linenumber" name="118" href="#118">118</a>         JarAnalyzer instance = <strong class="jxr_keyword">new</strong> JarAnalyzer();
 <a class="jxr_linenumber" name="119" href="#119">119</a>         Set expResult = <strong class="jxr_keyword">new</strong> HashSet();
 <a class="jxr_linenumber" name="120" href="#120">120</a>         expResult.add(<span class="jxr_string">"jar"</span>);
-<a class="jxr_linenumber" name="121" href="#121">121</a>         Set result = instance.getSupportedExtensions();
-<a class="jxr_linenumber" name="122" href="#122">122</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="123" href="#123">123</a>     }
-<a class="jxr_linenumber" name="124" href="#124">124</a> 
-<a class="jxr_linenumber" name="125" href="#125">125</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="126" href="#126">126</a> <em class="jxr_javadoccomment">     * Test of getName method, of class JarAnalyzer.</em>
-<a class="jxr_linenumber" name="127" href="#127">127</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="128" href="#128">128</a>     @Test
-<a class="jxr_linenumber" name="129" href="#129">129</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetName() {
-<a class="jxr_linenumber" name="130" href="#130">130</a>         JarAnalyzer instance = <strong class="jxr_keyword">new</strong> JarAnalyzer();
-<a class="jxr_linenumber" name="131" href="#131">131</a>         String expResult = <span class="jxr_string">"Jar Analyzer"</span>;
-<a class="jxr_linenumber" name="132" href="#132">132</a>         String result = instance.getName();
-<a class="jxr_linenumber" name="133" href="#133">133</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="134" href="#134">134</a>     }
-<a class="jxr_linenumber" name="135" href="#135">135</a> 
-<a class="jxr_linenumber" name="136" href="#136">136</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="137" href="#137">137</a> <em class="jxr_javadoccomment">     * Test of supportsExtension method, of class JarAnalyzer.</em>
-<a class="jxr_linenumber" name="138" href="#138">138</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="139" href="#139">139</a>     @Test
-<a class="jxr_linenumber" name="140" href="#140">140</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSupportsExtension() {
-<a class="jxr_linenumber" name="141" href="#141">141</a>         String extension = <span class="jxr_string">"jar"</span>;
-<a class="jxr_linenumber" name="142" href="#142">142</a>         JarAnalyzer instance = <strong class="jxr_keyword">new</strong> JarAnalyzer();
-<a class="jxr_linenumber" name="143" href="#143">143</a>         <strong class="jxr_keyword">boolean</strong> expResult = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="144" href="#144">144</a>         <strong class="jxr_keyword">boolean</strong> result = instance.supportsExtension(extension);
-<a class="jxr_linenumber" name="145" href="#145">145</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="146" href="#146">146</a>     }
-<a class="jxr_linenumber" name="147" href="#147">147</a> 
-<a class="jxr_linenumber" name="148" href="#148">148</a>     @Test
-<a class="jxr_linenumber" name="149" href="#149">149</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testInterpolateString() {
-<a class="jxr_linenumber" name="150" href="#150">150</a>         Properties prop = <strong class="jxr_keyword">new</strong> Properties();
-<a class="jxr_linenumber" name="151" href="#151">151</a>         prop.setProperty(<span class="jxr_string">"key"</span>, <span class="jxr_string">"value"</span>);
-<a class="jxr_linenumber" name="152" href="#152">152</a>         prop.setProperty(<span class="jxr_string">"nested"</span>, <span class="jxr_string">"nested ${key}"</span>);
-<a class="jxr_linenumber" name="153" href="#153">153</a>         String text = <span class="jxr_string">"This is a test of '${key}' '${nested}'"</span>;
-<a class="jxr_linenumber" name="154" href="#154">154</a>         String expResults = <span class="jxr_string">"This is a test of 'value' 'nested value'"</span>;
-<a class="jxr_linenumber" name="155" href="#155">155</a>         JarAnalyzer instance = <strong class="jxr_keyword">new</strong> JarAnalyzer();
-<a class="jxr_linenumber" name="156" href="#156">156</a>         String results = instance.interpolateString(text, prop);
-<a class="jxr_linenumber" name="157" href="#157">157</a>         assertEquals(expResults, results);
-<a class="jxr_linenumber" name="158" href="#158">158</a>     }
-<a class="jxr_linenumber" name="159" href="#159">159</a> }
+<a class="jxr_linenumber" name="121" href="#121">121</a>         expResult.add(<span class="jxr_string">"war"</span>);
+<a class="jxr_linenumber" name="122" href="#122">122</a>         Set result = instance.getSupportedExtensions();
+<a class="jxr_linenumber" name="123" href="#123">123</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="124" href="#124">124</a>     }
+<a class="jxr_linenumber" name="125" href="#125">125</a> 
+<a class="jxr_linenumber" name="126" href="#126">126</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="127" href="#127">127</a> <em class="jxr_javadoccomment">     * Test of getName method, of class JarAnalyzer.</em>
+<a class="jxr_linenumber" name="128" href="#128">128</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="129" href="#129">129</a>     @Test
+<a class="jxr_linenumber" name="130" href="#130">130</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetName() {
+<a class="jxr_linenumber" name="131" href="#131">131</a>         JarAnalyzer instance = <strong class="jxr_keyword">new</strong> JarAnalyzer();
+<a class="jxr_linenumber" name="132" href="#132">132</a>         String expResult = <span class="jxr_string">"Jar Analyzer"</span>;
+<a class="jxr_linenumber" name="133" href="#133">133</a>         String result = instance.getName();
+<a class="jxr_linenumber" name="134" href="#134">134</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="135" href="#135">135</a>     }
+<a class="jxr_linenumber" name="136" href="#136">136</a> 
+<a class="jxr_linenumber" name="137" href="#137">137</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="138" href="#138">138</a> <em class="jxr_javadoccomment">     * Test of supportsExtension method, of class JarAnalyzer.</em>
+<a class="jxr_linenumber" name="139" href="#139">139</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="140" href="#140">140</a>     @Test
+<a class="jxr_linenumber" name="141" href="#141">141</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSupportsExtension() {
+<a class="jxr_linenumber" name="142" href="#142">142</a>         String extension = <span class="jxr_string">"jar"</span>;
+<a class="jxr_linenumber" name="143" href="#143">143</a>         JarAnalyzer instance = <strong class="jxr_keyword">new</strong> JarAnalyzer();
+<a class="jxr_linenumber" name="144" href="#144">144</a>         <strong class="jxr_keyword">boolean</strong> expResult = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="145" href="#145">145</a>         <strong class="jxr_keyword">boolean</strong> result = instance.supportsExtension(extension);
+<a class="jxr_linenumber" name="146" href="#146">146</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="147" href="#147">147</a>     }
+<a class="jxr_linenumber" name="148" href="#148">148</a> 
+<a class="jxr_linenumber" name="149" href="#149">149</a>     @Test
+<a class="jxr_linenumber" name="150" href="#150">150</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testInterpolateString() {
+<a class="jxr_linenumber" name="151" href="#151">151</a>         Properties prop = <strong class="jxr_keyword">new</strong> Properties();
+<a class="jxr_linenumber" name="152" href="#152">152</a>         prop.setProperty(<span class="jxr_string">"key"</span>, <span class="jxr_string">"value"</span>);
+<a class="jxr_linenumber" name="153" href="#153">153</a>         prop.setProperty(<span class="jxr_string">"nested"</span>, <span class="jxr_string">"nested ${key}"</span>);
+<a class="jxr_linenumber" name="154" href="#154">154</a>         String text = <span class="jxr_string">"This is a test of '${key}' '${nested}'"</span>;
+<a class="jxr_linenumber" name="155" href="#155">155</a>         String expResults = <span class="jxr_string">"This is a test of 'value' 'nested value'"</span>;
+<a class="jxr_linenumber" name="156" href="#156">156</a>         JarAnalyzer instance = <strong class="jxr_keyword">new</strong> JarAnalyzer();
+<a class="jxr_linenumber" name="157" href="#157">157</a>         String results = instance.interpolateString(text, prop);
+<a class="jxr_linenumber" name="158" href="#158">158</a>         assertEquals(expResults, results);
+<a class="jxr_linenumber" name="159" href="#159">159</a>     }
+<a class="jxr_linenumber" name="160" href="#160">160</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

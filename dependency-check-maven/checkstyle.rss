@@ -2,9 +2,9 @@
 
 <rss version="0.91">
   <channel>
-    <title>dependency-check-maven - Checkstyle report</title>
+    <title>Dependency-Check Maven Plugin - Checkstyle report</title>
     <link>http://maven.apache.org</link>
-    <description>dependency-check-maven - Checkstyle report</description>
+    <description>Dependency-Check Maven Plugin - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2013 OWASP</copyright>
     <item>

@@ -2,14 +2,14 @@
 
 <rss version="0.91">
   <channel>
-    <title>dependency-check-core - Checkstyle report</title>
+    <title>Dependency-Check Core - Checkstyle report</title>
     <link>https://github.com/jeremylong/DependencyCheck.git/dependency-check-core</link>
-    <description>dependency-check-core - Checkstyle report</description>
+    <description>Dependency-Check Core - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2012 - 2013 OWASP</copyright>
     <item>
-      <title>File: 151,
-             Errors: 2,
+      <title>File: 140,
+             Errors: 4,
              Warnings: 0,
              Infos: 0
       </title>
@@ -29,20 +29,6 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.target.classes.log.properties">dependency-check-maven/target/classes/log.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.lucene.package-info.java">org/owasp/dependencycheck/data/lucene/package-info.java</a>
                 </td>
                 <td>
@@ -57,7 +43,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.target.generated-classes.cobertura.mojo.properties">dependency-check-maven/target/generated-classes/cobertura/mojo.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.package-info.java">org/owasp/dependencycheck/data/update/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -72,20 +58,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.analyzer.HintAnalyzer.java">org/owasp/dependencycheck/analyzer/HintAnalyzer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.xml.DatabaseUpdater.java">org/owasp/dependencycheck/data/nvdcve/xml/DatabaseUpdater.java</a>
                 </td>
                 <td>
                   0
@@ -114,20 +86,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Plugin.java">org/owasp/dependencycheck/jaxb/pom/generated/Plugin.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.generated-classes.cobertura.cobertura.properties">dependency-check-ant/target/generated-classes/cobertura/cobertura.properties</a>
                 </td>
                 <td>
                   0
@@ -184,6 +142,20 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.PluginExecution.java">org/owasp/dependencycheck/jaxb/pom/generated/PluginExecution.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.NvdCve12Handler.java">org/owasp/dependencycheck/data/nvdcve/NvdCve12Handler.java</a>
                 </td>
                 <td>
                   0
@@ -267,7 +239,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.generated-classes.cobertura.task.properties">dependency-check-ant/target/generated-classes/cobertura/task.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.analyzer.CPEAnalyzer.java">org/owasp/dependencycheck/analyzer/CPEAnalyzer.java</a>
                 </td>
                 <td>
                   0
@@ -276,21 +248,7 @@
                   0
                 </td>
                 <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.target.maven-archiver.pom.properties">dependency-check-maven/target/maven-archiver/pom.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -310,20 +268,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.utils.Settings.java">org/owasp/dependencycheck/utils/Settings.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.target.maven-plugin-help.properties">dependency-check-maven/target/maven-plugin-help.properties</a>
                 </td>
                 <td>
                   0
@@ -365,7 +309,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.classes.task.properties">dependency-check-ant/target/classes/task.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.NvdCve20Handler.java">org/owasp/dependencycheck/data/nvdcve/NvdCve20Handler.java</a>
                 </td>
                 <td>
                   0
@@ -422,20 +366,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Parent.java">org/owasp/dependencycheck/jaxb/pom/generated/Parent.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.target.generated-classes.cobertura.log.properties">dependency-check-maven/target/generated-classes/cobertura/log.properties</a>
                 </td>
                 <td>
                   0
@@ -506,6 +436,20 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.cwe.package-info.java">org/owasp/dependencycheck/data/cwe/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.InvalidDataException.java">org/owasp/dependencycheck/data/nvdcve/InvalidDataException.java</a>
                 </td>
                 <td>
                   0
@@ -604,20 +548,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.package-info.java">org/owasp/dependencycheck/jaxb/pom/generated/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.generated-classes.cobertura.taskdefs.properties">dependency-check-ant/target/generated-classes/cobertura/taskdefs.properties</a>
                 </td>
                 <td>
                   0
@@ -757,20 +687,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.maven-archiver.pom.properties">dependency-check-ant/target/maven-archiver/pom.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.ObjectFactory.java">org/owasp/dependencycheck/jaxb/pom/generated/ObjectFactory.java</a>
                 </td>
                 <td>
@@ -800,20 +716,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Repository.java">org/owasp/dependencycheck/jaxb/pom/generated/Repository.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-cli.target.maven-archiver.pom.properties">dependency-check-cli/target/maven-archiver/pom.properties</a>
                 </td>
                 <td>
                   0
@@ -892,7 +794,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -953,7 +855,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.classes.log.properties">dependency-check-ant/target/classes/log.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.analyzer.NvdCveAnalyzer.java">org/owasp/dependencycheck/analyzer/NvdCveAnalyzer.java</a>
                 </td>
                 <td>
                   0
@@ -995,20 +897,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-cli.target.generated-classes.cobertura.log.properties">dependency-check-cli/target/generated-classes/cobertura/log.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Reporting.java">org/owasp/dependencycheck/jaxb/pom/generated/Reporting.java</a>
                 </td>
                 <td>
@@ -1024,6 +912,20 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.utils.Checksum.java">org/owasp/dependencycheck/utils/Checksum.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.concurrency.DirectoryLockException.java">org/owasp/dependencycheck/concurrency/DirectoryLockException.java</a>
                 </td>
                 <td>
                   0
@@ -1093,35 +995,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.classes.taskdefs.properties">dependency-check-ant/target/classes/taskdefs.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Scm.java">org/owasp/dependencycheck/jaxb/pom/generated/Scm.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.xml.NvdCve20Handler.java">org/owasp/dependencycheck/data/nvdcve/xml/NvdCve20Handler.java</a>
                 </td>
                 <td>
                   0
@@ -1163,20 +1037,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.cpe.CPEAnalyzer.java">org/owasp/dependencycheck/data/cpe/CPEAnalyzer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.analyzer.FileNameAnalyzer.java">org/owasp/dependencycheck/analyzer/FileNameAnalyzer.java</a>
                 </td>
                 <td>
@@ -1192,20 +1052,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.utils.InvalidSettingException.java">org/owasp/dependencycheck/utils/InvalidSettingException.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.xml.NvdCve12Handler.java">org/owasp/dependencycheck/data/nvdcve/xml/NvdCve12Handler.java</a>
                 </td>
                 <td>
                   0
@@ -1415,35 +1261,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.target.generated-classes.cobertura.cobertura.properties">dependency-check-maven/target/generated-classes/cobertura/cobertura.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependencycheck.properties">dependencycheck.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.xml.package-info.java">org/owasp/dependencycheck/data/nvdcve/xml/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -1485,7 +1303,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.xml.InvalidDataException.java">org/owasp/dependencycheck/data/nvdcve/xml/InvalidDataException.java</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.concurrency.package-info.java">org/owasp/dependencycheck/concurrency/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -1500,20 +1318,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.UpdateService.java">org/owasp/dependencycheck/data/UpdateService.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.lucene.AbstractIndex.java">org/owasp/dependencycheck/data/lucene/AbstractIndex.java</a>
                 </td>
                 <td>
                   0
@@ -1611,6 +1415,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.concurrency.DirectorySpinLock.java">org/owasp/dependencycheck/concurrency/DirectorySpinLock.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.cpe.IndexEntry.java">org/owasp/dependencycheck/data/cpe/IndexEntry.java</a>
                 </td>
                 <td>
@@ -1625,7 +1443,21 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.cpe.Index.java">org/owasp/dependencycheck/data/cpe/Index.java</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.DataStoreMetaInfo.java">org/owasp/dependencycheck/data/update/DataStoreMetaInfo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.cpe.BaseIndex.java">org/owasp/dependencycheck/data/cpe/BaseIndex.java</a>
                 </td>
                 <td>
                   0
@@ -1737,20 +1569,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-cli.target.generated-classes.cobertura.cobertura.properties">dependency-check-cli/target/generated-classes/cobertura/cobertura.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.analyzer.DependencyBundlingAnalyzer.java">org/owasp/dependencycheck/analyzer/DependencyBundlingAnalyzer.java</a>
                 </td>
                 <td>
@@ -1766,20 +1584,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Organization.java">org/owasp/dependencycheck/jaxb/pom/generated/Organization.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-ant.target.generated-classes.cobertura.log.properties">dependency-check-ant/target/generated-classes/cobertura/log.properties</a>
                 </td>
                 <td>
                   0
@@ -1821,20 +1625,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-cli.target.classes.log.properties">dependency-check-cli/target/classes/log.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.MavenNamespaceFilter.java">org/owasp/dependencycheck/jaxb/pom/MavenNamespaceFilter.java</a>
                 </td>
                 <td>
@@ -1850,6 +1640,20 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.lucene.SearchFieldAnalyzer.java">org/owasp/dependencycheck/data/lucene/SearchFieldAnalyzer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.cpe.CpeIndexWriter.java">org/owasp/dependencycheck/data/cpe/CpeIndexWriter.java</a>
                 </td>
                 <td>
                   0
@@ -1919,6 +1723,34 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.NvdCveInfo.java">org/owasp/dependencycheck/data/update/NvdCveInfo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.cpe.CpeIndexReader.java">org/owasp/dependencycheck/data/cpe/CpeIndexReader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.lucene.AlphaNumericTokenizer.java">org/owasp/dependencycheck/data/lucene/AlphaNumericTokenizer.java</a>
                 </td>
                 <td>
@@ -1934,34 +1766,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.DistributionManagement.java">org/owasp/dependencycheck/jaxb/pom/generated/DistributionManagement.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.nvdcve.NvdCveAnalyzer.java">org/owasp/dependencycheck/data/nvdcve/NvdCveAnalyzer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.target.classes.mojo.properties">dependency-check-maven/target/classes/mojo.properties</a>
                 </td>
                 <td>
                   0
@@ -2073,6 +1877,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.utils.ExtractionException.java">org/owasp/dependencycheck/utils/ExtractionException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#dependency-check-maven.src.main.resources.log.properties">dependency-check-maven/src/main/resources/log.properties</a>
                 </td>
                 <td>
@@ -2116,6 +1934,34 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Resource.java">org/owasp/dependencycheck/jaxb/pom/generated/Resource.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.concurrency.InvalidDirectoryException.java">org/owasp/dependencycheck/concurrency/InvalidDirectoryException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.DatabaseUpdater.java">org/owasp/dependencycheck/data/update/DatabaseUpdater.java</a>
                 </td>
                 <td>
                   0
