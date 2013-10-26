@@ -292,113 +292,121 @@
 <a class="jxr_linenumber" name="282" href="#282">282</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
 <a class="jxr_linenumber" name="283" href="#283">283</a>             <strong class="jxr_keyword">for</strong> (Analyzer a : analyzerList) {
 <a class="jxr_linenumber" name="284" href="#284">284</a>                 <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="285" href="#285">285</a>                     a.initialize();
-<a class="jxr_linenumber" name="286" href="#286">286</a>                 } <strong class="jxr_keyword">catch</strong> (Exception ex) {
-<a class="jxr_linenumber" name="287" href="#287">287</a>                     <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"\&quot;Exception occurred initializing \&quot;%s\&quot;.\&quot;"</span>, a.getName());
-<a class="jxr_linenumber" name="288" href="#288">288</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, msg);
-<a class="jxr_linenumber" name="289" href="#289">289</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.INFO, msg, ex);
-<a class="jxr_linenumber" name="290" href="#290">290</a>                     <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="291" href="#291">291</a>                         a.close();
-<a class="jxr_linenumber" name="292" href="#292">292</a>                     } <strong class="jxr_keyword">catch</strong> (Exception ex1) {
-<a class="jxr_linenumber" name="293" href="#293">293</a>                         Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <strong class="jxr_keyword">null</strong>, ex1);
-<a class="jxr_linenumber" name="294" href="#294">294</a>                     }
-<a class="jxr_linenumber" name="295" href="#295">295</a>                 }
-<a class="jxr_linenumber" name="296" href="#296">296</a>             }
-<a class="jxr_linenumber" name="297" href="#297">297</a>         }
-<a class="jxr_linenumber" name="298" href="#298">298</a> 
-<a class="jxr_linenumber" name="299" href="#299">299</a>         <em class="jxr_comment">// analysis phases</em>
-<a class="jxr_linenumber" name="300" href="#300">300</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
-<a class="jxr_linenumber" name="301" href="#301">301</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
-<a class="jxr_linenumber" name="302" href="#302">302</a> 
-<a class="jxr_linenumber" name="303" href="#303">303</a>             <strong class="jxr_keyword">for</strong> (Analyzer a : analyzerList) {
-<a class="jxr_linenumber" name="304" href="#304">304</a>                 <em class="jxr_comment">/*<em class="jxr_comment"> need to create a copy of the collection because some of the</em></em>
-<a class="jxr_linenumber" name="305" href="#305">305</a> <em class="jxr_comment">                 * analyzers may modify it. This prevents ConcurrentModificationExceptions.</em>
-<a class="jxr_linenumber" name="306" href="#306">306</a> <em class="jxr_comment">                 * This is okay for adds/deletes because it happens per analyzer.</em>
-<a class="jxr_linenumber" name="307" href="#307">307</a> <em class="jxr_comment">                 */</em>
-<a class="jxr_linenumber" name="308" href="#308">308</a>                 <strong class="jxr_keyword">final</strong> Set&lt;Dependency&gt; dependencySet = <strong class="jxr_keyword">new</strong> HashSet&lt;Dependency&gt;();
-<a class="jxr_linenumber" name="309" href="#309">309</a>                 dependencySet.addAll(dependencies);
-<a class="jxr_linenumber" name="310" href="#310">310</a>                 <strong class="jxr_keyword">for</strong> (Dependency d : dependencySet) {
-<a class="jxr_linenumber" name="311" href="#311">311</a>                     <strong class="jxr_keyword">if</strong> (a.supportsExtension(d.getFileExtension())) {
-<a class="jxr_linenumber" name="312" href="#312">312</a>                         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="313" href="#313">313</a>                             a.analyze(d, <strong class="jxr_keyword">this</strong>);
-<a class="jxr_linenumber" name="314" href="#314">314</a>                         } <strong class="jxr_keyword">catch</strong> (AnalysisException ex) {
-<a class="jxr_linenumber" name="315" href="#315">315</a>                             d.addAnalysisException(ex);
-<a class="jxr_linenumber" name="316" href="#316">316</a>                         }
-<a class="jxr_linenumber" name="317" href="#317">317</a>                     }
-<a class="jxr_linenumber" name="318" href="#318">318</a>                 }
-<a class="jxr_linenumber" name="319" href="#319">319</a>             }
-<a class="jxr_linenumber" name="320" href="#320">320</a>         }
-<a class="jxr_linenumber" name="321" href="#321">321</a> 
-<a class="jxr_linenumber" name="322" href="#322">322</a>         <em class="jxr_comment">//close/cleanup</em>
-<a class="jxr_linenumber" name="323" href="#323">323</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
-<a class="jxr_linenumber" name="324" href="#324">324</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
-<a class="jxr_linenumber" name="325" href="#325">325</a>             <strong class="jxr_keyword">for</strong> (Analyzer a : analyzerList) {
-<a class="jxr_linenumber" name="326" href="#326">326</a>                 <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="327" href="#327">327</a>                     a.close();
-<a class="jxr_linenumber" name="328" href="#328">328</a>                 } <strong class="jxr_keyword">catch</strong> (Exception ex) {
-<a class="jxr_linenumber" name="329" href="#329">329</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="330" href="#330">330</a>                 }
-<a class="jxr_linenumber" name="331" href="#331">331</a>             }
-<a class="jxr_linenumber" name="332" href="#332">332</a>         }
-<a class="jxr_linenumber" name="333" href="#333">333</a>     }
-<a class="jxr_linenumber" name="334" href="#334">334</a> 
-<a class="jxr_linenumber" name="335" href="#335">335</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="336" href="#336">336</a> <em class="jxr_javadoccomment">     * Cycles through the cached web data sources and calls update on all of</em>
-<a class="jxr_linenumber" name="337" href="#337">337</a> <em class="jxr_javadoccomment">     * them.</em>
-<a class="jxr_linenumber" name="338" href="#338">338</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="339" href="#339">339</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> doUpdates() {
-<a class="jxr_linenumber" name="340" href="#340">340</a>         <strong class="jxr_keyword">final</strong> <a href="../../../org/owasp/dependencycheck/data/UpdateService.html">UpdateService</a> service = UpdateService.getInstance();
-<a class="jxr_linenumber" name="341" href="#341">341</a>         <strong class="jxr_keyword">final</strong> Iterator&lt;CachedWebDataSource&gt; iterator = service.getDataSources();
-<a class="jxr_linenumber" name="342" href="#342">342</a>         <strong class="jxr_keyword">while</strong> (iterator.hasNext()) {
-<a class="jxr_linenumber" name="343" href="#343">343</a>             <strong class="jxr_keyword">final</strong> <a href="../../../org/owasp/dependencycheck/data/CachedWebDataSource.html">CachedWebDataSource</a> source = iterator.next();
-<a class="jxr_linenumber" name="344" href="#344">344</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="345" href="#345">345</a>                 source.update();
-<a class="jxr_linenumber" name="346" href="#346">346</a>             } <strong class="jxr_keyword">catch</strong> (UpdateException ex) {
-<a class="jxr_linenumber" name="347" href="#347">347</a>                 Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.WARNING,
-<a class="jxr_linenumber" name="348" href="#348">348</a>                         <span class="jxr_string">"Unable to update Cached Web DataSource, using local data instead. Results may not include recent vulnerabilities."</span>);
-<a class="jxr_linenumber" name="349" href="#349">349</a>                 Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE,
-<a class="jxr_linenumber" name="350" href="#350">350</a>                         String.format(<span class="jxr_string">"Unable to update details for %s"</span>, source.getClass().getName()), ex);
-<a class="jxr_linenumber" name="351" href="#351">351</a>             }
-<a class="jxr_linenumber" name="352" href="#352">352</a>         }
-<a class="jxr_linenumber" name="353" href="#353">353</a>     }
-<a class="jxr_linenumber" name="354" href="#354">354</a> 
-<a class="jxr_linenumber" name="355" href="#355">355</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="356" href="#356">356</a> <em class="jxr_javadoccomment">     * Returns a full list of all of the analyzers. This is useful for reporting</em>
-<a class="jxr_linenumber" name="357" href="#357">357</a> <em class="jxr_javadoccomment">     * which analyzers where used.</em>
-<a class="jxr_linenumber" name="358" href="#358">358</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="359" href="#359">359</a> <em class="jxr_javadoccomment">     * @return a list of Analyzers</em>
-<a class="jxr_linenumber" name="360" href="#360">360</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="361" href="#361">361</a>     <strong class="jxr_keyword">public</strong> List&lt;Analyzer&gt; getAnalyzers() {
-<a class="jxr_linenumber" name="362" href="#362">362</a>         <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; ret = <strong class="jxr_keyword">new</strong> ArrayList&lt;Analyzer&gt;();
-<a class="jxr_linenumber" name="363" href="#363">363</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
-<a class="jxr_linenumber" name="364" href="#364">364</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
-<a class="jxr_linenumber" name="365" href="#365">365</a>             ret.addAll(analyzerList);
-<a class="jxr_linenumber" name="366" href="#366">366</a>         }
-<a class="jxr_linenumber" name="367" href="#367">367</a>         <strong class="jxr_keyword">return</strong> ret;
-<a class="jxr_linenumber" name="368" href="#368">368</a>     }
-<a class="jxr_linenumber" name="369" href="#369">369</a> 
-<a class="jxr_linenumber" name="370" href="#370">370</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="371" href="#371">371</a> <em class="jxr_javadoccomment">     * Checks all analyzers to see if an extension is supported.</em>
-<a class="jxr_linenumber" name="372" href="#372">372</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="373" href="#373">373</a> <em class="jxr_javadoccomment">     * @param ext a file extension</em>
-<a class="jxr_linenumber" name="374" href="#374">374</a> <em class="jxr_javadoccomment">     * @return true or false depending on whether or not the file extension is</em>
-<a class="jxr_linenumber" name="375" href="#375">375</a> <em class="jxr_javadoccomment">     * supported</em>
-<a class="jxr_linenumber" name="376" href="#376">376</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="377" href="#377">377</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> supportsExtension(String ext) {
-<a class="jxr_linenumber" name="378" href="#378">378</a>         <strong class="jxr_keyword">if</strong> (ext == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="379" href="#379">379</a>             <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="380" href="#380">380</a>         }
-<a class="jxr_linenumber" name="381" href="#381">381</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
-<a class="jxr_linenumber" name="382" href="#382">382</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
-<a class="jxr_linenumber" name="383" href="#383">383</a>             <strong class="jxr_keyword">for</strong> (Analyzer a : analyzerList) {
-<a class="jxr_linenumber" name="384" href="#384">384</a>                 <strong class="jxr_keyword">if</strong> (a.getSupportedExtensions() != <strong class="jxr_keyword">null</strong> &amp;&amp; a.supportsExtension(ext)) {
-<a class="jxr_linenumber" name="385" href="#385">385</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="386" href="#386">386</a>                 }
-<a class="jxr_linenumber" name="387" href="#387">387</a>             }
+<a class="jxr_linenumber" name="285" href="#285">285</a>                     <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Initializing %s"</span>, a.getName());
+<a class="jxr_linenumber" name="286" href="#286">286</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, msg);
+<a class="jxr_linenumber" name="287" href="#287">287</a>                     a.initialize();
+<a class="jxr_linenumber" name="288" href="#288">288</a>                 } <strong class="jxr_keyword">catch</strong> (Exception ex) {
+<a class="jxr_linenumber" name="289" href="#289">289</a>                     <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Exception occurred initializing %s."</span>, a.getName());
+<a class="jxr_linenumber" name="290" href="#290">290</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, msg);
+<a class="jxr_linenumber" name="291" href="#291">291</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.INFO, <strong class="jxr_keyword">null</strong>, ex);
+<a class="jxr_linenumber" name="292" href="#292">292</a>                     <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="293" href="#293">293</a>                         a.close();
+<a class="jxr_linenumber" name="294" href="#294">294</a>                     } <strong class="jxr_keyword">catch</strong> (Exception ex1) {
+<a class="jxr_linenumber" name="295" href="#295">295</a>                         Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <strong class="jxr_keyword">null</strong>, ex1);
+<a class="jxr_linenumber" name="296" href="#296">296</a>                     }
+<a class="jxr_linenumber" name="297" href="#297">297</a>                 }
+<a class="jxr_linenumber" name="298" href="#298">298</a>             }
+<a class="jxr_linenumber" name="299" href="#299">299</a>         }
+<a class="jxr_linenumber" name="300" href="#300">300</a> 
+<a class="jxr_linenumber" name="301" href="#301">301</a>         <em class="jxr_comment">// analysis phases</em>
+<a class="jxr_linenumber" name="302" href="#302">302</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
+<a class="jxr_linenumber" name="303" href="#303">303</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
+<a class="jxr_linenumber" name="304" href="#304">304</a> 
+<a class="jxr_linenumber" name="305" href="#305">305</a>             <strong class="jxr_keyword">for</strong> (Analyzer a : analyzerList) {
+<a class="jxr_linenumber" name="306" href="#306">306</a>                 <em class="jxr_comment">/*<em class="jxr_comment"> need to create a copy of the collection because some of the</em></em>
+<a class="jxr_linenumber" name="307" href="#307">307</a> <em class="jxr_comment">                 * analyzers may modify it. This prevents ConcurrentModificationExceptions.</em>
+<a class="jxr_linenumber" name="308" href="#308">308</a> <em class="jxr_comment">                 * This is okay for adds/deletes because it happens per analyzer.</em>
+<a class="jxr_linenumber" name="309" href="#309">309</a> <em class="jxr_comment">                 */</em>
+<a class="jxr_linenumber" name="310" href="#310">310</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Begin Analyzer '%s'"</span>, a.getName());
+<a class="jxr_linenumber" name="311" href="#311">311</a>                 Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, msg);
+<a class="jxr_linenumber" name="312" href="#312">312</a>                 <strong class="jxr_keyword">final</strong> Set&lt;Dependency&gt; dependencySet = <strong class="jxr_keyword">new</strong> HashSet&lt;Dependency&gt;();
+<a class="jxr_linenumber" name="313" href="#313">313</a>                 dependencySet.addAll(dependencies);
+<a class="jxr_linenumber" name="314" href="#314">314</a>                 <strong class="jxr_keyword">for</strong> (Dependency d : dependencySet) {
+<a class="jxr_linenumber" name="315" href="#315">315</a>                     <strong class="jxr_keyword">final</strong> String msgFile = String.format(<span class="jxr_string">"Begin Analysis of '%s'"</span>, d.getActualFilePath());
+<a class="jxr_linenumber" name="316" href="#316">316</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, msgFile);
+<a class="jxr_linenumber" name="317" href="#317">317</a>                     <strong class="jxr_keyword">if</strong> (a.supportsExtension(d.getFileExtension())) {
+<a class="jxr_linenumber" name="318" href="#318">318</a>                         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="319" href="#319">319</a>                             a.analyze(d, <strong class="jxr_keyword">this</strong>);
+<a class="jxr_linenumber" name="320" href="#320">320</a>                         } <strong class="jxr_keyword">catch</strong> (AnalysisException ex) {
+<a class="jxr_linenumber" name="321" href="#321">321</a>                             d.addAnalysisException(ex);
+<a class="jxr_linenumber" name="322" href="#322">322</a>                         }
+<a class="jxr_linenumber" name="323" href="#323">323</a>                     }
+<a class="jxr_linenumber" name="324" href="#324">324</a>                 }
+<a class="jxr_linenumber" name="325" href="#325">325</a>             }
+<a class="jxr_linenumber" name="326" href="#326">326</a>         }
+<a class="jxr_linenumber" name="327" href="#327">327</a> 
+<a class="jxr_linenumber" name="328" href="#328">328</a>         <em class="jxr_comment">//close/cleanup</em>
+<a class="jxr_linenumber" name="329" href="#329">329</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
+<a class="jxr_linenumber" name="330" href="#330">330</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
+<a class="jxr_linenumber" name="331" href="#331">331</a>             <strong class="jxr_keyword">for</strong> (Analyzer a : analyzerList) {
+<a class="jxr_linenumber" name="332" href="#332">332</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Closing Analyzer '%s'"</span>, a.getName());
+<a class="jxr_linenumber" name="333" href="#333">333</a>                 Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, msg);
+<a class="jxr_linenumber" name="334" href="#334">334</a>                 <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="335" href="#335">335</a>                     a.close();
+<a class="jxr_linenumber" name="336" href="#336">336</a>                 } <strong class="jxr_keyword">catch</strong> (Exception ex) {
+<a class="jxr_linenumber" name="337" href="#337">337</a>                     Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <strong class="jxr_keyword">null</strong>, ex);
+<a class="jxr_linenumber" name="338" href="#338">338</a>                 }
+<a class="jxr_linenumber" name="339" href="#339">339</a>             }
+<a class="jxr_linenumber" name="340" href="#340">340</a>         }
+<a class="jxr_linenumber" name="341" href="#341">341</a>     }
+<a class="jxr_linenumber" name="342" href="#342">342</a> 
+<a class="jxr_linenumber" name="343" href="#343">343</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="344" href="#344">344</a> <em class="jxr_javadoccomment">     * Cycles through the cached web data sources and calls update on all of</em>
+<a class="jxr_linenumber" name="345" href="#345">345</a> <em class="jxr_javadoccomment">     * them.</em>
+<a class="jxr_linenumber" name="346" href="#346">346</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="347" href="#347">347</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> doUpdates() {
+<a class="jxr_linenumber" name="348" href="#348">348</a>         <strong class="jxr_keyword">final</strong> <a href="../../../org/owasp/dependencycheck/data/UpdateService.html">UpdateService</a> service = UpdateService.getInstance();
+<a class="jxr_linenumber" name="349" href="#349">349</a>         <strong class="jxr_keyword">final</strong> Iterator&lt;CachedWebDataSource&gt; iterator = service.getDataSources();
+<a class="jxr_linenumber" name="350" href="#350">350</a>         <strong class="jxr_keyword">while</strong> (iterator.hasNext()) {
+<a class="jxr_linenumber" name="351" href="#351">351</a>             <strong class="jxr_keyword">final</strong> <a href="../../../org/owasp/dependencycheck/data/CachedWebDataSource.html">CachedWebDataSource</a> source = iterator.next();
+<a class="jxr_linenumber" name="352" href="#352">352</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="353" href="#353">353</a>                 source.update();
+<a class="jxr_linenumber" name="354" href="#354">354</a>             } <strong class="jxr_keyword">catch</strong> (UpdateException ex) {
+<a class="jxr_linenumber" name="355" href="#355">355</a>                 Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.WARNING,
+<a class="jxr_linenumber" name="356" href="#356">356</a>                         <span class="jxr_string">"Unable to update Cached Web DataSource, using local data instead. Results may not include recent vulnerabilities."</span>);
+<a class="jxr_linenumber" name="357" href="#357">357</a>                 Logger.getLogger(Engine.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE,
+<a class="jxr_linenumber" name="358" href="#358">358</a>                         String.format(<span class="jxr_string">"Unable to update details for %s"</span>, source.getClass().getName()), ex);
+<a class="jxr_linenumber" name="359" href="#359">359</a>             }
+<a class="jxr_linenumber" name="360" href="#360">360</a>         }
+<a class="jxr_linenumber" name="361" href="#361">361</a>     }
+<a class="jxr_linenumber" name="362" href="#362">362</a> 
+<a class="jxr_linenumber" name="363" href="#363">363</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="364" href="#364">364</a> <em class="jxr_javadoccomment">     * Returns a full list of all of the analyzers. This is useful for reporting</em>
+<a class="jxr_linenumber" name="365" href="#365">365</a> <em class="jxr_javadoccomment">     * which analyzers where used.</em>
+<a class="jxr_linenumber" name="366" href="#366">366</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="367" href="#367">367</a> <em class="jxr_javadoccomment">     * @return a list of Analyzers</em>
+<a class="jxr_linenumber" name="368" href="#368">368</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="369" href="#369">369</a>     <strong class="jxr_keyword">public</strong> List&lt;Analyzer&gt; getAnalyzers() {
+<a class="jxr_linenumber" name="370" href="#370">370</a>         <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; ret = <strong class="jxr_keyword">new</strong> ArrayList&lt;Analyzer&gt;();
+<a class="jxr_linenumber" name="371" href="#371">371</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
+<a class="jxr_linenumber" name="372" href="#372">372</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
+<a class="jxr_linenumber" name="373" href="#373">373</a>             ret.addAll(analyzerList);
+<a class="jxr_linenumber" name="374" href="#374">374</a>         }
+<a class="jxr_linenumber" name="375" href="#375">375</a>         <strong class="jxr_keyword">return</strong> ret;
+<a class="jxr_linenumber" name="376" href="#376">376</a>     }
+<a class="jxr_linenumber" name="377" href="#377">377</a> 
+<a class="jxr_linenumber" name="378" href="#378">378</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="379" href="#379">379</a> <em class="jxr_javadoccomment">     * Checks all analyzers to see if an extension is supported.</em>
+<a class="jxr_linenumber" name="380" href="#380">380</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="381" href="#381">381</a> <em class="jxr_javadoccomment">     * @param ext a file extension</em>
+<a class="jxr_linenumber" name="382" href="#382">382</a> <em class="jxr_javadoccomment">     * @return true or false depending on whether or not the file extension is</em>
+<a class="jxr_linenumber" name="383" href="#383">383</a> <em class="jxr_javadoccomment">     * supported</em>
+<a class="jxr_linenumber" name="384" href="#384">384</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="385" href="#385">385</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> supportsExtension(String ext) {
+<a class="jxr_linenumber" name="386" href="#386">386</a>         <strong class="jxr_keyword">if</strong> (ext == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="387" href="#387">387</a>             <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="388" href="#388">388</a>         }
-<a class="jxr_linenumber" name="389" href="#389">389</a>         <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="390" href="#390">390</a>     }
-<a class="jxr_linenumber" name="391" href="#391">391</a> }
+<a class="jxr_linenumber" name="389" href="#389">389</a>         <strong class="jxr_keyword">for</strong> (AnalysisPhase phase : AnalysisPhase.values()) {
+<a class="jxr_linenumber" name="390" href="#390">390</a>             <strong class="jxr_keyword">final</strong> List&lt;Analyzer&gt; analyzerList = analyzers.get(phase);
+<a class="jxr_linenumber" name="391" href="#391">391</a>             <strong class="jxr_keyword">for</strong> (Analyzer a : analyzerList) {
+<a class="jxr_linenumber" name="392" href="#392">392</a>                 <strong class="jxr_keyword">if</strong> (a.getSupportedExtensions() != <strong class="jxr_keyword">null</strong> &amp;&amp; a.supportsExtension(ext)) {
+<a class="jxr_linenumber" name="393" href="#393">393</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="394" href="#394">394</a>                 }
+<a class="jxr_linenumber" name="395" href="#395">395</a>             }
+<a class="jxr_linenumber" name="396" href="#396">396</a>         }
+<a class="jxr_linenumber" name="397" href="#397">397</a>         <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="398" href="#398">398</a>     }
+<a class="jxr_linenumber" name="399" href="#399">399</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>
