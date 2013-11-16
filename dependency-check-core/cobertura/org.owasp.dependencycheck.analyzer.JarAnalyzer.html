@@ -342,7 +342,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;169</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Set&lt;String&gt; getSupportedExtensions() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;170</td>  <td class="nbHitsCovered">&nbsp;137</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> EXTENSIONS;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;170</td>  <td class="nbHitsCovered">&nbsp;146</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> EXTENSIONS;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;171</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;172</td>  <td class="nbHits">&nbsp;</td>
@@ -359,7 +359,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;178</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String getName() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;179</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ANALYZER_NAME;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;179</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ANALYZER_NAME;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;180</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;181</td>  <td class="nbHits">&nbsp;</td>
@@ -380,7 +380,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;189</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> supportsExtension(String extension) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;190</td>  <td class="nbHitsCovered">&nbsp;133</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> EXTENSIONS.contains(extension);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;190</td>  <td class="nbHitsCovered">&nbsp;142</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> EXTENSIONS.contains(extension);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;191</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;192</td>  <td class="nbHits">&nbsp;</td>
@@ -397,7 +397,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;198</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> AnalysisPhase getAnalysisPhase() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;199</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ANALYSIS_PHASE;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;199</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ANALYSIS_PHASE;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;200</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;201</td>  <td class="nbHits">&nbsp;</td>
@@ -428,9 +428,9 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> analyze(Dependency dependency, Engine engine) <span class="keyword">throws</span> AnalysisException {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;214</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> ArrayList&lt;ClassNameInformation&gt; classNames = collectClassNames(dependency);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String fileName = dependency.getFileName().toLowerCase();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;217</td>  <td class="nbHitsUncovered"><a title="Line 217: Conditional coverage 10% (1/10) [each condition: 50%, 0%, 0%, 0%, 0%].">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 217: Conditional coverage 10% (1/10) [each condition: 50%, 0%, 0%, 0%, 0%].">            <span class="keyword">if</span> (classNames.isEmpty()</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> ArrayList&lt;ClassNameInformation&gt; classNames = collectClassNames(dependency);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String fileName = dependency.getFileName().toLowerCase();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;217</td>  <td class="nbHitsUncovered"><a title="Line 217: Conditional coverage 10% (1/10) [each condition: 50%, 0%, 0%, 0%, 0%].">&nbsp;18</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 217: Conditional coverage 10% (1/10) [each condition: 50%, 0%, 0%, 0%, 0%].">            <span class="keyword">if</span> (classNames.isEmpty()</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;218</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    &amp;&amp; (fileName.endsWith(<span class="string">"-sources.jar"</span>)</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;219</td>  <td class="nbHits">&nbsp;</td>
@@ -442,14 +442,14 @@
 <tr>  <td class="numLineCover">&nbsp;222</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                engine.getDependencies().remove(dependency);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;223</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;224</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">boolean</span> hasManifest = parseManifest(dependency, classNames);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;225</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">boolean</span> hasPOM = analyzePOM(dependency, classNames);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;226</td>  <td class="nbHitsCovered"><a title="Line 226: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 226: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">            <span class="keyword">final</span> <span class="keyword">boolean</span> addPackagesAsEvidence = !(hasManifest &amp;&amp; hasPOM);</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;227</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            analyzePackageNames(classNames, dependency, addPackagesAsEvidence);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;224</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">boolean</span> hasManifest = parseManifest(dependency, classNames);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;225</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">boolean</span> hasPOM = analyzePOM(dependency, classNames);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;226</td>  <td class="nbHitsCovered"><a title="Line 226: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;18</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 226: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">            <span class="keyword">final</span> <span class="keyword">boolean</span> addPackagesAsEvidence = !(hasManifest &amp;&amp; hasPOM);</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;227</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            analyzePackageNames(classNames, dependency, addPackagesAsEvidence);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;228</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (IOException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;229</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> AnalysisException(<span class="string">"Exception occurred reading the JAR file."</span>, ex);</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;230</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;231</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;230</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;231</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;232</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;233</td>  <td class="nbHits">&nbsp;</td>
@@ -476,12 +476,12 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;244</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">boolean</span> analyzePOM(Dependency dependency, ArrayList&lt;ClassNameInformation&gt; classes) <span class="keyword">throws</span> AnalysisException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;245</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> foundSomething = <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;245</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> foundSomething = <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;246</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> JarFile jar;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;247</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;248</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            jar = <span class="keyword">new</span> JarFile(dependency.getActualFilePath());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;248</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            jar = <span class="keyword">new</span> JarFile(dependency.getActualFilePath());</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;249</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (IOException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;250</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> String msg = String.format(<span class="string">"Unable to read JarFile '%s'."</span>, dependency.getActualFilePath());</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;251</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> AnalysisException ax = <span class="keyword">new</span> AnalysisException(msg, ex);</span></pre></td></tr>
@@ -489,12 +489,12 @@
 <tr>  <td class="numLineCover">&nbsp;253</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            Logger.getLogger(JarAnalyzer.<span class="keyword">class</span>.getName()).log(Level.WARNING, msg);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;254</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            Logger.getLogger(JarAnalyzer.<span class="keyword">class</span>.getName()).log(Level.FINE, <span class="keyword">null</span>, ex);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;255</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;257</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        List&lt;String&gt; pomEntries;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;258</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;259</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            pomEntries = retrievePomListing(jar);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;259</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            pomEntries = retrievePomListing(jar);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;260</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (IOException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;261</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> String msg = String.format(<span class="string">"Unable to read Jar file entries in '%s'."</span>, dependency.getActualFilePath());</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;262</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> AnalysisException ax = <span class="keyword">new</span> AnalysisException(msg, ex);</span></pre></td></tr>
@@ -502,9 +502,9 @@
 <tr>  <td class="numLineCover">&nbsp;264</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            Logger.getLogger(JarAnalyzer.<span class="keyword">class</span>.getName()).log(Level.WARNING, msg);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;265</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            Logger.getLogger(JarAnalyzer.<span class="keyword">class</span>.getName()).log(Level.INFO, msg, ex);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;266</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;267</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;268</td>  <td class="nbHitsCovered"><a title="Line 268: Conditional coverage 100% (2/2).">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 268: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (pomEntries.isEmpty()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;269</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;267</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;268</td>  <td class="nbHitsCovered"><a title="Line 268: Conditional coverage 100% (2/2).">&nbsp;18</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 268: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (pomEntries.isEmpty()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;269</td>  <td class="nbHitsCovered">&nbsp;11</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;270</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;271</td>  <td class="nbHitsUncovered"><a title="Line 271: Conditional coverage 50% (1/2).">&nbsp;7</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 271: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (pomEntries.size() &gt; 1) { <span class="comment">//need to sort out which pom we will use</span></a></span></pre></td></tr>
@@ -601,17 +601,17 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;332</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> List&lt;String&gt; retrievePomListing(<span class="keyword">final</span> JarFile jar) <span class="keyword">throws</span> IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;333</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> List&lt;String&gt; pomEntries = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;334</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Enumeration&lt;JarEntry&gt; entries = jar.entries();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;335</td>  <td class="nbHitsCovered"><a title="Line 335: Conditional coverage 100% (2/2).">&nbsp;6838</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 335: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (entries.hasMoreElements()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;336</td>  <td class="nbHitsCovered">&nbsp;6822</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> JarEntry entry = entries.nextElement();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;337</td>  <td class="nbHitsCovered">&nbsp;6822</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String entryName = (<span class="keyword">new</span> File(entry.getName())).getName().toLowerCase();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;338</td>  <td class="nbHitsCovered"><a title="Line 338: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;6822</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 338: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">            <span class="keyword">if</span> (!entry.isDirectory() &amp;&amp; <span class="string">"pom.xml"</span>.equals(entryName)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;333</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> List&lt;String&gt; pomEntries = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;334</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Enumeration&lt;JarEntry&gt; entries = jar.entries();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;335</td>  <td class="nbHitsCovered"><a title="Line 335: Conditional coverage 100% (2/2).">&nbsp;7564</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 335: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (entries.hasMoreElements()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;336</td>  <td class="nbHitsCovered">&nbsp;7546</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> JarEntry entry = entries.nextElement();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;337</td>  <td class="nbHitsCovered">&nbsp;7546</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String entryName = (<span class="keyword">new</span> File(entry.getName())).getName().toLowerCase();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;338</td>  <td class="nbHitsCovered"><a title="Line 338: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;7546</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 338: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">            <span class="keyword">if</span> (!entry.isDirectory() &amp;&amp; <span class="string">"pom.xml"</span>.equals(entryName)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;339</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                pomEntries.add(entry.getName());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;340</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;341</td>  <td class="nbHitsCovered">&nbsp;6822</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;342</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> pomEntries;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;341</td>  <td class="nbHitsCovered">&nbsp;7546</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;342</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> pomEntries;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;343</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;344</td>  <td class="nbHits">&nbsp;</td>
@@ -846,41 +846,41 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">void</span> analyzePackageNames(ArrayList&lt;ClassNameInformation&gt; classNames,</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;504</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            Dependency dependency, <span class="keyword">boolean</span> addPackagesAsEvidence) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;505</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> HashMap&lt;String, Integer&gt; vendorIdentifiers = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;506</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> HashMap&lt;String, Integer&gt; productIdentifiers = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;507</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        analyzeFullyQualifiedClassNames(classNames, vendorIdentifiers, productIdentifiers);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;505</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> HashMap&lt;String, Integer&gt; vendorIdentifiers = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;506</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> HashMap&lt;String, Integer&gt; productIdentifiers = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;507</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        analyzeFullyQualifiedClassNames(classNames, vendorIdentifiers, productIdentifiers);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;508</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;509</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">int</span> classCount = classNames.size();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;510</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> EvidenceCollection vendor = dependency.getVendorEvidence();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;511</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> EvidenceCollection product = dependency.getProductEvidence();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;509</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">int</span> classCount = classNames.size();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;510</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> EvidenceCollection vendor = dependency.getVendorEvidence();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;511</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> EvidenceCollection product = dependency.getProductEvidence();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;512</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;513</td>  <td class="nbHitsCovered"><a title="Line 513: Conditional coverage 100% (2/2).">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 513: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : vendorIdentifiers.entrySet()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;514</td>  <td class="nbHitsCovered">&nbsp;160</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">float</span> ratio = entry.getValue() / (<span class="keyword">float</span>) classCount;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;515</td>  <td class="nbHitsCovered"><a title="Line 515: Conditional coverage 100% (2/2).">&nbsp;160</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 515: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (ratio &gt; 0.5) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;513</td>  <td class="nbHitsCovered"><a title="Line 513: Conditional coverage 100% (2/2).">&nbsp;18</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 513: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : vendorIdentifiers.entrySet()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;514</td>  <td class="nbHitsCovered">&nbsp;182</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">float</span> ratio = entry.getValue() / (<span class="keyword">float</span>) classCount;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;515</td>  <td class="nbHitsCovered"><a title="Line 515: Conditional coverage 100% (2/2).">&nbsp;182</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 515: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (ratio &gt; 0.5) {</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;516</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//TODO remove weighting</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;517</td>  <td class="nbHitsCovered">&nbsp;32</td>  <td class="src"><pre class="src">&nbsp;                vendor.addWeighting(entry.getKey());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;518</td>  <td class="nbHitsUncovered"><a title="Line 518: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;32</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 518: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">if</span> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;519</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;                    vendor.addEvidence(<span class="string">"jar"</span>, <span class="string">"package"</span>, entry.getKey(), Evidence.Confidence.LOW);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;517</td>  <td class="nbHitsCovered">&nbsp;36</td>  <td class="src"><pre class="src">&nbsp;                vendor.addWeighting(entry.getKey());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;518</td>  <td class="nbHitsUncovered"><a title="Line 518: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;36</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 518: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">if</span> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;519</td>  <td class="nbHitsCovered">&nbsp;22</td>  <td class="src"><pre class="src">&nbsp;                    vendor.addEvidence(<span class="string">"jar"</span>, <span class="string">"package"</span>, entry.getKey(), Evidence.Confidence.LOW);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;520</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;521</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;522</td>  <td class="nbHitsCovered">&nbsp;160</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;523</td>  <td class="nbHitsCovered"><a title="Line 523: Conditional coverage 100% (2/2).">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 523: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : productIdentifiers.entrySet()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;524</td>  <td class="nbHitsCovered">&nbsp;3476</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">float</span> ratio = entry.getValue() / (<span class="keyword">float</span>) classCount;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;525</td>  <td class="nbHitsCovered"><a title="Line 525: Conditional coverage 100% (2/2).">&nbsp;3476</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 525: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (ratio &gt; 0.5) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;526</td>  <td class="nbHitsCovered">&nbsp;19</td>  <td class="src"><pre class="src">&nbsp;                product.addWeighting(entry.getKey());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;527</td>  <td class="nbHitsUncovered"><a title="Line 527: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;19</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 527: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">if</span> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;528</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                    product.addEvidence(<span class="string">"jar"</span>, <span class="string">"package"</span>, entry.getKey(), Evidence.Confidence.LOW);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;522</td>  <td class="nbHitsCovered">&nbsp;182</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;523</td>  <td class="nbHitsCovered"><a title="Line 523: Conditional coverage 100% (2/2).">&nbsp;18</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 523: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : productIdentifiers.entrySet()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;524</td>  <td class="nbHitsCovered">&nbsp;3772</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">float</span> ratio = entry.getValue() / (<span class="keyword">float</span>) classCount;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;525</td>  <td class="nbHitsCovered"><a title="Line 525: Conditional coverage 100% (2/2).">&nbsp;3772</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 525: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (ratio &gt; 0.5) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;526</td>  <td class="nbHitsCovered">&nbsp;21</td>  <td class="src"><pre class="src">&nbsp;                product.addWeighting(entry.getKey());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;527</td>  <td class="nbHitsUncovered"><a title="Line 527: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;21</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 527: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">if</span> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;528</td>  <td class="nbHitsCovered">&nbsp;11</td>  <td class="src"><pre class="src">&nbsp;                    product.addEvidence(<span class="string">"jar"</span>, <span class="string">"package"</span>, entry.getKey(), Evidence.Confidence.LOW);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;529</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;530</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;531</td>  <td class="nbHitsCovered">&nbsp;3476</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;532</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;531</td>  <td class="nbHitsCovered">&nbsp;3772</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;532</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;533</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;534</td>  <td class="nbHits">&nbsp;</td>
@@ -913,15 +913,15 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;548</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">boolean</span> parseManifest(Dependency dependency, ArrayList&lt;ClassNameInformation&gt; classInformation) <span class="keyword">throws</span> IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;549</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> foundSomething = <span class="keyword">false</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;550</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        JarFile jar = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;549</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> foundSomething = <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;550</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        JarFile jar = <span class="keyword">null</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;551</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;552</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            jar = <span class="keyword">new</span> JarFile(dependency.getActualFilePath());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;552</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            jar = <span class="keyword">new</span> JarFile(dependency.getActualFilePath());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;553</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;554</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Manifest manifest = jar.getManifest();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;555</td>  <td class="nbHitsUncovered"><a title="Line 555: Conditional coverage 50% (1/2).">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 555: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (manifest == <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;554</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Manifest manifest = jar.getManifest();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;555</td>  <td class="nbHitsUncovered"><a title="Line 555: Conditional coverage 50% (1/2).">&nbsp;18</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 555: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (manifest == <span class="keyword">null</span>) {</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;556</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//don't log this for javadoc or sources jar files</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;557</td>  <td class="nbHitsUncovered"><a title="Line 557: Conditional coverage 0% (0/8) [each condition: 0%, 0%, 0%, 0%].">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 557: Conditional coverage 0% (0/8) [each condition: 0%, 0%, 0%, 0%].">                <span class="keyword">if</span> (!dependency.getFileName().toLowerCase().endsWith(<span class="string">"-sources.jar"</span>)</a></span></pre></td></tr>
@@ -941,59 +941,59 @@
 <tr>  <td class="numLineCover">&nbsp;565</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;566</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;567</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Attributes atts = manifest.getMainAttributes();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;567</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Attributes atts = manifest.getMainAttributes();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;568</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;569</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> EvidenceCollection vendorEvidence = dependency.getVendorEvidence();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;570</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> EvidenceCollection productEvidence = dependency.getProductEvidence();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;571</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> EvidenceCollection versionEvidence = dependency.getVersionEvidence();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;569</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> EvidenceCollection vendorEvidence = dependency.getVendorEvidence();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;570</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> EvidenceCollection productEvidence = dependency.getProductEvidence();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;571</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> EvidenceCollection versionEvidence = dependency.getVersionEvidence();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;572</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;573</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String source = <span class="string">"Manifest"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;573</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String source = <span class="string">"Manifest"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;574</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;575</td>  <td class="nbHitsCovered"><a title="Line 575: Conditional coverage 100% (2/2).">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 575: Conditional coverage 100% (2/2).">            <span class="keyword">for</span> (Entry&lt;Object, Object&gt; entry : atts.entrySet()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;576</td>  <td class="nbHitsCovered">&nbsp;236</td>  <td class="src"><pre class="src">&nbsp;                String key = entry.getKey().toString();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;577</td>  <td class="nbHitsCovered">&nbsp;236</td>  <td class="src"><pre class="src">&nbsp;                String value = atts.getValue(key);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;578</td>  <td class="nbHitsUncovered"><a title="Line 578: Conditional coverage 50% (1/2).">&nbsp;236</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 578: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (HTML_DETECTION_PATTERN.matcher(value).find()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;575</td>  <td class="nbHitsCovered"><a title="Line 575: Conditional coverage 100% (2/2).">&nbsp;18</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 575: Conditional coverage 100% (2/2).">            <span class="keyword">for</span> (Entry&lt;Object, Object&gt; entry : atts.entrySet()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;576</td>  <td class="nbHitsCovered">&nbsp;260</td>  <td class="src"><pre class="src">&nbsp;                String key = entry.getKey().toString();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;577</td>  <td class="nbHitsCovered">&nbsp;260</td>  <td class="src"><pre class="src">&nbsp;                String value = atts.getValue(key);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;578</td>  <td class="nbHitsUncovered"><a title="Line 578: Conditional coverage 50% (1/2).">&nbsp;260</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 578: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (HTML_DETECTION_PATTERN.matcher(value).find()) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;579</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    value = Jsoup.parse(value).text();</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;580</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;581</td>  <td class="nbHitsUncovered"><a title="Line 581: Conditional coverage 50% (1/2).">&nbsp;236</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 581: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (IGNORE_VALUES.contains(value)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;581</td>  <td class="nbHitsUncovered"><a title="Line 581: Conditional coverage 50% (1/2).">&nbsp;260</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 581: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (IGNORE_VALUES.contains(value)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;582</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    <span class="keyword">continue</span>;</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;583</td>  <td class="nbHitsCovered"><a title="Line 583: Conditional coverage 100% (2/2).">&nbsp;236</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 583: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_TITLE.toString())) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;584</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;585</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                    productEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;586</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;587</td>  <td class="nbHitsCovered"><a title="Line 587: Conditional coverage 100% (2/2).">&nbsp;229</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 587: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VERSION.toString())) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;588</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;589</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                    versionEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;590</td>  <td class="nbHitsCovered"><a title="Line 590: Conditional coverage 100% (2/2).">&nbsp;219</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 590: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VENDOR.toString())) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;591</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;592</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                    vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;593</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, vendorEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;594</td>  <td class="nbHitsCovered"><a title="Line 594: Conditional coverage 100% (2/2).">&nbsp;213</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 594: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VENDOR_ID.toString())) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;595</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;596</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                    vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;597</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, vendorEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;598</td>  <td class="nbHitsCovered"><a title="Line 598: Conditional coverage 100% (2/2).">&nbsp;210</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 598: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_DESCRIPTION)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;583</td>  <td class="nbHitsCovered"><a title="Line 583: Conditional coverage 100% (2/2).">&nbsp;260</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 583: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_TITLE.toString())) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;584</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;585</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                    productEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;586</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;587</td>  <td class="nbHitsCovered"><a title="Line 587: Conditional coverage 100% (2/2).">&nbsp;251</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 587: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VERSION.toString())) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;588</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;589</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;                    versionEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;590</td>  <td class="nbHitsCovered"><a title="Line 590: Conditional coverage 100% (2/2).">&nbsp;239</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 590: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VENDOR.toString())) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;591</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;592</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;593</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, vendorEvidence);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;594</td>  <td class="nbHitsCovered"><a title="Line 594: Conditional coverage 100% (2/2).">&nbsp;231</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 594: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VENDOR_ID.toString())) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;595</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;596</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                    vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;597</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, vendorEvidence);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;598</td>  <td class="nbHitsCovered"><a title="Line 598: Conditional coverage 100% (2/2).">&nbsp;226</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 598: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_DESCRIPTION)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;599</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;600</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                    addDescription(dependency, value, <span class="string">"manifest"</span>, key);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;601</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    <span class="comment">//productEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;602</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;603</td>  <td class="nbHitsCovered"><a title="Line 603: Conditional coverage 100% (2/2).">&nbsp;203</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 603: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_NAME)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;603</td>  <td class="nbHitsCovered"><a title="Line 603: Conditional coverage 100% (2/2).">&nbsp;219</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 603: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_NAME)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;604</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;605</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                    productEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;606</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;607</td>  <td class="nbHitsCovered"><a title="Line 607: Conditional coverage 100% (2/2).">&nbsp;193</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 607: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_VENDOR)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;607</td>  <td class="nbHitsCovered"><a title="Line 607: Conditional coverage 100% (2/2).">&nbsp;209</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 607: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_VENDOR)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;608</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;609</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;610</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    addMatchingValues(classInformation, value, vendorEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;611</td>  <td class="nbHitsCovered"><a title="Line 611: Conditional coverage 100% (2/2).">&nbsp;185</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 611: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_VERSION)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;611</td>  <td class="nbHitsCovered"><a title="Line 611: Conditional coverage 100% (2/2).">&nbsp;201</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 611: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(BUNDLE_VERSION)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;612</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                    foundSomething = <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;613</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                    versionEvidence.addEvidence(source, key, value, Evidence.Confidence.HIGH);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;614</td>  <td class="nbHitsCovered"><a title="Line 614: Conditional coverage 100% (2/2).">&nbsp;175</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 614: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.MAIN_CLASS.toString())) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;614</td>  <td class="nbHitsCovered"><a title="Line 614: Conditional coverage 100% (2/2).">&nbsp;191</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 614: Conditional coverage 100% (2/2).">                } <span class="keyword">else</span> <span class="keyword">if</span> (key.equalsIgnoreCase(Attributes.Name.MAIN_CLASS.toString())) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;615</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">continue</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;616</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    <span class="comment">//skipping main class as if this has important information to add</span></pre></td></tr>
@@ -1013,10 +1013,10 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">//                    addMatchingValues(classInformation, value, productEvidence);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;624</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                } <span class="keyword">else</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;625</td>  <td class="nbHitsCovered">&nbsp;170</td>  <td class="src"><pre class="src">&nbsp;                    key = key.toLowerCase();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;625</td>  <td class="nbHitsCovered">&nbsp;186</td>  <td class="src"><pre class="src">&nbsp;                    key = key.toLowerCase();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;626</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;627</td>  <td class="nbHitsUncovered"><a title="Line 627: Conditional coverage 75% (15/20) [each condition: 100%, 100%, 100%, 100%, 50%, 50%, 50%, 50%, 50%, 100%].">&nbsp;170</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 627: Conditional coverage 75% (15/20) [each condition: 100%, 100%, 100%, 100%, 50%, 50%, 50%, 50%, 50%, 100%].">                    <span class="keyword">if</span> (!IGNORE_KEYS.contains(key)</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;627</td>  <td class="nbHitsUncovered"><a title="Line 627: Conditional coverage 75% (15/20) [each condition: 100%, 100%, 100%, 100%, 50%, 50%, 50%, 50%, 50%, 100%].">&nbsp;186</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 627: Conditional coverage 75% (15/20) [each condition: 100%, 100%, 100%, 100%, 50%, 50%, 50%, 50%, 50%, 100%].">                    <span class="keyword">if</span> (!IGNORE_KEYS.contains(key)</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;628</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                            &amp;&amp; !key.endsWith(<span class="string">"jdk"</span>)</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;629</td>  <td class="nbHits">&nbsp;</td>
@@ -1037,10 +1037,10 @@
   <td class="src"><pre class="src">&nbsp;                            &amp;&amp; !isPackage(key, value)) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;637</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;638</td>  <td class="nbHitsCovered">&nbsp;51</td>  <td class="src"><pre class="src">&nbsp;                        foundSomething = <span class="keyword">true</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;639</td>  <td class="nbHitsCovered"><a title="Line 639: Conditional coverage 100% (2/2).">&nbsp;51</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 639: Conditional coverage 100% (2/2).">                        <span class="keyword">if</span> (key.contains(<span class="string">"version"</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;640</td>  <td class="nbHitsCovered"><a title="Line 640: Conditional coverage 100% (2/2).">&nbsp;8</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 640: Conditional coverage 100% (2/2).">                            <span class="keyword">if</span> (key.contains(<span class="string">"specification"</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;641</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                                versionEvidence.addEvidence(source, key, value, Evidence.Confidence.LOW);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;638</td>  <td class="nbHitsCovered">&nbsp;59</td>  <td class="src"><pre class="src">&nbsp;                        foundSomething = <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;639</td>  <td class="nbHitsCovered"><a title="Line 639: Conditional coverage 100% (2/2).">&nbsp;59</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 639: Conditional coverage 100% (2/2).">                        <span class="keyword">if</span> (key.contains(<span class="string">"version"</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;640</td>  <td class="nbHitsCovered"><a title="Line 640: Conditional coverage 100% (2/2).">&nbsp;10</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 640: Conditional coverage 100% (2/2).">                            <span class="keyword">if</span> (key.contains(<span class="string">"specification"</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;641</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                                versionEvidence.addEvidence(source, key, value, Evidence.Confidence.LOW);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;642</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                            } <span class="keyword">else</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;643</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                                versionEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
@@ -1048,23 +1048,23 @@
   <td class="src"><pre class="src">&nbsp;                            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;645</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;646</td>  <td class="nbHitsCovered"><a title="Line 646: Conditional coverage 100% (2/2).">&nbsp;43</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 646: Conditional coverage 100% (2/2).">                        } <span class="keyword">else</span> <span class="keyword">if</span> (key.contains(<span class="string">"title"</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;647</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                            productEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;648</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                            addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;649</td>  <td class="nbHitsCovered"><a title="Line 649: Conditional coverage 100% (2/2).">&nbsp;37</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 649: Conditional coverage 100% (2/2).">                        } <span class="keyword">else</span> <span class="keyword">if</span> (key.contains(<span class="string">"vendor"</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;650</td>  <td class="nbHitsUncovered"><a title="Line 650: Conditional coverage 50% (1/2).">&nbsp;3</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 650: Conditional coverage 50% (1/2).">                            <span class="keyword">if</span> (key.contains(<span class="string">"specification"</span>)) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;651</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                                vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.LOW);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;646</td>  <td class="nbHitsCovered"><a title="Line 646: Conditional coverage 100% (2/2).">&nbsp;49</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 646: Conditional coverage 100% (2/2).">                        } <span class="keyword">else</span> <span class="keyword">if</span> (key.contains(<span class="string">"title"</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;647</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                            productEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;648</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                            addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;649</td>  <td class="nbHitsCovered"><a title="Line 649: Conditional coverage 100% (2/2).">&nbsp;41</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 649: Conditional coverage 100% (2/2).">                        } <span class="keyword">else</span> <span class="keyword">if</span> (key.contains(<span class="string">"vendor"</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;650</td>  <td class="nbHitsUncovered"><a title="Line 650: Conditional coverage 50% (1/2).">&nbsp;5</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 650: Conditional coverage 50% (1/2).">                            <span class="keyword">if</span> (key.contains(<span class="string">"specification"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;651</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.LOW);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;652</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                            } <span class="keyword">else</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;653</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;654</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                addMatchingValues(classInformation, value, vendorEvidence);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;655</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;656</td>  <td class="nbHitsCovered"><a title="Line 656: Conditional coverage 100% (2/2).">&nbsp;34</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 656: Conditional coverage 100% (2/2).">                        } <span class="keyword">else</span> <span class="keyword">if</span> (key.contains(<span class="string">"name"</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;657</td>  <td class="nbHitsCovered">&nbsp;11</td>  <td class="src"><pre class="src">&nbsp;                            productEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;658</td>  <td class="nbHitsCovered">&nbsp;11</td>  <td class="src"><pre class="src">&nbsp;                            vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;659</td>  <td class="nbHitsCovered">&nbsp;11</td>  <td class="src"><pre class="src">&nbsp;                            addMatchingValues(classInformation, value, vendorEvidence);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;660</td>  <td class="nbHitsCovered">&nbsp;11</td>  <td class="src"><pre class="src">&nbsp;                            addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;656</td>  <td class="nbHitsCovered"><a title="Line 656: Conditional coverage 100% (2/2).">&nbsp;36</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 656: Conditional coverage 100% (2/2).">                        } <span class="keyword">else</span> <span class="keyword">if</span> (key.contains(<span class="string">"name"</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;657</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                            productEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;658</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                            vendorEvidence.addEvidence(source, key, value, Evidence.Confidence.MEDIUM);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;659</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                            addMatchingValues(classInformation, value, vendorEvidence);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;660</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                            addMatchingValues(classInformation, value, productEvidence);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;661</td>  <td class="nbHitsCovered"><a title="Line 661: Conditional coverage 100% (2/2).">&nbsp;23</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 661: Conditional coverage 100% (2/2).">                        } <span class="keyword">else</span> <span class="keyword">if</span> (key.contains(<span class="string">"license"</span>)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;662</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                            addLicense(dependency, value);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;663</td>  <td class="nbHits">&nbsp;</td>
@@ -1096,16 +1096,16 @@
   <td class="src"><pre class="src">&nbsp;                    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;683</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;684</td>  <td class="nbHitsCovered">&nbsp;231</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;684</td>  <td class="nbHitsCovered">&nbsp;255</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;685</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">finally</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;686</td>  <td class="nbHitsUncovered"><a title="Line 686: Conditional coverage 50% (1/2).">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 686: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (jar != <span class="keyword">null</span>) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;687</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;                jar.close();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;686</td>  <td class="nbHitsUncovered"><a title="Line 686: Conditional coverage 50% (1/2).">&nbsp;18</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 686: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (jar != <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;687</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;                jar.close();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;688</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;689</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;690</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> foundSomething;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;690</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> foundSomething;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;691</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;692</td>  <td class="nbHits">&nbsp;</td>
@@ -1205,7 +1205,7 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> initialize() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;756</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">//do nothing</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;757</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;757</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;758</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;759</td>  <td class="nbHits">&nbsp;</td>
@@ -1218,7 +1218,7 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> close() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;763</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">//do nothing</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;764</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;764</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;765</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;766</td>  <td class="nbHits">&nbsp;</td>
@@ -1333,12 +1333,12 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;831</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">boolean</span> isImportPackage(String key, String value) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;832</td>  <td class="nbHitsCovered">&nbsp;53</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Pattern packageRx = Pattern.compile(<span class="string">"^((([a-zA-Z_#\\$0-9]\\.)+)\\s*\\;\\s*)+$"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;833</td>  <td class="nbHitsUncovered"><a title="Line 833: Conditional coverage 50% (1/2).">&nbsp;53</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 833: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (packageRx.matcher(value).matches()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;832</td>  <td class="nbHitsCovered">&nbsp;61</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Pattern packageRx = Pattern.compile(<span class="string">"^((([a-zA-Z_#\\$0-9]\\.)+)\\s*\\;\\s*)+$"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;833</td>  <td class="nbHitsUncovered"><a title="Line 833: Conditional coverage 50% (1/2).">&nbsp;61</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 833: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (packageRx.matcher(value).matches()) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;834</td>  <td class="nbHitsUncovered"><a title="Line 834: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 834: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">            <span class="keyword">return</span> (key.contains(<span class="string">"import"</span>) || key.contains(<span class="string">"include"</span>));</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;835</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;836</td>  <td class="nbHitsCovered">&nbsp;53</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;836</td>  <td class="nbHitsCovered">&nbsp;61</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;837</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;838</td>  <td class="nbHits">&nbsp;</td>
@@ -1361,41 +1361,41 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;847</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> ArrayList&lt;ClassNameInformation&gt; collectClassNames(Dependency dependency) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;848</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> ArrayList&lt;ClassNameInformation&gt; classNames = <span class="keyword">new</span> ArrayList&lt;ClassNameInformation&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;849</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        JarFile jar = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;848</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> ArrayList&lt;ClassNameInformation&gt; classNames = <span class="keyword">new</span> ArrayList&lt;ClassNameInformation&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;849</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        JarFile jar = <span class="keyword">null</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;850</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;851</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            jar = <span class="keyword">new</span> JarFile(dependency.getActualFilePath());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;852</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Enumeration entries = jar.entries();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;853</td>  <td class="nbHitsCovered"><a title="Line 853: Conditional coverage 100% (2/2).">&nbsp;6838</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 853: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (entries.hasMoreElements()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;854</td>  <td class="nbHitsCovered">&nbsp;6822</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> JarEntry entry = (JarEntry) entries.nextElement();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;855</td>  <td class="nbHitsCovered">&nbsp;6822</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String name = entry.getName().toLowerCase();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;851</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            jar = <span class="keyword">new</span> JarFile(dependency.getActualFilePath());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;852</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Enumeration entries = jar.entries();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;853</td>  <td class="nbHitsCovered"><a title="Line 853: Conditional coverage 100% (2/2).">&nbsp;7564</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 853: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (entries.hasMoreElements()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;854</td>  <td class="nbHitsCovered">&nbsp;7546</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> JarEntry entry = (JarEntry) entries.nextElement();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;855</td>  <td class="nbHitsCovered">&nbsp;7546</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String name = entry.getName().toLowerCase();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;856</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//no longer stripping "|com\\.sun" - there are some com.sun jar files with CVEs.</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;857</td>  <td class="nbHitsUncovered"><a title="Line 857: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;6822</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 857: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">if</span> (name.endsWith(<span class="string">".class"</span>) &amp;&amp; !name.matches(<span class="string">"^javax?\\..*$"</span>)) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;858</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> ClassNameInformation className = <span class="keyword">new</span> ClassNameInformation(name.substring(0, name.length() - 6));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;859</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;                    classNames.add(className);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;857</td>  <td class="nbHitsUncovered"><a title="Line 857: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;7546</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 857: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">if</span> (name.endsWith(<span class="string">".class"</span>) &amp;&amp; !name.matches(<span class="string">"^javax?\\..*$"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;858</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> ClassNameInformation className = <span class="keyword">new</span> ClassNameInformation(name.substring(0, name.length() - 6));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;859</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;                    classNames.add(className);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;860</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;861</td>  <td class="nbHitsCovered">&nbsp;6822</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;861</td>  <td class="nbHitsCovered">&nbsp;7546</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;862</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (IOException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;863</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> String msg = String.format(<span class="string">"Unable to open jar file '%s'."</span>, dependency.getFileName());</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;864</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            Logger.getLogger(JarAnalyzer.<span class="keyword">class</span>.getName()).log(Level.WARNING, msg);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;865</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            Logger.getLogger(JarAnalyzer.<span class="keyword">class</span>.getName()).log(Level.FINE, <span class="keyword">null</span>, ex);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;866</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">finally</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;867</td>  <td class="nbHitsUncovered"><a title="Line 867: Conditional coverage 50% (1/2).">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 867: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (jar != <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;867</td>  <td class="nbHitsUncovered"><a title="Line 867: Conditional coverage 50% (1/2).">&nbsp;18</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 867: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (jar != <span class="keyword">null</span>) {</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;868</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;869</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;                    jar.close();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;869</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;                    jar.close();</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;870</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                } <span class="keyword">catch</span> (IOException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;871</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    Logger.getLogger(JarAnalyzer.<span class="keyword">class</span>.getName()).log(Level.FINEST, <span class="keyword">null</span>, ex);</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;872</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;872</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;873</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;874</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;875</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> classNames;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;875</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> classNames;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;876</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;877</td>  <td class="nbHits">&nbsp;</td>
@@ -1428,31 +1428,31 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">void</span> analyzeFullyQualifiedClassNames(ArrayList&lt;ClassNameInformation&gt; classNames,</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;891</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            HashMap&lt;String, Integer&gt; vendor, HashMap&lt;String, Integer&gt; product) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;892</td>  <td class="nbHitsCovered"><a title="Line 892: Conditional coverage 100% (2/2).">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 892: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (ClassNameInformation entry : classNames) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;893</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> ArrayList&lt;String&gt; list = entry.getPackageStructure();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;894</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;            addEntry(vendor, list.get(0));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;892</td>  <td class="nbHitsCovered"><a title="Line 892: Conditional coverage 100% (2/2).">&nbsp;18</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 892: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (ClassNameInformation entry : classNames) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;893</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> ArrayList&lt;String&gt; list = entry.getPackageStructure();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;894</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;            addEntry(vendor, list.get(0));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;895</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;896</td>  <td class="nbHitsUncovered"><a title="Line 896: Conditional coverage 50% (1/2).">&nbsp;5781</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 896: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (list.size() == 2) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;896</td>  <td class="nbHitsUncovered"><a title="Line 896: Conditional coverage 50% (1/2).">&nbsp;6375</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 896: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (list.size() == 2) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;897</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                addEntry(product, list.get(1));</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;898</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;899</td>  <td class="nbHitsCovered"><a title="Line 899: Conditional coverage 100% (2/2).">&nbsp;5781</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 899: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (list.size() == 3) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;900</td>  <td class="nbHitsCovered">&nbsp;1989</td>  <td class="src"><pre class="src">&nbsp;                addEntry(vendor, list.get(1));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;901</td>  <td class="nbHitsCovered">&nbsp;1989</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(1));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;902</td>  <td class="nbHitsCovered">&nbsp;1989</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(2));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;899</td>  <td class="nbHitsCovered"><a title="Line 899: Conditional coverage 100% (2/2).">&nbsp;6375</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 899: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (list.size() == 3) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;900</td>  <td class="nbHitsCovered">&nbsp;1991</td>  <td class="src"><pre class="src">&nbsp;                addEntry(vendor, list.get(1));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;901</td>  <td class="nbHitsCovered">&nbsp;1991</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(1));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;902</td>  <td class="nbHitsCovered">&nbsp;1991</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(2));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;903</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;904</td>  <td class="nbHitsCovered"><a title="Line 904: Conditional coverage 100% (2/2).">&nbsp;5781</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 904: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (list.size() &gt;= 4) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;905</td>  <td class="nbHitsCovered">&nbsp;3792</td>  <td class="src"><pre class="src">&nbsp;                addEntry(vendor, list.get(1));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;906</td>  <td class="nbHitsCovered">&nbsp;3792</td>  <td class="src"><pre class="src">&nbsp;                addEntry(vendor, list.get(2));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;907</td>  <td class="nbHitsCovered">&nbsp;3792</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(1));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;908</td>  <td class="nbHitsCovered">&nbsp;3792</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(2));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;909</td>  <td class="nbHitsCovered">&nbsp;3792</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(3));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;904</td>  <td class="nbHitsCovered"><a title="Line 904: Conditional coverage 100% (2/2).">&nbsp;6375</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 904: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (list.size() &gt;= 4) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;905</td>  <td class="nbHitsCovered">&nbsp;4384</td>  <td class="src"><pre class="src">&nbsp;                addEntry(vendor, list.get(1));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;906</td>  <td class="nbHitsCovered">&nbsp;4384</td>  <td class="src"><pre class="src">&nbsp;                addEntry(vendor, list.get(2));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;907</td>  <td class="nbHitsCovered">&nbsp;4384</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(1));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;908</td>  <td class="nbHitsCovered">&nbsp;4384</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(2));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;909</td>  <td class="nbHitsCovered">&nbsp;4384</td>  <td class="src"><pre class="src">&nbsp;                addEntry(product, list.get(3));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;910</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;911</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;912</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;911</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;912</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;913</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;914</td>  <td class="nbHits">&nbsp;</td>
@@ -1473,14 +1473,14 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;922</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">void</span> addEntry(HashMap&lt;String, Integer&gt; collection, String key) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;923</td>  <td class="nbHitsCovered"><a title="Line 923: Conditional coverage 100% (2/2).">&nbsp;30708</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 923: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (collection.containsKey(key)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;924</td>  <td class="nbHitsCovered">&nbsp;27072</td>  <td class="src"><pre class="src">&nbsp;            collection.put(key, collection.get(key) + 1);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;923</td>  <td class="nbHitsCovered"><a title="Line 923: Conditional coverage 100% (2/2).">&nbsp;34268</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 923: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (collection.containsKey(key)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;924</td>  <td class="nbHitsCovered">&nbsp;30314</td>  <td class="src"><pre class="src">&nbsp;            collection.put(key, collection.get(key) + 1);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;925</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;926</td>  <td class="nbHitsCovered">&nbsp;3636</td>  <td class="src"><pre class="src">&nbsp;            collection.put(key, 1);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;926</td>  <td class="nbHitsCovered">&nbsp;3954</td>  <td class="src"><pre class="src">&nbsp;            collection.put(key, 1);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;927</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;928</td>  <td class="nbHitsCovered">&nbsp;30708</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;928</td>  <td class="nbHitsCovered">&nbsp;34268</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;929</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;930</td>  <td class="nbHits">&nbsp;</td>
@@ -1505,22 +1505,22 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;940</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">void</span> addMatchingValues(ArrayList&lt;ClassNameInformation&gt; classes, String value, EvidenceCollection evidence) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;941</td>  <td class="nbHitsUncovered"><a title="Line 941: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;145</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 941: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">        <span class="keyword">if</span> (value == <span class="keyword">null</span> || value.isEmpty()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;941</td>  <td class="nbHitsUncovered"><a title="Line 941: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;157</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 941: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">        <span class="keyword">if</span> (value == <span class="keyword">null</span> || value.isEmpty()) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;942</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span>;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;943</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;944</td>  <td class="nbHitsCovered">&nbsp;145</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String text = value.toLowerCase();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;945</td>  <td class="nbHitsCovered"><a title="Line 945: Conditional coverage 100% (2/2).">&nbsp;145</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 945: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (ClassNameInformation cni : classes) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;946</td>  <td class="nbHitsCovered"><a title="Line 946: Conditional coverage 100% (2/2).">&nbsp;59610</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 946: Conditional coverage 100% (2/2).">            <span class="keyword">for</span> (String key : cni.getPackageStructure()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;947</td>  <td class="nbHitsCovered"><a title="Line 947: Conditional coverage 100% (2/2).">&nbsp;217618</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 947: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (text.contains(key)) { <span class="comment">//note, package structure elements are already lowercase.</span></a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;948</td>  <td class="nbHitsCovered">&nbsp;66967</td>  <td class="src"><pre class="src">&nbsp;                    evidence.addEvidence(<span class="string">"jar"</span>, <span class="string">"package name"</span>, key, Evidence.Confidence.HIGHEST);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;944</td>  <td class="nbHitsCovered">&nbsp;157</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String text = value.toLowerCase();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;945</td>  <td class="nbHitsCovered"><a title="Line 945: Conditional coverage 100% (2/2).">&nbsp;157</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 945: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (ClassNameInformation cni : classes) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;946</td>  <td class="nbHitsCovered"><a title="Line 946: Conditional coverage 100% (2/2).">&nbsp;63174</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 946: Conditional coverage 100% (2/2).">            <span class="keyword">for</span> (String key : cni.getPackageStructure()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;947</td>  <td class="nbHitsCovered"><a title="Line 947: Conditional coverage 100% (2/2).">&nbsp;231862</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 947: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (text.contains(key)) { <span class="comment">//note, package structure elements are already lowercase.</span></a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;948</td>  <td class="nbHitsCovered">&nbsp;70531</td>  <td class="src"><pre class="src">&nbsp;                    evidence.addEvidence(<span class="string">"jar"</span>, <span class="string">"package name"</span>, key, Evidence.Confidence.HIGHEST);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;949</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;950</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;951</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;952</td>  <td class="nbHitsCovered">&nbsp;145</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;952</td>  <td class="nbHitsCovered">&nbsp;157</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;953</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;954</td>  <td class="nbHits">&nbsp;</td>
@@ -1688,7 +1688,7 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">boolean</span> isPackage(String key, String value) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1036</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1037</td>  <td class="nbHitsCovered"><a title="Line 1037: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;53</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1037: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">return</span> !key.matches(<span class="string">".*(version|title|vendor|name|license|description).*"</span>)</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1037</td>  <td class="nbHitsCovered"><a title="Line 1037: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;61</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1037: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">return</span> !key.matches(<span class="string">".*(version|title|vendor|name|license|description).*"</span>)</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1038</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                &amp;&amp; value.matches(<span class="string">"^([a-zA-Z_][a-zA-Z0-9_\\$]*(\\.[a-zA-Z_][a-zA-Z0-9_\\$]*)*)?$"</span>);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1039</td>  <td class="nbHits">&nbsp;</td>
@@ -1741,30 +1741,30 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">         * @param className a fully qualified class name</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1063</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">         */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1064</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;        ClassNameInformation(String className) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1065</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;            name = className;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1066</td>  <td class="nbHitsUncovered"><a title="Line 1066: Conditional coverage 50% (1/2).">&nbsp;5781</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 1066: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (name.contains(<span class="string">"/"</span>)) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1067</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String[] tmp = className.toLowerCase().split(<span class="string">"/"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1068</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">int</span> start = 0;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1069</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">int</span> end = 3;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1070</td>  <td class="nbHitsCovered"><a title="Line 1070: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;5781</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1070: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">                <span class="keyword">if</span> (<span class="string">"com"</span>.equals(tmp[0]) || <span class="string">"org"</span>.equals(tmp[0])) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1071</td>  <td class="nbHitsCovered">&nbsp;5354</td>  <td class="src"><pre class="src">&nbsp;                    start = 1;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1072</td>  <td class="nbHitsCovered">&nbsp;5354</td>  <td class="src"><pre class="src">&nbsp;                    end = 4;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1064</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;        ClassNameInformation(String className) {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1065</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;            name = className;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1066</td>  <td class="nbHitsUncovered"><a title="Line 1066: Conditional coverage 50% (1/2).">&nbsp;6375</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 1066: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (name.contains(<span class="string">"/"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1067</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String[] tmp = className.toLowerCase().split(<span class="string">"/"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1068</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">int</span> start = 0;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1069</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">int</span> end = 3;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1070</td>  <td class="nbHitsCovered"><a title="Line 1070: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;6375</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1070: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">                <span class="keyword">if</span> (<span class="string">"com"</span>.equals(tmp[0]) || <span class="string">"org"</span>.equals(tmp[0])) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1071</td>  <td class="nbHitsCovered">&nbsp;5948</td>  <td class="src"><pre class="src">&nbsp;                    start = 1;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1072</td>  <td class="nbHitsCovered">&nbsp;5948</td>  <td class="src"><pre class="src">&nbsp;                    end = 4;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1073</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1074</td>  <td class="nbHitsCovered"><a title="Line 1074: Conditional coverage 100% (2/2).">&nbsp;5781</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1074: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (tmp.length &lt;= end) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1075</td>  <td class="nbHitsCovered">&nbsp;1989</td>  <td class="src"><pre class="src">&nbsp;                    end = tmp.length - 1;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1074</td>  <td class="nbHitsCovered"><a title="Line 1074: Conditional coverage 100% (2/2).">&nbsp;6375</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1074: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (tmp.length &lt;= end) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1075</td>  <td class="nbHitsCovered">&nbsp;1991</td>  <td class="src"><pre class="src">&nbsp;                    end = tmp.length - 1;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1076</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1077</td>  <td class="nbHitsCovered"><a title="Line 1077: Conditional coverage 100% (2/2).">&nbsp;26916</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1077: Conditional coverage 100% (2/2).">                <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1078</td>  <td class="nbHitsCovered">&nbsp;21135</td>  <td class="src"><pre class="src">&nbsp;                    packageStructure.add(tmp[i]);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1077</td>  <td class="nbHitsCovered"><a title="Line 1077: Conditional coverage 100% (2/2).">&nbsp;29884</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1077: Conditional coverage 100% (2/2).">                <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1078</td>  <td class="nbHitsCovered">&nbsp;23509</td>  <td class="src"><pre class="src">&nbsp;                    packageStructure.add(tmp[i]);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1079</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1080</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1080</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;1081</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                packageStructure.add(name);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1082</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1083</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1083</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1084</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">/**</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1085</td>  <td class="nbHits">&nbsp;</td>
@@ -1814,7 +1814,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">         * leading "org" or "com".</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1109</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">         */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1110</td>  <td class="nbHitsCovered">&nbsp;5781</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">private</span> ArrayList&lt;String&gt; packageStructure = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1110</td>  <td class="nbHitsCovered">&nbsp;6375</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">private</span> ArrayList&lt;String&gt; packageStructure = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1111</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1112</td>  <td class="nbHits">&nbsp;</td>
@@ -1829,7 +1829,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">         */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1117</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> ArrayList&lt;String&gt; getPackageStructure() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1118</td>  <td class="nbHitsCovered">&nbsp;65391</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> packageStructure;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1118</td>  <td class="nbHitsCovered">&nbsp;69549</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> packageStructure;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1119</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1120</td>  <td class="nbHits">&nbsp;</td>
@@ -1838,6 +1838,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 1.9.4.1 on 10/20/13 9:38 PM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 1.9.4.1 on 11/16/13 1:26 PM.</div>
 </body>
 </html>
