@@ -1,0 +1,15 @@
+org.owasp.dependencycheck
+org.owasp.dependencycheck.analyzer
+org.owasp.dependencycheck.concurrency
+org.owasp.dependencycheck.data
+org.owasp.dependencycheck.data.cpe
+org.owasp.dependencycheck.data.cwe
+org.owasp.dependencycheck.data.lucene
+org.owasp.dependencycheck.data.nvdcve
+org.owasp.dependencycheck.data.update
+org.owasp.dependencycheck.dependency
+org.owasp.dependencycheck.jaxb.pom
+org.owasp.dependencycheck.jaxb.pom.generated
+org.owasp.dependencycheck.reporting
+org.owasp.dependencycheck.suppression
+org.owasp.dependencycheck.utils
