@@ -109,7 +109,7 @@
 <a class="jxr_linenumber" name="99" href="#99">99</a>          } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (cli.isRunScan()) {
 <a class="jxr_linenumber" name="100" href="#100">100</a>             updateSettings(cli.isAutoUpdate(), cli.getConnectionTimeout(), cli.getProxyUrl(),
 <a class="jxr_linenumber" name="101" href="#101">101</a>                     cli.getProxyPort(), cli.getProxyUsername(), cli.getProxyPassword(),
-<a class="jxr_linenumber" name="102" href="#102">102</a>                     cli.getDataDirectory(), cli.getPropertiesFile());
+<a class="jxr_linenumber" name="102" href="#102">102</a>                     cli.getDataDirectory(), cli.getPropertiesFile(), cli.getSuppressionFile());
 <a class="jxr_linenumber" name="103" href="#103">103</a>             runScan(cli.getReportDirectory(), cli.getReportFormat(), cli.getApplicationName(), cli.getScanFiles());
 <a class="jxr_linenumber" name="104" href="#104">104</a>         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="105" href="#105">105</a>             cli.printHelp();
@@ -157,55 +157,62 @@
 <a class="jxr_linenumber" name="147" href="#147">147</a> <em class="jxr_javadoccomment">     * @param proxyUrl the proxy url (null or blank means no proxy will be used)</em>
 <a class="jxr_linenumber" name="148" href="#148">148</a> <em class="jxr_javadoccomment">     * @param proxyPort the proxy port (null or blank means no port will be</em>
 <a class="jxr_linenumber" name="149" href="#149">149</a> <em class="jxr_javadoccomment">     * used)</em>
-<a class="jxr_linenumber" name="150" href="#150">150</a> <em class="jxr_javadoccomment">     * @param dataDirectory the directory to store/retrieve persistent data from</em>
-<a class="jxr_linenumber" name="151" href="#151">151</a> <em class="jxr_javadoccomment">     * @param propertiesFile the properties file to utilize</em>
-<a class="jxr_linenumber" name="152" href="#152">152</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="153" href="#153">153</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> updateSettings(<strong class="jxr_keyword">boolean</strong> autoUpdate, String connectionTimeout, String proxyUrl, String proxyPort,
-<a class="jxr_linenumber" name="154" href="#154">154</a>                                 String proxyUser, String proxyPass, String dataDirectory, File propertiesFile) {
-<a class="jxr_linenumber" name="155" href="#155">155</a> 
-<a class="jxr_linenumber" name="156" href="#156">156</a>         <strong class="jxr_keyword">if</strong> (propertiesFile != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="157" href="#157">157</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="158" href="#158">158</a>                 Settings.mergeProperties(propertiesFile);
-<a class="jxr_linenumber" name="159" href="#159">159</a>             } <strong class="jxr_keyword">catch</strong> (FileNotFoundException ex) {
-<a class="jxr_linenumber" name="160" href="#160">160</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Unable to load properties file '%s'"</span>, propertiesFile.getPath());
-<a class="jxr_linenumber" name="161" href="#161">161</a>                 Logger.getLogger(App.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, msg);
-<a class="jxr_linenumber" name="162" href="#162">162</a>                 Logger.getLogger(App.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="163" href="#163">163</a>             } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="164" href="#164">164</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Unable to find properties file '%s'"</span>, propertiesFile.getPath());
+<a class="jxr_linenumber" name="150" href="#150">150</a> <em class="jxr_javadoccomment">     * @param proxyUser the proxy user name</em>
+<a class="jxr_linenumber" name="151" href="#151">151</a> <em class="jxr_javadoccomment">     * @param proxyPass the password for the proxy</em>
+<a class="jxr_linenumber" name="152" href="#152">152</a> <em class="jxr_javadoccomment">     * @param dataDirectory the directory to store/retrieve persistent data from</em>
+<a class="jxr_linenumber" name="153" href="#153">153</a> <em class="jxr_javadoccomment">     * @param propertiesFile the properties file to utilize</em>
+<a class="jxr_linenumber" name="154" href="#154">154</a> <em class="jxr_javadoccomment">     * @param suppressionFile the path to the suppression file</em>
+<a class="jxr_linenumber" name="155" href="#155">155</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="156" href="#156">156</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> updateSettings(<strong class="jxr_keyword">boolean</strong> autoUpdate, String connectionTimeout, String proxyUrl, String proxyPort,
+<a class="jxr_linenumber" name="157" href="#157">157</a>             String proxyUser, String proxyPass, String dataDirectory, File propertiesFile,
+<a class="jxr_linenumber" name="158" href="#158">158</a>             String suppressionFile) {
+<a class="jxr_linenumber" name="159" href="#159">159</a> 
+<a class="jxr_linenumber" name="160" href="#160">160</a>         <strong class="jxr_keyword">if</strong> (propertiesFile != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="161" href="#161">161</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="162" href="#162">162</a>                 Settings.mergeProperties(propertiesFile);
+<a class="jxr_linenumber" name="163" href="#163">163</a>             } <strong class="jxr_keyword">catch</strong> (FileNotFoundException ex) {
+<a class="jxr_linenumber" name="164" href="#164">164</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Unable to load properties file '%s'"</span>, propertiesFile.getPath());
 <a class="jxr_linenumber" name="165" href="#165">165</a>                 Logger.getLogger(App.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, msg);
 <a class="jxr_linenumber" name="166" href="#166">166</a>                 Logger.getLogger(App.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="167" href="#167">167</a>             }
-<a class="jxr_linenumber" name="168" href="#168">168</a>         }
-<a class="jxr_linenumber" name="169" href="#169">169</a>         <strong class="jxr_keyword">if</strong> (dataDirectory != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="170" href="#170">170</a>             Settings.setString(Settings.KEYS.DATA_DIRECTORY, dataDirectory);
-<a class="jxr_linenumber" name="171" href="#171">171</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (System.getProperty(<span class="jxr_string">"basedir"</span>) != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="172" href="#172">172</a>             <strong class="jxr_keyword">final</strong> File dataDir = <strong class="jxr_keyword">new</strong> File(System.getProperty(<span class="jxr_string">"basedir"</span>), <span class="jxr_string">"data"</span>);
-<a class="jxr_linenumber" name="173" href="#173">173</a>             Settings.setString(Settings.KEYS.DATA_DIRECTORY, dataDir.getAbsolutePath());
-<a class="jxr_linenumber" name="174" href="#174">174</a>         } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="175" href="#175">175</a>             <strong class="jxr_keyword">final</strong> File jarPath = <strong class="jxr_keyword">new</strong> File(App.<strong class="jxr_keyword">class</strong>.getProtectionDomain().getCodeSource().getLocation().getPath());
-<a class="jxr_linenumber" name="176" href="#176">176</a>             <strong class="jxr_keyword">final</strong> File base = jarPath.getParentFile();
-<a class="jxr_linenumber" name="177" href="#177">177</a>             <strong class="jxr_keyword">final</strong> String sub = Settings.getString(Settings.KEYS.DATA_DIRECTORY);
-<a class="jxr_linenumber" name="178" href="#178">178</a>             <strong class="jxr_keyword">final</strong> File dataDir = <strong class="jxr_keyword">new</strong> File(base, sub);
-<a class="jxr_linenumber" name="179" href="#179">179</a>             Settings.setString(Settings.KEYS.DATA_DIRECTORY, dataDir.getAbsolutePath());
-<a class="jxr_linenumber" name="180" href="#180">180</a>         }
-<a class="jxr_linenumber" name="181" href="#181">181</a>         Settings.setBoolean(Settings.KEYS.AUTO_UPDATE, autoUpdate);
-<a class="jxr_linenumber" name="182" href="#182">182</a>         <strong class="jxr_keyword">if</strong> (proxyUrl != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyUrl.isEmpty()) {
-<a class="jxr_linenumber" name="183" href="#183">183</a>             Settings.setString(Settings.KEYS.PROXY_URL, proxyUrl);
+<a class="jxr_linenumber" name="167" href="#167">167</a>             } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="168" href="#168">168</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Unable to find properties file '%s'"</span>, propertiesFile.getPath());
+<a class="jxr_linenumber" name="169" href="#169">169</a>                 Logger.getLogger(App.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, msg);
+<a class="jxr_linenumber" name="170" href="#170">170</a>                 Logger.getLogger(App.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <strong class="jxr_keyword">null</strong>, ex);
+<a class="jxr_linenumber" name="171" href="#171">171</a>             }
+<a class="jxr_linenumber" name="172" href="#172">172</a>         }
+<a class="jxr_linenumber" name="173" href="#173">173</a>         <strong class="jxr_keyword">if</strong> (dataDirectory != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="174" href="#174">174</a>             Settings.setString(Settings.KEYS.DATA_DIRECTORY, dataDirectory);
+<a class="jxr_linenumber" name="175" href="#175">175</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (System.getProperty(<span class="jxr_string">"basedir"</span>) != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="176" href="#176">176</a>             <strong class="jxr_keyword">final</strong> File dataDir = <strong class="jxr_keyword">new</strong> File(System.getProperty(<span class="jxr_string">"basedir"</span>), <span class="jxr_string">"data"</span>);
+<a class="jxr_linenumber" name="177" href="#177">177</a>             Settings.setString(Settings.KEYS.DATA_DIRECTORY, dataDir.getAbsolutePath());
+<a class="jxr_linenumber" name="178" href="#178">178</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="179" href="#179">179</a>             <strong class="jxr_keyword">final</strong> File jarPath = <strong class="jxr_keyword">new</strong> File(App.<strong class="jxr_keyword">class</strong>.getProtectionDomain().getCodeSource().getLocation().getPath());
+<a class="jxr_linenumber" name="180" href="#180">180</a>             <strong class="jxr_keyword">final</strong> File base = jarPath.getParentFile();
+<a class="jxr_linenumber" name="181" href="#181">181</a>             <strong class="jxr_keyword">final</strong> String sub = Settings.getString(Settings.KEYS.DATA_DIRECTORY);
+<a class="jxr_linenumber" name="182" href="#182">182</a>             <strong class="jxr_keyword">final</strong> File dataDir = <strong class="jxr_keyword">new</strong> File(base, sub);
+<a class="jxr_linenumber" name="183" href="#183">183</a>             Settings.setString(Settings.KEYS.DATA_DIRECTORY, dataDir.getAbsolutePath());
 <a class="jxr_linenumber" name="184" href="#184">184</a>         }
-<a class="jxr_linenumber" name="185" href="#185">185</a>         <strong class="jxr_keyword">if</strong> (proxyPort != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyPort.isEmpty()) {
-<a class="jxr_linenumber" name="186" href="#186">186</a>             Settings.setString(Settings.KEYS.PROXY_PORT, proxyPort);
-<a class="jxr_linenumber" name="187" href="#187">187</a>         }
-<a class="jxr_linenumber" name="188" href="#188">188</a>         <strong class="jxr_keyword">if</strong> (proxyUser != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyUser.isEmpty()) {
-<a class="jxr_linenumber" name="189" href="#189">189</a>             Settings.setString(Settings.KEYS.PROXY_USERNAME, proxyUser);
-<a class="jxr_linenumber" name="190" href="#190">190</a>         }
-<a class="jxr_linenumber" name="191" href="#191">191</a>         <strong class="jxr_keyword">if</strong> (proxyPass != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyPass.isEmpty()) {
-<a class="jxr_linenumber" name="192" href="#192">192</a>             Settings.setString(Settings.KEYS.PROXY_PASSWORD, proxyPass);
-<a class="jxr_linenumber" name="193" href="#193">193</a>         }
-<a class="jxr_linenumber" name="194" href="#194">194</a>         <strong class="jxr_keyword">if</strong> (connectionTimeout != <strong class="jxr_keyword">null</strong> &amp;&amp; !connectionTimeout.isEmpty()) {
-<a class="jxr_linenumber" name="195" href="#195">195</a>             Settings.setString(Settings.KEYS.CONNECTION_TIMEOUT, connectionTimeout);
-<a class="jxr_linenumber" name="196" href="#196">196</a>         }
-<a class="jxr_linenumber" name="197" href="#197">197</a>     }
-<a class="jxr_linenumber" name="198" href="#198">198</a> }
+<a class="jxr_linenumber" name="185" href="#185">185</a>         Settings.setBoolean(Settings.KEYS.AUTO_UPDATE, autoUpdate);
+<a class="jxr_linenumber" name="186" href="#186">186</a>         <strong class="jxr_keyword">if</strong> (proxyUrl != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyUrl.isEmpty()) {
+<a class="jxr_linenumber" name="187" href="#187">187</a>             Settings.setString(Settings.KEYS.PROXY_URL, proxyUrl);
+<a class="jxr_linenumber" name="188" href="#188">188</a>         }
+<a class="jxr_linenumber" name="189" href="#189">189</a>         <strong class="jxr_keyword">if</strong> (proxyPort != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyPort.isEmpty()) {
+<a class="jxr_linenumber" name="190" href="#190">190</a>             Settings.setString(Settings.KEYS.PROXY_PORT, proxyPort);
+<a class="jxr_linenumber" name="191" href="#191">191</a>         }
+<a class="jxr_linenumber" name="192" href="#192">192</a>         <strong class="jxr_keyword">if</strong> (proxyUser != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyUser.isEmpty()) {
+<a class="jxr_linenumber" name="193" href="#193">193</a>             Settings.setString(Settings.KEYS.PROXY_USERNAME, proxyUser);
+<a class="jxr_linenumber" name="194" href="#194">194</a>         }
+<a class="jxr_linenumber" name="195" href="#195">195</a>         <strong class="jxr_keyword">if</strong> (proxyPass != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyPass.isEmpty()) {
+<a class="jxr_linenumber" name="196" href="#196">196</a>             Settings.setString(Settings.KEYS.PROXY_PASSWORD, proxyPass);
+<a class="jxr_linenumber" name="197" href="#197">197</a>         }
+<a class="jxr_linenumber" name="198" href="#198">198</a>         <strong class="jxr_keyword">if</strong> (connectionTimeout != <strong class="jxr_keyword">null</strong> &amp;&amp; !connectionTimeout.isEmpty()) {
+<a class="jxr_linenumber" name="199" href="#199">199</a>             Settings.setString(Settings.KEYS.CONNECTION_TIMEOUT, connectionTimeout);
+<a class="jxr_linenumber" name="200" href="#200">200</a>         }
+<a class="jxr_linenumber" name="201" href="#201">201</a>         <strong class="jxr_keyword">if</strong> (suppressionFile != <strong class="jxr_keyword">null</strong> &amp;&amp; !suppressionFile.isEmpty()) {
+<a class="jxr_linenumber" name="202" href="#202">202</a>             Settings.setString(Settings.KEYS.SUPPRESSION_FILE, suppressionFile);
+<a class="jxr_linenumber" name="203" href="#203">203</a>         }
+<a class="jxr_linenumber" name="204" href="#204">204</a>     }
+<a class="jxr_linenumber" name="205" href="#205">205</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

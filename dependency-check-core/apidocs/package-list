@@ -11,4 +11,5 @@ org.owasp.dependencycheck.dependency
 org.owasp.dependencycheck.jaxb.pom
 org.owasp.dependencycheck.jaxb.pom.generated
 org.owasp.dependencycheck.reporting
+org.owasp.dependencycheck.suppression
 org.owasp.dependencycheck.utils

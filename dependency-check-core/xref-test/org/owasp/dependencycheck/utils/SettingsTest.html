@@ -67,23 +67,23 @@
 <a class="jxr_linenumber" name="57" href="#57">57</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="58" href="#58">58</a>      @Test
 <a class="jxr_linenumber" name="59" href="#59">59</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetString() {
-<a class="jxr_linenumber" name="60" href="#60">60</a>          String key = Settings.KEYS.CPE_DATA_DIRECTORY;
-<a class="jxr_linenumber" name="61" href="#61">61</a>          String expResult = <span class="jxr_string">"cpe"</span>;
+<a class="jxr_linenumber" name="60" href="#60">60</a>          String key = Settings.KEYS.CVE_DATA_DIRECTORY;
+<a class="jxr_linenumber" name="61" href="#61">61</a>          String expResult = <span class="jxr_string">"cve"</span>;
 <a class="jxr_linenumber" name="62" href="#62">62</a>          String result = Settings.getString(key);
 <a class="jxr_linenumber" name="63" href="#63">63</a>          Assert.assertTrue(result.endsWith(expResult));
 <a class="jxr_linenumber" name="64" href="#64">64</a>      }
 <a class="jxr_linenumber" name="65" href="#65">65</a>  
 <a class="jxr_linenumber" name="66" href="#66">66</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="67" href="#67">67</a>  <em class="jxr_javadoccomment">     * Test of getFile method, of class Settings.</em>
+<a class="jxr_linenumber" name="67" href="#67">67</a>  <em class="jxr_javadoccomment">     * Test of getDataFile method, of class Settings.</em>
 <a class="jxr_linenumber" name="68" href="#68">68</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="69" href="#69">69</a>      @Test
-<a class="jxr_linenumber" name="70" href="#70">70</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetFile() <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="71" href="#71">71</a>          String key = Settings.KEYS.CPE_DATA_DIRECTORY;
-<a class="jxr_linenumber" name="72" href="#72">72</a>          String expResult = <span class="jxr_string">"data"</span> + File.separator + <span class="jxr_string">"cpe"</span>;
-<a class="jxr_linenumber" name="73" href="#73">73</a>          File result = Settings.getFile(key);
+<a class="jxr_linenumber" name="70" href="#70">70</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetDataFile() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="71" href="#71">71</a>          String key = Settings.KEYS.CVE_DATA_DIRECTORY;
+<a class="jxr_linenumber" name="72" href="#72">72</a>          String expResult = <span class="jxr_string">"data"</span> + File.separator + <span class="jxr_string">"cve"</span>;
+<a class="jxr_linenumber" name="73" href="#73">73</a>          File result = Settings.getDataFile(key);
 <a class="jxr_linenumber" name="74" href="#74">74</a>          Assert.assertTrue(result.getAbsolutePath().endsWith(expResult));
 <a class="jxr_linenumber" name="75" href="#75">75</a>  
-<a class="jxr_linenumber" name="76" href="#76">76</a>          result = Settings.getFile(Settings.KEYS.DATA_DIRECTORY);
+<a class="jxr_linenumber" name="76" href="#76">76</a>          result = Settings.getDataFile(Settings.KEYS.DATA_DIRECTORY);
 <a class="jxr_linenumber" name="77" href="#77">77</a>          String path = result.getPath();
 <a class="jxr_linenumber" name="78" href="#78">78</a>          Assert.assertTrue(path.endsWith(<span class="jxr_string">"data"</span>) || path.endsWith(<span class="jxr_string">"data"</span> + File.separator));
 <a class="jxr_linenumber" name="79" href="#79">79</a>      }

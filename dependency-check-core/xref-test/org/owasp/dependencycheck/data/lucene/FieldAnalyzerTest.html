@@ -82,7 +82,7 @@
 <a class="jxr_linenumber" name="72" href="#72">72</a>      @Test
 <a class="jxr_linenumber" name="73" href="#73">73</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAnalyzers() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="74" href="#74">74</a>  
-<a class="jxr_linenumber" name="75" href="#75">75</a>          Analyzer analyzer = <strong class="jxr_keyword">new</strong> FieldAnalyzer(Version.LUCENE_43);
+<a class="jxr_linenumber" name="75" href="#75">75</a>          Analyzer analyzer = <strong class="jxr_keyword">new</strong> FieldAnalyzer(LuceneUtils.CURRENT_VERSION);
 <a class="jxr_linenumber" name="76" href="#76">76</a>          Directory index = <strong class="jxr_keyword">new</strong> RAMDirectory();
 <a class="jxr_linenumber" name="77" href="#77">77</a>  
 <a class="jxr_linenumber" name="78" href="#78">78</a>          String field1 = <span class="jxr_string">"product"</span>;
@@ -93,16 +93,16 @@
 <a class="jxr_linenumber" name="83" href="#83">83</a>  
 <a class="jxr_linenumber" name="84" href="#84">84</a>          createIndex(analyzer, index, field1, text1, field2, text2);
 <a class="jxr_linenumber" name="85" href="#85">85</a>  
-<a class="jxr_linenumber" name="86" href="#86">86</a>          <em class="jxr_comment">//Analyzer searchingAnalyzer = new SearchFieldAnalyzer(Version.LUCENE_43);</em>
+<a class="jxr_linenumber" name="86" href="#86">86</a>          <em class="jxr_comment">//Analyzer searchingAnalyzer = new SearchFieldAnalyzer(LuceneUtils.CURRENT_VERSION);</em>
 <a class="jxr_linenumber" name="87" href="#87">87</a>          String querystr = <span class="jxr_string">"product:\&quot;(Spring Framework Core)\&quot; vendor:(SpringSource)"</span>;
 <a class="jxr_linenumber" name="88" href="#88">88</a>  
-<a class="jxr_linenumber" name="89" href="#89">89</a>          SearchFieldAnalyzer searchAnalyzerProduct = <strong class="jxr_keyword">new</strong> SearchFieldAnalyzer(Version.LUCENE_43);
-<a class="jxr_linenumber" name="90" href="#90">90</a>          SearchFieldAnalyzer searchAnalyzerVendor = <strong class="jxr_keyword">new</strong> SearchFieldAnalyzer(Version.LUCENE_43);
+<a class="jxr_linenumber" name="89" href="#89">89</a>          SearchFieldAnalyzer searchAnalyzerProduct = <strong class="jxr_keyword">new</strong> SearchFieldAnalyzer(LuceneUtils.CURRENT_VERSION);
+<a class="jxr_linenumber" name="90" href="#90">90</a>          SearchFieldAnalyzer searchAnalyzerVendor = <strong class="jxr_keyword">new</strong> SearchFieldAnalyzer(LuceneUtils.CURRENT_VERSION);
 <a class="jxr_linenumber" name="91" href="#91">91</a>          HashMap&lt;String, Analyzer&gt; map = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Analyzer&gt;();
 <a class="jxr_linenumber" name="92" href="#92">92</a>          map.put(field1, searchAnalyzerProduct);
 <a class="jxr_linenumber" name="93" href="#93">93</a>          map.put(field2, searchAnalyzerVendor);
-<a class="jxr_linenumber" name="94" href="#94">94</a>          PerFieldAnalyzerWrapper wrapper = <strong class="jxr_keyword">new</strong> PerFieldAnalyzerWrapper(<strong class="jxr_keyword">new</strong> StandardAnalyzer(Version.LUCENE_43), map);
-<a class="jxr_linenumber" name="95" href="#95">95</a>          QueryParser parser = <strong class="jxr_keyword">new</strong> QueryParser(Version.LUCENE_43, field1, wrapper);
+<a class="jxr_linenumber" name="94" href="#94">94</a>          PerFieldAnalyzerWrapper wrapper = <strong class="jxr_keyword">new</strong> PerFieldAnalyzerWrapper(<strong class="jxr_keyword">new</strong> StandardAnalyzer(LuceneUtils.CURRENT_VERSION), map);
+<a class="jxr_linenumber" name="95" href="#95">95</a>          QueryParser parser = <strong class="jxr_keyword">new</strong> QueryParser(LuceneUtils.CURRENT_VERSION, field1, wrapper);
 <a class="jxr_linenumber" name="96" href="#96">96</a>  
 <a class="jxr_linenumber" name="97" href="#97">97</a>          Query q = parser.parse(querystr);
 <a class="jxr_linenumber" name="98" href="#98">98</a>          <em class="jxr_comment">//System.out.println(q.toString());</em>
@@ -126,7 +126,7 @@
 <a class="jxr_linenumber" name="116" href="#116">116</a>     }
 <a class="jxr_linenumber" name="117" href="#117">117</a> 
 <a class="jxr_linenumber" name="118" href="#118">118</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> createIndex(Analyzer analyzer, Directory index, String field1, String text1, String field2, String text2) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="119" href="#119">119</a>         IndexWriterConfig config = <strong class="jxr_keyword">new</strong> IndexWriterConfig(Version.LUCENE_43, analyzer);
+<a class="jxr_linenumber" name="119" href="#119">119</a>         IndexWriterConfig config = <strong class="jxr_keyword">new</strong> IndexWriterConfig(LuceneUtils.CURRENT_VERSION, analyzer);
 <a class="jxr_linenumber" name="120" href="#120">120</a>         IndexWriter w = <strong class="jxr_keyword">new</strong> IndexWriter(index, config);
 <a class="jxr_linenumber" name="121" href="#121">121</a>         addDoc(w, field1, text1, field2, text2);
 <a class="jxr_linenumber" name="122" href="#122">122</a>         w.close();

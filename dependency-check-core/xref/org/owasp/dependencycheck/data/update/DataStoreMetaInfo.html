@@ -244,7 +244,7 @@
 <a class="jxr_linenumber" name="234" href="#234">234</a> <em class="jxr_javadoccomment">     * @return the properties file</em>
 <a class="jxr_linenumber" name="235" href="#235">235</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="236" href="#236">236</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> File getPropertiesFile() {
-<a class="jxr_linenumber" name="237" href="#237">237</a>         <strong class="jxr_keyword">final</strong> File dataDirectory = Settings.getFile(Settings.KEYS.DATA_DIRECTORY);
+<a class="jxr_linenumber" name="237" href="#237">237</a>         <strong class="jxr_keyword">final</strong> File dataDirectory = Settings.getDataFile(Settings.KEYS.DATA_DIRECTORY);
 <a class="jxr_linenumber" name="238" href="#238">238</a>         <strong class="jxr_keyword">final</strong> File file = <strong class="jxr_keyword">new</strong> File(dataDirectory, UPDATE_PROPERTIES_FILE);
 <a class="jxr_linenumber" name="239" href="#239">239</a>         <strong class="jxr_keyword">return</strong> file;
 <a class="jxr_linenumber" name="240" href="#240">240</a>     }
