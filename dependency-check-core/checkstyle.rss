@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2012 - 2013 OWASP</copyright>
     <item>
-      <title>File: 162,
-             Errors: 1,
+      <title>File: 159,
+             Errors: 8,
              Warnings: 0,
              Infos: 0
       </title>
@@ -53,6 +53,20 @@
                 </td>
                 <td>
                   0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.StandardUpdate.java">org/owasp/dependencycheck/data/update/StandardUpdate.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
                 </td>
               </tr>
                           <tr>
@@ -254,20 +268,6 @@
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.analyzer.CPEAnalyzer.java">org/owasp/dependencycheck/analyzer/CPEAnalyzer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.AbstractUpdateTask.java">org/owasp/dependencycheck/data/update/AbstractUpdateTask.java</a>
                 </td>
                 <td>
                   0
@@ -1191,20 +1191,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.UpdateTask.java">org/owasp/dependencycheck/data/update/UpdateTask.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.utils.InvalidSettingException.java">org/owasp/dependencycheck/utils/InvalidSettingException.java</a>
                 </td>
                 <td>
@@ -1583,20 +1569,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.UpdateTaskFactory.java">org/owasp/dependencycheck/data/update/UpdateTaskFactory.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.ReportPlugin.java">org/owasp/dependencycheck/jaxb/pom/generated/ReportPlugin.java</a>
                 </td>
                 <td>
@@ -1723,20 +1695,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.StandardUpdateTask.java">org/owasp/dependencycheck/data/update/StandardUpdateTask.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.License.java">org/owasp/dependencycheck/jaxb/pom/generated/License.java</a>
                 </td>
                 <td>
@@ -1807,20 +1765,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Organization.java">org/owasp/dependencycheck/jaxb/pom/generated/Organization.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.analyzer.DependencyBundlingAnalyzer.java">org/owasp/dependencycheck/analyzer/DependencyBundlingAnalyzer.java</a>
                 </td>
                 <td>
@@ -1835,7 +1779,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.BatchUpdateTask.java">org/owasp/dependencycheck/data/update/BatchUpdateTask.java</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.jaxb.pom.generated.Organization.java">org/owasp/dependencycheck/jaxb/pom/generated/Organization.java</a>
                 </td>
                 <td>
                   0
@@ -1929,6 +1873,20 @@
                 </td>
                 <td>
                   0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-core/checkstyle.html#org.owasp.dependencycheck.data.update.ProcessTask.java">org/owasp/dependencycheck/data/update/ProcessTask.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
                 </td>
               </tr>
                           <tr>
