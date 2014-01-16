@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
 
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
 <rss version="0.91">
   <channel>
     <title>Dependency-Check Command Line - Checkstyle report</title>
     <link>https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli</link>
     <description>Dependency-Check Command Line - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2012 - 2013 OWASP</copyright>
+    <copyright>&#169;2012 - 2014 OWASP</copyright>
     <item>
       <title>File: 14,
              Errors: 2,
@@ -155,7 +172,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#log.properties">log.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.generated-classes.cobertura.log.properties">target/generated-classes/cobertura/log.properties</a>
                 </td>
                 <td>
                   0
@@ -169,7 +186,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.generated-classes.cobertura.log.properties">target/generated-classes/cobertura/log.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#log.properties">log.properties</a>
                 </td>
                 <td>
                   0

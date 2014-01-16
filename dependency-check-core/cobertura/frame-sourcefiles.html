@@ -57,28 +57,28 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.ArchiveExtractionException.html">ArchiveExtractionException</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.BaseDB.html">BaseDB</a> <i>(44%)</i></td>
-</tr>
-<tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Build.html">Build</a> <i>(9%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.BuildBase.html">BuildBase</a> <i>(7%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.CPEAnalyzer.html">CPEAnalyzer</a> <i>(80%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.CPEAnalyzer.html">CPEAnalyzer</a> <i>(82%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.CachedWebDataSource.html">CachedWebDataSource</a> <i>(N/A)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.CachedWebDataSource.html">CachedWebDataSource</a> <i>(N/A)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.CallableDownloadTask.html">CallableDownloadTask</a> <i>(0%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.task.CallableDownloadTask.html">CallableDownloadTask</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.Checksum.html">Checksum</a> <i>(84%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.Checksum.html">Checksum</a> <i>(80%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.CiManagement.html">CiManagement</a> <i>(0%)</i></td>
+</tr>
+<tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.ConnectionFactory.html">ConnectionFactory</a> <i>(44%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Contributor.html">Contributor</a> <i>(5%)</i></td>
@@ -90,7 +90,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.cpe.CpeMemoryIndex.html">CpeMemoryIndex</a> <i>(72%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.CpeSuppressionAnalyzer.html">CpeSuppressionAnalyzer</a> <i>(66%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.CpeSuppressionAnalyzer.html">CpeSuppressionAnalyzer</a> <i>(60%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.CveDB.html">CveDB</a> <i>(47%)</i></td>
@@ -102,13 +102,13 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.cwe.CweHandler.html">CweHandler</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.DataStoreMetaInfo.html">DataStoreMetaInfo</a> <i>(65%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.DBUtils.html">DBUtils</a> <i>(33%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.DatabaseException.html">DatabaseException</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.DatabaseUpdater.html">DatabaseUpdater</a> <i>(0%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.DatabaseProperties.html">DatabaseProperties</a> <i>(92%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.Dependency.html">Dependency</a> <i>(60%)</i></td>
@@ -126,7 +126,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.lucene.DependencySimilarity.html">DependencySimilarity</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.DependencyVersion.html">DependencyVersion</a> <i>(92%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.DependencyVersion.html">DependencyVersion</a> <i>(91%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.DependencyVersionUtil.html">DependencyVersionUtil</a> <i>(92%)</i></td>
@@ -153,13 +153,22 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.Downloader.html">Downloader</a> <i>(7%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.Engine.html">Engine</a> <i>(58%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.DriverLoadException.html">DriverLoadException</a> <i>(33%)</i></td>
+</tr>
+<tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.DriverLoader.html">DriverLoader</a> <i>(57%)</i></td>
+</tr>
+<tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.DriverShim.html">DriverShim</a> <i>(25%)</i></td>
+</tr>
+<tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.Engine.html">Engine</a> <i>(57%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.Evidence.html">Evidence</a> <i>(53%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.EvidenceCollection.html">EvidenceCollection</a> <i>(73%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.EvidenceCollection.html">EvidenceCollection</a> <i>(72%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Exclusion.html">Exclusion</a> <i>(14%)</i></td>
@@ -189,7 +198,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.Filter.html">Filter</a> <i>(92%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.HintAnalyzer.html">HintAnalyzer</a> <i>(93%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.HintAnalyzer.html">HintAnalyzer</a> <i>(94%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.Identifier.html">Identifier</a> <i>(41%)</i></td>
@@ -201,7 +210,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.cpe.IndexException.html">IndexException</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.InvalidDataException.html">InvalidDataException</a> <i>(0%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.exception.InvalidDataException.html">InvalidDataException</a> <i>(0%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.concurrency.InvalidDirectoryException.html">InvalidDirectoryException</a> <i>(0%)</i></td>
@@ -213,7 +222,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.IssueManagement.html">IssueManagement</a> <i>(14%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.JarAnalyzer.html">JarAnalyzer</a> <i>(80%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.JarAnalyzer.html">JarAnalyzer</a> <i>(77%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.JavaScriptAnalyzer.html">JavaScriptAnalyzer</a> <i>(0%)</i></td>
@@ -234,13 +243,22 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.MailingList.html">MailingList</a> <i>(0%)</i></td>
 </tr>
 <tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nexus.MavenArtifact.html">MavenArtifact</a> <i>(0%)</i></td>
+</tr>
+<tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.MavenNamespaceFilter.html">MavenNamespaceFilter</a> <i>(100%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Model.html">Model</a> <i>(13%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.NoDataException.html">NoDataException</a> <i>(0%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.NexusAnalyzer.html">NexusAnalyzer</a> <i>(41%)</i></td>
+</tr>
+<tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nexus.NexusSearch.html">NexusSearch</a> <i>(25%)</i></td>
+</tr>
+<tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.exception.NoDataException.html">NoDataException</a> <i>(0%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.NonClosingStream.html">NonClosingStream</a> <i>(100%)</i></td>
@@ -249,16 +267,19 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Notifier.html">Notifier</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.NvdCve12Handler.html">NvdCve12Handler</a> <i>(93%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.xml.NvdCve12Handler.html">NvdCve12Handler</a> <i>(93%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.nvdcve.NvdCve20Handler.html">NvdCve20Handler</a> <i>(82%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.xml.NvdCve20Handler.html">NvdCve20Handler</a> <i>(81%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.NvdCveAnalyzer.html">NvdCveAnalyzer</a> <i>(74%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.NvdCveAnalyzer.html">NvdCveAnalyzer</a> <i>(75%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.NvdCveInfo.html">NvdCveInfo</a> <i>(100%)</i></td>
+</tr>
+<tr>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.NvdCveUpdater.html">NvdCveUpdater</a> <i>(0%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.ObjectFactory.html">ObjectFactory</a> <i>(0%)</i></td>
@@ -282,7 +303,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Prerequisites.html">Prerequisites</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.ProcessTask.html">ProcessTask</a> <i>(0%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.task.ProcessTask.html">ProcessTask</a> <i>(0%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Profile.html">Profile</a> <i>(4%)</i></td>
@@ -291,7 +312,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.suppression.PropertyType.html">PropertyType</a> <i>(70%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.Reference.html">Reference</a> <i>(41%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.Reference.html">Reference</a> <i>(47%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.jaxb.pom.generated.Relocation.html">Relocation</a> <i>(0%)</i></td>
@@ -348,19 +369,19 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.suppression.SuppressionParser.html">SuppressionParser</a> <i>(58%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.suppression.SuppressionRule.html">SuppressionRule</a> <i>(95%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.suppression.SuppressionRule.html">SuppressionRule</a> <i>(96%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.lucene.TokenPairConcatenatingFilter.html">TokenPairConcatenatingFilter</a> <i>(100%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.UpdateException.html">UpdateException</a> <i>(0%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.exception.UpdateException.html">UpdateException</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.UpdateService.html">UpdateService</a> <i>(0%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.UpdateService.html">UpdateService</a> <i>(0%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.Updateable.html">Updateable</a> <i>(93%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.data.update.UpdateableNvdCve.html">UpdateableNvdCve</a> <i>(93%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.utils.UrlStringUtils.html">UrlStringUtils</a> <i>(82%)</i></td>
@@ -384,7 +405,7 @@ All Packages
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.VulnerabilityComparator.html">VulnerabilityComparator</a> <i>(100%)</i></td>
 </tr>
 <tr>
-<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.VulnerabilitySuppressionAnalyzer.html">VulnerabilitySuppressionAnalyzer</a> <i>(66%)</i></td>
+<td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.analyzer.VulnerabilitySuppressionAnalyzer.html">VulnerabilitySuppressionAnalyzer</a> <i>(60%)</i></td>
 </tr>
 <tr>
 <td nowrap="nowrap"><a target="summary" href="org.owasp.dependencycheck.dependency.VulnerableSoftware.html">VulnerableSoftware</a> <i>(76%)</i></td>
