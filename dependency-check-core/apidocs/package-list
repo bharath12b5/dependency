@@ -1,6 +1,5 @@
 org.owasp.dependencycheck
 org.owasp.dependencycheck.analyzer
-org.owasp.dependencycheck.concurrency
 org.owasp.dependencycheck.data.cpe
 org.owasp.dependencycheck.data.cwe
 org.owasp.dependencycheck.data.lucene
