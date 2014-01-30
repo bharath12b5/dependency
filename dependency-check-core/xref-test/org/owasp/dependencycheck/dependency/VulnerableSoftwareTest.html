@@ -95,8 +95,16 @@
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>          <strong class="jxr_keyword">int</strong> expResult = -2;
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">int</strong> result = instance.compareTo(vs);
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>          assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>      }
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>  }
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          vs = <strong class="jxr_keyword">new</strong> VulnerableSoftware();
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          vs.setCpe(<span class="jxr_string">"cpe:/a:yahoo:toolbar:3.1.0.20130813024103"</span>);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          instance = <strong class="jxr_keyword">new</strong> VulnerableSoftware();
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          instance.setCpe(<span class="jxr_string">"cpe:/a:yahoo:toolbar:3.1.0.20130813024104"</span>);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          expResult = 1;
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          result = instance.compareTo(vs);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      }
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
