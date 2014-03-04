@@ -81,7 +81,7 @@
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>                          <strong class="jxr_keyword">while</strong> ((count = zin.read(data, 0, BUFFER_SIZE)) != -1) {
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>                              dest.write(data, 0, count);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>                          }
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>                      } <strong class="jxr_keyword">catch</strong> (Exception ex) {
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>                      } <strong class="jxr_keyword">catch</strong> (Throwable ex) {
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>                          Logger.getLogger(BaseDBTestCase.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>                      } <strong class="jxr_keyword">finally</strong> {
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>                          <strong class="jxr_keyword">try</strong> {

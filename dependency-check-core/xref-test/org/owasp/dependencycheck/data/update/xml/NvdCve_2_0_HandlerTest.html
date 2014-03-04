@@ -62,7 +62,7 @@
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>      @Test
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testParse() {
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          Exception results = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          Throwable results = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>          <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>              SAXParserFactory factory = SAXParserFactory.newInstance();
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>              SAXParser saxParser = factory.newSAXParser();
@@ -72,7 +72,7 @@
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>              NvdCve20Handler instance = <strong class="jxr_keyword">new</strong> NvdCve20Handler();
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>              saxParser.parse(file, instance);
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>          } <strong class="jxr_keyword">catch</strong> (Exception ex) {
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          } <strong class="jxr_keyword">catch</strong> (Throwable ex) {
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>              results = ex;
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>          }
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>          assertTrue(<span class="jxr_string">"Exception thrown during parse of 2012 CVE version 2.0?"</span>, results == <strong class="jxr_keyword">null</strong>);

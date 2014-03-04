@@ -142,20 +142,20 @@
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>                     downloadExecutors.shutdownNow();
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>                     processExecutor.shutdownNow();
 <a class="jxr_linenumber" name="L136" href="#L136">136</a> 
-<a class="jxr_linenumber" name="L137" href="#L137">137</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interupted during download"</span>, ex);
-<a class="jxr_linenumber" name="L138" href="#L138">138</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"The download was interupted"</span>, ex);
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interrupted during download"</span>, ex);
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"The download was interrupted"</span>, ex);
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>                 } <strong class="jxr_keyword">catch</strong> (ExecutionException ex) {
 <a class="jxr_linenumber" name="L140" href="#L140">140</a>                     downloadExecutors.shutdownNow();
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>                     processExecutor.shutdownNow();
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 
-<a class="jxr_linenumber" name="L143" href="#L143">143</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interupted during download execution"</span>, ex);
-<a class="jxr_linenumber" name="L144" href="#L144">144</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"The execution of the download was interupted"</span>, ex);
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interrupted during download execution"</span>, ex);
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"The execution of the download was interrupted"</span>, ex);
 <a class="jxr_linenumber" name="L145" href="#L145">145</a>                 }
 <a class="jxr_linenumber" name="L146" href="#L146">146</a>                 <strong class="jxr_keyword">if</strong> (task == <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>                     downloadExecutors.shutdownNow();
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>                     processExecutor.shutdownNow();
-<a class="jxr_linenumber" name="L149" href="#L149">149</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interupted during download"</span>);
-<a class="jxr_linenumber" name="L150" href="#L150">150</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"The download was interupted; unable to complete the update"</span>);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interrupted during download"</span>);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"The download was interrupted; unable to complete the update"</span>);
 <a class="jxr_linenumber" name="L151" href="#L151">151</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L152" href="#L152">152</a>                     processFutures.add(task);
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>                 }
@@ -169,7 +169,7 @@
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>                     }
 <a class="jxr_linenumber" name="L162" href="#L162">162</a>                 } <strong class="jxr_keyword">catch</strong> (InterruptedException ex) {
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>                     processExecutor.shutdownNow();
-<a class="jxr_linenumber" name="L164" href="#L164">164</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interupted during processing"</span>, ex);
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                     Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Thread was interrupted during processing"</span>, ex);
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
 <a class="jxr_linenumber" name="L166" href="#L166">166</a>                 } <strong class="jxr_keyword">catch</strong> (ExecutionException ex) {
 <a class="jxr_linenumber" name="L167" href="#L167">167</a>                     processExecutor.shutdownNow();
@@ -253,93 +253,90 @@
 <a class="jxr_linenumber" name="L245" href="#L245">245</a>                 }
 <a class="jxr_linenumber" name="L246" href="#L246">246</a>             } <strong class="jxr_keyword">catch</strong> (NumberFormatException ex) {
 <a class="jxr_linenumber" name="L247" href="#L247">247</a>                 <strong class="jxr_keyword">final</strong> String msg = <span class="jxr_string">"An invalid schema version or timestamp exists in the data.properties file."</span>;
-<a class="jxr_linenumber" name="L248" href="#L248">248</a>                 Logger
-<a class="jxr_linenumber" name="L249" href="#L249">249</a>                         .getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>
-<a class="jxr_linenumber" name="L250" href="#L250">250</a>                                 .getName()).log(Level.WARNING, msg);
-<a class="jxr_linenumber" name="L251" href="#L251">251</a>                 Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>
-<a class="jxr_linenumber" name="L252" href="#L252">252</a>                         .getName()).log(Level.FINE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L253" href="#L253">253</a>             }
-<a class="jxr_linenumber" name="L254" href="#L254">254</a>         }
-<a class="jxr_linenumber" name="L255" href="#L255">255</a>         <strong class="jxr_keyword">return</strong> updates;
-<a class="jxr_linenumber" name="L256" href="#L256">256</a>     }
-<a class="jxr_linenumber" name="L257" href="#L257">257</a> 
-<a class="jxr_linenumber" name="L258" href="#L258">258</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L259" href="#L259">259</a> <em class="jxr_javadoccomment">     * Retrieves the timestamps from the NVD CVE meta data file.</em>
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L261" href="#L261">261</a> <em class="jxr_javadoccomment">     * @return the timestamp from the currently published nvdcve downloads page</em>
-<a class="jxr_linenumber" name="L262" href="#L262">262</a> <em class="jxr_javadoccomment">     * @throws MalformedURLException thrown if the URL for the NVD CCE Meta data is incorrect.</em>
-<a class="jxr_linenumber" name="L263" href="#L263">263</a> <em class="jxr_javadoccomment">     * @throws DownloadFailedException thrown if there is an error downloading the nvd cve meta data file</em>
-<a class="jxr_linenumber" name="L264" href="#L264">264</a> <em class="jxr_javadoccomment">     * @throws InvalidDataException thrown if there is an exception parsing the timestamps</em>
-<a class="jxr_linenumber" name="L265" href="#L265">265</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException thrown if the settings are invalid</em>
-<a class="jxr_linenumber" name="L266" href="#L266">266</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L267" href="#L267">267</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/UpdateableNvdCve.html">UpdateableNvdCve</a> retrieveCurrentTimestampsFromWeb()
-<a class="jxr_linenumber" name="L268" href="#L268">268</a>             <strong class="jxr_keyword">throws</strong> MalformedURLException, DownloadFailedException, InvalidDataException, <a href="../../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a> {
-<a class="jxr_linenumber" name="L269" href="#L269">269</a> 
-<a class="jxr_linenumber" name="L270" href="#L270">270</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/UpdateableNvdCve.html">UpdateableNvdCve</a> updates = <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/UpdateableNvdCve.html">UpdateableNvdCve</a>();
-<a class="jxr_linenumber" name="L271" href="#L271">271</a>         updates.add(MODIFIED, Settings.getString(Settings.KEYS.CVE_MODIFIED_20_URL),
-<a class="jxr_linenumber" name="L272" href="#L272">272</a>                 Settings.getString(Settings.KEYS.CVE_MODIFIED_12_URL),
-<a class="jxr_linenumber" name="L273" href="#L273">273</a>                 false);
-<a class="jxr_linenumber" name="L274" href="#L274">274</a> 
-<a class="jxr_linenumber" name="L275" href="#L275">275</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> start = Settings.getInt(Settings.KEYS.CVE_START_YEAR);
-<a class="jxr_linenumber" name="L276" href="#L276">276</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> end = Calendar.getInstance().get(Calendar.YEAR);
-<a class="jxr_linenumber" name="L277" href="#L277">277</a>         <strong class="jxr_keyword">final</strong> String baseUrl20 = Settings.getString(Settings.KEYS.CVE_SCHEMA_2_0);
-<a class="jxr_linenumber" name="L278" href="#L278">278</a>         <strong class="jxr_keyword">final</strong> String baseUrl12 = Settings.getString(Settings.KEYS.CVE_SCHEMA_1_2);
-<a class="jxr_linenumber" name="L279" href="#L279">279</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = start; i &lt;= end; i++) {
-<a class="jxr_linenumber" name="L280" href="#L280">280</a>             updates.add(Integer.toString(i), String.format(baseUrl20, i),
-<a class="jxr_linenumber" name="L281" href="#L281">281</a>                     String.format(baseUrl12, i),
-<a class="jxr_linenumber" name="L282" href="#L282">282</a>                     <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L283" href="#L283">283</a>         }
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>                 Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.WARNING, msg);
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>                 Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">""</span>, ex);
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>             }
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>         }
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>         <strong class="jxr_keyword">return</strong> updates;
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>     }
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> <em class="jxr_javadoccomment">     * Retrieves the timestamps from the NVD CVE meta data file.</em>
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> <em class="jxr_javadoccomment">     * @return the timestamp from the currently published nvdcve downloads page</em>
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> <em class="jxr_javadoccomment">     * @throws MalformedURLException thrown if the URL for the NVD CCE Meta data is incorrect.</em>
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> <em class="jxr_javadoccomment">     * @throws DownloadFailedException thrown if there is an error downloading the nvd cve meta data file</em>
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> <em class="jxr_javadoccomment">     * @throws InvalidDataException thrown if there is an exception parsing the timestamps</em>
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException thrown if the settings are invalid</em>
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/UpdateableNvdCve.html">UpdateableNvdCve</a> retrieveCurrentTimestampsFromWeb()
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>             <strong class="jxr_keyword">throws</strong> MalformedURLException, DownloadFailedException, InvalidDataException, <a href="../../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a> {
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/UpdateableNvdCve.html">UpdateableNvdCve</a> updates = <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/UpdateableNvdCve.html">UpdateableNvdCve</a>();
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>         updates.add(MODIFIED, Settings.getString(Settings.KEYS.CVE_MODIFIED_20_URL),
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>                 Settings.getString(Settings.KEYS.CVE_MODIFIED_12_URL),
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>                 false);
+<a class="jxr_linenumber" name="L271" href="#L271">271</a> 
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> start = Settings.getInt(Settings.KEYS.CVE_START_YEAR);
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> end = Calendar.getInstance().get(Calendar.YEAR);
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>         <strong class="jxr_keyword">final</strong> String baseUrl20 = Settings.getString(Settings.KEYS.CVE_SCHEMA_2_0);
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>         <strong class="jxr_keyword">final</strong> String baseUrl12 = Settings.getString(Settings.KEYS.CVE_SCHEMA_1_2);
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = start; i &lt;= end; i++) {
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>             updates.add(Integer.toString(i), String.format(baseUrl20, i),
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>                     String.format(baseUrl12, i),
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>                     <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>         }
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>         <strong class="jxr_keyword">return</strong> updates;
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>     }
 <a class="jxr_linenumber" name="L284" href="#L284">284</a> 
-<a class="jxr_linenumber" name="L285" href="#L285">285</a>         <strong class="jxr_keyword">return</strong> updates;
-<a class="jxr_linenumber" name="L286" href="#L286">286</a>     }
-<a class="jxr_linenumber" name="L287" href="#L287">287</a> 
-<a class="jxr_linenumber" name="L288" href="#L288">288</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L289" href="#L289">289</a> <em class="jxr_javadoccomment">     * Closes the CVE and CPE data stores.</em>
-<a class="jxr_linenumber" name="L290" href="#L290">290</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L291" href="#L291">291</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> closeDataStores() {
-<a class="jxr_linenumber" name="L292" href="#L292">292</a>         <strong class="jxr_keyword">if</strong> (cveDB != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L293" href="#L293">293</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L294" href="#L294">294</a>                 cveDB.close();
-<a class="jxr_linenumber" name="L295" href="#L295">295</a>             } <strong class="jxr_keyword">catch</strong> (Exception ignore) {
-<a class="jxr_linenumber" name="L296" href="#L296">296</a>                 Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <span class="jxr_string">"Error closing the cveDB"</span>, ignore);
-<a class="jxr_linenumber" name="L297" href="#L297">297</a>             }
-<a class="jxr_linenumber" name="L298" href="#L298">298</a>         }
-<a class="jxr_linenumber" name="L299" href="#L299">299</a>     }
-<a class="jxr_linenumber" name="L300" href="#L300">300</a> 
-<a class="jxr_linenumber" name="L301" href="#L301">301</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L302" href="#L302">302</a> <em class="jxr_javadoccomment">     * Opens the CVE and CPE data stores.</em>
-<a class="jxr_linenumber" name="L303" href="#L303">303</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L304" href="#L304">304</a> <em class="jxr_javadoccomment">     * @throws UpdateException thrown if a data store cannot be opened</em>
-<a class="jxr_linenumber" name="L305" href="#L305">305</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L306" href="#L306">306</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> openDataStores() <strong class="jxr_keyword">throws</strong> UpdateException {
-<a class="jxr_linenumber" name="L307" href="#L307">307</a>         <strong class="jxr_keyword">if</strong> (cveDB != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L308" href="#L308">308</a>             <strong class="jxr_keyword">return</strong>;
-<a class="jxr_linenumber" name="L309" href="#L309">309</a>         }
-<a class="jxr_linenumber" name="L310" href="#L310">310</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L311" href="#L311">311</a>             cveDB = <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/nvdcve/CveDB.html">CveDB</a>();
-<a class="jxr_linenumber" name="L312" href="#L312">312</a>             cveDB.open();
-<a class="jxr_linenumber" name="L313" href="#L313">313</a>         } <strong class="jxr_keyword">catch</strong> (DatabaseException ex) {
-<a class="jxr_linenumber" name="L314" href="#L314">314</a>             closeDataStores();
-<a class="jxr_linenumber" name="L315" href="#L315">315</a>             Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Database Exception opening databases"</span>, ex);
-<a class="jxr_linenumber" name="L316" href="#L316">316</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"Error updating the CPE/CVE data, please see the log file for more details."</span>);
-<a class="jxr_linenumber" name="L317" href="#L317">317</a>         }
-<a class="jxr_linenumber" name="L318" href="#L318">318</a>     }
-<a class="jxr_linenumber" name="L319" href="#L319">319</a> 
-<a class="jxr_linenumber" name="L320" href="#L320">320</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L321" href="#L321">321</a> <em class="jxr_javadoccomment">     * Determines if the epoch date is within the range specified of the compareTo epoch time. This takes the</em>
-<a class="jxr_linenumber" name="L322" href="#L322">322</a> <em class="jxr_javadoccomment">     * (compareTo-date)/1000/60/60/24 to get the number of days. If the calculated days is less then the range the date</em>
-<a class="jxr_linenumber" name="L323" href="#L323">323</a> <em class="jxr_javadoccomment">     * is considered valid.</em>
-<a class="jxr_linenumber" name="L324" href="#L324">324</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L325" href="#L325">325</a> <em class="jxr_javadoccomment">     * @param date the date to be checked.</em>
-<a class="jxr_linenumber" name="L326" href="#L326">326</a> <em class="jxr_javadoccomment">     * @param compareTo the date to compare to.</em>
-<a class="jxr_linenumber" name="L327" href="#L327">327</a> <em class="jxr_javadoccomment">     * @param range the range in days to be considered valid.</em>
-<a class="jxr_linenumber" name="L328" href="#L328">328</a> <em class="jxr_javadoccomment">     * @return whether or not the date is within the range.</em>
-<a class="jxr_linenumber" name="L329" href="#L329">329</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L330" href="#L330">330</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> withinRange(<strong class="jxr_keyword">long</strong> date, <strong class="jxr_keyword">long</strong> compareTo, <strong class="jxr_keyword">int</strong> range) {
-<a class="jxr_linenumber" name="L331" href="#L331">331</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">double</strong> differenceInDays = (compareTo - date) / 1000.0 / 60.0 / 60.0 / 24.0;
-<a class="jxr_linenumber" name="L332" href="#L332">332</a>         <strong class="jxr_keyword">return</strong> differenceInDays &lt; range;
-<a class="jxr_linenumber" name="L333" href="#L333">333</a>     }
-<a class="jxr_linenumber" name="L334" href="#L334">334</a> }
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L286" href="#L286">286</a> <em class="jxr_javadoccomment">     * Closes the CVE and CPE data stores.</em>
+<a class="jxr_linenumber" name="L287" href="#L287">287</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> closeDataStores() {
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>         <strong class="jxr_keyword">if</strong> (cveDB != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>                 cveDB.close();
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>             } <strong class="jxr_keyword">catch</strong> (Throwable ignore) {
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>                 Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <span class="jxr_string">"Error closing the cveDB"</span>, ignore);
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>             }
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>         }
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>     }
+<a class="jxr_linenumber" name="L297" href="#L297">297</a> 
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> <em class="jxr_javadoccomment">     * Opens the CVE and CPE data stores.</em>
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> <em class="jxr_javadoccomment">     * @throws UpdateException thrown if a data store cannot be opened</em>
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> openDataStores() <strong class="jxr_keyword">throws</strong> UpdateException {
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>         <strong class="jxr_keyword">if</strong> (cveDB != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>             <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>         }
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>             cveDB = <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/nvdcve/CveDB.html">CveDB</a>();
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>             cveDB.open();
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>         } <strong class="jxr_keyword">catch</strong> (DatabaseException ex) {
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>             closeDataStores();
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>             Logger.getLogger(StandardUpdate.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINE, <span class="jxr_string">"Database Exception opening databases"</span>, ex);
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"Error updating the CPE/CVE data, please see the log file for more details."</span>);
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>         }
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>     }
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> <em class="jxr_javadoccomment">     * Determines if the epoch date is within the range specified of the compareTo epoch time. This takes the</em>
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> <em class="jxr_javadoccomment">     * (compareTo-date)/1000/60/60/24 to get the number of days. If the calculated days is less then the range the date</em>
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> <em class="jxr_javadoccomment">     * is considered valid.</em>
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> <em class="jxr_javadoccomment">     * @param date the date to be checked.</em>
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> <em class="jxr_javadoccomment">     * @param compareTo the date to compare to.</em>
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> <em class="jxr_javadoccomment">     * @param range the range in days to be considered valid.</em>
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> <em class="jxr_javadoccomment">     * @return whether or not the date is within the range.</em>
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> withinRange(<strong class="jxr_keyword">long</strong> date, <strong class="jxr_keyword">long</strong> compareTo, <strong class="jxr_keyword">int</strong> range) {
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">double</strong> differenceInDays = (compareTo - date) / 1000.0 / 60.0 / 60.0 / 24.0;
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>         <strong class="jxr_keyword">return</strong> differenceInDays &lt; range;
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>     }
+<a class="jxr_linenumber" name="L331" href="#L331">331</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
