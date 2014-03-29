@@ -1,4 +1,5 @@
 org.owasp.dependencycheck
+org.owasp.dependencycheck.agent
 org.owasp.dependencycheck.analyzer
 org.owasp.dependencycheck.analyzer.exception
 org.owasp.dependencycheck.data.cpe

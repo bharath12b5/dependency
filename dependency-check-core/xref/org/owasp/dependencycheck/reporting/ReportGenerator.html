@@ -148,13 +148,13 @@
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> generateReports(String outputDir, <a href="../../../../org/owasp/dependencycheck/reporting/ReportGenerator.html">Format</a> format) <strong class="jxr_keyword">throws</strong> IOException, Exception {
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>         <strong class="jxr_keyword">if</strong> (format == Format.XML || format == Format.ALL) {
-<a class="jxr_linenumber" name="L143" href="#L143">143</a>             generateReport(<span class="jxr_string">"XmlReport"</span>, outputDir + File.separator + <span class="jxr_string">"DependencyCheck-Report.xml"</span>);
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>             generateReport(<span class="jxr_string">"XmlReport"</span>, outputDir + File.separator + <span class="jxr_string">"dependency-check-report.xml"</span>);
 <a class="jxr_linenumber" name="L144" href="#L144">144</a>         }
 <a class="jxr_linenumber" name="L145" href="#L145">145</a>         <strong class="jxr_keyword">if</strong> (format == Format.HTML || format == Format.ALL) {
-<a class="jxr_linenumber" name="L146" href="#L146">146</a>             generateReport(<span class="jxr_string">"HtmlReport"</span>, outputDir + File.separator + <span class="jxr_string">"DependencyCheck-Report.html"</span>);
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>             generateReport(<span class="jxr_string">"HtmlReport"</span>, outputDir + File.separator + <span class="jxr_string">"dependency-check-report.html"</span>);
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>         }
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>         <strong class="jxr_keyword">if</strong> (format == Format.VULN || format == Format.ALL) {
-<a class="jxr_linenumber" name="L149" href="#L149">149</a>             generateReport(<span class="jxr_string">"VulnerabilityReport"</span>, outputDir + File.separator + <span class="jxr_string">"DependencyCheck-Vulnerability.html"</span>);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>             generateReport(<span class="jxr_string">"VulnerabilityReport"</span>, outputDir + File.separator + <span class="jxr_string">"dependency-check-vulnerability.html"</span>);
 <a class="jxr_linenumber" name="L150" href="#L150">150</a>         }
 <a class="jxr_linenumber" name="L151" href="#L151">151</a>     }
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 
