@@ -176,7 +176,7 @@
 <a class="jxr_linenumber" name="L168" href="#L168">168</a>             LOGGER.info(String.format(<span class="jxr_string">"invalid sha-1 hash on %s"</span>, dependency.getFileName()));
 <a class="jxr_linenumber" name="L169" href="#L169">169</a>         } <strong class="jxr_keyword">catch</strong> (FileNotFoundException fnfe) {
 <a class="jxr_linenumber" name="L170" href="#L170">170</a>             <em class="jxr_comment">//dependency.addAnalysisException(new AnalysisException("Artifact not found on repository"));</em>
-<a class="jxr_linenumber" name="L171" href="#L171">171</a>             LOGGER.fine(String.format(<span class="jxr_string">"Artificat not found in repository '%s'"</span>, dependency.getFileName()));
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>             LOGGER.fine(String.format(<span class="jxr_string">"Artifact not found in repository '%s'"</span>, dependency.getFileName()));
 <a class="jxr_linenumber" name="L172" href="#L172">172</a>             LOGGER.log(Level.FINE, fnfe.getMessage(), fnfe);
 <a class="jxr_linenumber" name="L173" href="#L173">173</a>         } <strong class="jxr_keyword">catch</strong> (IOException ioe) {
 <a class="jxr_linenumber" name="L174" href="#L174">174</a>             <em class="jxr_comment">//dependency.addAnalysisException(new AnalysisException("Could not connect to repository", ioe));</em>

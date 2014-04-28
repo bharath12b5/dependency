@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment">     * The list of supported extensions</em>
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Set&lt;String&gt; SUPORTED_EXTENSIONS = newHashSet(<span class="jxr_string">"dll"</span>, <span class="jxr_string">"exe"</span>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Set&lt;String&gt; SUPPORTED_EXTENSIONS = newHashSet(<span class="jxr_string">"dll"</span>, <span class="jxr_string">"exe"</span>);
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">     * The temp value for GrokAssembly.exe</em>
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     */</em>
@@ -81,7 +81,7 @@
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment">     * Logger</em>
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOG = Logger.getLogger(AssemblyAnalyzer.<strong class="jxr_keyword">class</strong>.getName());
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = Logger.getLogger(AssemblyAnalyzer.<strong class="jxr_keyword">class</strong>.getName());
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment">     * Builds the beginnings of a List for ProcessBuilder</em>
@@ -114,7 +114,7 @@
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> analyzeFileType(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine)
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>             <strong class="jxr_keyword">throws</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a> {
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>         <strong class="jxr_keyword">if</strong> (grokAssemblyExe == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L109" href="#L109">109</a>             LOG.warning(<span class="jxr_string">"GrokAssembly didn't get deployed"</span>);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>             LOGGER.warning(<span class="jxr_string">"GrokAssembly didn't get deployed"</span>);
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>             <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>         }
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 
@@ -125,10 +125,10 @@
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>             <strong class="jxr_keyword">final</strong> Process proc = pb.start();
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>             <em class="jxr_comment">// Try evacuating the error stream</em>
-<a class="jxr_linenumber" name="L120" href="#L120">120</a>             rdr = <strong class="jxr_keyword">new</strong> BufferedReader(<strong class="jxr_keyword">new</strong> InputStreamReader(proc.getErrorStream()));
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>             rdr = <strong class="jxr_keyword">new</strong> BufferedReader(<strong class="jxr_keyword">new</strong> InputStreamReader(proc.getErrorStream(), <span class="jxr_string">"UTF-8"</span>));
 <a class="jxr_linenumber" name="L121" href="#L121">121</a>             String line = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L122" href="#L122">122</a>             <strong class="jxr_keyword">while</strong> (rdr.ready() &amp;&amp; (line = rdr.readLine()) != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L123" href="#L123">123</a>                 LOG.log(Level.WARNING, <span class="jxr_string">"Error from GrokAssembly: {0}"</span>, line);
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>                 LOGGER.log(Level.WARNING, <span class="jxr_string">"Error from GrokAssembly: {0}"</span>, line);
 <a class="jxr_linenumber" name="L124" href="#L124">124</a>             }
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>             <strong class="jxr_keyword">int</strong> rc = 0;
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>             <strong class="jxr_keyword">final</strong> Document doc = builder.parse(proc.getInputStream());
@@ -164,10 +164,10 @@
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>             }
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>             <strong class="jxr_keyword">if</strong> (rc == 3) {
-<a class="jxr_linenumber" name="L159" href="#L159">159</a>                 LOG.log(Level.INFO, <span class="jxr_string">"{0} is not a valid assembly"</span>, dependency.getActualFilePath());
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                 LOGGER.log(Level.INFO, <span class="jxr_string">"{0} is not a valid assembly"</span>, dependency.getActualFilePath());
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (rc != 0) {
-<a class="jxr_linenumber" name="L162" href="#L162">162</a>                 LOG.log(Level.WARNING, <span class="jxr_string">"Return code {0} from GrokAssembly"</span>, rc);
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                 LOGGER.log(Level.WARNING, <span class="jxr_string">"Return code {0} from GrokAssembly"</span>, rc);
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>             }
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> 
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>         } <strong class="jxr_keyword">catch</strong> (IOException ioe) {
@@ -182,7 +182,7 @@
 <a class="jxr_linenumber" name="L174" href="#L174">174</a>                 <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L175" href="#L175">175</a>                     rdr.close();
 <a class="jxr_linenumber" name="L176" href="#L176">176</a>                 } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L177" href="#L177">177</a>                     Logger.getLogger(AssemblyAnalyzer.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <span class="jxr_string">"ignore"</span>, ex);
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>                     LOGGER.log(Level.FINEST, <span class="jxr_string">"ignore"</span>, ex);
 <a class="jxr_linenumber" name="L178" href="#L178">178</a>                 }
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>             }
 <a class="jxr_linenumber" name="L180" href="#L180">180</a>         }
@@ -209,23 +209,23 @@
 <a class="jxr_linenumber" name="L201" href="#L201">201</a>             grokAssemblyExe = tempFile;
 <a class="jxr_linenumber" name="L202" href="#L202">202</a>             <em class="jxr_comment">// Set the temp file to get deleted when we're done</em>
 <a class="jxr_linenumber" name="L203" href="#L203">203</a>             grokAssemblyExe.deleteOnExit();
-<a class="jxr_linenumber" name="L204" href="#L204">204</a>             LOG.log(Level.FINE, <span class="jxr_string">"Extracted GrokAssembly.exe to {0}"</span>, grokAssemblyExe.getPath());
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>             LOGGER.log(Level.FINE, <span class="jxr_string">"Extracted GrokAssembly.exe to {0}"</span>, grokAssemblyExe.getPath());
 <a class="jxr_linenumber" name="L205" href="#L205">205</a>         } <strong class="jxr_keyword">catch</strong> (IOException ioe) {
-<a class="jxr_linenumber" name="L206" href="#L206">206</a>             LOG.log(Level.WARNING, <span class="jxr_string">"Could not extract GrokAssembly.exe: {0}"</span>, ioe.getMessage());
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>             LOGGER.log(Level.WARNING, <span class="jxr_string">"Could not extract GrokAssembly.exe: {0}"</span>, ioe.getMessage());
 <a class="jxr_linenumber" name="L207" href="#L207">207</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(<span class="jxr_string">"Could not extract GrokAssembly.exe"</span>, ioe);
 <a class="jxr_linenumber" name="L208" href="#L208">208</a>         } <strong class="jxr_keyword">finally</strong> {
 <a class="jxr_linenumber" name="L209" href="#L209">209</a>             <strong class="jxr_keyword">if</strong> (fos != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L210" href="#L210">210</a>                 <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L211" href="#L211">211</a>                     fos.close();
 <a class="jxr_linenumber" name="L212" href="#L212">212</a>                 } <strong class="jxr_keyword">catch</strong> (Throwable e) {
-<a class="jxr_linenumber" name="L213" href="#L213">213</a>                     LOG.fine(<span class="jxr_string">"Error closing output stream"</span>);
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>                     LOGGER.fine(<span class="jxr_string">"Error closing output stream"</span>);
 <a class="jxr_linenumber" name="L214" href="#L214">214</a>                 }
 <a class="jxr_linenumber" name="L215" href="#L215">215</a>             }
 <a class="jxr_linenumber" name="L216" href="#L216">216</a>             <strong class="jxr_keyword">if</strong> (is != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L217" href="#L217">217</a>                 <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L218" href="#L218">218</a>                     is.close();
 <a class="jxr_linenumber" name="L219" href="#L219">219</a>                 } <strong class="jxr_keyword">catch</strong> (Throwable e) {
-<a class="jxr_linenumber" name="L220" href="#L220">220</a>                     LOG.fine(<span class="jxr_string">"Error closing input stream"</span>);
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>                     LOGGER.fine(<span class="jxr_string">"Error closing input stream"</span>);
 <a class="jxr_linenumber" name="L221" href="#L221">221</a>                 }
 <a class="jxr_linenumber" name="L222" href="#L222">222</a>             }
 <a class="jxr_linenumber" name="L223" href="#L223">223</a>         }
@@ -237,90 +237,93 @@
 <a class="jxr_linenumber" name="L229" href="#L229">229</a>             <strong class="jxr_keyword">final</strong> ProcessBuilder pb = <strong class="jxr_keyword">new</strong> ProcessBuilder(args);
 <a class="jxr_linenumber" name="L230" href="#L230">230</a>             <strong class="jxr_keyword">final</strong> Process p = pb.start();
 <a class="jxr_linenumber" name="L231" href="#L231">231</a>             <em class="jxr_comment">// Try evacuating the error stream</em>
-<a class="jxr_linenumber" name="L232" href="#L232">232</a>             rdr = <strong class="jxr_keyword">new</strong> BufferedReader(<strong class="jxr_keyword">new</strong> InputStreamReader(p.getErrorStream()));
-<a class="jxr_linenumber" name="L233" href="#L233">233</a>             String line;
-<a class="jxr_linenumber" name="L234" href="#L234">234</a>             <strong class="jxr_keyword">while</strong> (rdr.ready() &amp;&amp; (line = rdr.readLine()) != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L235" href="#L235">235</a>                 <em class="jxr_comment">// We expect this to complain</em>
-<a class="jxr_linenumber" name="L236" href="#L236">236</a>             }
-<a class="jxr_linenumber" name="L237" href="#L237">237</a>             <strong class="jxr_keyword">final</strong> Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(p.getInputStream());
-<a class="jxr_linenumber" name="L238" href="#L238">238</a>             <strong class="jxr_keyword">final</strong> XPath xpath = XPathFactory.newInstance().newXPath();
-<a class="jxr_linenumber" name="L239" href="#L239">239</a>             <strong class="jxr_keyword">final</strong> String error = xpath.evaluate(<span class="jxr_string">"/assembly/error"</span>, doc);
-<a class="jxr_linenumber" name="L240" href="#L240">240</a>             <strong class="jxr_keyword">if</strong> (p.waitFor() != 1 || error == <strong class="jxr_keyword">null</strong> || <span class="jxr_string">""</span>.equals(error)) {
-<a class="jxr_linenumber" name="L241" href="#L241">241</a>                 LOG.warning(<span class="jxr_string">"An error occured with the .NET AssemblyAnalyzer, please see the log for more details."</span>);
-<a class="jxr_linenumber" name="L242" href="#L242">242</a>                 LOG.fine(<span class="jxr_string">"GrokAssembly.exe is not working properly"</span>);
-<a class="jxr_linenumber" name="L243" href="#L243">243</a>                 grokAssemblyExe = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L244" href="#L244">244</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(<span class="jxr_string">"Could not execute .NET AssemblyAnalyzer"</span>);
-<a class="jxr_linenumber" name="L245" href="#L245">245</a>             }
-<a class="jxr_linenumber" name="L246" href="#L246">246</a>         } <strong class="jxr_keyword">catch</strong> (Throwable e) {
-<a class="jxr_linenumber" name="L247" href="#L247">247</a>             LOG.warning(<span class="jxr_string">"An error occured with the .NET AssemblyAnalyzer; "</span>
-<a class="jxr_linenumber" name="L248" href="#L248">248</a>                     + <span class="jxr_string">"this can be ignored unless you are scanning .NET dlls. Please see the log for more details."</span>);
-<a class="jxr_linenumber" name="L249" href="#L249">249</a>             LOG.log(Level.FINE, <span class="jxr_string">"Could not execute GrokAssembly {0}"</span>, e.getMessage());
-<a class="jxr_linenumber" name="L250" href="#L250">250</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(<span class="jxr_string">"An error occured with the .NET AssemblyAnalyzer"</span>, e);
-<a class="jxr_linenumber" name="L251" href="#L251">251</a>         } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L252" href="#L252">252</a>             <strong class="jxr_keyword">if</strong> (rdr != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L253" href="#L253">253</a>                 <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L254" href="#L254">254</a>                     rdr.close();
-<a class="jxr_linenumber" name="L255" href="#L255">255</a>                 } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L256" href="#L256">256</a>                     Logger.getLogger(AssemblyAnalyzer.<strong class="jxr_keyword">class</strong>.getName()).log(Level.FINEST, <span class="jxr_string">"ignore"</span>, ex);
-<a class="jxr_linenumber" name="L257" href="#L257">257</a>                 }
-<a class="jxr_linenumber" name="L258" href="#L258">258</a>             }
-<a class="jxr_linenumber" name="L259" href="#L259">259</a>         }
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> 
-<a class="jxr_linenumber" name="L261" href="#L261">261</a>         builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-<a class="jxr_linenumber" name="L262" href="#L262">262</a>     }
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>             rdr = <strong class="jxr_keyword">new</strong> BufferedReader(<strong class="jxr_keyword">new</strong> InputStreamReader(p.getErrorStream(), <span class="jxr_string">"UTF-8"</span>));
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>             <strong class="jxr_keyword">while</strong> (rdr.ready() &amp;&amp; rdr.readLine() != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>                 <em class="jxr_comment">// We expect this to complain</em>
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>             }
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>             <strong class="jxr_keyword">final</strong> Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(p.getInputStream());
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>             <strong class="jxr_keyword">final</strong> XPath xpath = XPathFactory.newInstance().newXPath();
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>             <strong class="jxr_keyword">final</strong> String error = xpath.evaluate(<span class="jxr_string">"/assembly/error"</span>, doc);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>             <strong class="jxr_keyword">if</strong> (p.waitFor() != 1 || error == <strong class="jxr_keyword">null</strong> || <span class="jxr_string">""</span>.equals(error)) {
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>                 LOGGER.warning(<span class="jxr_string">"An error occurred with the .NET AssemblyAnalyzer, please see the log for more details."</span>);
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>                 LOGGER.fine(<span class="jxr_string">"GrokAssembly.exe is not working properly"</span>);
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>                 grokAssemblyExe = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(<span class="jxr_string">"Could not execute .NET AssemblyAnalyzer"</span>);
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>             }
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>         } <strong class="jxr_keyword">catch</strong> (Throwable e) {
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>             <strong class="jxr_keyword">if</strong> (e instanceof AnalysisException) {
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>                 <strong class="jxr_keyword">throw</strong> (AnalysisException) e;
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>                 LOGGER.warning(<span class="jxr_string">"An error occured with the .NET AssemblyAnalyzer; "</span>
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>                         + <span class="jxr_string">"this can be ignored unless you are scanning .NET DLLs. Please see the log for more details."</span>);
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>                 LOGGER.log(Level.FINE, <span class="jxr_string">"Could not execute GrokAssembly {0}"</span>, e.getMessage());
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(<span class="jxr_string">"An error occured with the .NET AssemblyAnalyzer"</span>, e);
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>             }
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>             <strong class="jxr_keyword">if</strong> (rdr != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>                 <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>                     rdr.close();
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>                 } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>                     LOGGER.log(Level.FINEST, <span class="jxr_string">"ignore"</span>, ex);
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>                 }
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>             }
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>         }
 <a class="jxr_linenumber" name="L263" href="#L263">263</a> 
-<a class="jxr_linenumber" name="L264" href="#L264">264</a>     @Override
-<a class="jxr_linenumber" name="L265" href="#L265">265</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> close() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L266" href="#L266">266</a>         <strong class="jxr_keyword">super</strong>.close();
-<a class="jxr_linenumber" name="L267" href="#L267">267</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L268" href="#L268">268</a>             <strong class="jxr_keyword">if</strong> (grokAssemblyExe != <strong class="jxr_keyword">null</strong> &amp;&amp; !grokAssemblyExe.delete()) {
-<a class="jxr_linenumber" name="L269" href="#L269">269</a>                 grokAssemblyExe.deleteOnExit();
-<a class="jxr_linenumber" name="L270" href="#L270">270</a>             }
-<a class="jxr_linenumber" name="L271" href="#L271">271</a>         } <strong class="jxr_keyword">catch</strong> (SecurityException se) {
-<a class="jxr_linenumber" name="L272" href="#L272">272</a>             LOG.fine(<span class="jxr_string">"Can't delete temporary GrokAssembly.exe"</span>);
-<a class="jxr_linenumber" name="L273" href="#L273">273</a>         }
-<a class="jxr_linenumber" name="L274" href="#L274">274</a>     }
-<a class="jxr_linenumber" name="L275" href="#L275">275</a> 
-<a class="jxr_linenumber" name="L276" href="#L276">276</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L277" href="#L277">277</a> <em class="jxr_javadoccomment">     * Gets the set of extensions supported by this analyzer.</em>
-<a class="jxr_linenumber" name="L278" href="#L278">278</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L279" href="#L279">279</a> <em class="jxr_javadoccomment">     * @return the list of supported extensions</em>
-<a class="jxr_linenumber" name="L280" href="#L280">280</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L281" href="#L281">281</a>     @Override
-<a class="jxr_linenumber" name="L282" href="#L282">282</a>     <strong class="jxr_keyword">public</strong> Set&lt;String&gt; getSupportedExtensions() {
-<a class="jxr_linenumber" name="L283" href="#L283">283</a>         <strong class="jxr_keyword">return</strong> SUPORTED_EXTENSIONS;
-<a class="jxr_linenumber" name="L284" href="#L284">284</a>     }
-<a class="jxr_linenumber" name="L285" href="#L285">285</a> 
-<a class="jxr_linenumber" name="L286" href="#L286">286</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L287" href="#L287">287</a> <em class="jxr_javadoccomment">     * Gets this analyzer's name.</em>
-<a class="jxr_linenumber" name="L288" href="#L288">288</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L289" href="#L289">289</a> <em class="jxr_javadoccomment">     * @return the analyzer name</em>
-<a class="jxr_linenumber" name="L290" href="#L290">290</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L291" href="#L291">291</a>     @Override
-<a class="jxr_linenumber" name="L292" href="#L292">292</a>     <strong class="jxr_keyword">public</strong> String getName() {
-<a class="jxr_linenumber" name="L293" href="#L293">293</a>         <strong class="jxr_keyword">return</strong> ANALYZER_NAME;
-<a class="jxr_linenumber" name="L294" href="#L294">294</a>     }
-<a class="jxr_linenumber" name="L295" href="#L295">295</a> 
-<a class="jxr_linenumber" name="L296" href="#L296">296</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L297" href="#L297">297</a> <em class="jxr_javadoccomment">     * Returns the phase this analyzer runs under.</em>
-<a class="jxr_linenumber" name="L298" href="#L298">298</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L299" href="#L299">299</a> <em class="jxr_javadoccomment">     * @return the phase this runs under</em>
-<a class="jxr_linenumber" name="L300" href="#L300">300</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L301" href="#L301">301</a>     @Override
-<a class="jxr_linenumber" name="L302" href="#L302">302</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/AnalysisPhase.html">AnalysisPhase</a> getAnalysisPhase() {
-<a class="jxr_linenumber" name="L303" href="#L303">303</a>         <strong class="jxr_keyword">return</strong> ANALYSIS_PHASE;
-<a class="jxr_linenumber" name="L304" href="#L304">304</a>     }
-<a class="jxr_linenumber" name="L305" href="#L305">305</a> 
-<a class="jxr_linenumber" name="L306" href="#L306">306</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">     * Returns the key used in the properties file to reference the analyzer's enabled property.</em>
-<a class="jxr_linenumber" name="L308" href="#L308">308</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L309" href="#L309">309</a> <em class="jxr_javadoccomment">     * @return the analyzer's enabled property setting key</em>
-<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L311" href="#L311">311</a>     @Override
-<a class="jxr_linenumber" name="L312" href="#L312">312</a>     <strong class="jxr_keyword">protected</strong> String getAnalyzerEnabledSettingKey() {
-<a class="jxr_linenumber" name="L313" href="#L313">313</a>         <strong class="jxr_keyword">return</strong> Settings.KEYS.ANALYZER_ASSEMBLY_ENABLED;
-<a class="jxr_linenumber" name="L314" href="#L314">314</a>     }
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> }
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>         builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>     }
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>     @Override
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> close() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>         <strong class="jxr_keyword">super</strong>.close();
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>             <strong class="jxr_keyword">if</strong> (grokAssemblyExe != <strong class="jxr_keyword">null</strong> &amp;&amp; !grokAssemblyExe.delete()) {
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>                 grokAssemblyExe.deleteOnExit();
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>             }
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>         } <strong class="jxr_keyword">catch</strong> (SecurityException se) {
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>             LOGGER.fine(<span class="jxr_string">"Can't delete temporary GrokAssembly.exe"</span>);
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>         }
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>     }
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> 
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L280" href="#L280">280</a> <em class="jxr_javadoccomment">     * Gets the set of extensions supported by this analyzer.</em>
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> <em class="jxr_javadoccomment">     * @return the list of supported extensions</em>
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>     @Override
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>     <strong class="jxr_keyword">public</strong> Set&lt;String&gt; getSupportedExtensions() {
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>         <strong class="jxr_keyword">return</strong> SUPPORTED_EXTENSIONS;
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>     }
+<a class="jxr_linenumber" name="L288" href="#L288">288</a> 
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> <em class="jxr_javadoccomment">     * Gets this analyzer's name.</em>
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L292" href="#L292">292</a> <em class="jxr_javadoccomment">     * @return the analyzer name</em>
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>     @Override
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>     <strong class="jxr_keyword">public</strong> String getName() {
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>         <strong class="jxr_keyword">return</strong> ANALYZER_NAME;
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>     }
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> 
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> <em class="jxr_javadoccomment">     * Returns the phase this analyzer runs under.</em>
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> <em class="jxr_javadoccomment">     * @return the phase this runs under</em>
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>     @Override
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/AnalysisPhase.html">AnalysisPhase</a> getAnalysisPhase() {
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>         <strong class="jxr_keyword">return</strong> ANALYSIS_PHASE;
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>     }
+<a class="jxr_linenumber" name="L308" href="#L308">308</a> 
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">     * Returns the key used in the properties file to reference the analyzer's enabled property.</em>
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> <em class="jxr_javadoccomment">     * @return the analyzer's enabled property setting key</em>
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>     @Override
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>     <strong class="jxr_keyword">protected</strong> String getAnalyzerEnabledSettingKey() {
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>         <strong class="jxr_keyword">return</strong> Settings.KEYS.ANALYZER_ASSEMBLY_ENABLED;
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>     }
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
