@@ -16,3 +16,4 @@ dependency-reduced-pom.xml
 Gemfile
 Gemfile.lock
 _site/**
+cov-int
