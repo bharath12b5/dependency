@@ -874,7 +874,7 @@
 <a class="jxr_linenumber" name="L866" href="#L866">866</a> 
 <a class="jxr_linenumber" name="L867" href="#L867">867</a>         Engine engine = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L868" href="#L868">868</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L869" href="#L869">869</a>             engine = <strong class="jxr_keyword">new</strong> Engine();
+<a class="jxr_linenumber" name="L869" href="#L869">869</a>             engine = <strong class="jxr_keyword">new</strong> Engine(DependencyCheckTask.<strong class="jxr_keyword">class</strong>.getClassLoader());
 <a class="jxr_linenumber" name="L870" href="#L870">870</a> 
 <a class="jxr_linenumber" name="L871" href="#L871">871</a>             <strong class="jxr_keyword">for</strong> (Resource resource : path) {
 <a class="jxr_linenumber" name="L872" href="#L872">872</a>                 <strong class="jxr_keyword">final</strong> FileProvider provider = resource.as(FileProvider.<strong class="jxr_keyword">class</strong>);
@@ -920,7 +920,7 @@
 <a class="jxr_linenumber" name="L912" href="#L912">912</a>             LOGGER.log(Level.SEVERE, <span class="jxr_string">"Unable to connect to the dependency-check database; analysis has stopped"</span>);
 <a class="jxr_linenumber" name="L913" href="#L913">913</a>             LOGGER.log(Level.FINE, <span class="jxr_string">""</span>, ex);
 <a class="jxr_linenumber" name="L914" href="#L914">914</a>         } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L915" href="#L915">915</a>             Settings.cleanup();
+<a class="jxr_linenumber" name="L915" href="#L915">915</a>             Settings.cleanup(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L916" href="#L916">916</a>             <strong class="jxr_keyword">if</strong> (engine != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L917" href="#L917">917</a>                 engine.cleanup();
 <a class="jxr_linenumber" name="L918" href="#L918">918</a>             }

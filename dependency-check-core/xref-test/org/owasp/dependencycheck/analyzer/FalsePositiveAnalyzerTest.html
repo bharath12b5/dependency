@@ -64,16 +64,17 @@
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAnalyze() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>          Dependency dependency = <strong class="jxr_keyword">new</strong> Dependency();
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>          dependency.setFileName(<span class="jxr_string">"pom.xml"</span>);
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:file:file:1.2.1"</span>, <span class="jxr_string">"http://some.org/url"</span>);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          Engine engine = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>          FalsePositiveAnalyzer instance = <strong class="jxr_keyword">new</strong> FalsePositiveAnalyzer();
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <strong class="jxr_keyword">int</strong> before = dependency.getIdentifiers().size();
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>          instance.analyze(dependency, engine);
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">int</strong> after = dependency.getIdentifiers().size();
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>          assertTrue(before &gt; after);
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>      }
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  }
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          dependency.setFilePath(<span class="jxr_string">"pom.xml"</span>);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:file:file:1.2.1"</span>, <span class="jxr_string">"http://some.org/url"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          Engine engine = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          FalsePositiveAnalyzer instance = <strong class="jxr_keyword">new</strong> FalsePositiveAnalyzer();
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">int</strong> before = dependency.getIdentifiers().size();
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          instance.analyze(dependency, engine);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <strong class="jxr_keyword">int</strong> after = dependency.getIdentifiers().size();
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          assertTrue(before &gt; after);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      }
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>

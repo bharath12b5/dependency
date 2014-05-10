@@ -1708,7 +1708,7 @@
 <tr>  <td class="numLineCover">&nbsp;867</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;        Engine engine = <span class="keyword">null</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;868</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;869</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;            engine = <span class="keyword">new</span> Engine();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;869</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;            engine = <span class="keyword">new</span> Engine(DependencyCheckTask.<span class="keyword">class</span>.getClassLoader());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;870</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;871</td>  <td class="nbHitsCovered"><a title="Line 871: Conditional coverage 100% (2/2).">&nbsp;3</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 871: Conditional coverage 100% (2/2).">            <span class="keyword">for</span> (Resource resource : path) {</a></pre></td></tr>
@@ -1766,7 +1766,7 @@
 <tr>  <td class="numLineCover">&nbsp;913</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            LOGGER.log(Level.FINE, <span class="string">""</span>, ex);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;914</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">finally</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;915</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;            Settings.cleanup();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;915</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;            Settings.cleanup(<span class="keyword">true</span>);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;916</td>  <td class="nbHitsUncovered"><a title="Line 916: Conditional coverage 16% (1/6) [each condition: 50%, 0%, 0%].">&nbsp;3</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 916: Conditional coverage 16% (1/6) [each condition: 50%, 0%, 0%].">            <span class="keyword">if</span> (engine != <span class="keyword">null</span>) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;917</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                engine.cleanup();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;918</td>  <td class="nbHits">&nbsp;</td>
@@ -2004,15 +2004,15 @@
 <tr>  <td class="numLineCover">&nbsp;1076</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">boolean</span> firstEntry = <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;1077</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> StringBuilder ids = <span class="keyword">new</span> StringBuilder();</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;1078</td>  <td class="nbHitsCovered"><a title="Line 1078: Conditional coverage 100% (2/2).">&nbsp;5</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1078: Conditional coverage 100% (2/2).">            <span class="keyword">for</span> (Vulnerability v : d.getVulnerabilities()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1079</td>  <td class="nbHitsCovered"><a title="Line 1079: Conditional coverage 100% (2/2).">&nbsp;20</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1079: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (firstEntry) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1079</td>  <td class="nbHitsCovered"><a title="Line 1079: Conditional coverage 100% (2/2).">&nbsp;21</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1079: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (firstEntry) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;1080</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;                    firstEntry = <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1081</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                } <span class="keyword">else</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1082</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;                    ids.append(<span class="string">", "</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1082</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;                    ids.append(<span class="string">", "</span>);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;1083</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1084</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                ids.append(v.getName());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;1085</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1084</td>  <td class="nbHitsCovered">&nbsp;21</td>  <td class="src"><pre class="src">&nbsp;                ids.append(v.getName());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;1085</td>  <td class="nbHitsCovered">&nbsp;21</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;1086</td>  <td class="nbHitsCovered"><a title="Line 1086: Conditional coverage 100% (2/2).">&nbsp;5</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 1086: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (ids.length() &gt; 0) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;1087</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;                summary.append(d.getFileName()).append(<span class="string">" ("</span>);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;1088</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;                firstEntry = <span class="keyword">true</span>;</pre></td></tr>
@@ -2109,6 +2109,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 4/28/14 8:41 AM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 5/10/14 8:07 AM.</div>
 </body>
 </html>
