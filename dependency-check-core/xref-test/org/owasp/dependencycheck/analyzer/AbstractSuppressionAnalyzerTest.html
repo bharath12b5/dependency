@@ -42,8 +42,8 @@
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Level;
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Logger;
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertEquals;
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertNull;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertNull;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertTrue;
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment"> * @author Jeremy Long &lt;jeremy.long@owasp.org&gt;</em>
@@ -75,7 +75,7 @@
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>          instance.initialize();
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">int</strong> expCount = 5;
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>          List&lt;SuppressionRule&gt; result = instance.getRules();
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          assertEquals(expCount, result.size());
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          assertTrue(expCount &lt;= result.size());
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>      }
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>      <em class="jxr_javadoccomment">/**</em>
@@ -87,7 +87,7 @@
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>          instance.initialize();
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>          <strong class="jxr_keyword">int</strong> expCount = 5;
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>          List&lt;SuppressionRule&gt; result = instance.getRules();
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>          assertEquals(expCount, result.size());
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          assertTrue(expCount &lt;= result.size());
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>      }
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>      @Test(expected = SuppressionParseException.<strong class="jxr_keyword">class</strong>)

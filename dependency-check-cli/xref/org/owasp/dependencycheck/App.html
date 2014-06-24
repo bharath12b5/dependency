@@ -169,7 +169,7 @@
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 
 <a class="jxr_linenumber" name="L162" href="#L162">162</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> autoUpdate = cli.isAutoUpdate();
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>         <strong class="jxr_keyword">final</strong> String connectionTimeout = cli.getConnectionTimeout();
-<a class="jxr_linenumber" name="L164" href="#L164">164</a>         <strong class="jxr_keyword">final</strong> String proxyUrl = cli.getProxyUrl();
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>         <strong class="jxr_keyword">final</strong> String proxyServer = cli.getProxyServer();
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>         <strong class="jxr_keyword">final</strong> String proxyPort = cli.getProxyPort();
 <a class="jxr_linenumber" name="L166" href="#L166">166</a>         <strong class="jxr_keyword">final</strong> String proxyUser = cli.getProxyUsername();
 <a class="jxr_linenumber" name="L167" href="#L167">167</a>         <strong class="jxr_keyword">final</strong> String proxyPass = cli.getProxyPassword();
@@ -220,8 +220,8 @@
 <a class="jxr_linenumber" name="L212" href="#L212">212</a>             Settings.setString(Settings.KEYS.DATA_DIRECTORY, dataDir.getAbsolutePath());
 <a class="jxr_linenumber" name="L213" href="#L213">213</a>         }
 <a class="jxr_linenumber" name="L214" href="#L214">214</a>         Settings.setBoolean(Settings.KEYS.AUTO_UPDATE, autoUpdate);
-<a class="jxr_linenumber" name="L215" href="#L215">215</a>         <strong class="jxr_keyword">if</strong> (proxyUrl != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyUrl.isEmpty()) {
-<a class="jxr_linenumber" name="L216" href="#L216">216</a>             Settings.setString(Settings.KEYS.PROXY_URL, proxyUrl);
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>         <strong class="jxr_keyword">if</strong> (proxyServer != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyServer.isEmpty()) {
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>             Settings.setString(Settings.KEYS.PROXY_SERVER, proxyServer);
 <a class="jxr_linenumber" name="L217" href="#L217">217</a>         }
 <a class="jxr_linenumber" name="L218" href="#L218">218</a>         <strong class="jxr_keyword">if</strong> (proxyPort != <strong class="jxr_keyword">null</strong> &amp;&amp; !proxyPort.isEmpty()) {
 <a class="jxr_linenumber" name="L219" href="#L219">219</a>             Settings.setString(Settings.KEYS.PROXY_PORT, proxyPort);
