@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2013 - 2014 OWASP</copyright>
     <item>
-      <title>File: 15,
-             Errors: 20,
+      <title>File: 19,
+             Errors: 2,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.package-info.java">org/owasp/dependencycheck/maven/package-info.java</a>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.ReportingUtil.java">org/owasp/dependencycheck/maven/ReportingUtil.java</a>
                 </td>
                 <td>
                   0
@@ -74,6 +74,34 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.package-info.java">org/owasp/dependencycheck/maven/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.ReportAggregationMojo.java">org/owasp/dependencycheck/maven/ReportAggregationMojo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.DependencyCheckMojo.java">src/main/java/org/owasp/dependencycheck/maven/DependencyCheckMojo.java</a>
                 </td>
                 <td>
@@ -83,7 +111,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  20
+                  0
                 </td>
               </tr>
                           <tr>
@@ -200,20 +228,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#log.properties">log.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://maven.apache.org/checkstyle.html#target.generated-classes.cobertura.log.properties">target/generated-classes/cobertura/log.properties</a>
                 </td>
                 <td>
@@ -228,7 +242,49 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="http://maven.apache.org/checkstyle.html#log.properties">log.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.ReportAggregationMojo.java">src/main/java/org/owasp/dependencycheck/maven/ReportAggregationMojo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://maven.apache.org/checkstyle.html#src.main.resources.mojo.properties">src/main/resources/mojo.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.ReportingUtil.java">src/main/java/org/owasp/dependencycheck/maven/ReportingUtil.java</a>
                 </td>
                 <td>
                   0

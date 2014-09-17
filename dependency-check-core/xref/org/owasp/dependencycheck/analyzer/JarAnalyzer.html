@@ -595,7 +595,7 @@
 <a class="jxr_linenumber" name="L587" href="#L587">587</a>                 groupid = groupid.substring(4);
 <a class="jxr_linenumber" name="L588" href="#L588">588</a>             }
 <a class="jxr_linenumber" name="L589" href="#L589">589</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L590" href="#L590">590</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"groupid"</span>, groupid, Confidence.HIGH);
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"groupid"</span>, groupid, Confidence.HIGHEST);
 <a class="jxr_linenumber" name="L591" href="#L591">591</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"groupid"</span>, groupid, Confidence.LOW);
 <a class="jxr_linenumber" name="L592" href="#L592">592</a>             addMatchingValues(classes, groupid, dependency.getVendorEvidence());
 <a class="jxr_linenumber" name="L593" href="#L593">593</a>             addMatchingValues(classes, groupid, dependency.getProductEvidence());
@@ -624,7 +624,7 @@
 <a class="jxr_linenumber" name="L616" href="#L616">616</a>                 artifactid = artifactid.substring(4);
 <a class="jxr_linenumber" name="L617" href="#L617">617</a>             }
 <a class="jxr_linenumber" name="L618" href="#L618">618</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L619" href="#L619">619</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"artifactid"</span>, artifactid, Confidence.HIGH);
+<a class="jxr_linenumber" name="L619" href="#L619">619</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"artifactid"</span>, artifactid, Confidence.HIGHEST);
 <a class="jxr_linenumber" name="L620" href="#L620">620</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"artifactid"</span>, artifactid, Confidence.LOW);
 <a class="jxr_linenumber" name="L621" href="#L621">621</a>             addMatchingValues(classes, artifactid, dependency.getVendorEvidence());
 <a class="jxr_linenumber" name="L622" href="#L622">622</a>             addMatchingValues(classes, artifactid, dependency.getProductEvidence());
