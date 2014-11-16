@@ -150,8 +150,8 @@
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> <em class="jxr_javadoccomment">     * @return a map of the database meta data</em>
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L145" href="#L145">145</a>     <strong class="jxr_keyword">public</strong> Map getMetaData() {
-<a class="jxr_linenumber" name="L146" href="#L146">146</a>         <strong class="jxr_keyword">final</strong> TreeMap map = <strong class="jxr_keyword">new</strong> TreeMap();
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>     <strong class="jxr_keyword">public</strong> Map&lt;String, String&gt; getMetaData() {
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>         <strong class="jxr_keyword">final</strong> TreeMap&lt;String, String&gt; map = <strong class="jxr_keyword">new</strong> TreeMap&lt;String, String&gt;();
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>         <strong class="jxr_keyword">for</strong> (Entry&lt;Object, Object&gt; entry : properties.entrySet()) {
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>             <strong class="jxr_keyword">final</strong> String key = (String) entry.getKey();
 <a class="jxr_linenumber" name="L149" href="#L149">149</a>             <strong class="jxr_keyword">if</strong> (!<span class="jxr_string">"version"</span>.equals(key)) {
@@ -164,10 +164,10 @@
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>                         map.put(key, formatted);
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>                     } <strong class="jxr_keyword">catch</strong> (Throwable ex) { <em class="jxr_comment">//deliberately being broad in this catch clause</em>
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>                         LOGGER.log(Level.FINE, <span class="jxr_string">"Unable to parse timestamp from DB"</span>, ex);
-<a class="jxr_linenumber" name="L159" href="#L159">159</a>                         map.put(key, entry.getValue());
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                         map.put(key, (String) entry.getValue());
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>                     }
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L162" href="#L162">162</a>                     map.put(key, entry.getValue());
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                     map.put(key, (String) entry.getValue());
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>                 }
 <a class="jxr_linenumber" name="L164" href="#L164">164</a>             }
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>         }

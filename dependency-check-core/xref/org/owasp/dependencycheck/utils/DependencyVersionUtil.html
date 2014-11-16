@@ -40,7 +40,7 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">     * Regular expression to extract version numbers from file names.</em>
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Pattern RX_VERSION = Pattern.compile(<span class="jxr_string">"&#92;&#92;d+(&#92;&#92;.&#92;&#92;d{1,6})+(&#92;&#92;.?([_-](release|beta|alpha)|[a-zA-Z_-]{1,3}&#92;&#92;d{1,8}))?"</span>);
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Pattern RX_VERSION = Pattern.compile(<span class="jxr_string">"&#92;&#92;d+(&#92;&#92;.&#92;&#92;d{1,6})+(&#92;&#92;.?([_-](release|beta|alpha|&#92;&#92;d+)|[a-zA-Z_-]{1,3}&#92;&#92;d{0,8}))?"</span>);
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     * Regular expression to extract a single version number without periods. This is a last ditch effort just to check</em>
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     * in case we are missing a version number using the previous regex.</em>

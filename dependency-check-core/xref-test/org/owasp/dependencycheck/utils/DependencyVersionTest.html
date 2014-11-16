@@ -173,28 +173,36 @@
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>         version = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3.1"</span>);
 <a class="jxr_linenumber" name="L166" href="#L166">166</a>         assertEquals(-1, instance.compareTo(version));
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> 
-<a class="jxr_linenumber" name="L168" href="#L168">168</a>         DependencyVersion[] dv = <strong class="jxr_keyword">new</strong> DependencyVersion[7];
-<a class="jxr_linenumber" name="L169" href="#L169">169</a>         dv[0] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3"</span>);
-<a class="jxr_linenumber" name="L170" href="#L170">170</a>         dv[1] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r2"</span>);
-<a class="jxr_linenumber" name="L171" href="#L171">171</a>         dv[2] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r1"</span>);
-<a class="jxr_linenumber" name="L172" href="#L172">172</a>         dv[3] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3.1"</span>);
-<a class="jxr_linenumber" name="L173" href="#L173">173</a>         dv[4] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3"</span>);
-<a class="jxr_linenumber" name="L174" href="#L174">174</a>         dv[5] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2"</span>);
-<a class="jxr_linenumber" name="L175" href="#L175">175</a>         dv[6] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"-"</span>);
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 
-<a class="jxr_linenumber" name="L177" href="#L177">177</a>         DependencyVersion[] expected = <strong class="jxr_keyword">new</strong> DependencyVersion[7];
-<a class="jxr_linenumber" name="L178" href="#L178">178</a>         expected[0] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"-"</span>);
-<a class="jxr_linenumber" name="L179" href="#L179">179</a>         expected[1] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3"</span>);
-<a class="jxr_linenumber" name="L180" href="#L180">180</a>         expected[2] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3.1"</span>);
-<a class="jxr_linenumber" name="L181" href="#L181">181</a>         expected[3] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2"</span>);
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>         expected[4] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3"</span>);
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>         expected[5] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r1"</span>);
-<a class="jxr_linenumber" name="L184" href="#L184">184</a>         expected[6] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r2"</span>);
-<a class="jxr_linenumber" name="L185" href="#L185">185</a>         java.util.Arrays.sort(dv);
-<a class="jxr_linenumber" name="L186" href="#L186">186</a> 
-<a class="jxr_linenumber" name="L187" href="#L187">187</a>         assertArrayEquals(expected, dv);
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>     }
-<a class="jxr_linenumber" name="L189" href="#L189">189</a> }
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>         instance = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.0.1n"</span>);
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>         version = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.0.1m"</span>);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>         assertEquals(1, instance.compareTo(version));
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>         version = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.0.1n"</span>);
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>         assertEquals(0, instance.compareTo(version));
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>         version = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.0.1o"</span>);
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>         assertEquals(-1, instance.compareTo(version));
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         DependencyVersion[] dv = <strong class="jxr_keyword">new</strong> DependencyVersion[7];
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         dv[0] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3"</span>);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>         dv[1] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r2"</span>);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>         dv[2] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r1"</span>);
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>         dv[3] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3.1"</span>);
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>         dv[4] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3"</span>);
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>         dv[5] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2"</span>);
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         dv[6] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"-"</span>);
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> 
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>         DependencyVersion[] expected = <strong class="jxr_keyword">new</strong> DependencyVersion[7];
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>         expected[0] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"-"</span>);
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>         expected[1] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3"</span>);
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>         expected[2] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"1.2.3.1"</span>);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>         expected[3] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2"</span>);
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>         expected[4] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3"</span>);
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>         expected[5] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r1"</span>);
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>         expected[6] = <strong class="jxr_keyword">new</strong> DependencyVersion(<span class="jxr_string">"2.1.3.r2"</span>);
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>         java.util.Arrays.sort(dv);
+<a class="jxr_linenumber" name="L194" href="#L194">194</a> 
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>         assertArrayEquals(expected, dv);
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>     }
+<a class="jxr_linenumber" name="L197" href="#L197">197</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>

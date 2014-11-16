@@ -314,14 +314,14 @@
 <a class="jxr_linenumber" name="L306" href="#L306">306</a> <em class="jxr_javadoccomment">     * @throws DatabaseException thrown when there is an error retrieving the data from the DB</em>
 <a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L308" href="#L308">308</a>     <strong class="jxr_keyword">public</strong> Set&lt;Pair&lt;String, String&gt;&gt; getVendorProductList() <strong class="jxr_keyword">throws</strong> DatabaseException {
-<a class="jxr_linenumber" name="L309" href="#L309">309</a>         <strong class="jxr_keyword">final</strong> HashSet data = <strong class="jxr_keyword">new</strong> HashSet&lt;Pair&lt;String, String&gt;&gt;();
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>         <strong class="jxr_keyword">final</strong> Set&lt;Pair&lt;String, String&gt;&gt; data = <strong class="jxr_keyword">new</strong> HashSet&lt;Pair&lt;String, String&gt;&gt;();
 <a class="jxr_linenumber" name="L310" href="#L310">310</a>         ResultSet rs = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L311" href="#L311">311</a>         PreparedStatement ps = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L312" href="#L312">312</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L313" href="#L313">313</a>             ps = getConnection().prepareStatement(SELECT_VENDOR_PRODUCT_LIST);
 <a class="jxr_linenumber" name="L314" href="#L314">314</a>             rs = ps.executeQuery();
 <a class="jxr_linenumber" name="L315" href="#L315">315</a>             <strong class="jxr_keyword">while</strong> (rs.next()) {
-<a class="jxr_linenumber" name="L316" href="#L316">316</a>                 data.add(<strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/utils/Pair.html">Pair</a>(rs.getString(1), rs.getString(2)));
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>                 data.add(<strong class="jxr_keyword">new</strong> Pair&lt;String, String&gt;(rs.getString(1), rs.getString(2)));
 <a class="jxr_linenumber" name="L317" href="#L317">317</a>             }
 <a class="jxr_linenumber" name="L318" href="#L318">318</a>         } <strong class="jxr_keyword">catch</strong> (SQLException ex) {
 <a class="jxr_linenumber" name="L319" href="#L319">319</a>             <strong class="jxr_keyword">final</strong> String msg = <span class="jxr_string">"An unexpected SQL Exception occurred; please see the verbose log for more details."</span>;
@@ -739,7 +739,7 @@
 <a class="jxr_linenumber" name="L731" href="#L731">731</a> <em class="jxr_javadoccomment">     * @param previous a flag indicating if previous versions of the product are vulnerable</em>
 <a class="jxr_linenumber" name="L732" href="#L732">732</a> <em class="jxr_javadoccomment">     * @return true if the identified version is affected, otherwise false</em>
 <a class="jxr_linenumber" name="L733" href="#L733">733</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L734" href="#L734">734</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> isAffected(String vendor, String product, <a href="../../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> identifiedVersion, String cpeId, String previous) {
+<a class="jxr_linenumber" name="L734" href="#L734">734</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> isAffected(String vendor, String product, <a href="../../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> identifiedVersion, String cpeId, String previous) {
 <a class="jxr_linenumber" name="L735" href="#L735">735</a>         <strong class="jxr_keyword">boolean</strong> affected = false;
 <a class="jxr_linenumber" name="L736" href="#L736">736</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> isStruts = <span class="jxr_string">"apache"</span>.equals(vendor) &amp;&amp; <span class="jxr_string">"struts"</span>.equals(product);
 <a class="jxr_linenumber" name="L737" href="#L737">737</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> v = parseDependencyVersion(cpeId);

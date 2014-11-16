@@ -120,7 +120,7 @@
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>                     <strong class="jxr_keyword">while</strong> (subIterator.hasNext()) {
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>                         <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> nextDependency = subIterator.next();
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>                         <strong class="jxr_keyword">if</strong> (hashesMatch(dependency, nextDependency)) {
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>                             <strong class="jxr_keyword">if</strong> (isCore(dependency, nextDependency)) {
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>                             <strong class="jxr_keyword">if</strong> (firstPathIsShortest(dependency.getFilePath(), nextDependency.getFilePath())) {
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>                                 mergeDependencies(dependency, nextDependency, dependenciesToRemove);
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>                             } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>                                 mergeDependencies(nextDependency, dependency, dependenciesToRemove);
@@ -398,7 +398,46 @@
 <a class="jxr_linenumber" name="L390" href="#L390">390</a>         }
 <a class="jxr_linenumber" name="L391" href="#L391">391</a>         <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L392" href="#L392">392</a>     }
-<a class="jxr_linenumber" name="L393" href="#L393">393</a> }
+<a class="jxr_linenumber" name="L393" href="#L393">393</a> 
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L395" href="#L395">395</a> <em class="jxr_javadoccomment">     * Determines which path is shortest; if path lengths are equal then we use compareTo of the string method to</em>
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> <em class="jxr_javadoccomment">     * determine if the first path is smaller.</em>
+<a class="jxr_linenumber" name="L397" href="#L397">397</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> <em class="jxr_javadoccomment">     * @param left the first path to compare</em>
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> <em class="jxr_javadoccomment">     * @param right the second path to compare</em>
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if the leftPath is the shortest; otherwise &lt;code&gt;false&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> firstPathIsShortest(String left, String right) {
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>         <strong class="jxr_keyword">final</strong> String leftPath = left.replace('&#92;&#92;', '/');
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>         <strong class="jxr_keyword">final</strong> String rightPath = right.replace('&#92;&#92;', '/');
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> 
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> leftCount = countChar(leftPath, '/');
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> rightCount = countChar(rightPath, '/');
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>         <strong class="jxr_keyword">if</strong> (leftCount == rightCount) {
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>             <strong class="jxr_keyword">return</strong> leftPath.compareTo(rightPath) &lt;= 0;
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>             <strong class="jxr_keyword">return</strong> leftCount &lt; rightCount;
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>         }
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>     }
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> 
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> <em class="jxr_javadoccomment">     * Counts the number of times the character is present in the string.</em>
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> <em class="jxr_javadoccomment">     * @param string the string to count the characters in</em>
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> <em class="jxr_javadoccomment">     * @param c the character to count</em>
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> <em class="jxr_javadoccomment">     * @return the number of times the character is present in the string</em>
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> countChar(String string, <strong class="jxr_keyword">char</strong> c) {
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>         <strong class="jxr_keyword">int</strong> count = 0;
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> max = string.length();
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; max; i++) {
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>             <strong class="jxr_keyword">if</strong> (c == string.charAt(i)) {
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>                 count++;
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>             }
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>         }
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>         <strong class="jxr_keyword">return</strong> count;
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>     }
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>

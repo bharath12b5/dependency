@@ -50,12 +50,12 @@
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>          URL url = <strong class="jxr_keyword">new</strong> URL(Settings.getString(Settings.KEYS.CVE_MODIFIED_20_URL));
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>          File outputPath = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"target/downloaded_cve.xml"</span>);
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>          Downloader.fetchFile(url, outputPath);
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          assertTrue(outputPath.isFile());
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>      }
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>      @Test
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetLastModified() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          URL url = <strong class="jxr_keyword">new</strong> URL(<span class="jxr_string">"http://nvd.nist.gov/download/nvdcve-2012.xml"</span>);
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          URL url = <strong class="jxr_keyword">new</strong> URL(Settings.getString(Settings.KEYS.CVE_MODIFIED_20_URL));
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">long</strong> timestamp = Downloader.getLastModified(url);
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>          assertTrue(<span class="jxr_string">"timestamp equal to zero?"</span>, timestamp &gt; 0);
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>      }
