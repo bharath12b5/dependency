@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2013 - 2014 OWASP</copyright>
     <item>
-      <title>File: 19,
+      <title>File: 21,
              Errors: 2,
              Warnings: 0,
              Infos: 0
@@ -172,6 +172,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.Engine.java">src/main/java/org/owasp/dependencycheck/maven/Engine.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://maven.apache.org/checkstyle.html#src.main.resources.log.properties">src/main/resources/log.properties</a>
                 </td>
                 <td>
@@ -201,6 +215,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-help.properties">target/maven-plugin-help.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.Engine.java">org/owasp/dependencycheck/maven/Engine.java</a>
                 </td>
                 <td>
                   0

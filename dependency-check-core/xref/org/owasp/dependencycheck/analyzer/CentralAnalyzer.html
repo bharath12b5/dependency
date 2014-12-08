@@ -107,7 +107,7 @@
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>              <strong class="jxr_keyword">if</strong> (Settings.getBoolean(Settings.KEYS.ANALYZER_CENTRAL_ENABLED)) {
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>                 <strong class="jxr_keyword">if</strong> (!Settings.getBoolean(Settings.KEYS.ANALYZER_NEXUS_ENABLED)
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>                         || NexusAnalyzer.DEFAULT_URL.equals(Settings.getString(Settings.KEYS.ANALYZER_NEXUS_URL))) {
-<a class="jxr_linenumber" name="L102" href="#L102">102</a>                     LOGGER.info(<span class="jxr_string">"Enabling the Central analyzer"</span>);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>                     LOGGER.fine(<span class="jxr_string">"Enabling the Central analyzer"</span>);
 <a class="jxr_linenumber" name="L103" href="#L103">103</a>                     retval = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>                     LOGGER.info(<span class="jxr_string">"Nexus analyzer is enabled, disabling the Central Analyzer"</span>);
