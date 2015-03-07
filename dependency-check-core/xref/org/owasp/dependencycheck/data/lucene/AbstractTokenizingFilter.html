@@ -80,7 +80,7 @@
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_javadoccomment">     * @return whether or not a new term was added</em>
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> addTerm() {
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> termAdded = tokens.size() &gt; 0;
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> termAdded = !tokens.isEmpty();
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>          <strong class="jxr_keyword">if</strong> (termAdded) {
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>              <strong class="jxr_keyword">final</strong> String term = tokens.pop();
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>              clearAttributes();
@@ -91,6 +91,6 @@
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

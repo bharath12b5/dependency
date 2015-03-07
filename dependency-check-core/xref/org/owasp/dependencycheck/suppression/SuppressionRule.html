@@ -120,7 +120,7 @@
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_javadoccomment">     * @return whether or not this suppression rule as CPE entries</em>
 <a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasCpe() {
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>         <strong class="jxr_keyword">return</strong> cpe.size() &gt; 0;
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         <strong class="jxr_keyword">return</strong> !cpe.isEmpty();
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>     }
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_javadoccomment">     * The list of cvssBelow scores.</em>
@@ -160,7 +160,7 @@
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> <em class="jxr_javadoccomment">     * @return whether or not this suppression rule has cvss suppressions</em>
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasCvssBelow() {
-<a class="jxr_linenumber" name="L155" href="#L155">155</a>         <strong class="jxr_keyword">return</strong> cvssBelow.size() &gt; 0;
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         <strong class="jxr_keyword">return</strong> !cvssBelow.isEmpty();
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>     }
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> <em class="jxr_javadoccomment">     * The list of cwe entries to suppress.</em>
@@ -200,7 +200,7 @@
 <a class="jxr_linenumber" name="L192" href="#L192">192</a> <em class="jxr_javadoccomment">     * @return whether this suppression rule has CWE entries</em>
 <a class="jxr_linenumber" name="L193" href="#L193">193</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L194" href="#L194">194</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasCwe() {
-<a class="jxr_linenumber" name="L195" href="#L195">195</a>         <strong class="jxr_keyword">return</strong> cwe.size() &gt; 0;
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>         <strong class="jxr_keyword">return</strong> !cwe.isEmpty();
 <a class="jxr_linenumber" name="L196" href="#L196">196</a>     }
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L198" href="#L198">198</a> <em class="jxr_javadoccomment">     * The list of cve entries to suppress.</em>
@@ -240,7 +240,7 @@
 <a class="jxr_linenumber" name="L232" href="#L232">232</a> <em class="jxr_javadoccomment">     * @return whether this suppression rule has CVE entries</em>
 <a class="jxr_linenumber" name="L233" href="#L233">233</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L234" href="#L234">234</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasCve() {
-<a class="jxr_linenumber" name="L235" href="#L235">235</a>         <strong class="jxr_keyword">return</strong> cve.size() &gt; 0;
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>         <strong class="jxr_keyword">return</strong> !cve.isEmpty();
 <a class="jxr_linenumber" name="L236" href="#L236">236</a>     }
 <a class="jxr_linenumber" name="L237" href="#L237">237</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L238" href="#L238">238</a> <em class="jxr_javadoccomment">     * A Maven GAV to suppression.</em>
@@ -458,28 +458,28 @@
 <a class="jxr_linenumber" name="L450" href="#L450">450</a>         <strong class="jxr_keyword">if</strong> (gav != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L451" href="#L451">451</a>             sb.append(<span class="jxr_string">"gav="</span>).append(gav).append(<span class="jxr_string">","</span>);
 <a class="jxr_linenumber" name="L452" href="#L452">452</a>         }
-<a class="jxr_linenumber" name="L453" href="#L453">453</a>         <strong class="jxr_keyword">if</strong> (cpe != <strong class="jxr_keyword">null</strong> &amp;&amp; cpe.size() &gt; 0) {
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>         <strong class="jxr_keyword">if</strong> (cpe != <strong class="jxr_keyword">null</strong> &amp;&amp; !cpe.isEmpty()) {
 <a class="jxr_linenumber" name="L454" href="#L454">454</a>             sb.append(<span class="jxr_string">"cpe={"</span>);
 <a class="jxr_linenumber" name="L455" href="#L455">455</a>             <strong class="jxr_keyword">for</strong> (PropertyType pt : cpe) {
 <a class="jxr_linenumber" name="L456" href="#L456">456</a>                 sb.append(pt).append(<span class="jxr_string">","</span>);
 <a class="jxr_linenumber" name="L457" href="#L457">457</a>             }
 <a class="jxr_linenumber" name="L458" href="#L458">458</a>             sb.append(<span class="jxr_string">"}"</span>);
 <a class="jxr_linenumber" name="L459" href="#L459">459</a>         }
-<a class="jxr_linenumber" name="L460" href="#L460">460</a>         <strong class="jxr_keyword">if</strong> (cwe != <strong class="jxr_keyword">null</strong> &amp;&amp; cwe.size() &gt; 0) {
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>         <strong class="jxr_keyword">if</strong> (cwe != <strong class="jxr_keyword">null</strong> &amp;&amp; !cwe.isEmpty()) {
 <a class="jxr_linenumber" name="L461" href="#L461">461</a>             sb.append(<span class="jxr_string">"cwe={"</span>);
 <a class="jxr_linenumber" name="L462" href="#L462">462</a>             <strong class="jxr_keyword">for</strong> (String s : cwe) {
 <a class="jxr_linenumber" name="L463" href="#L463">463</a>                 sb.append(s).append(<span class="jxr_string">","</span>);
 <a class="jxr_linenumber" name="L464" href="#L464">464</a>             }
 <a class="jxr_linenumber" name="L465" href="#L465">465</a>             sb.append(<span class="jxr_string">"}"</span>);
 <a class="jxr_linenumber" name="L466" href="#L466">466</a>         }
-<a class="jxr_linenumber" name="L467" href="#L467">467</a>         <strong class="jxr_keyword">if</strong> (cve != <strong class="jxr_keyword">null</strong> &amp;&amp; cve.size() &gt; 0) {
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>         <strong class="jxr_keyword">if</strong> (cve != <strong class="jxr_keyword">null</strong> &amp;&amp; !cve.isEmpty()) {
 <a class="jxr_linenumber" name="L468" href="#L468">468</a>             sb.append(<span class="jxr_string">"cve={"</span>);
 <a class="jxr_linenumber" name="L469" href="#L469">469</a>             <strong class="jxr_keyword">for</strong> (String s : cve) {
 <a class="jxr_linenumber" name="L470" href="#L470">470</a>                 sb.append(s).append(<span class="jxr_string">","</span>);
 <a class="jxr_linenumber" name="L471" href="#L471">471</a>             }
 <a class="jxr_linenumber" name="L472" href="#L472">472</a>             sb.append(<span class="jxr_string">"}"</span>);
 <a class="jxr_linenumber" name="L473" href="#L473">473</a>         }
-<a class="jxr_linenumber" name="L474" href="#L474">474</a>         <strong class="jxr_keyword">if</strong> (cvssBelow != <strong class="jxr_keyword">null</strong> &amp;&amp; cvssBelow.size() &gt; 0) {
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>         <strong class="jxr_keyword">if</strong> (cvssBelow != <strong class="jxr_keyword">null</strong> &amp;&amp; !cvssBelow.isEmpty()) {
 <a class="jxr_linenumber" name="L475" href="#L475">475</a>             sb.append(<span class="jxr_string">"cvssBelow={"</span>);
 <a class="jxr_linenumber" name="L476" href="#L476">476</a>             <strong class="jxr_keyword">for</strong> (Float s : cvssBelow) {
 <a class="jxr_linenumber" name="L477" href="#L477">477</a>                 sb.append(s).append(<span class="jxr_string">","</span>);
@@ -492,6 +492,6 @@
 <a class="jxr_linenumber" name="L484" href="#L484">484</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

@@ -68,7 +68,7 @@
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> incrementToken() <strong class="jxr_keyword">throws</strong> IOException {
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>          <strong class="jxr_keyword">final</strong> LinkedList&lt;String&gt; tokens = getTokens();
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>          <strong class="jxr_keyword">final</strong> CharTermAttribute termAtt = getTermAtt();
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">if</strong> (tokens.size() == 0 &amp;&amp; input.incrementToken()) {
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">if</strong> (tokens.isEmpty() &amp;&amp; input.incrementToken()) {
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>              <strong class="jxr_keyword">final</strong> String text = <strong class="jxr_keyword">new</strong> String(termAtt.buffer(), 0, termAtt.length());
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>              <strong class="jxr_keyword">if</strong> (UrlStringUtils.containsUrl(text)) {
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>                  <strong class="jxr_keyword">final</strong> String[] parts = text.split(<span class="jxr_string">"&#92;&#92;s"</span>);
@@ -94,6 +94,6 @@
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

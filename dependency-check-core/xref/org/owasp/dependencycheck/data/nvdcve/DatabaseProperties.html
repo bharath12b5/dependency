@@ -162,7 +162,7 @@
 <a class="jxr_linenumber" name="L154" href="#L154">154</a> <em class="jxr_javadoccomment">     * @return a map of the database meta data</em>
 <a class="jxr_linenumber" name="L155" href="#L155">155</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>     <strong class="jxr_keyword">public</strong> Map&lt;String, String&gt; getMetaData() {
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>         <strong class="jxr_keyword">final</strong> TreeMap&lt;String, String&gt; map = <strong class="jxr_keyword">new</strong> TreeMap&lt;String, String&gt;();
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>         <strong class="jxr_keyword">final</strong> Map&lt;String, String&gt; map = <strong class="jxr_keyword">new</strong> TreeMap&lt;String, String&gt;();
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>         <strong class="jxr_keyword">for</strong> (Entry&lt;Object, Object&gt; entry : properties.entrySet()) {
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>             <strong class="jxr_keyword">final</strong> String key = (String) entry.getKey();
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>             <strong class="jxr_keyword">if</strong> (!<span class="jxr_string">"version"</span>.equals(key)) {
@@ -187,6 +187,6 @@
 <a class="jxr_linenumber" name="L179" href="#L179">179</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

@@ -299,31 +299,34 @@
 <a class="jxr_linenumber" name="L291" href="#L291">291</a> <em class="jxr_javadoccomment">     * @throws Exception is thrown when an exception occurs.</em>
 <a class="jxr_linenumber" name="L292" href="#L292">292</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L293" href="#L293">293</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> generateReport(String templateName, String outFileName) <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L294" href="#L294">294</a>         <strong class="jxr_keyword">final</strong> File outDir = <strong class="jxr_keyword">new</strong> File(outFileName).getParentFile();
-<a class="jxr_linenumber" name="L295" href="#L295">295</a>         <strong class="jxr_keyword">if</strong> (!outDir.exists()) {
-<a class="jxr_linenumber" name="L296" href="#L296">296</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> created = outDir.mkdirs();
-<a class="jxr_linenumber" name="L297" href="#L297">297</a>             <strong class="jxr_keyword">if</strong> (!created) {
-<a class="jxr_linenumber" name="L298" href="#L298">298</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"Unable to create directory '"</span> + outDir.getAbsolutePath() + <span class="jxr_string">"'."</span>);
-<a class="jxr_linenumber" name="L299" href="#L299">299</a>             }
-<a class="jxr_linenumber" name="L300" href="#L300">300</a>         }
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 
-<a class="jxr_linenumber" name="L302" href="#L302">302</a>         OutputStream outputSteam = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L303" href="#L303">303</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L304" href="#L304">304</a>             outputSteam = <strong class="jxr_keyword">new</strong> FileOutputStream(outFileName);
-<a class="jxr_linenumber" name="L305" href="#L305">305</a>             generateReport(templateName, outputSteam);
-<a class="jxr_linenumber" name="L306" href="#L306">306</a>         } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L307" href="#L307">307</a>             <strong class="jxr_keyword">if</strong> (outputSteam != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L308" href="#L308">308</a>                 <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L309" href="#L309">309</a>                     outputSteam.close();
-<a class="jxr_linenumber" name="L310" href="#L310">310</a>                 } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L311" href="#L311">311</a>                     LOGGER.log(Level.FINEST, <span class="jxr_string">"ignore"</span>, ex);
-<a class="jxr_linenumber" name="L312" href="#L312">312</a>                 }
-<a class="jxr_linenumber" name="L313" href="#L313">313</a>             }
-<a class="jxr_linenumber" name="L314" href="#L314">314</a>         }
-<a class="jxr_linenumber" name="L315" href="#L315">315</a>     }
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> }
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>         File outFile = <strong class="jxr_keyword">new</strong> File(outFileName);
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>         <strong class="jxr_keyword">if</strong> (outFile.getParentFile() == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>             outFile = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"."</span>, outFileName);
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>         }
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>         <strong class="jxr_keyword">if</strong> (!outFile.getParentFile().exists()) {
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> created = outFile.getParentFile().mkdirs();
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>             <strong class="jxr_keyword">if</strong> (!created) {
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"Unable to create directory '"</span> + outFile.getParentFile().getAbsolutePath() + <span class="jxr_string">"'."</span>);
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>             }
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>         }
+<a class="jxr_linenumber" name="L304" href="#L304">304</a> 
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>         OutputStream outputSteam = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>             outputSteam = <strong class="jxr_keyword">new</strong> FileOutputStream(outFile);
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>             generateReport(templateName, outputSteam);
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>             <strong class="jxr_keyword">if</strong> (outputSteam != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>                 <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>                     outputSteam.close();
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>                 } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>                     LOGGER.log(Level.FINEST, <span class="jxr_string">"ignore"</span>, ex);
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>                 }
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>             }
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>         }
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>     }
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

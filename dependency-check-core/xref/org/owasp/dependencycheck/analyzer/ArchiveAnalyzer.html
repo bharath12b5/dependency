@@ -118,7 +118,7 @@
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>     <strong class="jxr_keyword">static</strong> {
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>         <strong class="jxr_keyword">final</strong> String additionalZipExt = Settings.getString(Settings.KEYS.ADDITIONAL_ZIP_EXTENSIONS);
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>         <strong class="jxr_keyword">if</strong> (additionalZipExt != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L113" href="#L113">113</a>             <strong class="jxr_keyword">final</strong> HashSet&lt;String&gt; ext = <strong class="jxr_keyword">new</strong> HashSet&lt;String&gt;(Arrays.asList(additionalZipExt));
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             <strong class="jxr_keyword">final</strong> Set&lt;String&gt; ext = <strong class="jxr_keyword">new</strong> HashSet&lt;String&gt;(Arrays.asList(additionalZipExt));
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>             ZIPPABLES.addAll(ext);
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>         }
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>         EXTENSIONS.addAll(ZIPPABLES);
@@ -390,7 +390,7 @@
 <a class="jxr_linenumber" name="L382" href="#L382">382</a>                             fos = <strong class="jxr_keyword">new</strong> FileOutputStream(file);
 <a class="jxr_linenumber" name="L383" href="#L383">383</a>                             bos = <strong class="jxr_keyword">new</strong> BufferedOutputStream(fos, BUFFER_SIZE);
 <a class="jxr_linenumber" name="L384" href="#L384">384</a>                             <strong class="jxr_keyword">int</strong> count;
-<a class="jxr_linenumber" name="L385" href="#L385">385</a>                             <strong class="jxr_keyword">final</strong> byte data[] = <strong class="jxr_keyword">new</strong> byte[BUFFER_SIZE];
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>                             <strong class="jxr_keyword">final</strong> byte[] data = <strong class="jxr_keyword">new</strong> byte[BUFFER_SIZE];
 <a class="jxr_linenumber" name="L386" href="#L386">386</a>                             <strong class="jxr_keyword">while</strong> ((count = input.read(data, 0, BUFFER_SIZE)) != -1) {
 <a class="jxr_linenumber" name="L387" href="#L387">387</a>                                 bos.write(data, 0, count);
 <a class="jxr_linenumber" name="L388" href="#L388">388</a>                             }
@@ -508,6 +508,6 @@
 <a class="jxr_linenumber" name="L500" href="#L500">500</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2014 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>
