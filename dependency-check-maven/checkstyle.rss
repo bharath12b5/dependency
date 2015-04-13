@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2013 - 2015 OWASP</copyright>
     <item>
-      <title>File: 48,
-             Errors: 0,
+      <title>File: 50,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -201,6 +201,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.AggregateMojo.java">src/main/java/org/owasp/dependencycheck/maven/AggregateMojo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.UpdateMojo.java">org/owasp/dependencycheck/maven/UpdateMojo.java</a>
                 </td>
                 <td>
                   0
@@ -392,6 +406,20 @@ under the License.
                 </td>
                 <td>
                   0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.UpdateMojo.java">src/main/java/org/owasp/dependencycheck/maven/UpdateMojo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
               </tr>
                           <tr>

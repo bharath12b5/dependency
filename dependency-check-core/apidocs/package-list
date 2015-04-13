@@ -15,8 +15,7 @@ org.owasp.dependencycheck.data.update.task
 org.owasp.dependencycheck.data.update.xml
 org.owasp.dependencycheck.dependency
 org.owasp.dependencycheck.exception
-org.owasp.dependencycheck.jaxb.pom
-org.owasp.dependencycheck.jaxb.pom.generated
 org.owasp.dependencycheck.reporting
 org.owasp.dependencycheck.suppression
 org.owasp.dependencycheck.utils
+org.owasp.dependencycheck.xml.pom

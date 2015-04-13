@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment"> * @author Jeremy Long &lt;jeremy.long@owasp.org&gt;</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment"> * @author Jeremy Long</em>
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../org/owasp/dependencycheck/maven/BaseDependencyCheckMojo.html">BaseDependencyCheckMojo</a> <strong class="jxr_keyword">extends</strong> AbstractMojo <strong class="jxr_keyword">implements</strong> MavenReport {
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  
@@ -389,7 +389,7 @@
 <a class="jxr_linenumber" name="L381" href="#L381">381</a> <em class="jxr_javadoccomment">     * @param sink the sink to write the report to</em>
 <a class="jxr_linenumber" name="L382" href="#L382">382</a> <em class="jxr_javadoccomment">     * @param locale the locale to use when generating the report</em>
 <a class="jxr_linenumber" name="L383" href="#L383">383</a> <em class="jxr_javadoccomment">     * @throws MavenReportException if a maven report exception occurs</em>
-<a class="jxr_linenumber" name="L384" href="#L384">384</a> <em class="jxr_javadoccomment">     * @deprecated use {@link #generate(org.apache.maven.doxia.sink.Sink, java.util.Locale) instead.</em>
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> <em class="jxr_javadoccomment">     * @deprecated use {@link #generate(org.apache.maven.doxia.sink.Sink, java.util.Locale)} instead.</em>
 <a class="jxr_linenumber" name="L385" href="#L385">385</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L386" href="#L386">386</a>     @Deprecated
 <a class="jxr_linenumber" name="L387" href="#L387">387</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> generate(@SuppressWarnings(<span class="jxr_string">"deprecation"</span>) org.codehaus.doxia.sink.Sink sink, Locale locale) <strong class="jxr_keyword">throws</strong> MavenReportException {

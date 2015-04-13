@@ -97,7 +97,7 @@
 <tr>  <td class="numLine">&nbsp;37</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;38</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * @author Jeremy Long &lt;jeremy.long@owasp.org&gt;</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * @author Jeremy Long</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;39</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;40</td>  <td class="nbHits">&nbsp;</td>
@@ -117,10 +117,10 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * Used to iterate over highest confidence evidence contained in the collection.</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;48</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;49</td>  <td class="nbHitsCovered">&nbsp;59</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Filter&lt;Evidence&gt; HIGHEST_CONFIDENCE = <span class="keyword">new</span> Filter&lt;Evidence&gt;() {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;49</td>  <td class="nbHitsCovered">&nbsp;61</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Filter&lt;Evidence&gt; HIGHEST_CONFIDENCE = <span class="keyword">new</span> Filter&lt;Evidence&gt;() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;50</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">boolean</span> passes(Evidence evidence) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;51</td>  <td class="nbHitsCovered"><a title="Line 51: Conditional coverage 100% (2/2).">&nbsp;58</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 51: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.HIGHEST;</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;51</td>  <td class="nbHitsCovered"><a title="Line 51: Conditional coverage 100% (2/2).">&nbsp;60</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 51: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.HIGHEST;</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;52</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;53</td>  <td class="nbHits">&nbsp;</td>
@@ -131,10 +131,10 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * Used to iterate over high confidence evidence contained in the collection.</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;56</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;57</td>  <td class="nbHitsCovered">&nbsp;49</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Filter&lt;Evidence&gt; HIGH_CONFIDENCE = <span class="keyword">new</span> Filter&lt;Evidence&gt;() {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;57</td>  <td class="nbHitsCovered">&nbsp;50</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Filter&lt;Evidence&gt; HIGH_CONFIDENCE = <span class="keyword">new</span> Filter&lt;Evidence&gt;() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;58</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">boolean</span> passes(Evidence evidence) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;59</td>  <td class="nbHitsCovered"><a title="Line 59: Conditional coverage 100% (2/2).">&nbsp;48</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 59: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.HIGH;</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;59</td>  <td class="nbHitsCovered"><a title="Line 59: Conditional coverage 100% (2/2).">&nbsp;49</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 59: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.HIGH;</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;60</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;61</td>  <td class="nbHits">&nbsp;</td>
@@ -148,7 +148,7 @@
 <tr>  <td class="numLineCover">&nbsp;65</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Filter&lt;Evidence&gt; MEDIUM_CONFIDENCE = <span class="keyword">new</span> Filter&lt;Evidence&gt;() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;66</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">boolean</span> passes(Evidence evidence) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;67</td>  <td class="nbHitsCovered"><a title="Line 67: Conditional coverage 100% (2/2).">&nbsp;32</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 67: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.MEDIUM;</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;67</td>  <td class="nbHitsCovered"><a title="Line 67: Conditional coverage 100% (2/2).">&nbsp;34</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 67: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.MEDIUM;</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;68</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;69</td>  <td class="nbHits">&nbsp;</td>
@@ -162,7 +162,7 @@
 <tr>  <td class="numLineCover">&nbsp;73</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Filter&lt;Evidence&gt; LOW_CONFIDENCE = <span class="keyword">new</span> Filter&lt;Evidence&gt;() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;74</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">boolean</span> passes(Evidence evidence) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;75</td>  <td class="nbHitsCovered"><a title="Line 75: Conditional coverage 100% (2/2).">&nbsp;32</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 75: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.LOW;</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;75</td>  <td class="nbHitsCovered"><a title="Line 75: Conditional coverage 100% (2/2).">&nbsp;34</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 75: Conditional coverage 100% (2/2).">            <span class="keyword">return</span> evidence.getConfidence() == Confidence.LOW;</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;76</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;77</td>  <td class="nbHits">&nbsp;</td>
@@ -176,7 +176,7 @@
 <tr>  <td class="numLineCover">&nbsp;81</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Filter&lt;Evidence&gt; EVIDENCE_USED = <span class="keyword">new</span> Filter&lt;Evidence&gt;() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;82</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">boolean</span> passes(Evidence evidence) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;83</td>  <td class="nbHitsCovered">&nbsp;1057</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> evidence.isUsed();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;83</td>  <td class="nbHitsCovered">&nbsp;1277</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> evidence.isUsed();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;84</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;85</td>  <td class="nbHits">&nbsp;</td>
@@ -417,7 +417,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;221</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Iterator&lt;Evidence&gt; iterator() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;222</td>  <td class="nbHitsCovered">&nbsp;126</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> list.iterator();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;222</td>  <td class="nbHitsCovered">&nbsp;138</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> list.iterator();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;223</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;224</td>  <td class="nbHits">&nbsp;</td>
@@ -436,23 +436,23 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;231</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> containsUsedString(String text) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;232</td>  <td class="nbHitsUncovered"><a title="Line 232: Conditional coverage 50% (1/2).">&nbsp;121</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 232: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (text == <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;232</td>  <td class="nbHitsUncovered"><a title="Line 232: Conditional coverage 50% (1/2).">&nbsp;133</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 232: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (text == <span class="keyword">null</span>) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;233</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;234</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;235</td>  <td class="nbHitsCovered">&nbsp;121</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String textToTest = text.toLowerCase();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;235</td>  <td class="nbHitsCovered">&nbsp;133</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String textToTest = text.toLowerCase();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;236</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;237</td>  <td class="nbHitsCovered"><a title="Line 237: Conditional coverage 100% (2/2).">&nbsp;121</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 237: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Evidence e : EvidenceCollection.EVIDENCE_USED.filter(<span class="keyword">this</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;237</td>  <td class="nbHitsCovered"><a title="Line 237: Conditional coverage 100% (2/2).">&nbsp;133</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 237: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Evidence e : EvidenceCollection.EVIDENCE_USED.filter(<span class="keyword">this</span>)) {</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;238</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="comment">//TODO consider changing the regex to only compare alpha-numeric (i.e. strip everything else)</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;239</td>  <td class="nbHitsCovered">&nbsp;643</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String value = urlCorrection(e.getValue().toLowerCase()).replaceAll(<span class="string">"[\\s_-]"</span>, <span class="string">""</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;240</td>  <td class="nbHitsCovered"><a title="Line 240: Conditional coverage 100% (2/2).">&nbsp;643</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 240: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (value.contains(textToTest)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;239</td>  <td class="nbHitsCovered">&nbsp;768</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String value = urlCorrection(e.getValue().toLowerCase()).replaceAll(<span class="string">"[\\s_-]"</span>, <span class="string">""</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;240</td>  <td class="nbHitsCovered"><a title="Line 240: Conditional coverage 100% (2/2).">&nbsp;768</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 240: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (value.contains(textToTest)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;241</td>  <td class="nbHitsCovered">&nbsp;48</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;242</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;243</td>  <td class="nbHitsCovered">&nbsp;595</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;244</td>  <td class="nbHitsCovered">&nbsp;73</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;243</td>  <td class="nbHitsCovered">&nbsp;720</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;244</td>  <td class="nbHitsCovered">&nbsp;85</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;245</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;246</td>  <td class="nbHits">&nbsp;</td>
@@ -504,11 +504,11 @@
 <tr>  <td class="numLine">&nbsp;273</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> contains(Confidence confidence) {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;274</td>  <td class="nbHitsCovered"><a title="Line 274: Conditional coverage 100% (2/2).">&nbsp;14</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 274: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Evidence e : list) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;275</td>  <td class="nbHitsCovered"><a title="Line 275: Conditional coverage 100% (2/2).">&nbsp;63</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 275: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (e.getConfidence().equals(confidence)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;275</td>  <td class="nbHitsCovered"><a title="Line 275: Conditional coverage 100% (2/2).">&nbsp;62</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 275: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (e.getConfidence().equals(confidence)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;276</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;277</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;278</td>  <td class="nbHitsCovered">&nbsp;51</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;278</td>  <td class="nbHitsCovered">&nbsp;50</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;279</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;280</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
@@ -615,8 +615,8 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String toString() {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;342</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuilder sb = <span class="keyword">new</span> StringBuilder();</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;343</td>  <td class="nbHitsCovered"><a title="Line 343: Conditional coverage 100% (2/2).">&nbsp;3</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 343: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Evidence e : <span class="keyword">this</span>.list) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;344</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;            sb.append(e.getValue()).append(<span class="string">' '</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;345</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;344</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;            sb.append(e.getValue()).append(<span class="string">' '</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;345</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;346</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> sb.toString();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;347</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
@@ -677,22 +677,22 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;376</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> String urlCorrection(String value) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;377</td>  <td class="nbHitsUncovered"><a title="Line 377: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">&nbsp;643</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 377: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">        <span class="keyword">if</span> (value == <span class="keyword">null</span> || !UrlStringUtils.containsUrl(value)) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;378</td>  <td class="nbHitsCovered">&nbsp;627</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> value;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;377</td>  <td class="nbHitsUncovered"><a title="Line 377: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">&nbsp;768</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 377: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">        <span class="keyword">if</span> (value == <span class="keyword">null</span> || !UrlStringUtils.containsUrl(value)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;378</td>  <td class="nbHitsCovered">&nbsp;749</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> value;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;379</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;380</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuilder sb = <span class="keyword">new</span> StringBuilder(value.length());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;381</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String[] parts = value.split(<span class="string">"\\s"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;382</td>  <td class="nbHitsCovered"><a title="Line 382: Conditional coverage 100% (2/2).">&nbsp;32</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 382: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (String part : parts) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;383</td>  <td class="nbHitsUncovered"><a title="Line 383: Conditional coverage 50% (1/2).">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 383: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (UrlStringUtils.isUrl(part)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;380</td>  <td class="nbHitsCovered">&nbsp;19</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuilder sb = <span class="keyword">new</span> StringBuilder(value.length());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;381</td>  <td class="nbHitsCovered">&nbsp;19</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String[] parts = value.split(<span class="string">"\\s"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;382</td>  <td class="nbHitsCovered"><a title="Line 382: Conditional coverage 100% (2/2).">&nbsp;38</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 382: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (String part : parts) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;383</td>  <td class="nbHitsUncovered"><a title="Line 383: Conditional coverage 50% (1/2).">&nbsp;19</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 383: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (UrlStringUtils.isUrl(part)) {</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;384</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;385</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> List&lt;String&gt; data = UrlStringUtils.extractImportantUrlData(part);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;386</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;                    sb.append(<span class="string">' '</span>).append(StringUtils.join(data, <span class="string">' '</span>));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;385</td>  <td class="nbHitsCovered">&nbsp;19</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> List&lt;String&gt; data = UrlStringUtils.extractImportantUrlData(part);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;386</td>  <td class="nbHitsCovered">&nbsp;19</td>  <td class="src"><pre class="src">&nbsp;                    sb.append(<span class="string">' '</span>).append(StringUtils.join(data, <span class="string">' '</span>));</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;387</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                } <span class="keyword">catch</span> (MalformedURLException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;388</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    LOGGER.log(Level.FINE, <span class="string">"error parsing "</span> + part, ex);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;389</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    sb.append(<span class="string">' '</span>).append(part);</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;390</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;390</td>  <td class="nbHitsCovered">&nbsp;19</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;391</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;392</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                sb.append(<span class="string">' '</span>).append(part);</span></pre></td></tr>
@@ -700,13 +700,13 @@
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;394</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;395</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> sb.toString().trim();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;395</td>  <td class="nbHitsCovered">&nbsp;19</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> sb.toString().trim();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;396</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;397</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 3/6/15 6:07 AM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 4/12/15 8:13 AM.</div>
 </body>
 </html>
