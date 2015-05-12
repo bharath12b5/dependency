@@ -1,8 +1,0 @@
-org.owasp.dependencycheck.org.apache.tools.ant
-org.owasp.dependencycheck.org.apache.tools.ant.launch
-org.owasp.dependencycheck.org.apache.tools.ant.taskdefs.condition
-org.owasp.dependencycheck.org.apache.tools.ant.types
-org.owasp.dependencycheck.org.apache.tools.ant.types.resources
-org.owasp.dependencycheck.org.apache.tools.ant.types.selectors
-org.owasp.dependencycheck.org.apache.tools.ant.util
-org.owasp.dependencycheck.utils
