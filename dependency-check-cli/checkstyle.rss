@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2012 - 2015 OWASP</copyright>
     <item>
-      <title>File: 14,
-             Errors: 1,
+      <title>File: 10,
+             Errors: 2,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,20 +46,6 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.App.java">org/owasp/dependencycheck/App.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#src.main.java.org.owasp.dependencycheck.InvalidScanPathException.java">src/main/java/org/owasp/dependencycheck/InvalidScanPathException.java</a>
                 </td>
                 <td>
@@ -74,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.classes.log.properties">target/classes/log.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.App.java">org/owasp/dependencycheck/App.java</a>
                 </td>
                 <td>
                   0
@@ -102,76 +88,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#src.main.java.org.owasp.dependencycheck.CliParser.java">src/main/java/org/owasp/dependencycheck/CliParser.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.maven-archiver.pom.properties">target/maven-archiver/pom.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#src.main.java.org.owasp.dependencycheck.App.java">src/main/java/org/owasp/dependencycheck/App.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#src.main.resources.log.properties">src/main/resources/log.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.generated-classes.cobertura.cobertura.properties">target/generated-classes/cobertura/cobertura.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.InvalidScanPathException.java">org/owasp/dependencycheck/InvalidScanPathException.java</a>
                 </td>
                 <td>
@@ -186,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.generated-classes.cobertura.log.properties">target/generated-classes/cobertura/log.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#src.main.java.org.owasp.dependencycheck.CliParser.java">src/main/java/org/owasp/dependencycheck/CliParser.java</a>
                 </td>
                 <td>
                   0
@@ -195,12 +111,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  2
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#log.properties">log.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.maven-archiver.pom.properties">target/maven-archiver/pom.properties</a>
                 </td>
                 <td>
                   0
@@ -229,6 +145,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.package-info.java">org/owasp/dependencycheck/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#src.main.java.org.owasp.dependencycheck.App.java">src/main/java/org/owasp/dependencycheck/App.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.generated-classes.cobertura.cobertura.properties">target/generated-classes/cobertura/cobertura.properties</a>
                 </td>
                 <td>
                   0

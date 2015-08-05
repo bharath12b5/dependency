@@ -32,13 +32,13 @@
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> java.util.List;
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> java.util.Set;
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> java.util.TreeSet;
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Level;
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Logger;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> org.apache.commons.lang.StringUtils;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.DependencyVersion;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.DependencyVersionUtil;
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.Filter;
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.UrlStringUtils;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> org.apache.commons.lang.StringUtils;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.DependencyVersion;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.DependencyVersionUtil;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.Filter;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.UrlStringUtils;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> org.slf4j.Logger;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> org.slf4j.LoggerFactory;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> * Used to maintain a collection of Evidence.</em>
@@ -50,7 +50,7 @@
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     * The logger.</em>
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = Logger.getLogger(EvidenceCollection.<strong class="jxr_keyword">class</strong>.getName());
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = LoggerFactory.getLogger(EvidenceCollection.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     * Used to iterate over highest confidence evidence contained in the collection.</em>
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     */</em>
@@ -149,13 +149,13 @@
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>     }
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_javadoccomment">     * Adds term to the weighting collection. The terms added here are used later to boost the score of other terms.</em>
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">     * This is a way of combining evidence from multiple sources to boost the confidence of the given evidence.</em>
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_javadoccomment">     * Adds term to the weighting collection. The terms added here are used later to boost the score of other terms. This is a way</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">     * of combining evidence from multiple sources to boost the confidence of the given evidence.</em>
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L147" href="#L147">147</a> <em class="jxr_javadoccomment">     * Example: The term 'Apache' is found in the manifest of a JAR and is added to the Collection. When we parse the</em>
-<a class="jxr_linenumber" name="L148" href="#L148">148</a> <em class="jxr_javadoccomment">     * package names within the JAR file we may add these package names to the "weighted" strings collection to boost</em>
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> <em class="jxr_javadoccomment">     * the score in the Lucene query. That way when we construct the Lucene query we find the term Apache in the</em>
-<a class="jxr_linenumber" name="L150" href="#L150">150</a> <em class="jxr_javadoccomment">     * collection AND in the weighted strings; as such, we will boost the confidence of the term Apache.</em>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> <em class="jxr_javadoccomment">     * Example: The term 'Apache' is found in the manifest of a JAR and is added to the Collection. When we parse the package</em>
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> <em class="jxr_javadoccomment">     * names within the JAR file we may add these package names to the "weighted" strings collection to boost the score in the</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> <em class="jxr_javadoccomment">     * Lucene query. That way when we construct the Lucene query we find the term Apache in the collection AND in the weighted</em>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> <em class="jxr_javadoccomment">     * strings; as such, we will boost the confidence of the term Apache.</em>
 <a class="jxr_linenumber" name="L151" href="#L151">151</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> <em class="jxr_javadoccomment">     * @param str to add to the weighting collection.</em>
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> <em class="jxr_javadoccomment">     */</em>
@@ -164,8 +164,8 @@
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>     }
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> <em class="jxr_javadoccomment">     * Returns a set of Weightings - a list of terms that are believed to be of higher confidence when also found in</em>
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> <em class="jxr_javadoccomment">     * another location.</em>
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> <em class="jxr_javadoccomment">     * Returns a set of Weightings - a list of terms that are believed to be of higher confidence when also found in another</em>
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> <em class="jxr_javadoccomment">     * location.</em>
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_javadoccomment">     * @return Set&lt;String&gt;</em>
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> <em class="jxr_javadoccomment">     */</em>
@@ -330,11 +330,11 @@
 <a class="jxr_linenumber" name="L322" href="#L322">322</a>         <strong class="jxr_keyword">final</strong> Set&lt;Evidence&gt; ret = <strong class="jxr_keyword">new</strong> TreeSet&lt;Evidence&gt;();
 <a class="jxr_linenumber" name="L323" href="#L323">323</a>         <strong class="jxr_keyword">for</strong> (EvidenceCollection col : ec) {
 <a class="jxr_linenumber" name="L324" href="#L324">324</a>             <strong class="jxr_keyword">for</strong> (Evidence e : col) {
-<a class="jxr_linenumber" name="L325" href="#L325">325</a>                 <strong class="jxr_keyword">if</strong> (e.isUsed()) {
-<a class="jxr_linenumber" name="L326" href="#L326">326</a>                     <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/Evidence.html">Evidence</a> newEvidence = <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/dependency/Evidence.html">Evidence</a>(e.getSource(), e.getName(), e.getValue(), <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L327" href="#L327">327</a>                     newEvidence.setUsed(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L328" href="#L328">328</a>                     ret.add(newEvidence);
-<a class="jxr_linenumber" name="L329" href="#L329">329</a>                 }
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>                 <em class="jxr_comment">//if (e.isUsed()) {</em>
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>                 <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/Evidence.html">Evidence</a> newEvidence = <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/dependency/Evidence.html">Evidence</a>(e.getSource(), e.getName(), e.getValue(), <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>                 newEvidence.setUsed(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>                 ret.add(newEvidence);
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>                 <em class="jxr_comment">//}</em>
 <a class="jxr_linenumber" name="L330" href="#L330">330</a>             }
 <a class="jxr_linenumber" name="L331" href="#L331">331</a>         }
 <a class="jxr_linenumber" name="L332" href="#L332">332</a>         <strong class="jxr_keyword">return</strong> ret;
@@ -365,11 +365,11 @@
 <a class="jxr_linenumber" name="L357" href="#L357">357</a> 
 <a class="jxr_linenumber" name="L358" href="#L358">358</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L359" href="#L359">359</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
-<a class="jxr_linenumber" name="L360" href="#L360">360</a> <em class="jxr_javadoccomment">     * Takes a string that may contain a fully qualified domain and it will return the string having removed the query</em>
-<a class="jxr_linenumber" name="L361" href="#L361">361</a> <em class="jxr_javadoccomment">     * string, the protocol, the sub-domain of 'www', and the file extension of the path.&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> <em class="jxr_javadoccomment">     * Takes a string that may contain a fully qualified domain and it will return the string having removed the query string, the</em>
+<a class="jxr_linenumber" name="L361" href="#L361">361</a> <em class="jxr_javadoccomment">     * protocol, the sub-domain of 'www', and the file extension of the path.&lt;/p&gt;</em>
 <a class="jxr_linenumber" name="L362" href="#L362">362</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
-<a class="jxr_linenumber" name="L363" href="#L363">363</a> <em class="jxr_javadoccomment">     * This is useful for checking if the evidence contains a specific string. The presence of the protocol, file</em>
-<a class="jxr_linenumber" name="L364" href="#L364">364</a> <em class="jxr_javadoccomment">     * extension, etc. may produce false positives.</em>
+<a class="jxr_linenumber" name="L363" href="#L363">363</a> <em class="jxr_javadoccomment">     * This is useful for checking if the evidence contains a specific string. The presence of the protocol, file extension, etc.</em>
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> <em class="jxr_javadoccomment">     * may produce false positives.</em>
 <a class="jxr_linenumber" name="L365" href="#L365">365</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L366" href="#L366">366</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L367" href="#L367">367</a> <em class="jxr_javadoccomment">     * Example, given the following input:&lt;/p&gt;</em>
@@ -393,7 +393,7 @@
 <a class="jxr_linenumber" name="L385" href="#L385">385</a>                     <strong class="jxr_keyword">final</strong> List&lt;String&gt; data = UrlStringUtils.extractImportantUrlData(part);
 <a class="jxr_linenumber" name="L386" href="#L386">386</a>                     sb.append(' ').append(StringUtils.join(data, ' '));
 <a class="jxr_linenumber" name="L387" href="#L387">387</a>                 } <strong class="jxr_keyword">catch</strong> (MalformedURLException ex) {
-<a class="jxr_linenumber" name="L388" href="#L388">388</a>                     LOGGER.log(Level.FINE, <span class="jxr_string">"error parsing "</span> + part, ex);
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>                     LOGGER.debug(<span class="jxr_string">"error parsing {}"</span>, part, ex);
 <a class="jxr_linenumber" name="L389" href="#L389">389</a>                     sb.append(' ').append(part);
 <a class="jxr_linenumber" name="L390" href="#L390">390</a>                 }
 <a class="jxr_linenumber" name="L391" href="#L391">391</a>             } <strong class="jxr_keyword">else</strong> {

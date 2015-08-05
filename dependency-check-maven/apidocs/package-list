@@ -1,1 +1,3 @@
 org.owasp.dependencycheck.maven
+org.owasp.dependencycheck.maven.slf4j
+org.slf4j.impl

@@ -28,18 +28,18 @@
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> java.io.File;
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> java.util.List;
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Level;
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Logger;
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.Engine;
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.CveDB;
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseException;
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseProperties;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.Dependency;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.Identifier;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.Vulnerability;
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.exception.ScanAgentException;
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.reporting.ReportGenerator;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.Settings;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.Engine;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.CveDB;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseException;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseProperties;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.Dependency;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.Identifier;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.Vulnerability;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.exception.ScanAgentException;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.reporting.ReportGenerator;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.Settings;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> org.slf4j.Logger;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> org.slf4j.LoggerFactory;
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> * This class provides a way to easily conduct a scan solely based on existing evidence metadata rather than collecting evidence</em>
@@ -75,7 +75,7 @@
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">     * Logger for use throughout the class.</em>
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = Logger.getLogger(DependencyCheckScanAgent.<strong class="jxr_keyword">class</strong>.getName());
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = LoggerFactory.getLogger(DependencyCheckScanAgent.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_javadoccomment">     * The application name for the report.</em>
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment">     */</em>
@@ -869,7 +869,7 @@
 <a class="jxr_linenumber" name="L861" href="#L861">861</a>             cve.open();
 <a class="jxr_linenumber" name="L862" href="#L862">862</a>             prop = cve.getDatabaseProperties();
 <a class="jxr_linenumber" name="L863" href="#L863">863</a>         } <strong class="jxr_keyword">catch</strong> (DatabaseException ex) {
-<a class="jxr_linenumber" name="L864" href="#L864">864</a>             LOGGER.log(Level.FINE, <span class="jxr_string">"Unable to retrieve DB Properties"</span>, ex);
+<a class="jxr_linenumber" name="L864" href="#L864">864</a>             LOGGER.debug(<span class="jxr_string">"Unable to retrieve DB Properties"</span>, ex);
 <a class="jxr_linenumber" name="L865" href="#L865">865</a>         } <strong class="jxr_keyword">finally</strong> {
 <a class="jxr_linenumber" name="L866" href="#L866">866</a>             <strong class="jxr_keyword">if</strong> (cve != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L867" href="#L867">867</a>                 cve.close();
@@ -879,13 +879,13 @@
 <a class="jxr_linenumber" name="L871" href="#L871">871</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L872" href="#L872">872</a>             r.generateReports(outDirectory.getCanonicalPath(), <strong class="jxr_keyword">this</strong>.reportFormat.name());
 <a class="jxr_linenumber" name="L873" href="#L873">873</a>         } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L874" href="#L874">874</a>             LOGGER.log(Level.SEVERE,
+<a class="jxr_linenumber" name="L874" href="#L874">874</a>             LOGGER.error(
 <a class="jxr_linenumber" name="L875" href="#L875">875</a>                     <span class="jxr_string">"Unexpected exception occurred during analysis; please see the verbose error log for more details."</span>);
-<a class="jxr_linenumber" name="L876" href="#L876">876</a>             LOGGER.log(Level.FINE, <strong class="jxr_keyword">null</strong>, ex);
+<a class="jxr_linenumber" name="L876" href="#L876">876</a>             LOGGER.debug(<span class="jxr_string">""</span>, ex);
 <a class="jxr_linenumber" name="L877" href="#L877">877</a>         } <strong class="jxr_keyword">catch</strong> (Throwable ex) {
-<a class="jxr_linenumber" name="L878" href="#L878">878</a>             LOGGER.log(Level.SEVERE,
+<a class="jxr_linenumber" name="L878" href="#L878">878</a>             LOGGER.error(
 <a class="jxr_linenumber" name="L879" href="#L879">879</a>                     <span class="jxr_string">"Unexpected exception occurred during analysis; please see the verbose error log for more details."</span>);
-<a class="jxr_linenumber" name="L880" href="#L880">880</a>             LOGGER.log(Level.FINE, <strong class="jxr_keyword">null</strong>, ex);
+<a class="jxr_linenumber" name="L880" href="#L880">880</a>             LOGGER.debug(<span class="jxr_string">""</span>, ex);
 <a class="jxr_linenumber" name="L881" href="#L881">881</a>         }
 <a class="jxr_linenumber" name="L882" href="#L882">882</a>     }
 <a class="jxr_linenumber" name="L883" href="#L883">883</a> 
@@ -989,9 +989,9 @@
 <a class="jxr_linenumber" name="L981" href="#L981">981</a>                 checkForFailure(engine.getDependencies());
 <a class="jxr_linenumber" name="L982" href="#L982">982</a>             }
 <a class="jxr_linenumber" name="L983" href="#L983">983</a>         } <strong class="jxr_keyword">catch</strong> (DatabaseException ex) {
-<a class="jxr_linenumber" name="L984" href="#L984">984</a>             LOGGER.log(Level.SEVERE,
+<a class="jxr_linenumber" name="L984" href="#L984">984</a>             LOGGER.error(
 <a class="jxr_linenumber" name="L985" href="#L985">985</a>                     <span class="jxr_string">"Unable to connect to the dependency-check database; analysis has stopped"</span>);
-<a class="jxr_linenumber" name="L986" href="#L986">986</a>             LOGGER.log(Level.FINE, <span class="jxr_string">""</span>, ex);
+<a class="jxr_linenumber" name="L986" href="#L986">986</a>             LOGGER.debug(<span class="jxr_string">""</span>, ex);
 <a class="jxr_linenumber" name="L987" href="#L987">987</a>         } <strong class="jxr_keyword">finally</strong> {
 <a class="jxr_linenumber" name="L988" href="#L988">988</a>             Settings.cleanup(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L989" href="#L989">989</a>             <strong class="jxr_keyword">if</strong> (engine != <strong class="jxr_keyword">null</strong>) {
@@ -1066,14 +1066,13 @@
 <a class="jxr_linenumber" name="L1058" href="#L1058">1058</a>             }
 <a class="jxr_linenumber" name="L1059" href="#L1059">1059</a>         }
 <a class="jxr_linenumber" name="L1060" href="#L1060">1060</a>         <strong class="jxr_keyword">if</strong> (summary.length() &gt; 0) {
-<a class="jxr_linenumber" name="L1061" href="#L1061">1061</a>             <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"%n%n"</span>
-<a class="jxr_linenumber" name="L1062" href="#L1062">1062</a>                     + <span class="jxr_string">"One or more dependencies were identified with known vulnerabilities:%n%n%s"</span>
-<a class="jxr_linenumber" name="L1063" href="#L1063">1063</a>                     + <span class="jxr_string">"%n%nSee the dependency-check report for more details.%n%n"</span>, summary.toString());
-<a class="jxr_linenumber" name="L1064" href="#L1064">1064</a>             LOGGER.log(Level.WARNING, msg);
-<a class="jxr_linenumber" name="L1065" href="#L1065">1065</a>         }
-<a class="jxr_linenumber" name="L1066" href="#L1066">1066</a>     }
-<a class="jxr_linenumber" name="L1067" href="#L1067">1067</a> 
-<a class="jxr_linenumber" name="L1068" href="#L1068">1068</a> }
+<a class="jxr_linenumber" name="L1061" href="#L1061">1061</a>             LOGGER.warn(<span class="jxr_string">"\n\nOne or more dependencies were identified with known vulnerabilities:\n\n{}\n\n"</span>
+<a class="jxr_linenumber" name="L1062" href="#L1062">1062</a>                     + <span class="jxr_string">"See the dependency-check report for more details.\n\n"</span>,
+<a class="jxr_linenumber" name="L1063" href="#L1063">1063</a>                     summary.toString());
+<a class="jxr_linenumber" name="L1064" href="#L1064">1064</a>         }
+<a class="jxr_linenumber" name="L1065" href="#L1065">1065</a>     }
+<a class="jxr_linenumber" name="L1066" href="#L1066">1066</a> 
+<a class="jxr_linenumber" name="L1067" href="#L1067">1067</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>

@@ -10,9 +10,9 @@ org.owasp.dependencycheck.data.nexus
 org.owasp.dependencycheck.data.nuget
 org.owasp.dependencycheck.data.nvdcve
 org.owasp.dependencycheck.data.update
+org.owasp.dependencycheck.data.update.cpe
 org.owasp.dependencycheck.data.update.exception
-org.owasp.dependencycheck.data.update.task
-org.owasp.dependencycheck.data.update.xml
+org.owasp.dependencycheck.data.update.nvd
 org.owasp.dependencycheck.dependency
 org.owasp.dependencycheck.exception
 org.owasp.dependencycheck.reporting
