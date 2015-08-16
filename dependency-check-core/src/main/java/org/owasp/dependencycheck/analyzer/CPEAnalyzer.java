@@ -32,7 +32,8 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.owasp.dependencycheck.Engine;
 import org.owasp.dependencycheck.analyzer.exception.AnalysisException;
-import org.owasp.dependencycheck.data.cpe.CpeMemoryIndex;
+import org.owasp.dependencycheck.data.cpe.VendorIndex;
+import org.owasp.dependencycheck.data.cpe.ProductIndex;
 import org.owasp.dependencycheck.data.cpe.Fields;
 import org.owasp.dependencycheck.data.cpe.IndexEntry;
 import org.owasp.dependencycheck.data.cpe.IndexException;
@@ -83,9 +84,13 @@ public class CPEAnalyzer implements Analyzer {
      */
     static final int STRING_BUILDER_BUFFER = 20;
     /**
-     * The CPE in memory index.
+     * The Vendor in memory index.
      */
-    private CpeMemoryIndex cpe;
+    private VendorIndex vendorIndex;
+    /**
+     * The Product in memory index.
+     */
+    private ProductIndex productIndex;
     /**
      * The CVE Database.
      */
@@ -99,7 +104,7 @@ public class CPEAnalyzer implements Analyzer {
     /**
      * Returns the name of this analyzer.
      *
-     * @return the name of this analyzer.
+     * @return the name of this analyzer
      */
     @Override
     public String getName() {
@@ -117,7 +122,7 @@ public class CPEAnalyzer implements Analyzer {
     }
 
     /**
-     * Creates the CPE Lucene Index.
+     * Creates the CPE Lucene Indexes.
      *
      * @throws Exception is thrown if there is an issue opening the index.
      */
@@ -138,9 +143,11 @@ public class CPEAnalyzer implements Analyzer {
         cve = new CveDB();
         cve.open();
         LOGGER.debug("Creating the Lucene CPE Index");
-        cpe = CpeMemoryIndex.getInstance();
+        vendorIndex = VendorIndex.getInstance();
+        productIndex = ProductIndex.getInstance();
         try {
-            cpe.open(cve);
+            vendorIndex.open(cve);
+            productIndex.open(cve);
         } catch (IndexException ex) {
             LOGGER.debug("IndexException", ex);
             throw new DatabaseException(ex);
@@ -152,9 +159,13 @@ public class CPEAnalyzer implements Analyzer {
      */
     @Override
     public void close() {
-        if (cpe != null) {
-            cpe.close();
-            cpe = null;
+        if (vendorIndex != null) {
+            vendorIndex.close();
+            vendorIndex = null;
+        }
+        if (productIndex != null) {
+            productIndex.close();
+            productIndex = null;
         }
         if (cve != null) {
             cve.close();
@@ -163,7 +174,7 @@ public class CPEAnalyzer implements Analyzer {
     }
 
     public boolean isOpen() {
-        return cpe != null && cpe.isOpen();
+        return vendorIndex != null && vendorIndex.isOpen();
     }
 
     /**
@@ -263,12 +274,14 @@ public class CPEAnalyzer implements Analyzer {
 
         final List<IndexEntry> ret = new ArrayList<IndexEntry>(MAX_QUERY_RESULTS);
 
-        final String searchString = buildSearch(vendor, product, vendorWeightings, productWeightings);
-        if (searchString == null) {
+        final String vendorSearch = buildSearch(Fields.VENDOR, vendor, vendorWeightings);
+        final String productSearch = buildSearch(Fields.PRODUCT, product, productWeightings);
+        if (vendorSearch == null || productSearch == null) {
             return ret;
         }
         try {
-            final TopDocs docs = cpe.search(searchString, MAX_QUERY_RESULTS);
+            final TopDocs vendorDocs = vendorIndex.search(vendorSearch, MAX_QUERY_RESULTS);
+            final TopDocs productDocs = productIndex.search(productSearch, MAX_QUERY_RESULTS);
             for (ScoreDoc d : docs.scoreDocs) {
                 if (d.score >= 0.08) {
                     final Document doc = cpe.getDocument(d.doc);
@@ -300,26 +313,46 @@ public class CPEAnalyzer implements Analyzer {
      * If either the possibleVendor or possibleProducts lists have been populated this data is used to add weighting factors to
      * the search string generated.</p>
      *
-     * @param vendor text to search the vendor field
-     * @param product text to search the product field
-     * @param vendorWeighting a list of strings to apply to the vendor to boost the terms weight
-     * @param productWeightings a list of strings to apply to the product to boost the terms weight
+     * @param field the field to search in the Index
+     * @param value text to search the vendor field
+     * @param weighting a list of strings to apply to the search to boost the terms weight
      * @return the Lucene query
      */
-    protected String buildSearch(String vendor, String product,
-            Set<String> vendorWeighting, Set<String> productWeightings) {
-        final String v = vendor; //.replaceAll("[^\\w\\d]", " ");
-        final String p = product; //.replaceAll("[^\\w\\d]", " ");
-        final StringBuilder sb = new StringBuilder(v.length() + p.length()
-                + Fields.PRODUCT.length() + Fields.VENDOR.length() + STRING_BUILDER_BUFFER);
+    protected String buildSearch(String field, String value, Set<String> weighting) {
+        final StringBuilder sb = new StringBuilder(value.length()
+                + field.length() + STRING_BUILDER_BUFFER);
 
-        if (!appendWeightedSearch(sb, Fields.PRODUCT, p, productWeightings)) {
+        sb.append(field).append(":( ");
+
+        final String cleanText = cleanseText(value);
+
+        if ("".equals(cleanText)) {
             return null;
         }
-        sb.append(" AND ");
-        if (!appendWeightedSearch(sb, Fields.VENDOR, v, vendorWeighting)) {
-            return null;
+
+        if (weighting == null || weighting.isEmpty()) {
+            LuceneUtils.appendEscapedLuceneQuery(sb, cleanText);
+        } else {
+            final StringTokenizer tokens = new StringTokenizer(cleanText);
+            while (tokens.hasMoreElements()) {
+                final String word = tokens.nextToken();
+                String temp = null;
+                for (String weighted : weighting) {
+                    final String weightedStr = cleanseText(weighted);
+                    if (equalsIgnoreCaseAndNonAlpha(word, weightedStr)) {
+                        temp = LuceneUtils.escapeLuceneQuery(word) + WEIGHTING_BOOST;
+                        if (!word.equalsIgnoreCase(weightedStr)) {
+                            temp += " " + LuceneUtils.escapeLuceneQuery(weightedStr) + WEIGHTING_BOOST;
+                        }
+                    }
+                }
+                if (temp == null) {
+                    temp = LuceneUtils.escapeLuceneQuery(word);
+                }
+                sb.append(" ").append(temp);
+            }
         }
+        sb.append(" ) ");
         return sb.toString();
     }
 

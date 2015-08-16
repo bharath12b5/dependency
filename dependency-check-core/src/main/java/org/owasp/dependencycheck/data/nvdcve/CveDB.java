@@ -202,20 +202,46 @@ public class CveDB {
     }
 
     /**
-     * Returns the entire list of vendor/product combinations.
+     * Returns the list of vendors from the vulnerable software in the NVD
      *
-     * @return the entire list of vendor/product combinations
+     * @return the list of vendors
      * @throws DatabaseException thrown when there is an error retrieving the data from the DB
      */
-    public Set<Pair<String, String>> getVendorProductList() throws DatabaseException {
-        final Set<Pair<String, String>> data = new HashSet<Pair<String, String>>();
+    public Set<String> getVendorList() throws DatabaseException {
+        final Set<String> data = new HashSet<String>();
         ResultSet rs = null;
         PreparedStatement ps = null;
         try {
-            ps = getConnection().prepareStatement(statementBundle.getString("SELECT_VENDOR_PRODUCT_LIST"));
+            ps = getConnection().prepareStatement(statementBundle.getString("SELECT_VENDOR_LIST"));
             rs = ps.executeQuery();
             while (rs.next()) {
-                data.add(new Pair<String, String>(rs.getString(1), rs.getString(2)));
+                data.add(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            final String msg = "An unexpected SQL Exception occurred; please see the verbose log for more details.";
+            throw new DatabaseException(msg, ex);
+        } finally {
+            DBUtils.closeResultSet(rs);
+            DBUtils.closeStatement(ps);
+        }
+        return data;
+    }
+
+    /**
+     * Returns the list of products from the vulnerable software in the NVD.
+     *
+     * @return the list of products
+     * @throws DatabaseException thrown when there is an error retrieving the data from the DB
+     */
+    public Set<String> getProductList() throws DatabaseException {
+        final Set<String> data = new HashSet<String>();
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            ps = getConnection().prepareStatement(statementBundle.getString("SELECT_PRODUCT_LIST"));
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                data.add(rs.getString(1));
             }
         } catch (SQLException ex) {
             final String msg = "An unexpected SQL Exception occurred; please see the verbose log for more details.";

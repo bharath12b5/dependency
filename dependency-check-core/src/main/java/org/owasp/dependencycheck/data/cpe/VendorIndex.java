@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Copyright (c) 2013 Jeremy Long. All Rights Reserved.
+ * Copyright (c) 2015 Jeremy Long. All Rights Reserved.
  */
 package org.owasp.dependencycheck.data.cpe;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.core.KeywordAnalyzer;
 import org.apache.lucene.analysis.miscellaneous.PerFieldAnalyzerWrapper;
@@ -43,31 +42,29 @@ import org.owasp.dependencycheck.data.lucene.LuceneUtils;
 import org.owasp.dependencycheck.data.lucene.SearchFieldAnalyzer;
 import org.owasp.dependencycheck.data.nvdcve.CveDB;
 import org.owasp.dependencycheck.data.nvdcve.DatabaseException;
-import org.owasp.dependencycheck.utils.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An in memory lucene index that contains the vendor/product combinations from the CPE (application) identifiers within the NVD
- * CVE data.
+ * An in memory Lucene index that contains the vendor information from the CPE (application) identifiers within the NVD CVE data.
  *
  * @author Jeremy Long
  */
-public final class CpeMemoryIndex {
+public final class VendorIndex {
 
     /**
      * The logger.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(CpeMemoryIndex.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(VendorIndex.class);
     /**
      * singleton instance.
      */
-    private static final CpeMemoryIndex INSTANCE = new CpeMemoryIndex();
+    private static final VendorIndex INSTANCE = new VendorIndex();
 
     /**
      * private constructor for singleton.
      */
-    private CpeMemoryIndex() {
+    private VendorIndex() {
     }
 
     /**
@@ -75,7 +72,7 @@ public final class CpeMemoryIndex {
      *
      * @return the instance of the CpeMemoryIndex
      */
-    public static CpeMemoryIndex getInstance() {
+    public static VendorIndex getInstance() {
         return INSTANCE;
     }
     /**
@@ -98,10 +95,6 @@ public final class CpeMemoryIndex {
      * The Lucene QueryParser used for Searching.
      */
     private QueryParser queryParser;
-    /**
-     * The search field analyzer for the product field.
-     */
-    private SearchFieldAnalyzer productSearchFieldAnalyzer;
     /**
      * The search field analyzer for the vendor field.
      */
@@ -145,9 +138,9 @@ public final class CpeMemoryIndex {
     }
 
     /**
-     * Creates the indexing analyzer for the CPE Index.
+     * Creates the indexing analyzer for the Vendor Index.
      *
-     * @return the CPE Analyzer.
+     * @return the Vendor Analyzer.
      */
     @SuppressWarnings("unchecked")
     private Analyzer createIndexingAnalyzer() {
@@ -157,17 +150,15 @@ public final class CpeMemoryIndex {
     }
 
     /**
-     * Creates an Analyzer for searching the CPE Index.
+     * Creates an Analyzer for searching the Vendor Index.
      *
-     * @return the CPE Analyzer.
+     * @return the Vendor Analyzer.
      */
     @SuppressWarnings("unchecked")
     private Analyzer createSearchingAnalyzer() {
         final Map<String, Analyzer> fieldAnalyzers = new HashMap<String, Analyzer>();
         fieldAnalyzers.put(Fields.DOCUMENT_KEY, new KeywordAnalyzer());
-        productSearchFieldAnalyzer = new SearchFieldAnalyzer(LuceneUtils.CURRENT_VERSION);
         vendorSearchFieldAnalyzer = new SearchFieldAnalyzer(LuceneUtils.CURRENT_VERSION);
-        fieldAnalyzers.put(Fields.PRODUCT, productSearchFieldAnalyzer);
         fieldAnalyzers.put(Fields.VENDOR, vendorSearchFieldAnalyzer);
 
         return new PerFieldAnalyzerWrapper(new FieldAnalyzer(LuceneUtils.CURRENT_VERSION), fieldAnalyzers);
@@ -177,17 +168,14 @@ public final class CpeMemoryIndex {
      * Saves a CPE IndexEntry into the Lucene index.
      *
      * @param vendor the vendor to index
-     * @param product the product to index
      * @param indexWriter the index writer to write the entry into
      * @throws CorruptIndexException is thrown if the index is corrupt
      * @throws IOException is thrown if an IOException occurs
      */
-    public void saveEntry(String vendor, String product, IndexWriter indexWriter) throws CorruptIndexException, IOException {
+    public void saveEntry(String vendor, IndexWriter indexWriter) throws CorruptIndexException, IOException {
         final Document doc = new Document();
         final Field v = new TextField(Fields.VENDOR, vendor, Field.Store.YES);
-        final Field p = new TextField(Fields.PRODUCT, product, Field.Store.YES);
         doc.add(v);
-        doc.add(p);
         indexWriter.addDocument(doc);
     }
 
@@ -230,9 +218,8 @@ public final class CpeMemoryIndex {
             final IndexWriterConfig conf = new IndexWriterConfig(LuceneUtils.CURRENT_VERSION, analyzer);
             indexWriter = new IndexWriter(index, conf);
             try {
-                final Set<Pair<String, String>> data = cve.getVendorProductList();
-                for (Pair<String, String> pair : data) {
-                    saveEntry(pair.getLeft(), pair.getRight(), indexWriter);
+                for (String vendor : cve.getVendorList()) {
+                    saveEntry(vendor, indexWriter);
                 }
             } catch (DatabaseException ex) {
                 LOGGER.debug("", ex);
@@ -266,9 +253,6 @@ public final class CpeMemoryIndex {
      * Resets the searching analyzers
      */
     private void resetSearchingAnalyzer() {
-        if (productSearchFieldAnalyzer != null) {
-            productSearchFieldAnalyzer.clear();
-        }
         if (vendorSearchFieldAnalyzer != null) {
             vendorSearchFieldAnalyzer.clear();
         }
