@@ -34,6 +34,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Set;
+import org.apache.commons.lang.StringUtils;
 import org.owasp.dependencycheck.data.cwe.CweDB;
 import org.owasp.dependencycheck.dependency.Reference;
 import org.owasp.dependencycheck.dependency.Vulnerability;
@@ -176,14 +177,27 @@ public class CveDB {
      * @param product the identified name of the product of the dependency being analyzed
      * @return a set of vulnerable software
      */
-    public Set<VulnerableSoftware> getCPEs(String vendor, String product) {
+    public Set<VulnerableSoftware> getCPEs(List<String> vendor, List<String> product) {
+        if (vendor == null || vendor.isEmpty() || product == null || product.isEmpty()) {
+            return null;
+        }
         final Set<VulnerableSoftware> cpe = new HashSet<VulnerableSoftware>();
         ResultSet rs = null;
         PreparedStatement ps = null;
         try {
-            ps = getConnection().prepareStatement(statementBundle.getString("SELECT_CPE_ENTRIES"));
-            ps.setString(1, vendor);
-            ps.setString(2, product);
+            final String vendorInClause = "?" + StringUtils.repeat(",?", vendor.size() - 1);
+            final String productInClause = "?" + StringUtils.repeat(",?", product.size() - 1);
+
+            final String statement = String.format(statementBundle.getString("SELECT_CPE_ENTRIES"), vendorInClause, productInClause);
+
+            ps = getConnection().prepareStatement(statement);
+            int pos = 1;
+            for (String v : vendor) {
+                ps.setString(pos++, v);
+            }
+            for (String p : product) {
+                ps.setString(pos++, p);
+            }
             rs = ps.executeQuery();
 
             while (rs.next()) {

@@ -50,7 +50,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Jeremy Long
  */
-public final class ProductIndex {
+public final class ProductIndex implements IndexInterface {
 
     /**
      * The logger.
@@ -106,6 +106,7 @@ public final class ProductIndex {
      * @param cve the data source to retrieve the cpe data
      * @throws IndexException thrown if there is an error creating the index
      */
+    @Override
     public void open(CveDB cve) throws IndexException {
         synchronized (INSTANCE) {
             if (!openState) {
@@ -133,6 +134,7 @@ public final class ProductIndex {
      *
      * @return whether or not the index is open
      */
+    @Override
     public boolean isOpen() {
         return openState;
     }
@@ -182,6 +184,7 @@ public final class ProductIndex {
     /**
      * Closes the CPE Index.
      */
+    @Override
     public void close() {
         if (searchingAnalyzer != null) {
             searchingAnalyzer.close();
@@ -267,6 +270,7 @@ public final class ProductIndex {
      * @throws ParseException thrown when the searchString is invalid
      * @throws IOException is thrown if there is an issue with the underlying Index
      */
+    @Override
     public TopDocs search(String searchString, int maxQueryResults) throws ParseException, IOException {
         if (searchString == null || searchString.trim().isEmpty()) {
             throw new ParseException("Query is null or empty");
@@ -284,6 +288,7 @@ public final class ProductIndex {
      * @throws CorruptIndexException thrown if the Index is corrupt
      * @throws IOException thrown if there is an IOException
      */
+    @Override
     public TopDocs search(Query query, int maxQueryResults) throws CorruptIndexException, IOException {
         resetSearchingAnalyzer();
         return indexSearcher.search(query, maxQueryResults);
@@ -296,6 +301,7 @@ public final class ProductIndex {
      * @return the Document
      * @throws IOException thrown if there is an IOException
      */
+    @Override
     public Document getDocument(int documentId) throws IOException {
         return indexSearcher.doc(documentId);
     }
@@ -305,6 +311,7 @@ public final class ProductIndex {
      *
      * @return the number of CPE entries stored in the index
      */
+    @Override
     public int numDocs() {
         if (indexReader == null) {
             return -1;

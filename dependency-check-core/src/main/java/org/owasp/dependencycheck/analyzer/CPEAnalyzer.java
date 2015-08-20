@@ -37,6 +37,7 @@ import org.owasp.dependencycheck.data.cpe.ProductIndex;
 import org.owasp.dependencycheck.data.cpe.Fields;
 import org.owasp.dependencycheck.data.cpe.IndexEntry;
 import org.owasp.dependencycheck.data.cpe.IndexException;
+import org.owasp.dependencycheck.data.cpe.IndexInterface;
 import org.owasp.dependencycheck.data.lucene.LuceneUtils;
 import org.owasp.dependencycheck.data.nvdcve.CveDB;
 import org.owasp.dependencycheck.data.nvdcve.DatabaseException;
@@ -269,32 +270,38 @@ public class CPEAnalyzer implements Analyzer {
      * @param productWeightings Adds a list of strings that will be used to add weighting factors to the product search
      * @return a list of possible CPE values
      */
-    protected List<IndexEntry> searchCPE(String vendor, String product,
+    protected List<String> searchCPE(String vendor, String product,
             Set<String> vendorWeightings, Set<String> productWeightings) {
 
-        final List<IndexEntry> ret = new ArrayList<IndexEntry>(MAX_QUERY_RESULTS);
+        final List<String> vendorResults = new ArrayList<String>(MAX_QUERY_RESULTS);
+        final List<String> productResults = new ArrayList<String>(MAX_QUERY_RESULTS);
 
         final String vendorSearch = buildSearch(Fields.VENDOR, vendor, vendorWeightings);
         final String productSearch = buildSearch(Fields.PRODUCT, product, productWeightings);
         if (vendorSearch == null || productSearch == null) {
-            return ret;
+            return null;
         }
+        searchIndex(vendorIndex, Fields.VENDOR, vendorSearch, vendorResults);
+        searchIndex(productIndex, Fields.PRODUCT, productSearch, productResults);
+
+        return ret;
+
+        return null;
+    }
+
+    private void searchIndex(IndexInterface index, final String Field, final String vendorSearch,
+            final List<String> vendorResults) {
         try {
-            final TopDocs vendorDocs = vendorIndex.search(vendorSearch, MAX_QUERY_RESULTS);
-            final TopDocs productDocs = productIndex.search(productSearch, MAX_QUERY_RESULTS);
+            final TopDocs docs = index.search(vendorSearch, MAX_QUERY_RESULTS);
             for (ScoreDoc d : docs.scoreDocs) {
                 if (d.score >= 0.08) {
-                    final Document doc = cpe.getDocument(d.doc);
-                    final IndexEntry entry = new IndexEntry();
-                    entry.setVendor(doc.get(Fields.VENDOR));
-                    entry.setProduct(doc.get(Fields.PRODUCT));
-                    entry.setSearchScore(d.score);
-                    if (!ret.contains(entry)) {
-                        ret.add(entry);
+                    final Document doc = index.getDocument(d.doc);
+                    String entry = doc.get(Fields.VENDOR);
+                    if (!vendorResults.contains(entry)) {
+                        vendorResults.add(entry);
                     }
                 }
             }
-            return ret;
         } catch (ParseException ex) {
             LOGGER.warn("An error occured querying the CPE data. See the log for more details.");
             LOGGER.info("Unable to parse: {}", searchString, ex);
@@ -302,7 +309,6 @@ public class CPEAnalyzer implements Analyzer {
             LOGGER.warn("An error occured reading CPE data. See the log for more details.");
             LOGGER.info("IO Error with search string: {}", searchString, ex);
         }
-        return null;
     }
 
     /**
@@ -521,25 +527,34 @@ public class CPEAnalyzer implements Analyzer {
      * only CPEs that are valid for the given dependency. It is possible that the CPE identified is a best effort "guess" based on
      * the vendor, product, and version information.
      *
-     * @param dependency the Dependency being analyzed
      * @param vendor the vendor for the CPE being analyzed
      * @param product the product for the CPE being analyzed
      * @param currentConfidence the current confidence being used during analysis
+     * @param versionEvidence the version evidence to identify the correct CPE
      * @return <code>true</code> if an identifier was added to the dependency; otherwise <code>false</code>
      * @throws UnsupportedEncodingException is thrown if UTF-8 is not supported
      */
-    protected boolean determineIdentifiers(Dependency dependency, String vendor, String product,
-            Confidence currentConfidence) throws UnsupportedEncodingException {
+    protected List<Identifier> determineIdentifiers(List<String> vendor, List<String> product,
+            Confidence currentConfidence, EvidenceCollection versionEvidence) throws UnsupportedEncodingException {
         final Set<VulnerableSoftware> cpes = cve.getCPEs(vendor, product);
+        if (cpes == null || cpes.isEmpty()) {
+            return null;
+        }
+        List<Identifier> identifiers = new ArrayList<Identifier>();
+
         DependencyVersion bestGuess = new DependencyVersion("-");
         Confidence bestGuessConf = null;
+        Confidence identifierConf;
         boolean hasBroadMatch = false;
         final List<IdentifierMatch> collected = new ArrayList<IdentifierMatch>();
         for (Confidence conf : Confidence.values()) {
-//            if (conf.compareTo(currentConfidence) > 0) {
-//                break;
-//            }
-            for (Evidence evidence : dependency.getVersionEvidence().iterator(conf)) {
+            if (conf.compareTo(currentConfidence) > 0) {
+                identifierConf = currentConfidence;
+            } else {
+                identifierConf = conf;
+            }
+
+            for (Evidence evidence : versionEvidence.iterator(conf)) {
                 final DependencyVersion evVer = DependencyVersionUtil.parseVersion(evidence.getValue());
                 if (evVer == null) {
                     continue;
@@ -554,29 +569,29 @@ public class CPEAnalyzer implements Analyzer {
                     if (dbVer == null) { //special case, no version specified - everything is vulnerable
                         hasBroadMatch = true;
                         final String url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName(), "UTF-8"));
-                        final IdentifierMatch match = new IdentifierMatch("cpe", vs.getName(), url, IdentifierConfidence.BROAD_MATCH, conf);
+                        final IdentifierMatch match = new IdentifierMatch("cpe", vs.getName(), url, IdentifierConfidence.BROAD_MATCH, identifierConf);
                         collected.add(match);
                     } else if (evVer.equals(dbVer)) { //yeah! exact match
                         final String url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName(), "UTF-8"));
-                        final IdentifierMatch match = new IdentifierMatch("cpe", vs.getName(), url, IdentifierConfidence.EXACT_MATCH, conf);
+                        final IdentifierMatch match = new IdentifierMatch("cpe", vs.getName(), url, IdentifierConfidence.EXACT_MATCH, identifierConf);
                         collected.add(match);
                     } else {
                         //TODO the following isn't quite right is it? need to think about this guessing game a bit more.
                         if (evVer.getVersionParts().size() <= dbVer.getVersionParts().size()
                                 && evVer.matchesAtLeastThreeLevels(dbVer)) {
-                            if (bestGuessConf == null || bestGuessConf.compareTo(conf) > 0) {
+                            if (bestGuessConf == null || bestGuessConf.compareTo(identifierConf) > 0) {
                                 if (bestGuess.getVersionParts().size() < dbVer.getVersionParts().size()) {
                                     bestGuess = dbVer;
-                                    bestGuessConf = conf;
+                                    bestGuessConf = identifierConf;
                                 }
                             }
                         }
                     }
                 }
-                if (bestGuessConf == null || bestGuessConf.compareTo(conf) > 0) {
+                if (bestGuessConf == null || bestGuessConf.compareTo(identifierConf) > 0) {
                     if (bestGuess.getVersionParts().size() < evVer.getVersionParts().size()) {
                         bestGuess = evVer;
-                        bestGuessConf = conf;
+                        bestGuessConf = identifierConf;
                     }
                 }
             }
@@ -596,7 +611,6 @@ public class CPEAnalyzer implements Analyzer {
         Collections.sort(collected);
         final IdentifierConfidence bestIdentifierQuality = collected.get(0).getConfidence();
         final Confidence bestEvidenceQuality = collected.get(0).getEvidenceConfidence();
-        boolean identifierAdded = false;
         for (IdentifierMatch m : collected) {
             if (bestIdentifierQuality.equals(m.getConfidence())
                     && bestEvidenceQuality.equals(m.getEvidenceConfidence())) {
@@ -606,11 +620,10 @@ public class CPEAnalyzer implements Analyzer {
                 } else {
                     i.setConfidence(bestEvidenceQuality);
                 }
-                dependency.addIdentifier(i);
-                identifierAdded = true;
+                identifiers.add(i);
             }
         }
-        return identifierAdded;
+        return identifiers;
     }
 
     /**
