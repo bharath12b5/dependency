@@ -17,6 +17,7 @@
  */
 package org.owasp.dependencycheck.analyzer;
 
+import edu.emory.mathcs.backport.java.util.Arrays;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
@@ -29,9 +30,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.owasp.dependencycheck.BaseTest;
 import org.owasp.dependencycheck.data.cpe.AbstractDatabaseTestCase;
+import org.owasp.dependencycheck.data.cpe.Fields;
 import org.owasp.dependencycheck.data.cpe.IndexEntry;
 import org.owasp.dependencycheck.dependency.Confidence;
 import org.owasp.dependencycheck.dependency.Dependency;
+import org.owasp.dependencycheck.dependency.EvidenceCollection;
 import org.owasp.dependencycheck.dependency.Identifier;
 
 /**
@@ -60,21 +63,21 @@ public class CPEAnalyzerIntegrationTest extends AbstractDatabaseTestCase {
         String version = "2.1.2";
         CPEAnalyzer instance = new CPEAnalyzer();
 
-        String queryText = instance.buildSearch(vendor, product, null, null);
-        String expResult = " product:( struts 2 core )  AND  vendor:( apache software foundation ) ";
+        String queryText = instance.buildSearch(Fields.VENDOR, vendor, null);
+        String expResult = "vendor:( apache software foundation )";
+        Assert.assertTrue(expResult.equals(queryText));
+        queryText = instance.buildSearch(Fields.PRODUCT, product, null);
+        expResult = "product:( struts 2 core )";
         Assert.assertTrue(expResult.equals(queryText));
 
-        queryText = instance.buildSearch(vendor, product, null, productWeightings);
-        expResult = " product:(  struts^5 struts2^5 2 core )  AND  vendor:( apache software foundation ) ";
+        queryText = instance.buildSearch(Fields.PRODUCT, product, productWeightings);
+        expResult = " product:( struts^5 struts2^5 2 core )";
         Assert.assertTrue(expResult.equals(queryText));
 
-        queryText = instance.buildSearch(vendor, product, vendorWeightings, null);
-        expResult = " product:( struts 2 core )  AND  vendor:(  apache^5 software foundation ) ";
+        queryText = instance.buildSearch(Fields.VENDOR, vendor, vendorWeightings);
+        expResult = "vendor:( apache^5 software foundation )";
         Assert.assertTrue(expResult.equals(queryText));
 
-        queryText = instance.buildSearch(vendor, product, vendorWeightings, productWeightings);
-        expResult = " product:(  struts^5 struts2^5 2 core )  AND  vendor:(  apache^5 software foundation ) ";
-        Assert.assertTrue(expResult.equals(queryText));
     }
 
     /**
@@ -205,20 +208,19 @@ public class CPEAnalyzerIntegrationTest extends AbstractDatabaseTestCase {
      */
     @Test
     public void testDetermineIdentifiers() throws Exception {
-        Dependency openssl = new Dependency();
-        openssl.getVendorEvidence().addEvidence("test", "vendor", "openssl", Confidence.HIGHEST);
-        openssl.getProductEvidence().addEvidence("test", "product", "openssl", Confidence.HIGHEST);
-        openssl.getVersionEvidence().addEvidence("test", "version", "1.0.1c", Confidence.HIGHEST);
-
+        List<String> vendor = Arrays.asList(new String[]{"openssl"});
+        List<String> product = Arrays.asList(new String[]{"openssl"});
+        EvidenceCollection version = new EvidenceCollection();
+        version.addEvidence("test", "version", "1.0.1c", Confidence.HIGHEST);
         CPEAnalyzer instance = new CPEAnalyzer();
-        instance.open();
-        instance.determineIdentifiers(openssl, "openssl", "openssl", Confidence.HIGHEST);
+        instance.open(true);
+        List<Identifier> ids = instance.determineIdentifiers(vendor, product, Confidence.HIGHEST, version);
         instance.close();
 
         String expResult = "cpe:/a:openssl:openssl:1.0.1c";
         Identifier expIdentifier = new Identifier("cpe", expResult, expResult);
 
-        assertTrue(openssl.getIdentifiers().contains(expIdentifier));
+        assertTrue(ids.contains(expIdentifier));
 
     }
 
@@ -231,7 +233,6 @@ public class CPEAnalyzerIntegrationTest extends AbstractDatabaseTestCase {
     public void testSearchCPE() throws Exception {
         String vendor = "apache software foundation";
         String product = "struts 2 core";
-        String version = "2.1.2";
         String expVendor = "apache";
         String expProduct = "struts";
 
@@ -244,12 +245,15 @@ public class CPEAnalyzerIntegrationTest extends AbstractDatabaseTestCase {
         Set<String> vendorWeightings = new HashSet<String>(1);
         vendorWeightings.add("apache");
 
-        List<IndexEntry> result = instance.searchCPE(vendor, product, productWeightings, vendorWeightings);
+        EvidenceCollection version = new EvidenceCollection();
+        version.addEvidence("testing", "version", "2.1.2", Confidence.HIGHEST);
+
+        List<Identifier> result = instance.searchCPE(vendor, product, productWeightings, vendorWeightings, Confidence.HIGHEST, version);
         instance.close();
 
         boolean found = false;
-        for (IndexEntry entry : result) {
-            if (expVendor.equals(entry.getVendor()) && expProduct.equals(entry.getProduct())) {
+        for (Identifier entry : result) {
+            if ("cpe:/a:apache:struts:2.1.2".equals(entry.getValue())) {
                 found = true;
                 break;
             }

@@ -17,6 +17,7 @@
  */
 package org.owasp.dependencycheck.data.nvdcve;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -59,11 +60,49 @@ public class CveDBIntegrationTest extends BaseDBTestCase {
         CveDB instance = null;
         try {
             instance = new CveDB();
-            String vendor = "apache";
-            String product = "struts";
+            List<String> vendor = Arrays.asList(new String[]{"apache"});
+            List<String> product = Arrays.asList(new String[]{"struts"});
             instance.open();
             Set<VulnerableSoftware> result = instance.getCPEs(vendor, product);
             assertTrue(result.size() > 5);
+        } finally {
+            if (instance != null) {
+                instance.close();
+            }
+        }
+    }
+
+    /**
+     * Test of getVendorList method, of class CveDB.
+     */
+    @Test
+    public void testGetVendorList() throws Exception {
+        CveDB instance = null;
+        try {
+            instance = new CveDB();
+            instance.open();
+            Set<String> result = instance.getVendorList();
+            assertTrue(result.size() > 50);
+            assertTrue(result.contains("apache"));
+        } finally {
+            if (instance != null) {
+                instance.close();
+            }
+        }
+    }
+
+    /**
+     * Test of getProductList method, of class CveDB.
+     */
+    @Test
+    public void testGetProductList() throws Exception {
+        CveDB instance = null;
+        try {
+            instance = new CveDB();
+            instance.open();
+            Set<String> result = instance.getProductList();
+            assertTrue(result.size() > 50);
+            assertTrue(result.contains("struts"));
         } finally {
             if (instance != null) {
                 instance.close();

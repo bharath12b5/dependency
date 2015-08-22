@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -140,9 +141,24 @@ public class CPEAnalyzer implements Analyzer {
      * process.
      */
     public void open() throws IOException, DatabaseException {
+        open(false);
+    }
+
+    /**
+     * Opens the data source.
+     *
+     * @param skipIndexCreation True should only be passed in during testing. If true, the lucene indexes will not be created.
+     * @throws IOException when the Lucene directory to be queried does not exist or is corrupt.
+     * @throws DatabaseException when the database throws an exception. This usually occurs when the database is in use by another
+     * process.
+     */
+    public void open(boolean skipIndexCreation) throws IOException, DatabaseException {
         LOGGER.debug("Opening the CVE Database");
         cve = new CveDB();
         cve.open();
+        if (skipIndexCreation) {
+            return;
+        }
         LOGGER.debug("Creating the Lucene CPE Index");
         vendorIndex = VendorIndex.getInstance();
         productIndex = ProductIndex.getInstance();
@@ -201,22 +217,13 @@ public class CPEAnalyzer implements Analyzer {
                 LOGGER.debug("product search: {}", products);
             }
             if (!vendors.isEmpty() && !products.isEmpty()) {
-                final List<IndexEntry> entries = searchCPE(vendors, products, dependency.getProductEvidence().getWeighting(),
-                        dependency.getVendorEvidence().getWeighting());
-                if (entries == null) {
-                    continue;
-                }
-                boolean identifierAdded = false;
-                for (IndexEntry e : entries) {
-                    LOGGER.debug("Verifying entry: {}", e);
-                    if (verifyEntry(e, dependency)) {
-                        final String vendor = e.getVendor();
-                        final String product = e.getProduct();
-                        LOGGER.debug("identified vendor/product: {}/{}", vendor, product);
-                        identifierAdded |= determineIdentifiers(dependency, vendor, product, confidence);
+                final List<Identifier> entries = searchCPE(vendors, products, dependency.getProductEvidence().getWeighting(),
+                        dependency.getVendorEvidence().getWeighting(), confidence, dependency.getVersionEvidence());
+                if (entries != null && !entries.isEmpty()) {
+                    for (Identifier i : entries) {
+                        LOGGER.debug("identified: {}", i.toString());
+                        dependency.addIdentifier(i);
                     }
-                }
-                if (identifierAdded) {
                     break;
                 }
             }
@@ -270,8 +277,13 @@ public class CPEAnalyzer implements Analyzer {
      * @param productWeightings Adds a list of strings that will be used to add weighting factors to the product search
      * @return a list of possible CPE values
      */
-    protected List<String> searchCPE(String vendor, String product,
-            Set<String> vendorWeightings, Set<String> productWeightings) {
+    protected List<Identifier> searchCPE(String vendor, String product,
+            Set<String> vendorWeightings, Set<String> productWeightings,
+            Confidence confidence, EvidenceCollection version) {
+
+        if (vendor == null || vendor.isEmpty() || product == null || product.isEmpty()) {
+            return null;
+        }
 
         final List<String> vendorResults = new ArrayList<String>(MAX_QUERY_RESULTS);
         final List<String> productResults = new ArrayList<String>(MAX_QUERY_RESULTS);
@@ -284,21 +296,20 @@ public class CPEAnalyzer implements Analyzer {
         searchIndex(vendorIndex, Fields.VENDOR, vendorSearch, vendorResults);
         searchIndex(productIndex, Fields.PRODUCT, productSearch, productResults);
 
-        return ret;
+        return determineIdentifiers(vendorResults, productResults, confidence, version);
 
-        return null;
     }
 
-    private void searchIndex(IndexInterface index, final String Field, final String vendorSearch,
-            final List<String> vendorResults) {
+    private void searchIndex(IndexInterface index, final String field, final String searchString,
+            final List<String> results) {
         try {
-            final TopDocs docs = index.search(vendorSearch, MAX_QUERY_RESULTS);
+            final TopDocs docs = index.search(searchString, MAX_QUERY_RESULTS);
             for (ScoreDoc d : docs.scoreDocs) {
                 if (d.score >= 0.08) {
                     final Document doc = index.getDocument(d.doc);
-                    String entry = doc.get(Fields.VENDOR);
-                    if (!vendorResults.contains(entry)) {
-                        vendorResults.add(entry);
+                    String entry = doc.get(field);
+                    if (!results.contains(entry)) {
+                        results.add(entry);
                     }
                 }
             }
@@ -358,7 +369,7 @@ public class CPEAnalyzer implements Analyzer {
                 sb.append(" ").append(temp);
             }
         }
-        sb.append(" ) ");
+        sb.append(" )");
         return sb.toString();
     }
 
@@ -435,74 +446,6 @@ public class CPEAnalyzer implements Analyzer {
     }
 
     /**
-     * Ensures that the CPE Identified matches the dependency. This validates that the product, vendor, and version information
-     * for the CPE are contained within the dependencies evidence.
-     *
-     * @param entry a CPE entry.
-     * @param dependency the dependency that the CPE entries could be for.
-     * @return whether or not the entry is valid.
-     */
-    private boolean verifyEntry(final IndexEntry entry, final Dependency dependency) {
-        boolean isValid = false;
-
-        //TODO - does this nullify some of the fuzzy matching that happens in the lucene search?
-        // for instance CPE some-component and in the evidence we have SomeComponent.
-        if (collectionContainsString(dependency.getProductEvidence(), entry.getProduct())
-                && collectionContainsString(dependency.getVendorEvidence(), entry.getVendor())) {
-            //&& collectionContainsVersion(dependency.getVersionEvidence(), entry.getVersion())
-            isValid = true;
-        }
-        return isValid;
-    }
-
-    /**
-     * Used to determine if the EvidenceCollection contains a specific string.
-     *
-     * @param ec an EvidenceCollection
-     * @param text the text to search for
-     * @return whether or not the EvidenceCollection contains the string
-     */
-    private boolean collectionContainsString(EvidenceCollection ec, String text) {
-        //TODO - likely need to change the split... not sure if this will work for CPE with special chars
-        if (text == null) {
-            return false;
-        }
-        final String[] words = text.split("[\\s_-]");
-        final List<String> list = new ArrayList<String>();
-        String tempWord = null;
-        for (String word : words) {
-            /*
-             single letter words should be concatenated with the next word.
-             so { "m", "core", "sample" } -> { "mcore", "sample" }
-             */
-            if (tempWord != null) {
-                list.add(tempWord + word);
-                tempWord = null;
-            } else if (word.length() <= 2) {
-                tempWord = word;
-            } else {
-                list.add(word);
-            }
-        }
-        if (tempWord != null) {
-            if (!list.isEmpty()) {
-                final String tmp = list.get(list.size() - 1) + tempWord;
-                list.add(tmp);
-            } else {
-                list.add(tempWord);
-            }
-        }
-        if (list.isEmpty()) {
-            return false;
-        }
-        boolean contains = true;
-        for (String word : list) {
-            contains &= ec.containsUsedString(word);
-        }
-        return contains;
-    }
-
-    /**
      * Analyzes a dependency and attempts to determine if there are any CPE identifiers for this dependency.
      *
      * @param dependency The Dependency to analyze.
@@ -532,10 +475,9 @@ public class CPEAnalyzer implements Analyzer {
      * @param currentConfidence the current confidence being used during analysis
      * @param versionEvidence the version evidence to identify the correct CPE
      * @return <code>true</code> if an identifier was added to the dependency; otherwise <code>false</code>
-     * @throws UnsupportedEncodingException is thrown if UTF-8 is not supported
      */
     protected List<Identifier> determineIdentifiers(List<String> vendor, List<String> product,
-            Confidence currentConfidence, EvidenceCollection versionEvidence) throws UnsupportedEncodingException {
+            Confidence currentConfidence, EvidenceCollection versionEvidence) {
         final Set<VulnerableSoftware> cpes = cve.getCPEs(vendor, product);
         if (cpes == null || cpes.isEmpty()) {
             return null;
@@ -568,11 +510,21 @@ public class CPEAnalyzer implements Analyzer {
                     }
                     if (dbVer == null) { //special case, no version specified - everything is vulnerable
                         hasBroadMatch = true;
-                        final String url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName(), "UTF-8"));
+                        String url;
+                        try {
+                            url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName(), "UTF-8"));
+                        } catch (UnsupportedEncodingException ex) {
+                            url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName()));
+                        }
                         final IdentifierMatch match = new IdentifierMatch("cpe", vs.getName(), url, IdentifierConfidence.BROAD_MATCH, identifierConf);
                         collected.add(match);
                     } else if (evVer.equals(dbVer)) { //yeah! exact match
-                        final String url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName(), "UTF-8"));
+                        String url;
+                        try {
+                            url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName(), "UTF-8"));
+                        } catch (UnsupportedEncodingException ex) {
+                            url = String.format(NVD_SEARCH_URL, URLEncoder.encode(vs.getName()));
+                        }
                         final IdentifierMatch match = new IdentifierMatch("cpe", vs.getName(), url, IdentifierConfidence.EXACT_MATCH, identifierConf);
                         collected.add(match);
                     } else {
@@ -600,7 +552,11 @@ public class CPEAnalyzer implements Analyzer {
         String url = null;
         if (hasBroadMatch) { //if we have a broad match we can add the URL to the best guess.
             final String cpeUrlName = String.format("cpe:/a:%s:%s", vendor, product);
-            url = String.format(NVD_SEARCH_URL, URLEncoder.encode(cpeUrlName, "UTF-8"));
+            try {
+                url = String.format(NVD_SEARCH_URL, URLEncoder.encode(cpeUrlName, "UTF-8"));
+            } catch (UnsupportedEncodingException ex) {
+                url = String.format(NVD_SEARCH_URL, URLEncoder.encode(cpeUrlName));
+            }
         }
         if (bestGuessConf == null) {
             bestGuessConf = Confidence.LOW;

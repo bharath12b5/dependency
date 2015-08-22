@@ -17,6 +17,7 @@
  */
 package org.owasp.dependencycheck.data.nvdcve;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import org.junit.After;
@@ -69,10 +70,11 @@ public class CveDBMySQLTest {
      */
     @Test
     public void testGetCPEs() throws Exception {
-        CveDB instance = new CveDB();
+        CveDB instance = null;
         try {
-            String vendor = "apache";
-            String product = "struts";
+            instance = new CveDB();
+            List<String> vendor = Arrays.asList(new String[]{"apache"});
+            List<String> product = Arrays.asList(new String[]{"struts"});
             instance.open();
             Set<VulnerableSoftware> result = instance.getCPEs(vendor, product);
             assertTrue("Has data been loaded into the MySQL DB? if not consider using the CLI to populate it", result.size() > 5);
@@ -80,7 +82,9 @@ public class CveDBMySQLTest {
             System.out.println("Unable to access the My SQL database; verify that the db server is running and that the schema has been generated");
             throw ex;
         } finally {
-            instance.close();
+            if (instance != null) {
+                instance.close();
+            }
         }
     }
 
