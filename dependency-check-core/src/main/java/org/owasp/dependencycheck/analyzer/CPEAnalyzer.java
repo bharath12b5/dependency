@@ -304,8 +304,12 @@ public class CPEAnalyzer implements Analyzer {
             final List<String> results) {
         try {
             final TopDocs docs = index.search(searchString, MAX_QUERY_RESULTS);
+            double maxScore = 0;
             for (ScoreDoc d : docs.scoreDocs) {
-                if (d.score >= 0.08) {
+                if (maxScore == 0) {
+                    maxScore = d.score * 0.8;
+                }
+                if (d.score >= maxScore) { //0.08) {
                     final Document doc = index.getDocument(d.doc);
                     String entry = doc.get(field);
                     if (!results.contains(entry)) {
