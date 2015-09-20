@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2013 - 2015 OWASP</copyright>
     <item>
-      <title>File: 56,
-             Errors: 3,
+      <title>File: 22,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_pt.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_pt.properties</a>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.package-info.java">org/owasp/dependencycheck/maven/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_ca.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_ca.properties</a>
+                  <a href="http://maven.apache.org/checkstyle.html#target.generated-classes.cobertura.mojo.properties">target/generated-classes/cobertura/mojo.properties</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_de.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_de.properties</a>
+                  <a href="http://maven.apache.org/checkstyle.html#LICENSE.txt">LICENSE.txt</a>
                 </td>
                 <td>
                   0
@@ -88,231 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_zh_CN.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_zh_CN.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.BaseDependencyCheckMojo.java">src/main/java/org/owasp/dependencycheck/maven/BaseDependencyCheckMojo.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.generated-classes.cobertura.cobertura.properties">target/generated-classes/cobertura/cobertura.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_pt_BR.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_pt_BR.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.slf4j.impl.package-info.java">src/main/java/org/slf4j/impl/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.UpdateMojo.java">org/owasp/dependencycheck/maven/UpdateMojo.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_zh_TW.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_zh_TW.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_tr.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_tr.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.resources.mojo.properties">src/main/resources/mojo.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.slf4j.impl.package-info.java">org/slf4j/impl/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.slf4j.MavenLoggerFactory.java">org/owasp/dependencycheck/maven/slf4j/MavenLoggerFactory.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_en.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_en.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.classes.mojo.properties">target/classes/mojo.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_gl.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_gl.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.slf4j.MavenLoggerFactory.java">src/main/java/org/owasp/dependencycheck/maven/slf4j/MavenLoggerFactory.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_sv.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_sv.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.UpdateMojo.java">src/main/java/org/owasp/dependencycheck/maven/UpdateMojo.java</a>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.BaseDependencyCheckMojo.java">org/owasp/dependencycheck/maven/BaseDependencyCheckMojo.java</a>
                 </td>
                 <td>
                   0
@@ -382,7 +158,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_ru.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_ru.properties</a>
+                  <a href="http://maven.apache.org/checkstyle.html#target.generated-classes.cobertura.cobertura.properties">target/generated-classes/cobertura/cobertura.properties</a>
                 </td>
                 <td>
                   0
@@ -396,371 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_hu.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_hu.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_ja.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_ja.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.Engine.java">org/owasp/dependencycheck/maven/Engine.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_sk.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_sk.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_da.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_da.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_ko.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_ko.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.generated-classes.cobertura.mojo.properties">target/generated-classes/cobertura/mojo.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_es.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_es.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_it.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_it.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_no.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_no.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.AggregateMojo.java">src/main/java/org/owasp/dependencycheck/maven/AggregateMojo.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.slf4j.impl.StaticLoggerBinder.java">src/main/java/org/slf4j/impl/StaticLoggerBinder.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.CheckMojo.java">src/main/java/org/owasp/dependencycheck/maven/CheckMojo.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-help.properties">target/maven-plugin-help.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.package-info.java">src/main/java/org/owasp/dependencycheck/maven/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.slf4j.MavenLoggerAdapter.java">src/main/java/org/owasp/dependencycheck/maven/slf4j/MavenLoggerAdapter.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_nl.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_nl.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.slf4j.MavenLoggerAdapter.java">org/owasp/dependencycheck/maven/slf4j/MavenLoggerAdapter.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.test.resources.mojo.properties">src/test/resources/mojo.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.package-info.java">org/owasp/dependencycheck/maven/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.BaseDependencyCheckMojo.java">org/owasp/dependencycheck/maven/BaseDependencyCheckMojo.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_cs.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_cs.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.Engine.java">src/main/java/org/owasp/dependencycheck/maven/Engine.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_lt.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_lt.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#src.main.java.org.owasp.dependencycheck.maven.slf4j.package-info.java">src/main/java/org/owasp/dependencycheck/maven/slf4j/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_pl.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_pl.properties</a>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.PurgeMojo.java">org/owasp/dependencycheck/maven/PurgeMojo.java</a>
                 </td>
                 <td>
                   0
@@ -788,7 +200,63 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.UpdateMojo.java">org/owasp/dependencycheck/maven/UpdateMojo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-help.properties">target/maven-plugin-help.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.Engine.java">org/owasp/dependencycheck/maven/Engine.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://maven.apache.org/checkstyle.html#org.slf4j.impl.StaticLoggerBinder.java">org/slf4j/impl/StaticLoggerBinder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#NOTICE.txt">NOTICE.txt</a>
                 </td>
                 <td>
                   0
@@ -816,7 +284,63 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#target.maven-plugin-plugin-sources.org.apache.maven.plugins.maven-site-plugin.3.4.sources.site-plugin_fr.properties">target/maven-plugin-plugin-sources/org.apache.maven.plugins/maven-site-plugin/3.4/sources/site-plugin_fr.properties</a>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.slf4j.MavenLoggerFactory.java">org/owasp/dependencycheck/maven/slf4j/MavenLoggerFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.slf4j.impl.package-info.java">org/slf4j/impl/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#target.classes.mojo.properties">target/classes/mojo.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#src.test.resources.mojo.properties">src/test/resources/mojo.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#org.owasp.dependencycheck.maven.slf4j.MavenLoggerAdapter.java">org/owasp/dependencycheck/maven/slf4j/MavenLoggerAdapter.java</a>
                 </td>
                 <td>
                   0

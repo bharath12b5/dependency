@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2012 - 2015 OWASP</copyright>
     <item>
-      <title>File: 24,
-             Errors: 6,
+      <title>File: 19,
+             Errors: 5,
              Warnings: 0,
              Infos: 0
       </title>
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#org.owasp.dependencycheck.taskdefs.DependencyCheckTask.java">org/owasp/dependencycheck/taskdefs/DependencyCheckTask.java</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#dependency-check-taskdefs.properties">dependency-check-taskdefs.properties</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.resources.taskdefs.properties">src/main/resources/taskdefs.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#org.owasp.dependencycheck.taskdefs.Update.java">org/owasp/dependencycheck/taskdefs/Update.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#LICENSE.txt">LICENSE.txt</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#org.owasp.dependencycheck.taskdefs.Purge.java">org/owasp/dependencycheck/taskdefs/Purge.java</a>
                 </td>
                 <td>
                   0
@@ -102,62 +130,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.java.org.owasp.dependencycheck.ant.logging.AntLoggerFactory.java">src/main/java/org/owasp/dependencycheck/ant/logging/AntLoggerFactory.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.java.org.owasp.dependencycheck.ant.logging.AntLoggerAdapter.java">src/main/java/org/owasp/dependencycheck/ant/logging/AntLoggerAdapter.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#taskdefs.properties">taskdefs.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.resources.task.properties">src/main/resources/task.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#target.generated-classes.cobertura.cobertura.properties">target/generated-classes/cobertura/cobertura.properties</a>
                 </td>
                 <td>
@@ -172,7 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.java.org.slf4j.impl.package-info.java">src/main/java/org/slf4j/impl/package-info.java</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#org.owasp.dependencycheck.taskdefs.Check.java">org/owasp/dependencycheck/taskdefs/Check.java</a>
                 </td>
                 <td>
                   0
@@ -181,21 +153,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.java.org.owasp.dependencycheck.taskdefs.package-info.java">src/main/java/org/owasp/dependencycheck/taskdefs/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -210,34 +168,6 @@ under the License.
                 </td>
                 <td>
                   0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.java.org.slf4j.impl.StaticLoggerBinder.java">src/main/java/org/slf4j/impl/StaticLoggerBinder.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  4
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.java.org.owasp.dependencycheck.taskdefs.DependencyCheckTask.java">src/main/java/org/owasp/dependencycheck/taskdefs/DependencyCheckTask.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
                 </td>
               </tr>
                           <tr>
@@ -265,26 +195,26 @@ under the License.
                   0
                 </td>
                 <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#target.generated-classes.cobertura.dependency-check-taskdefs.properties">target/generated-classes/cobertura/dependency-check-taskdefs.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
                   0
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#target.classes.taskdefs.properties">target/classes/taskdefs.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#src.main.java.org.owasp.dependencycheck.ant.logging.package-info.java">src/main/java/org/owasp/dependencycheck/ant/logging/package-info.java</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#target.classes.dependency-check-taskdefs.properties">target/classes/dependency-check-taskdefs.properties</a>
                 </td>
                 <td>
                   0
@@ -312,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#target.generated-classes.cobertura.taskdefs.properties">target/generated-classes/cobertura/taskdefs.properties</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-ant/checkstyle.html#NOTICE.txt">NOTICE.txt</a>
                 </td>
                 <td>
                   0
