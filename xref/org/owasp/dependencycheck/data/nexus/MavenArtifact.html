@@ -102,13 +102,13 @@
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>          }
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">if</strong> (jarAvailable) {
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>              <em class="jxr_comment">//org/springframework/spring-core/3.2.0.RELEASE/spring-core-3.2.0.RELEASE.pom</em>
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>              <strong class="jxr_keyword">this</strong>.artifactUrl = base + groupId.replace('.', '/') + <span class="jxr_string">"/"</span> + artifactId + <span class="jxr_string">"/"</span>
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>                      + version + <span class="jxr_string">"/"</span> + artifactId + <span class="jxr_string">"-"</span> + version + <span class="jxr_string">".jar"</span>;
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              <strong class="jxr_keyword">this</strong>.artifactUrl = base + groupId.replace('.', '/') + '/' + artifactId + '/'
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>                      + version + '/' + artifactId + '-' + version + <span class="jxr_string">".jar"</span>;
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>          }
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>         <strong class="jxr_keyword">if</strong> (pomAvailable) {
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>             <em class="jxr_comment">//org/springframework/spring-core/3.2.0.RELEASE/spring-core-3.2.0.RELEASE.pom</em>
-<a class="jxr_linenumber" name="L102" href="#L102">102</a>             <strong class="jxr_keyword">this</strong>.pomUrl = base + groupId.replace('.', '/') + <span class="jxr_string">"/"</span> + artifactId + <span class="jxr_string">"/"</span>
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>                     + version + <span class="jxr_string">"/"</span> + artifactId + <span class="jxr_string">"-"</span> + version + <span class="jxr_string">".pom"</span>;
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>             <strong class="jxr_keyword">this</strong>.pomUrl = base + groupId.replace('.', '/') + '/' + artifactId + '/'
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>                     + version + '/' + artifactId + '-' + version + <span class="jxr_string">".pom"</span>;
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>         }
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>     }
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> 

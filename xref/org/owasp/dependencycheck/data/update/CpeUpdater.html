@@ -145,7 +145,7 @@
 <a class="jxr_linenumber" name="L137" href="#L137">137</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> updateNeeded() {
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> now = System.currentTimeMillis();
-<a class="jxr_linenumber" name="L140" href="#L140">140</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> days = Settings.getInt(Settings.KEYS.CVE_MODIFIED_VALID_FOR_DAYS, 30);
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> days = Settings.getInt(Settings.KEYS.CPE_MODIFIED_VALID_FOR_DAYS, 30);
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>         <strong class="jxr_keyword">long</strong> timestamp = 0;
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>         <strong class="jxr_keyword">final</strong> String ts = getProperties().getProperty(LAST_CPE_UPDATE);
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>         <strong class="jxr_keyword">if</strong> (ts != <strong class="jxr_keyword">null</strong> &amp;&amp; ts.matches(<span class="jxr_string">"^[0-9]+$"</span>)) {

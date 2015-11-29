@@ -76,8 +76,8 @@
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">final</strong> File file2;
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>              file1 = File.createTempFile(<span class="jxr_string">"cve"</span> + nvdCveInfo.getId() + <span class="jxr_string">"_"</span>, <span class="jxr_string">".xml"</span>, Settings.getTempDirectory());
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>              file2 = File.createTempFile(<span class="jxr_string">"cve_1_2_"</span> + nvdCveInfo.getId() + <span class="jxr_string">"_"</span>, <span class="jxr_string">".xml"</span>, Settings.getTempDirectory());
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              file1 = File.createTempFile(<span class="jxr_string">"cve"</span> + nvdCveInfo.getId() + '_', <span class="jxr_string">".xml"</span>, Settings.getTempDirectory());
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              file2 = File.createTempFile(<span class="jxr_string">"cve_1_2_"</span> + nvdCveInfo.getId() + '_', <span class="jxr_string">".xml"</span>, Settings.getTempDirectory());
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>          } <strong class="jxr_keyword">catch</strong> (IOException ex) {
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(<span class="jxr_string">"Unable to create temporary files"</span>, ex);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>          }

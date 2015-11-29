@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>          <em class="jxr_comment">//File file = new File(this.getClass().getClassLoader().getResource("suppressions.xml").getPath());</em>
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>          File file = BaseTest.getResourceAsFile(<strong class="jxr_keyword">this</strong>, <span class="jxr_string">"suppressions.xml"</span>);
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>          SuppressionParser instance = <strong class="jxr_keyword">new</strong> SuppressionParser();
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          List result = instance.parseSuppressionRules(file);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          List&lt;SuppressionRule&gt; result = instance.parseSuppressionRules(file);
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>          assertTrue(result.size() &gt; 3);
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>      }
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  }

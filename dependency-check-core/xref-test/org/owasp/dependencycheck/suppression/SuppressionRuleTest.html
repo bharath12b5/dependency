@@ -315,220 +315,199 @@
 <a class="jxr_linenumber" name="L307" href="#L307">307</a>     }
 <a class="jxr_linenumber" name="L308" href="#L308">308</a> 
 <a class="jxr_linenumber" name="L309" href="#L309">309</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">     * Test of countCharacter method, of class SuppressionRule.</em>
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">     * Test of identifierMatches method, of class SuppressionRule.</em>
 <a class="jxr_linenumber" name="L311" href="#L311">311</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L312" href="#L312">312</a>     @Test
-<a class="jxr_linenumber" name="L313" href="#L313">313</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCountCharacter() {
-<a class="jxr_linenumber" name="L314" href="#L314">314</a>         String str = <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>;
-<a class="jxr_linenumber" name="L315" href="#L315">315</a>         <strong class="jxr_keyword">char</strong> c = ':';
-<a class="jxr_linenumber" name="L316" href="#L316">316</a>         SuppressionRule instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L317" href="#L317">317</a>         <strong class="jxr_keyword">int</strong> expResult = 4;
-<a class="jxr_linenumber" name="L318" href="#L318">318</a>         <strong class="jxr_keyword">int</strong> result = instance.countCharacter(str, c);
-<a class="jxr_linenumber" name="L319" href="#L319">319</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L320" href="#L320">320</a>         str = <span class="jxr_string">"::"</span>;
-<a class="jxr_linenumber" name="L321" href="#L321">321</a>         expResult = 2;
-<a class="jxr_linenumber" name="L322" href="#L322">322</a>         result = instance.countCharacter(str, c);
-<a class="jxr_linenumber" name="L323" href="#L323">323</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L324" href="#L324">324</a>         str = <span class="jxr_string">"these are not the characters you are looking for"</span>;
-<a class="jxr_linenumber" name="L325" href="#L325">325</a>         expResult = 0;
-<a class="jxr_linenumber" name="L326" href="#L326">326</a>         result = instance.countCharacter(str, c);
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCpeMatches() {
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>         Identifier identifier = <strong class="jxr_keyword">new</strong> Identifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>         PropertyType cpe = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>);
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>         SuppressionRule instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>         <strong class="jxr_keyword">boolean</strong> expResult = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>         <strong class="jxr_keyword">boolean</strong> result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.0"</span>);
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>         expResult = false;
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
 <a class="jxr_linenumber" name="L327" href="#L327">327</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L328" href="#L328">328</a>     }
-<a class="jxr_linenumber" name="L329" href="#L329">329</a> 
-<a class="jxr_linenumber" name="L330" href="#L330">330</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L331" href="#L331">331</a> <em class="jxr_javadoccomment">     * Test of identifierMatches method, of class SuppressionRule.</em>
-<a class="jxr_linenumber" name="L332" href="#L332">332</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L333" href="#L333">333</a>     @Test
-<a class="jxr_linenumber" name="L334" href="#L334">334</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCpeMatches() {
-<a class="jxr_linenumber" name="L335" href="#L335">335</a>         Identifier identifier = <strong class="jxr_keyword">new</strong> Identifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L336" href="#L336">336</a> 
-<a class="jxr_linenumber" name="L337" href="#L337">337</a>         PropertyType cpe = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L338" href="#L338">338</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>);
-<a class="jxr_linenumber" name="L339" href="#L339">339</a> 
-<a class="jxr_linenumber" name="L340" href="#L340">340</a>         SuppressionRule instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L341" href="#L341">341</a>         <strong class="jxr_keyword">boolean</strong> expResult = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L342" href="#L342">342</a>         <strong class="jxr_keyword">boolean</strong> result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L343" href="#L343">343</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L344" href="#L344">344</a> 
-<a class="jxr_linenumber" name="L345" href="#L345">345</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.0"</span>);
-<a class="jxr_linenumber" name="L346" href="#L346">346</a>         expResult = false;
-<a class="jxr_linenumber" name="L347" href="#L347">347</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L348" href="#L348">348</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L349" href="#L349">349</a> 
-<a class="jxr_linenumber" name="L350" href="#L350">350</a>         cpe.setValue(<span class="jxr_string">"CPE:/a:microsoft:.net_framework:4.5"</span>);
-<a class="jxr_linenumber" name="L351" href="#L351">351</a>         cpe.setCaseSensitive(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L352" href="#L352">352</a>         expResult = false;
-<a class="jxr_linenumber" name="L353" href="#L353">353</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L354" href="#L354">354</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L355" href="#L355">355</a> 
-<a class="jxr_linenumber" name="L356" href="#L356">356</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework"</span>);
-<a class="jxr_linenumber" name="L357" href="#L357">357</a>         cpe.setCaseSensitive(false);
-<a class="jxr_linenumber" name="L358" href="#L358">358</a>         expResult = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L359" href="#L359">359</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L360" href="#L360">360</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L361" href="#L361">361</a> 
-<a class="jxr_linenumber" name="L362" href="#L362">362</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.*"</span>);
-<a class="jxr_linenumber" name="L363" href="#L363">363</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L364" href="#L364">364</a>         expResult = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L365" href="#L365">365</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L366" href="#L366">366</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L367" href="#L367">367</a> 
-<a class="jxr_linenumber" name="L368" href="#L368">368</a>         cpe.setValue(<span class="jxr_string">"CPE:/a:microsoft:.*"</span>);
-<a class="jxr_linenumber" name="L369" href="#L369">369</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L370" href="#L370">370</a>         cpe.setCaseSensitive(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L371" href="#L371">371</a>         expResult = false;
-<a class="jxr_linenumber" name="L372" href="#L372">372</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L373" href="#L373">373</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L374" href="#L374">374</a> 
-<a class="jxr_linenumber" name="L375" href="#L375">375</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:apache:.*"</span>);
-<a class="jxr_linenumber" name="L376" href="#L376">376</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L377" href="#L377">377</a>         cpe.setCaseSensitive(false);
-<a class="jxr_linenumber" name="L378" href="#L378">378</a>         expResult = false;
-<a class="jxr_linenumber" name="L379" href="#L379">379</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L380" href="#L380">380</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L381" href="#L381">381</a> 
-<a class="jxr_linenumber" name="L382" href="#L382">382</a>         identifier = <strong class="jxr_keyword">new</strong> Identifier(<span class="jxr_string">"maven"</span>, <span class="jxr_string">"org.springframework:spring-core:2.5.5"</span>, <span class="jxr_string">"https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&amp;g=org.springframework&amp;a=spring-core&amp;v=2.5.5&amp;e=jar"</span>);
-<a class="jxr_linenumber" name="L383" href="#L383">383</a>         cpe.setValue(<span class="jxr_string">"org.springframework:spring-core:2.5.5"</span>);
-<a class="jxr_linenumber" name="L384" href="#L384">384</a>         cpe.setRegex(false);
-<a class="jxr_linenumber" name="L385" href="#L385">385</a>         cpe.setCaseSensitive(false);
-<a class="jxr_linenumber" name="L386" href="#L386">386</a>         expResult = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L387" href="#L387">387</a>         result = instance.identifierMatches(<span class="jxr_string">"maven"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L388" href="#L388">388</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L389" href="#L389">389</a> 
-<a class="jxr_linenumber" name="L390" href="#L390">390</a>         cpe.setValue(<span class="jxr_string">"org&#92;&#92;.springframework&#92;&#92;.security:spring.*"</span>);
-<a class="jxr_linenumber" name="L391" href="#L391">391</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L392" href="#L392">392</a>         cpe.setCaseSensitive(false);
-<a class="jxr_linenumber" name="L393" href="#L393">393</a>         expResult = false;
-<a class="jxr_linenumber" name="L394" href="#L394">394</a>         result = instance.identifierMatches(<span class="jxr_string">"maven"</span>, cpe, identifier);
-<a class="jxr_linenumber" name="L395" href="#L395">395</a>         assertEquals(expResult, result);
-<a class="jxr_linenumber" name="L396" href="#L396">396</a>     }
-<a class="jxr_linenumber" name="L397" href="#L397">397</a> 
-<a class="jxr_linenumber" name="L398" href="#L398">398</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L399" href="#L399">399</a> <em class="jxr_javadoccomment">     * Test of process method, of class SuppressionRule.</em>
-<a class="jxr_linenumber" name="L400" href="#L400">400</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L401" href="#L401">401</a>     @Test
-<a class="jxr_linenumber" name="L402" href="#L402">402</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testProcess() {
-<a class="jxr_linenumber" name="L403" href="#L403">403</a>         <em class="jxr_comment">//File struts = new File(this.getClass().getClassLoader().getResource("struts2-core-2.1.2.jar").getPath());</em>
-<a class="jxr_linenumber" name="L404" href="#L404">404</a>         File struts = BaseTest.getResourceAsFile(<strong class="jxr_keyword">this</strong>, <span class="jxr_string">"struts2-core-2.1.2.jar"</span>);
-<a class="jxr_linenumber" name="L405" href="#L405">405</a>         Dependency dependency = <strong class="jxr_keyword">new</strong> Dependency(struts);
-<a class="jxr_linenumber" name="L406" href="#L406">406</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L407" href="#L407">407</a>         String sha1 = dependency.getSha1sum();
-<a class="jxr_linenumber" name="L408" href="#L408">408</a>         dependency.setSha1sum(<span class="jxr_string">"384FAA82E193D4E4B0546059CA09572654BC3970"</span>);
-<a class="jxr_linenumber" name="L409" href="#L409">409</a>         Vulnerability v = createVulnerability();
-<a class="jxr_linenumber" name="L410" href="#L410">410</a>         dependency.addVulnerability(v);
-<a class="jxr_linenumber" name="L411" href="#L411">411</a> 
-<a class="jxr_linenumber" name="L412" href="#L412">412</a>         <em class="jxr_comment">//cwe</em>
-<a class="jxr_linenumber" name="L413" href="#L413">413</a>         SuppressionRule instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L414" href="#L414">414</a>         instance.setSha1(sha1);
-<a class="jxr_linenumber" name="L415" href="#L415">415</a>         instance.addCwe(<span class="jxr_string">"287"</span>);
-<a class="jxr_linenumber" name="L416" href="#L416">416</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L417" href="#L417">417</a>         assertEquals(1, dependency.getVulnerabilities().size());
-<a class="jxr_linenumber" name="L418" href="#L418">418</a>         dependency.setSha1sum(sha1);
-<a class="jxr_linenumber" name="L419" href="#L419">419</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L420" href="#L420">420</a>         assertTrue(dependency.getVulnerabilities().isEmpty());
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>         assertEquals(1, dependency.getSuppressedVulnerabilities().size());
-<a class="jxr_linenumber" name="L422" href="#L422">422</a> 
-<a class="jxr_linenumber" name="L423" href="#L423">423</a>         <em class="jxr_comment">//cvss</em>
-<a class="jxr_linenumber" name="L424" href="#L424">424</a>         dependency.addVulnerability(v);
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> 
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>         cpe.setValue(<span class="jxr_string">"CPE:/a:microsoft:.net_framework:4.5"</span>);
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>         cpe.setCaseSensitive(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>         expResult = false;
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework"</span>);
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>         cpe.setCaseSensitive(false);
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>         expResult = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> 
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:microsoft:.*"</span>);
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>         expResult = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> 
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>         cpe.setValue(<span class="jxr_string">"CPE:/a:microsoft:.*"</span>);
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>         cpe.setCaseSensitive(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>         expResult = false;
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L353" href="#L353">353</a> 
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>         cpe.setValue(<span class="jxr_string">"cpe:/a:apache:.*"</span>);
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>         cpe.setCaseSensitive(false);
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>         expResult = false;
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>         result = instance.identifierMatches(<span class="jxr_string">"cpe"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> 
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>         identifier = <strong class="jxr_keyword">new</strong> Identifier(<span class="jxr_string">"maven"</span>, <span class="jxr_string">"org.springframework:spring-core:2.5.5"</span>, <span class="jxr_string">"https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&amp;g=org.springframework&amp;a=spring-core&amp;v=2.5.5&amp;e=jar"</span>);
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>         cpe.setValue(<span class="jxr_string">"org.springframework:spring-core:2.5.5"</span>);
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>         cpe.setRegex(false);
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>         cpe.setCaseSensitive(false);
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>         expResult = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>         result = instance.identifierMatches(<span class="jxr_string">"maven"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> 
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>         cpe.setValue(<span class="jxr_string">"org&#92;&#92;.springframework&#92;&#92;.security:spring.*"</span>);
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>         cpe.setRegex(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>         cpe.setCaseSensitive(false);
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>         expResult = false;
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>         result = instance.identifierMatches(<span class="jxr_string">"maven"</span>, cpe, identifier);
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>         assertEquals(expResult, result);
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>     }
+<a class="jxr_linenumber" name="L376" href="#L376">376</a> 
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> <em class="jxr_javadoccomment">     * Test of process method, of class SuppressionRule.</em>
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>     @Test
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testProcess() {
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>         <em class="jxr_comment">//File struts = new File(this.getClass().getClassLoader().getResource("struts2-core-2.1.2.jar").getPath());</em>
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>         File struts = BaseTest.getResourceAsFile(<strong class="jxr_keyword">this</strong>, <span class="jxr_string">"struts2-core-2.1.2.jar"</span>);
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>         Dependency dependency = <strong class="jxr_keyword">new</strong> Dependency(struts);
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>         String sha1 = dependency.getSha1sum();
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>         dependency.setSha1sum(<span class="jxr_string">"384FAA82E193D4E4B0546059CA09572654BC3970"</span>);
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>         Vulnerability v = createVulnerability();
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>         dependency.addVulnerability(v);
+<a class="jxr_linenumber" name="L390" href="#L390">390</a> 
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>         <em class="jxr_comment">//cwe</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>         SuppressionRule instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>         instance.setSha1(sha1);
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>         instance.addCwe(<span class="jxr_string">"287"</span>);
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>         assertEquals(1, dependency.getVulnerabilities().size());
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>         dependency.setSha1sum(sha1);
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>         assertTrue(dependency.getVulnerabilities().isEmpty());
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>         assertEquals(1, dependency.getSuppressedVulnerabilities().size());
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> 
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>         <em class="jxr_comment">//cvss</em>
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>         dependency.addVulnerability(v);
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>         instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>         instance.addCvssBelow(5f);
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>         assertEquals(1, dependency.getVulnerabilities().size());
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>         instance.addCvssBelow(8f);
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>         assertTrue(dependency.getVulnerabilities().isEmpty());
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>         assertEquals(1, dependency.getSuppressedVulnerabilities().size());
+<a class="jxr_linenumber" name="L412" href="#L412">412</a> 
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>         <em class="jxr_comment">//cve</em>
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>         dependency.addVulnerability(v);
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>         instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>         instance.addCve(<span class="jxr_string">"CVE-2012-1337"</span>);
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>         assertEquals(1, dependency.getVulnerabilities().size());
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>         instance.addCve(<span class="jxr_string">"CVE-2013-1337"</span>);
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>         assertTrue(dependency.getVulnerabilities().isEmpty());
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>         assertEquals(1, dependency.getSuppressedVulnerabilities().size());
+<a class="jxr_linenumber" name="L423" href="#L423">423</a> 
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>         <em class="jxr_comment">//cpe</em>
 <a class="jxr_linenumber" name="L425" href="#L425">425</a>         instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L426" href="#L426">426</a>         instance.addCvssBelow(5f);
-<a class="jxr_linenumber" name="L427" href="#L427">427</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L428" href="#L428">428</a>         assertEquals(1, dependency.getVulnerabilities().size());
-<a class="jxr_linenumber" name="L429" href="#L429">429</a>         instance.addCvssBelow(8f);
-<a class="jxr_linenumber" name="L430" href="#L430">430</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L431" href="#L431">431</a>         assertTrue(dependency.getVulnerabilities().isEmpty());
-<a class="jxr_linenumber" name="L432" href="#L432">432</a>         assertEquals(1, dependency.getSuppressedVulnerabilities().size());
-<a class="jxr_linenumber" name="L433" href="#L433">433</a> 
-<a class="jxr_linenumber" name="L434" href="#L434">434</a>         <em class="jxr_comment">//cve</em>
-<a class="jxr_linenumber" name="L435" href="#L435">435</a>         dependency.addVulnerability(v);
-<a class="jxr_linenumber" name="L436" href="#L436">436</a>         instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L437" href="#L437">437</a>         instance.addCve(<span class="jxr_string">"CVE-2012-1337"</span>);
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>         PropertyType pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>         pt.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.0"</span>);
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>         instance.addCpe(pt);
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>         assertTrue(dependency.getIdentifiers().size() == 1);
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>         pt.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>);
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>         instance.addCpe(pt);
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>         pt.setValue(<span class="jxr_string">".*"</span>);
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>         pt.setRegex(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>         instance.setFilePath(pt);
 <a class="jxr_linenumber" name="L438" href="#L438">438</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L439" href="#L439">439</a>         assertEquals(1, dependency.getVulnerabilities().size());
-<a class="jxr_linenumber" name="L440" href="#L440">440</a>         instance.addCve(<span class="jxr_string">"CVE-2013-1337"</span>);
-<a class="jxr_linenumber" name="L441" href="#L441">441</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L442" href="#L442">442</a>         assertTrue(dependency.getVulnerabilities().isEmpty());
-<a class="jxr_linenumber" name="L443" href="#L443">443</a>         assertEquals(1, dependency.getSuppressedVulnerabilities().size());
-<a class="jxr_linenumber" name="L444" href="#L444">444</a> 
-<a class="jxr_linenumber" name="L445" href="#L445">445</a>         <em class="jxr_comment">//cpe</em>
-<a class="jxr_linenumber" name="L446" href="#L446">446</a>         instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L447" href="#L447">447</a>         PropertyType pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L448" href="#L448">448</a>         pt.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.0"</span>);
-<a class="jxr_linenumber" name="L449" href="#L449">449</a>         instance.addCpe(pt);
-<a class="jxr_linenumber" name="L450" href="#L450">450</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L451" href="#L451">451</a>         assertTrue(dependency.getIdentifiers().size() == 1);
-<a class="jxr_linenumber" name="L452" href="#L452">452</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L453" href="#L453">453</a>         pt.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>);
-<a class="jxr_linenumber" name="L454" href="#L454">454</a>         instance.addCpe(pt);
-<a class="jxr_linenumber" name="L455" href="#L455">455</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L456" href="#L456">456</a>         pt.setValue(<span class="jxr_string">".*"</span>);
-<a class="jxr_linenumber" name="L457" href="#L457">457</a>         pt.setRegex(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L458" href="#L458">458</a>         instance.setFilePath(pt);
-<a class="jxr_linenumber" name="L459" href="#L459">459</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L460" href="#L460">460</a>         assertTrue(dependency.getIdentifiers().isEmpty());
-<a class="jxr_linenumber" name="L461" href="#L461">461</a>         assertEquals(1, dependency.getSuppressedIdentifiers().size());
-<a class="jxr_linenumber" name="L462" href="#L462">462</a> 
-<a class="jxr_linenumber" name="L463" href="#L463">463</a>         instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L464" href="#L464">464</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L465" href="#L465">465</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L466" href="#L466">466</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:5.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L467" href="#L467">467</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L468" href="#L468">468</a>         pt.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework"</span>);
-<a class="jxr_linenumber" name="L469" href="#L469">469</a>         instance.addCpe(pt);
-<a class="jxr_linenumber" name="L470" href="#L470">470</a>         instance.setBase(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L471" href="#L471">471</a>         assertEquals(3, dependency.getIdentifiers().size());
-<a class="jxr_linenumber" name="L472" href="#L472">472</a>         assertEquals(1, dependency.getSuppressedIdentifiers().size());
-<a class="jxr_linenumber" name="L473" href="#L473">473</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L474" href="#L474">474</a>         assertTrue(dependency.getIdentifiers().isEmpty());
-<a class="jxr_linenumber" name="L475" href="#L475">475</a>         assertEquals(1, dependency.getSuppressedIdentifiers().size());
-<a class="jxr_linenumber" name="L476" href="#L476">476</a>     }
-<a class="jxr_linenumber" name="L477" href="#L477">477</a> 
-<a class="jxr_linenumber" name="L478" href="#L478">478</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L479" href="#L479">479</a> <em class="jxr_javadoccomment">     * Test of process method, of class SuppressionRule.</em>
-<a class="jxr_linenumber" name="L480" href="#L480">480</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L481" href="#L481">481</a>     @Test
-<a class="jxr_linenumber" name="L482" href="#L482">482</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testProcessGAV() {
-<a class="jxr_linenumber" name="L483" href="#L483">483</a>         <em class="jxr_comment">//File spring = new File(this.getClass().getClassLoader().getResource("spring-security-web-3.0.0.RELEASE.jar").getPath());</em>
-<a class="jxr_linenumber" name="L484" href="#L484">484</a>         File spring = BaseTest.getResourceAsFile(<strong class="jxr_keyword">this</strong>, <span class="jxr_string">"spring-security-web-3.0.0.RELEASE.jar"</span>);
-<a class="jxr_linenumber" name="L485" href="#L485">485</a>         Dependency dependency = <strong class="jxr_keyword">new</strong> Dependency(spring);
-<a class="jxr_linenumber" name="L486" href="#L486">486</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:vmware:springsource_spring_framework:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L487" href="#L487">487</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:springsource:spring_framework:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L488" href="#L488">488</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:mod_security:mod_security:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L489" href="#L489">489</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:vmware:springsource_spring_security:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L490" href="#L490">490</a>         dependency.addIdentifier(<span class="jxr_string">"maven"</span>, <span class="jxr_string">"org.springframework.security:spring-security-web:3.0.0.RELEASE"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
-<a class="jxr_linenumber" name="L491" href="#L491">491</a> 
-<a class="jxr_linenumber" name="L492" href="#L492">492</a>         <em class="jxr_comment">//cpe</em>
-<a class="jxr_linenumber" name="L493" href="#L493">493</a>         SuppressionRule instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
-<a class="jxr_linenumber" name="L494" href="#L494">494</a>         PropertyType pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L495" href="#L495">495</a> 
-<a class="jxr_linenumber" name="L496" href="#L496">496</a>         pt.setValue(<span class="jxr_string">"org&#92;&#92;.springframework&#92;&#92;.security:spring.*"</span>);
-<a class="jxr_linenumber" name="L497" href="#L497">497</a>         pt.setRegex(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L498" href="#L498">498</a>         pt.setCaseSensitive(false);
-<a class="jxr_linenumber" name="L499" href="#L499">499</a>         instance.setGav(pt);
-<a class="jxr_linenumber" name="L500" href="#L500">500</a> 
-<a class="jxr_linenumber" name="L501" href="#L501">501</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L502" href="#L502">502</a>         pt.setValue(<span class="jxr_string">"cpe:/a:mod_security:mod_security"</span>);
-<a class="jxr_linenumber" name="L503" href="#L503">503</a>         instance.addCpe(pt);
-<a class="jxr_linenumber" name="L504" href="#L504">504</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L505" href="#L505">505</a>         pt.setValue(<span class="jxr_string">"cpe:/a:springsource:spring_framework"</span>);
-<a class="jxr_linenumber" name="L506" href="#L506">506</a>         instance.addCpe(pt);
-<a class="jxr_linenumber" name="L507" href="#L507">507</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
-<a class="jxr_linenumber" name="L508" href="#L508">508</a>         pt.setValue(<span class="jxr_string">"cpe:/a:vmware:springsource_spring_framework"</span>);
-<a class="jxr_linenumber" name="L509" href="#L509">509</a>         instance.addCpe(pt);
-<a class="jxr_linenumber" name="L510" href="#L510">510</a> 
-<a class="jxr_linenumber" name="L511" href="#L511">511</a>         instance.process(dependency);
-<a class="jxr_linenumber" name="L512" href="#L512">512</a>         assertEquals(2, dependency.getIdentifiers().size());
-<a class="jxr_linenumber" name="L513" href="#L513">513</a> 
-<a class="jxr_linenumber" name="L514" href="#L514">514</a>     }
-<a class="jxr_linenumber" name="L515" href="#L515">515</a> 
-<a class="jxr_linenumber" name="L516" href="#L516">516</a>     <strong class="jxr_keyword">private</strong> Vulnerability createVulnerability() {
-<a class="jxr_linenumber" name="L517" href="#L517">517</a>         Vulnerability v = <strong class="jxr_keyword">new</strong> Vulnerability();
-<a class="jxr_linenumber" name="L518" href="#L518">518</a>         v.setCwe(<span class="jxr_string">"CWE-287 Improper Authentication"</span>);
-<a class="jxr_linenumber" name="L519" href="#L519">519</a>         v.setName(<span class="jxr_string">"CVE-2013-1337"</span>);
-<a class="jxr_linenumber" name="L520" href="#L520">520</a>         v.setCvssScore(7.5f);
-<a class="jxr_linenumber" name="L521" href="#L521">521</a>         <strong class="jxr_keyword">return</strong> v;
-<a class="jxr_linenumber" name="L522" href="#L522">522</a>     }
-<a class="jxr_linenumber" name="L523" href="#L523">523</a> }
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>         assertTrue(dependency.getIdentifiers().isEmpty());
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>         assertEquals(1, dependency.getSuppressedIdentifiers().size());
+<a class="jxr_linenumber" name="L441" href="#L441">441</a> 
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>         instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:4.5"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:microsoft:.net_framework:5.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>         pt.setValue(<span class="jxr_string">"cpe:/a:microsoft:.net_framework"</span>);
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>         instance.addCpe(pt);
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>         instance.setBase(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>         assertEquals(3, dependency.getIdentifiers().size());
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>         assertEquals(1, dependency.getSuppressedIdentifiers().size());
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>         assertTrue(dependency.getIdentifiers().isEmpty());
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>         assertEquals(1, dependency.getSuppressedIdentifiers().size());
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>     }
+<a class="jxr_linenumber" name="L456" href="#L456">456</a> 
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L458" href="#L458">458</a> <em class="jxr_javadoccomment">     * Test of process method, of class SuppressionRule.</em>
+<a class="jxr_linenumber" name="L459" href="#L459">459</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>     @Test
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testProcessGAV() {
+<a class="jxr_linenumber" name="L462" href="#L462">462</a>         <em class="jxr_comment">//File spring = new File(this.getClass().getClassLoader().getResource("spring-security-web-3.0.0.RELEASE.jar").getPath());</em>
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>         File spring = BaseTest.getResourceAsFile(<strong class="jxr_keyword">this</strong>, <span class="jxr_string">"spring-security-web-3.0.0.RELEASE.jar"</span>);
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>         Dependency dependency = <strong class="jxr_keyword">new</strong> Dependency(spring);
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:vmware:springsource_spring_framework:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:springsource:spring_framework:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:mod_security:mod_security:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>         dependency.addIdentifier(<span class="jxr_string">"cpe"</span>, <span class="jxr_string">"cpe:/a:vmware:springsource_spring_security:3.0.0"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>         dependency.addIdentifier(<span class="jxr_string">"maven"</span>, <span class="jxr_string">"org.springframework.security:spring-security-web:3.0.0.RELEASE"</span>, <span class="jxr_string">"some url not needed for this test"</span>);
+<a class="jxr_linenumber" name="L470" href="#L470">470</a> 
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>         <em class="jxr_comment">//cpe</em>
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>         SuppressionRule instance = <strong class="jxr_keyword">new</strong> SuppressionRule();
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>         PropertyType pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L474" href="#L474">474</a> 
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>         pt.setValue(<span class="jxr_string">"org&#92;&#92;.springframework&#92;&#92;.security:spring.*"</span>);
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>         pt.setRegex(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>         pt.setCaseSensitive(false);
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>         instance.setGav(pt);
+<a class="jxr_linenumber" name="L479" href="#L479">479</a> 
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>         pt.setValue(<span class="jxr_string">"cpe:/a:mod_security:mod_security"</span>);
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>         instance.addCpe(pt);
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>         pt.setValue(<span class="jxr_string">"cpe:/a:springsource:spring_framework"</span>);
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>         instance.addCpe(pt);
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>         pt = <strong class="jxr_keyword">new</strong> PropertyType();
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>         pt.setValue(<span class="jxr_string">"cpe:/a:vmware:springsource_spring_framework"</span>);
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>         instance.addCpe(pt);
+<a class="jxr_linenumber" name="L489" href="#L489">489</a> 
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>         instance.process(dependency);
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>         assertEquals(2, dependency.getIdentifiers().size());
+<a class="jxr_linenumber" name="L492" href="#L492">492</a> 
+<a class="jxr_linenumber" name="L493" href="#L493">493</a>     }
+<a class="jxr_linenumber" name="L494" href="#L494">494</a> 
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>     <strong class="jxr_keyword">private</strong> Vulnerability createVulnerability() {
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>         Vulnerability v = <strong class="jxr_keyword">new</strong> Vulnerability();
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>         v.setCwe(<span class="jxr_string">"CWE-287 Improper Authentication"</span>);
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>         v.setName(<span class="jxr_string">"CVE-2013-1337"</span>);
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>         v.setCvssScore(7.5f);
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>         <strong class="jxr_keyword">return</strong> v;
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>     }
+<a class="jxr_linenumber" name="L502" href="#L502">502</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>

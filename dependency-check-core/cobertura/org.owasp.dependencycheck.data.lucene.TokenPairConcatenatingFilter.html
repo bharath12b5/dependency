@@ -185,7 +185,7 @@
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;87</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">//collect all the terms into the words collection</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;88</td>  <td class="nbHitsCovered"><a title="Line 88: Conditional coverage 100% (2/2).">&nbsp;822</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 88: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (input.incrementToken()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;88</td>  <td class="nbHitsCovered"><a title="Line 88: Conditional coverage 100% (2/2).">&nbsp;812</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 88: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (input.incrementToken()) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;89</td>  <td class="nbHitsCovered">&nbsp;227</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String word = <span class="keyword">new</span> String(termAtt.buffer(), 0, termAtt.length());</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;90</td>  <td class="nbHitsCovered">&nbsp;227</td>  <td class="src"><pre class="src">&nbsp;            words.add(word);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;91</td>  <td class="nbHitsCovered">&nbsp;227</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
@@ -195,12 +195,12 @@
   <td class="src"><pre class="src">&nbsp;        <span class="comment">//if we have a previousTerm - write it out as its own token concatenated</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;94</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">// with the current word (if one is available).</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;95</td>  <td class="nbHitsCovered"><a title="Line 95: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;595</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 95: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">if</span> (previousWord != <span class="keyword">null</span> &amp;&amp; !words.isEmpty()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;96</td>  <td class="nbHitsCovered">&nbsp;219</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String word = words.getFirst();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsCovered">&nbsp;219</td>  <td class="src"><pre class="src">&nbsp;            clearAttributes();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;98</td>  <td class="nbHitsCovered">&nbsp;219</td>  <td class="src"><pre class="src">&nbsp;            termAtt.append(previousWord).append(word);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;99</td>  <td class="nbHitsCovered">&nbsp;219</td>  <td class="src"><pre class="src">&nbsp;            previousWord = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;100</td>  <td class="nbHitsCovered">&nbsp;219</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;95</td>  <td class="nbHitsCovered"><a title="Line 95: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;585</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 95: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">if</span> (previousWord != <span class="keyword">null</span> &amp;&amp; !words.isEmpty()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;96</td>  <td class="nbHitsCovered">&nbsp;209</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String word = words.getFirst();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsCovered">&nbsp;209</td>  <td class="src"><pre class="src">&nbsp;            clearAttributes();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;98</td>  <td class="nbHitsCovered">&nbsp;209</td>  <td class="src"><pre class="src">&nbsp;            termAtt.append(previousWord).append(word);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;99</td>  <td class="nbHitsCovered">&nbsp;209</td>  <td class="src"><pre class="src">&nbsp;            previousWord = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;100</td>  <td class="nbHitsCovered">&nbsp;209</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;101</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;102</td>  <td class="nbHits">&nbsp;</td>
@@ -232,9 +232,9 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;119</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> clear() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;120</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;        previousWord = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;121</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;        words.clear();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;122</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;120</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;        previousWord = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;121</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;        words.clear();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;122</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;123</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;124</td>  <td class="nbHits">&nbsp;</td>
@@ -306,6 +306,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 9/20/15 6:47 AM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 11/29/15 7:26 AM.</div>
 </body>
 </html>

@@ -121,7 +121,7 @@
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>         <strong class="jxr_keyword">for</strong> (Identifier i : dependency.getIdentifiers()) {
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>             <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"maven"</span>.contains(i.getType())) {
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>                 <strong class="jxr_keyword">if</strong> (i.getValue() != <strong class="jxr_keyword">null</strong> &amp;&amp; i.getValue().startsWith(<span class="jxr_string">"org.springframework."</span>)) {
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>                     <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> endPoint = i.getValue().indexOf(<span class="jxr_string">":"</span>, 19);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>                     <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> endPoint = i.getValue().indexOf(':', 19);
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>                     <strong class="jxr_keyword">if</strong> (endPoint &gt;= 0) {
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>                         mustContain = i.getValue().substring(19, endPoint).toLowerCase();
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>                         <strong class="jxr_keyword">break</strong>;
@@ -480,8 +480,8 @@
 <a class="jxr_linenumber" name="L472" href="#L472">472</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L473" href="#L473">473</a>     <strong class="jxr_keyword">private</strong> String trimCpeToVendor(String value) {
 <a class="jxr_linenumber" name="L474" href="#L474">474</a>         <em class="jxr_comment">//cpe:/a:jruby:jruby:1.0.8</em>
-<a class="jxr_linenumber" name="L475" href="#L475">475</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pos1 = value.indexOf(<span class="jxr_string">":"</span>, 7); <em class="jxr_comment">//right of vendor</em>
-<a class="jxr_linenumber" name="L476" href="#L476">476</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pos2 = value.indexOf(<span class="jxr_string">":"</span>, pos1 + 1); <em class="jxr_comment">//right of product</em>
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pos1 = value.indexOf(':', 7); <em class="jxr_comment">//right of vendor</em>
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pos2 = value.indexOf(':', pos1 + 1); <em class="jxr_comment">//right of product</em>
 <a class="jxr_linenumber" name="L477" href="#L477">477</a>         <strong class="jxr_keyword">if</strong> (pos2 &lt; 0) {
 <a class="jxr_linenumber" name="L478" href="#L478">478</a>             <strong class="jxr_keyword">return</strong> value;
 <a class="jxr_linenumber" name="L479" href="#L479">479</a>         } <strong class="jxr_keyword">else</strong> {

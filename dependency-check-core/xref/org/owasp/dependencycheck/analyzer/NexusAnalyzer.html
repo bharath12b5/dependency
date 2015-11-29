@@ -112,7 +112,7 @@
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_comment">         */</em>
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>         <strong class="jxr_keyword">boolean</strong> retval = false;
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L107" href="#L107">107</a>             <strong class="jxr_keyword">if</strong> ((!DEFAULT_URL.equals(Settings.getString(Settings.KEYS.ANALYZER_NEXUS_URL)))
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             <strong class="jxr_keyword">if</strong> (!DEFAULT_URL.equals(Settings.getString(Settings.KEYS.ANALYZER_NEXUS_URL))
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>                     &amp;&amp; Settings.getBoolean(Settings.KEYS.ANALYZER_NEXUS_ENABLED)) {
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>                 LOGGER.info(<span class="jxr_string">"Enabling Nexus analyzer"</span>);
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>                 retval = <strong class="jxr_keyword">true</strong>;

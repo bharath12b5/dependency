@@ -200,7 +200,7 @@
 <a class="jxr_linenumber" name="L192" href="#L192">192</a>             <strong class="jxr_keyword">final</strong> List&lt;MavenArtifact&gt; mas = searcher.searchSha1(dependency.getSha1sum());
 <a class="jxr_linenumber" name="L193" href="#L193">193</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/Confidence.html">Confidence</a> confidence = mas.size() &gt; 1 ? Confidence.HIGH : Confidence.HIGHEST;
 <a class="jxr_linenumber" name="L194" href="#L194">194</a>             <strong class="jxr_keyword">for</strong> (MavenArtifact ma : mas) {
-<a class="jxr_linenumber" name="L195" href="#L195">195</a>                 LOGGER.debug(<span class="jxr_string">"Central analyzer found artifact ({}) for dependency ({})"</span>, ma.toString(), dependency.getFileName());
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>                 LOGGER.debug(<span class="jxr_string">"Central analyzer found artifact ({}) for dependency ({})"</span>, ma, dependency.getFileName());
 <a class="jxr_linenumber" name="L196" href="#L196">196</a>                 dependency.addAsEvidence(<span class="jxr_string">"central"</span>, ma, confidence);
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>                 <strong class="jxr_keyword">boolean</strong> pomAnalyzed = false;
 <a class="jxr_linenumber" name="L198" href="#L198">198</a>                 <strong class="jxr_keyword">for</strong> (Evidence e : dependency.getVendorEvidence()) {
