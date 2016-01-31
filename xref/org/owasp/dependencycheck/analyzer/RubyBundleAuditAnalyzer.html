@@ -59,8 +59,8 @@
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/AnalysisPhase.html">AnalysisPhase</a> ANALYSIS_PHASE = AnalysisPhase.PRE_INFORMATION_COLLECTION;
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> FileFilter FILTER =
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>              FileFilterBuilder.newInstance().addFilenames(<span class="jxr_string">"Gemfile.lock"</span>).build();
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> FileFilter FILTER
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              = FileFilterBuilder.newInstance().addFilenames(<span class="jxr_string">"Gemfile.lock"</span>).build();
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String NAME = <span class="jxr_string">"Name: "</span>;
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String VERSION = <span class="jxr_string">"Version: "</span>;
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String ADVISORY = <span class="jxr_string">"Advisory: "</span>;
@@ -121,7 +121,7 @@
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(<span class="jxr_string">"Bundle-audit error stream unexpectedly not ready."</span>);
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>                     <strong class="jxr_keyword">final</strong> String line = reader.readLine();
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>                     <strong class="jxr_keyword">if</strong> (!line.contains(<span class="jxr_string">"Errno::ENOENT"</span>)) {
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>                     <strong class="jxr_keyword">if</strong> (line == <strong class="jxr_keyword">null</strong> || !line.contains(<span class="jxr_string">"Errno::ENOENT"</span>)) {
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>                         LOGGER.warn(<span class="jxr_string">"Unexpected bundle-audit output. Disabling {}: {}"</span>, ANALYZER_NAME, line);
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>                         setEnabled(false);
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(<span class="jxr_string">"Unexpected bundle-audit output."</span>);
@@ -134,8 +134,8 @@
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>             }
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>         }
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>         <strong class="jxr_keyword">if</strong> (isEnabled()) {
-<a class="jxr_linenumber" name="L129" href="#L129">129</a>             LOGGER.info(ANALYZER_NAME + <span class="jxr_string">" is enabled. It is necessary to manually run \&quot;bundle-audit update\&quot; "</span> +
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>                     <span class="jxr_string">"occasionally to keep its database up to date."</span>);
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>             LOGGER.info(ANALYZER_NAME + <span class="jxr_string">" is enabled. It is necessary to manually run \&quot;bundle-audit update\&quot; "</span>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>                     + <span class="jxr_string">"occasionally to keep its database up to date."</span>);
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>         }
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>     }
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 
@@ -170,8 +170,8 @@
 <a class="jxr_linenumber" name="L162" href="#L162">162</a>     }
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> 
 <a class="jxr_linenumber" name="L164" href="#L164">164</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> <em class="jxr_javadoccomment">     * If {@link #analyzeFileType(Dependency, Engine)} is called, then we have successfully initialized, and it will</em>
-<a class="jxr_linenumber" name="L166" href="#L166">166</a> <em class="jxr_javadoccomment">     * be necessary to disable {@link RubyGemspecAnalyzer}.</em>
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> <em class="jxr_javadoccomment">     * If {@link #analyzeFileType(Dependency, Engine)} is called, then we have successfully initialized, and it will be necessary</em>
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> <em class="jxr_javadoccomment">     * to disable {@link RubyGemspecAnalyzer}.</em>
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L168" href="#L168">168</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> needToDisableGemspecAnalyzer = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L169" href="#L169">169</a> 
@@ -334,6 +334,6 @@
 <a class="jxr_linenumber" name="L326" href="#L326">326</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

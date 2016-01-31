@@ -58,7 +58,7 @@
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>              <strong class="jxr_keyword">if</strong> (next == <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>                  <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> NoSuchElementException();
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>              }
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>              T returnValue = next;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>              <strong class="jxr_keyword">final</strong> T returnValue = next;
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>              toNext();
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>              <strong class="jxr_keyword">return</strong> returnValue;
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>          }
@@ -71,7 +71,7 @@
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> toNext() {
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>              next = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>              <strong class="jxr_keyword">while</strong> (iterator.hasNext()) {
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>                  T item = iterator.next();
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                  <strong class="jxr_keyword">final</strong> T item = iterator.next();
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>                  <strong class="jxr_keyword">if</strong> (item != <strong class="jxr_keyword">null</strong> &amp;&amp; passes(item)) {
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>                      next = item;
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>                      <strong class="jxr_keyword">break</strong>;
@@ -82,6 +82,6 @@
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

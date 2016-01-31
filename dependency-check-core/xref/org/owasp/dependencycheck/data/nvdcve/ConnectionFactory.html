@@ -353,8 +353,8 @@
 <a class="jxr_linenumber" name="L345" href="#L345">345</a>                 <strong class="jxr_keyword">final</strong> <a href="../../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> current = DependencyVersionUtil.parseVersion(DB_SCHEMA_VERSION);
 <a class="jxr_linenumber" name="L346" href="#L346">346</a>                 <strong class="jxr_keyword">final</strong> <a href="../../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> db = DependencyVersionUtil.parseVersion(rs.getString(1));
 <a class="jxr_linenumber" name="L347" href="#L347">347</a>                 <strong class="jxr_keyword">if</strong> (current.compareTo(db) &gt; 0) {
-<a class="jxr_linenumber" name="L348" href="#L348">348</a>                     LOGGER.debug(<span class="jxr_string">"Current Schema: "</span> + DB_SCHEMA_VERSION);
-<a class="jxr_linenumber" name="L349" href="#L349">349</a>                     LOGGER.debug(<span class="jxr_string">"DB Schema: "</span> + rs.getString(1));
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>                     LOGGER.debug(<span class="jxr_string">"Current Schema: {}"</span>, DB_SCHEMA_VERSION);
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>                     LOGGER.debug(<span class="jxr_string">"DB Schema: {}"</span>, rs.getString(1));
 <a class="jxr_linenumber" name="L350" href="#L350">350</a>                     updateSchema(conn, rs.getString(1));
 <a class="jxr_linenumber" name="L351" href="#L351">351</a>                     <strong class="jxr_keyword">if</strong> (++callDepth &lt; 10) {
 <a class="jxr_linenumber" name="L352" href="#L352">352</a>                         ensureSchemaVersion(conn);
@@ -374,6 +374,6 @@
 <a class="jxr_linenumber" name="L366" href="#L366">366</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2015 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

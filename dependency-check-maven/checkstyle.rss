@@ -23,10 +23,10 @@ under the License.
     <link>https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven</link>
     <description>Dependency-Check Maven Plugin - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2013 - 2015 OWASP</copyright>
+    <copyright>&#169;2013 - 2016 OWASP</copyright>
     <item>
       <title>File: 22,
-             Errors: 0,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -97,7 +97,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
