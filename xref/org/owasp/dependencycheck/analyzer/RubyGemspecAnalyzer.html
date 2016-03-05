@@ -40,10 +40,10 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.util.regex.Pattern;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * Used to analyze Ruby Gem specifications and collect information that can be used to determine the associated CPE.</em>
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> * Regular expressions are used to parse the well-defined Ruby syntax that forms the specification.</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * Used to analyze Ruby Gem specifications and collect information that can be used to determine the associated CPE. Regular</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> * expressions are used to parse the well-defined Ruby syntax that forms the specification.</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment"> * @author Dale Visser &lt;dvisser@ida.org&gt;</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment"> * @author Dale Visser</em>
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/RubyGemspecAnalyzer.html">RubyGemspecAnalyzer</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/AbstractFileTypeAnalyzer.html">AbstractFileTypeAnalyzer</a> {
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  
@@ -59,8 +59,8 @@
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String GEMSPEC = <span class="jxr_string">"gemspec"</span>;
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> FileFilter FILTER =
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>              FileFilterBuilder.newInstance().addExtensions(GEMSPEC).addFilenames(<span class="jxr_string">"Rakefile"</span>).build();
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> FileFilter FILTER
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              = FileFilterBuilder.newInstance().addExtensions(GEMSPEC).addFilenames(<span class="jxr_string">"Rakefile"</span>).build();
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String EMAIL = <span class="jxr_string">"email"</span>;
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
@@ -110,8 +110,8 @@
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * The capture group #1 is the block variable.</em>
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Pattern GEMSPEC_BLOCK_INIT =
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>             Pattern.compile(<span class="jxr_string">"Gem::Specification&#92;&#92;.new&#92;&#92;s+?do&#92;&#92;s+?&#92;&#92;|(.+?)&#92;&#92;|"</span>);
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Pattern GEMSPEC_BLOCK_INIT
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             = Pattern.compile(<span class="jxr_string">"Gem::Specification&#92;&#92;.new&#92;&#92;s+?do&#92;&#92;s+?&#92;&#92;|(.+?)&#92;&#92;|"</span>);
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>     @Override
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> analyzeFileType(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine)
@@ -146,7 +146,7 @@
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>     }
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 
 <a class="jxr_linenumber" name="L140" href="#L140">140</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> addListEvidence(<a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> evidences, String contents,
-<a class="jxr_linenumber" name="L141" href="#L141">141</a>                                  String blockVariable, String field, <a href="../../../../org/owasp/dependencycheck/dependency/Confidence.html">Confidence</a> confidence) {
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             String blockVariable, String field, <a href="../../../../org/owasp/dependencycheck/dependency/Confidence.html">Confidence</a> confidence) {
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>         <strong class="jxr_keyword">final</strong> Matcher matcher = Pattern.compile(
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>                 String.format(<span class="jxr_string">"&#92;&#92;s+?%s&#92;&#92;.%s&#92;&#92;s*?=&#92;&#92;s*?&#92;&#92;[(.*?)&#92;&#92;]"</span>, blockVariable, field)).matcher(contents);
 <a class="jxr_linenumber" name="L144" href="#L144">144</a>         <strong class="jxr_keyword">if</strong> (matcher.find()) {
@@ -156,7 +156,7 @@
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>     }
 <a class="jxr_linenumber" name="L149" href="#L149">149</a> 
 <a class="jxr_linenumber" name="L150" href="#L150">150</a>     <strong class="jxr_keyword">private</strong> String addStringEvidence(<a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> evidences, String contents,
-<a class="jxr_linenumber" name="L151" href="#L151">151</a>                                      String blockVariable, String field, <a href="../../../../org/owasp/dependencycheck/dependency/Confidence.html">Confidence</a> confidence) {
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>             String blockVariable, String field, <a href="../../../../org/owasp/dependencycheck/dependency/Confidence.html">Confidence</a> confidence) {
 <a class="jxr_linenumber" name="L152" href="#L152">152</a>         <strong class="jxr_keyword">final</strong> Matcher matcher = Pattern.compile(
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>                 String.format(<span class="jxr_string">"&#92;&#92;s+?%s&#92;&#92;.%s&#92;&#92;s*?=&#92;&#92;s*?(['\&quot;])(.*?)&#92;&#92;1"</span>, blockVariable, field)).matcher(contents);
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>         String value = <span class="jxr_string">""</span>;

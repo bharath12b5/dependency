@@ -46,6 +46,20 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.CliParser.java">org/owasp/dependencycheck/CliParser.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.App.java">org/owasp/dependencycheck/App.java</a>
                 </td>
                 <td>
@@ -74,20 +88,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.InvalidScanPathException.java">org/owasp/dependencycheck/InvalidScanPathException.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#target.maven-archiver.pom.properties">target/maven-archiver/pom.properties</a>
                 </td>
                 <td>
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.CliParser.java">org/owasp/dependencycheck/CliParser.java</a>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#NOTICE.txt">NOTICE.txt</a>
                 </td>
                 <td>
                   0
@@ -111,26 +111,26 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.InvalidScanPathException.java">org/owasp/dependencycheck/InvalidScanPathException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#org.owasp.dependencycheck.package-info.java">org/owasp/dependencycheck/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-cli/checkstyle.html#NOTICE.txt">NOTICE.txt</a>
                 </td>
                 <td>
                   0

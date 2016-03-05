@@ -489,7 +489,7 @@
 <a class="jxr_linenumber" name="L481" href="#L481">481</a> <em class="jxr_javadoccomment">     * @throws AnalysisException is thrown if there is an issue analyzing the dependency.</em>
 <a class="jxr_linenumber" name="L482" href="#L482">482</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L483" href="#L483">483</a>     @Override
-<a class="jxr_linenumber" name="L484" href="#L484">484</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> analyze(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> analyze(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
 <a class="jxr_linenumber" name="L485" href="#L485">485</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L486" href="#L486">486</a>             determineCPE(dependency);
 <a class="jxr_linenumber" name="L487" href="#L487">487</a>         } <strong class="jxr_keyword">catch</strong> (CorruptIndexException ex) {
