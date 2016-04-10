@@ -751,112 +751,114 @@
 <a class="jxr_linenumber" name="L743" href="#L743">743</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L744" href="#L744">744</a>             value = Integer.parseInt(Settings.getString(key));
 <a class="jxr_linenumber" name="L745" href="#L745">745</a>         } <strong class="jxr_keyword">catch</strong> (NumberFormatException ex) {
-<a class="jxr_linenumber" name="L746" href="#L746">746</a>             LOGGER.trace(<span class="jxr_string">"Could not convert property '{}' to an int."</span>, key, ex);
-<a class="jxr_linenumber" name="L747" href="#L747">747</a>             value = defaultValue;
-<a class="jxr_linenumber" name="L748" href="#L748">748</a>         }
-<a class="jxr_linenumber" name="L749" href="#L749">749</a>         <strong class="jxr_keyword">return</strong> value;
-<a class="jxr_linenumber" name="L750" href="#L750">750</a>     }
-<a class="jxr_linenumber" name="L751" href="#L751">751</a> 
-<a class="jxr_linenumber" name="L752" href="#L752">752</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L753" href="#L753">753</a> <em class="jxr_javadoccomment">     * Returns a long value from the properties file. If the value was specified as a system property or passed in via the</em>
-<a class="jxr_linenumber" name="L754" href="#L754">754</a> <em class="jxr_javadoccomment">     * -Dprop=value argument - this method will return the value from the system properties before the values in the contained</em>
-<a class="jxr_linenumber" name="L755" href="#L755">755</a> <em class="jxr_javadoccomment">     * configuration file.</em>
-<a class="jxr_linenumber" name="L756" href="#L756">756</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L757" href="#L757">757</a> <em class="jxr_javadoccomment">     * @param key the key to lookup within the properties file</em>
-<a class="jxr_linenumber" name="L758" href="#L758">758</a> <em class="jxr_javadoccomment">     * @return the property from the properties file</em>
-<a class="jxr_linenumber" name="L759" href="#L759">759</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException is thrown if there is an error retrieving the setting</em>
-<a class="jxr_linenumber" name="L760" href="#L760">760</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L761" href="#L761">761</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">long</strong> getLong(String key) <strong class="jxr_keyword">throws</strong> InvalidSettingException {
-<a class="jxr_linenumber" name="L762" href="#L762">762</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L763" href="#L763">763</a>             <strong class="jxr_keyword">return</strong> Long.parseLong(Settings.getString(key));
-<a class="jxr_linenumber" name="L764" href="#L764">764</a>         } <strong class="jxr_keyword">catch</strong> (NumberFormatException ex) {
-<a class="jxr_linenumber" name="L765" href="#L765">765</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a>(<span class="jxr_string">"Could not convert property '"</span> + key + <span class="jxr_string">"' to a long."</span>, ex);
-<a class="jxr_linenumber" name="L766" href="#L766">766</a>         }
-<a class="jxr_linenumber" name="L767" href="#L767">767</a>     }
-<a class="jxr_linenumber" name="L768" href="#L768">768</a> 
-<a class="jxr_linenumber" name="L769" href="#L769">769</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L770" href="#L770">770</a> <em class="jxr_javadoccomment">     * Returns a boolean value from the properties file. If the value was specified as a system property or passed in via the</em>
-<a class="jxr_linenumber" name="L771" href="#L771">771</a> <em class="jxr_javadoccomment">     * &lt;code&gt;-Dprop=value&lt;/code&gt; argument this method will return the value from the system properties before the values in the</em>
-<a class="jxr_linenumber" name="L772" href="#L772">772</a> <em class="jxr_javadoccomment">     * contained configuration file.</em>
-<a class="jxr_linenumber" name="L773" href="#L773">773</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L774" href="#L774">774</a> <em class="jxr_javadoccomment">     * @param key the key to lookup within the properties file</em>
-<a class="jxr_linenumber" name="L775" href="#L775">775</a> <em class="jxr_javadoccomment">     * @return the property from the properties file</em>
-<a class="jxr_linenumber" name="L776" href="#L776">776</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException is thrown if there is an error retrieving the setting</em>
-<a class="jxr_linenumber" name="L777" href="#L777">777</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L778" href="#L778">778</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> getBoolean(String key) <strong class="jxr_keyword">throws</strong> InvalidSettingException {
-<a class="jxr_linenumber" name="L779" href="#L779">779</a>         <strong class="jxr_keyword">return</strong> Boolean.parseBoolean(Settings.getString(key));
-<a class="jxr_linenumber" name="L780" href="#L780">780</a>     }
-<a class="jxr_linenumber" name="L781" href="#L781">781</a> 
-<a class="jxr_linenumber" name="L782" href="#L782">782</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L783" href="#L783">783</a> <em class="jxr_javadoccomment">     * Returns a boolean value from the properties file. If the value was specified as a system property or passed in via the</em>
-<a class="jxr_linenumber" name="L784" href="#L784">784</a> <em class="jxr_javadoccomment">     * &lt;code&gt;-Dprop=value&lt;/code&gt; argument this method will return the value from the system properties before the values in the</em>
-<a class="jxr_linenumber" name="L785" href="#L785">785</a> <em class="jxr_javadoccomment">     * contained configuration file.</em>
-<a class="jxr_linenumber" name="L786" href="#L786">786</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L787" href="#L787">787</a> <em class="jxr_javadoccomment">     * @param key the key to lookup within the properties file</em>
-<a class="jxr_linenumber" name="L788" href="#L788">788</a> <em class="jxr_javadoccomment">     * @param defaultValue the default value to return if the setting does not exist</em>
-<a class="jxr_linenumber" name="L789" href="#L789">789</a> <em class="jxr_javadoccomment">     * @return the property from the properties file</em>
-<a class="jxr_linenumber" name="L790" href="#L790">790</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException is thrown if there is an error retrieving the setting</em>
-<a class="jxr_linenumber" name="L791" href="#L791">791</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L792" href="#L792">792</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> getBoolean(String key, <strong class="jxr_keyword">boolean</strong> defaultValue) <strong class="jxr_keyword">throws</strong> InvalidSettingException {
-<a class="jxr_linenumber" name="L793" href="#L793">793</a>         <strong class="jxr_keyword">return</strong> Boolean.parseBoolean(Settings.getString(key, Boolean.toString(defaultValue)));
-<a class="jxr_linenumber" name="L794" href="#L794">794</a>     }
-<a class="jxr_linenumber" name="L795" href="#L795">795</a> 
-<a class="jxr_linenumber" name="L796" href="#L796">796</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L797" href="#L797">797</a> <em class="jxr_javadoccomment">     * Returns a connection string from the configured properties. If the connection string contains a %s, this method will</em>
-<a class="jxr_linenumber" name="L798" href="#L798">798</a> <em class="jxr_javadoccomment">     * determine the 'data' directory and replace the %s with the path to the data directory. If the data directory does not</em>
-<a class="jxr_linenumber" name="L799" href="#L799">799</a> <em class="jxr_javadoccomment">     * exists it will be created.</em>
-<a class="jxr_linenumber" name="L800" href="#L800">800</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L801" href="#L801">801</a> <em class="jxr_javadoccomment">     * @param connectionStringKey the property file key for the connection string</em>
-<a class="jxr_linenumber" name="L802" href="#L802">802</a> <em class="jxr_javadoccomment">     * @param dbFileNameKey the settings key for the db filename</em>
-<a class="jxr_linenumber" name="L803" href="#L803">803</a> <em class="jxr_javadoccomment">     * @return the connection string</em>
-<a class="jxr_linenumber" name="L804" href="#L804">804</a> <em class="jxr_javadoccomment">     * @throws IOException thrown the data directory cannot be created</em>
-<a class="jxr_linenumber" name="L805" href="#L805">805</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException thrown if there is an invalid setting</em>
-<a class="jxr_linenumber" name="L806" href="#L806">806</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L807" href="#L807">807</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String getConnectionString(String connectionStringKey, String dbFileNameKey)
-<a class="jxr_linenumber" name="L808" href="#L808">808</a>             <strong class="jxr_keyword">throws</strong> IOException, <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a> {
-<a class="jxr_linenumber" name="L809" href="#L809">809</a>         <strong class="jxr_keyword">final</strong> String connStr = Settings.getString(connectionStringKey);
-<a class="jxr_linenumber" name="L810" href="#L810">810</a>         <strong class="jxr_keyword">if</strong> (connStr == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L811" href="#L811">811</a>             <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Invalid properties file; %s is missing."</span>, connectionStringKey);
-<a class="jxr_linenumber" name="L812" href="#L812">812</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a>(msg);
-<a class="jxr_linenumber" name="L813" href="#L813">813</a>         }
-<a class="jxr_linenumber" name="L814" href="#L814">814</a>         <strong class="jxr_keyword">if</strong> (connStr.contains(<span class="jxr_string">"%s"</span>)) {
-<a class="jxr_linenumber" name="L815" href="#L815">815</a>             <strong class="jxr_keyword">final</strong> File directory = getDataDirectory();
-<a class="jxr_linenumber" name="L816" href="#L816">816</a>             String fileName = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L817" href="#L817">817</a>             <strong class="jxr_keyword">if</strong> (dbFileNameKey != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L818" href="#L818">818</a>                 fileName = Settings.getString(dbFileNameKey);
-<a class="jxr_linenumber" name="L819" href="#L819">819</a>             }
-<a class="jxr_linenumber" name="L820" href="#L820">820</a>             <strong class="jxr_keyword">if</strong> (fileName == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L821" href="#L821">821</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Invalid properties file to get a file based connection string; '%s' must be defined."</span>,
-<a class="jxr_linenumber" name="L822" href="#L822">822</a>                         dbFileNameKey);
-<a class="jxr_linenumber" name="L823" href="#L823">823</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a>(msg);
-<a class="jxr_linenumber" name="L824" href="#L824">824</a>             }
-<a class="jxr_linenumber" name="L825" href="#L825">825</a>             <strong class="jxr_keyword">if</strong> (connStr.startsWith(<span class="jxr_string">"jdbc:h2:file:"</span>) &amp;&amp; fileName.endsWith(<span class="jxr_string">".h2.db"</span>)) {
-<a class="jxr_linenumber" name="L826" href="#L826">826</a>                 fileName = fileName.substring(0, fileName.length() - 6);
-<a class="jxr_linenumber" name="L827" href="#L827">827</a>             }
-<a class="jxr_linenumber" name="L828" href="#L828">828</a>             <em class="jxr_comment">// yes, for H2 this path won't actually exists - but this is sufficient to get the value needed</em>
-<a class="jxr_linenumber" name="L829" href="#L829">829</a>             <strong class="jxr_keyword">final</strong> File dbFile = <strong class="jxr_keyword">new</strong> File(directory, fileName);
-<a class="jxr_linenumber" name="L830" href="#L830">830</a>             <strong class="jxr_keyword">final</strong> String cString = String.format(connStr, dbFile.getCanonicalPath());
-<a class="jxr_linenumber" name="L831" href="#L831">831</a>             LOGGER.debug(<span class="jxr_string">"Connection String: '{}'"</span>, cString);
-<a class="jxr_linenumber" name="L832" href="#L832">832</a>             <strong class="jxr_keyword">return</strong> cString;
-<a class="jxr_linenumber" name="L833" href="#L833">833</a>         }
-<a class="jxr_linenumber" name="L834" href="#L834">834</a>         <strong class="jxr_keyword">return</strong> connStr;
-<a class="jxr_linenumber" name="L835" href="#L835">835</a>     }
-<a class="jxr_linenumber" name="L836" href="#L836">836</a> 
-<a class="jxr_linenumber" name="L837" href="#L837">837</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L838" href="#L838">838</a> <em class="jxr_javadoccomment">     * Retrieves the directory that the JAR file exists in so that we can ensure we always use a common data directory for the</em>
-<a class="jxr_linenumber" name="L839" href="#L839">839</a> <em class="jxr_javadoccomment">     * embedded H2 database. This is public solely for some unit tests; otherwise this should be private.</em>
-<a class="jxr_linenumber" name="L840" href="#L840">840</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L841" href="#L841">841</a> <em class="jxr_javadoccomment">     * @return the data directory to store data files</em>
-<a class="jxr_linenumber" name="L842" href="#L842">842</a> <em class="jxr_javadoccomment">     * @throws IOException is thrown if an IOException occurs of course...</em>
-<a class="jxr_linenumber" name="L843" href="#L843">843</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L844" href="#L844">844</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> File getDataDirectory() <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L845" href="#L845">845</a>         <strong class="jxr_keyword">final</strong> File path = Settings.getDataFile(Settings.KEYS.DATA_DIRECTORY);
-<a class="jxr_linenumber" name="L846" href="#L846">846</a>         <strong class="jxr_keyword">if</strong> (path.exists() || path.mkdirs()) {
-<a class="jxr_linenumber" name="L847" href="#L847">847</a>             <strong class="jxr_keyword">return</strong> path;
-<a class="jxr_linenumber" name="L848" href="#L848">848</a>         }
-<a class="jxr_linenumber" name="L849" href="#L849">849</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IOException(String.format(<span class="jxr_string">"Unable to create the data directory '%s'"</span>, path.getAbsolutePath()));
-<a class="jxr_linenumber" name="L850" href="#L850">850</a>     }
-<a class="jxr_linenumber" name="L851" href="#L851">851</a> }
+<a class="jxr_linenumber" name="L746" href="#L746">746</a>             <strong class="jxr_keyword">if</strong> (!Settings.getString(key, <span class="jxr_string">""</span>).isEmpty()) {
+<a class="jxr_linenumber" name="L747" href="#L747">747</a>                 LOGGER.debug(<span class="jxr_string">"Could not convert property '{}={}' to an int; using {} instead."</span>, key, Settings.getString(key), defaultValue);
+<a class="jxr_linenumber" name="L748" href="#L748">748</a>             }
+<a class="jxr_linenumber" name="L749" href="#L749">749</a>             value = defaultValue;
+<a class="jxr_linenumber" name="L750" href="#L750">750</a>         }
+<a class="jxr_linenumber" name="L751" href="#L751">751</a>         <strong class="jxr_keyword">return</strong> value;
+<a class="jxr_linenumber" name="L752" href="#L752">752</a>     }
+<a class="jxr_linenumber" name="L753" href="#L753">753</a> 
+<a class="jxr_linenumber" name="L754" href="#L754">754</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L755" href="#L755">755</a> <em class="jxr_javadoccomment">     * Returns a long value from the properties file. If the value was specified as a system property or passed in via the</em>
+<a class="jxr_linenumber" name="L756" href="#L756">756</a> <em class="jxr_javadoccomment">     * -Dprop=value argument - this method will return the value from the system properties before the values in the contained</em>
+<a class="jxr_linenumber" name="L757" href="#L757">757</a> <em class="jxr_javadoccomment">     * configuration file.</em>
+<a class="jxr_linenumber" name="L758" href="#L758">758</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L759" href="#L759">759</a> <em class="jxr_javadoccomment">     * @param key the key to lookup within the properties file</em>
+<a class="jxr_linenumber" name="L760" href="#L760">760</a> <em class="jxr_javadoccomment">     * @return the property from the properties file</em>
+<a class="jxr_linenumber" name="L761" href="#L761">761</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException is thrown if there is an error retrieving the setting</em>
+<a class="jxr_linenumber" name="L762" href="#L762">762</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L763" href="#L763">763</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">long</strong> getLong(String key) <strong class="jxr_keyword">throws</strong> InvalidSettingException {
+<a class="jxr_linenumber" name="L764" href="#L764">764</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L765" href="#L765">765</a>             <strong class="jxr_keyword">return</strong> Long.parseLong(Settings.getString(key));
+<a class="jxr_linenumber" name="L766" href="#L766">766</a>         } <strong class="jxr_keyword">catch</strong> (NumberFormatException ex) {
+<a class="jxr_linenumber" name="L767" href="#L767">767</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a>(<span class="jxr_string">"Could not convert property '"</span> + key + <span class="jxr_string">"' to a long."</span>, ex);
+<a class="jxr_linenumber" name="L768" href="#L768">768</a>         }
+<a class="jxr_linenumber" name="L769" href="#L769">769</a>     }
+<a class="jxr_linenumber" name="L770" href="#L770">770</a> 
+<a class="jxr_linenumber" name="L771" href="#L771">771</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L772" href="#L772">772</a> <em class="jxr_javadoccomment">     * Returns a boolean value from the properties file. If the value was specified as a system property or passed in via the</em>
+<a class="jxr_linenumber" name="L773" href="#L773">773</a> <em class="jxr_javadoccomment">     * &lt;code&gt;-Dprop=value&lt;/code&gt; argument this method will return the value from the system properties before the values in the</em>
+<a class="jxr_linenumber" name="L774" href="#L774">774</a> <em class="jxr_javadoccomment">     * contained configuration file.</em>
+<a class="jxr_linenumber" name="L775" href="#L775">775</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L776" href="#L776">776</a> <em class="jxr_javadoccomment">     * @param key the key to lookup within the properties file</em>
+<a class="jxr_linenumber" name="L777" href="#L777">777</a> <em class="jxr_javadoccomment">     * @return the property from the properties file</em>
+<a class="jxr_linenumber" name="L778" href="#L778">778</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException is thrown if there is an error retrieving the setting</em>
+<a class="jxr_linenumber" name="L779" href="#L779">779</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L780" href="#L780">780</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> getBoolean(String key) <strong class="jxr_keyword">throws</strong> InvalidSettingException {
+<a class="jxr_linenumber" name="L781" href="#L781">781</a>         <strong class="jxr_keyword">return</strong> Boolean.parseBoolean(Settings.getString(key));
+<a class="jxr_linenumber" name="L782" href="#L782">782</a>     }
+<a class="jxr_linenumber" name="L783" href="#L783">783</a> 
+<a class="jxr_linenumber" name="L784" href="#L784">784</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L785" href="#L785">785</a> <em class="jxr_javadoccomment">     * Returns a boolean value from the properties file. If the value was specified as a system property or passed in via the</em>
+<a class="jxr_linenumber" name="L786" href="#L786">786</a> <em class="jxr_javadoccomment">     * &lt;code&gt;-Dprop=value&lt;/code&gt; argument this method will return the value from the system properties before the values in the</em>
+<a class="jxr_linenumber" name="L787" href="#L787">787</a> <em class="jxr_javadoccomment">     * contained configuration file.</em>
+<a class="jxr_linenumber" name="L788" href="#L788">788</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L789" href="#L789">789</a> <em class="jxr_javadoccomment">     * @param key the key to lookup within the properties file</em>
+<a class="jxr_linenumber" name="L790" href="#L790">790</a> <em class="jxr_javadoccomment">     * @param defaultValue the default value to return if the setting does not exist</em>
+<a class="jxr_linenumber" name="L791" href="#L791">791</a> <em class="jxr_javadoccomment">     * @return the property from the properties file</em>
+<a class="jxr_linenumber" name="L792" href="#L792">792</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException is thrown if there is an error retrieving the setting</em>
+<a class="jxr_linenumber" name="L793" href="#L793">793</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L794" href="#L794">794</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> getBoolean(String key, <strong class="jxr_keyword">boolean</strong> defaultValue) <strong class="jxr_keyword">throws</strong> InvalidSettingException {
+<a class="jxr_linenumber" name="L795" href="#L795">795</a>         <strong class="jxr_keyword">return</strong> Boolean.parseBoolean(Settings.getString(key, Boolean.toString(defaultValue)));
+<a class="jxr_linenumber" name="L796" href="#L796">796</a>     }
+<a class="jxr_linenumber" name="L797" href="#L797">797</a> 
+<a class="jxr_linenumber" name="L798" href="#L798">798</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L799" href="#L799">799</a> <em class="jxr_javadoccomment">     * Returns a connection string from the configured properties. If the connection string contains a %s, this method will</em>
+<a class="jxr_linenumber" name="L800" href="#L800">800</a> <em class="jxr_javadoccomment">     * determine the 'data' directory and replace the %s with the path to the data directory. If the data directory does not</em>
+<a class="jxr_linenumber" name="L801" href="#L801">801</a> <em class="jxr_javadoccomment">     * exists it will be created.</em>
+<a class="jxr_linenumber" name="L802" href="#L802">802</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L803" href="#L803">803</a> <em class="jxr_javadoccomment">     * @param connectionStringKey the property file key for the connection string</em>
+<a class="jxr_linenumber" name="L804" href="#L804">804</a> <em class="jxr_javadoccomment">     * @param dbFileNameKey the settings key for the db filename</em>
+<a class="jxr_linenumber" name="L805" href="#L805">805</a> <em class="jxr_javadoccomment">     * @return the connection string</em>
+<a class="jxr_linenumber" name="L806" href="#L806">806</a> <em class="jxr_javadoccomment">     * @throws IOException thrown the data directory cannot be created</em>
+<a class="jxr_linenumber" name="L807" href="#L807">807</a> <em class="jxr_javadoccomment">     * @throws InvalidSettingException thrown if there is an invalid setting</em>
+<a class="jxr_linenumber" name="L808" href="#L808">808</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L809" href="#L809">809</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String getConnectionString(String connectionStringKey, String dbFileNameKey)
+<a class="jxr_linenumber" name="L810" href="#L810">810</a>             <strong class="jxr_keyword">throws</strong> IOException, <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a> {
+<a class="jxr_linenumber" name="L811" href="#L811">811</a>         <strong class="jxr_keyword">final</strong> String connStr = Settings.getString(connectionStringKey);
+<a class="jxr_linenumber" name="L812" href="#L812">812</a>         <strong class="jxr_keyword">if</strong> (connStr == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L813" href="#L813">813</a>             <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Invalid properties file; %s is missing."</span>, connectionStringKey);
+<a class="jxr_linenumber" name="L814" href="#L814">814</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a>(msg);
+<a class="jxr_linenumber" name="L815" href="#L815">815</a>         }
+<a class="jxr_linenumber" name="L816" href="#L816">816</a>         <strong class="jxr_keyword">if</strong> (connStr.contains(<span class="jxr_string">"%s"</span>)) {
+<a class="jxr_linenumber" name="L817" href="#L817">817</a>             <strong class="jxr_keyword">final</strong> File directory = getDataDirectory();
+<a class="jxr_linenumber" name="L818" href="#L818">818</a>             String fileName = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L819" href="#L819">819</a>             <strong class="jxr_keyword">if</strong> (dbFileNameKey != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L820" href="#L820">820</a>                 fileName = Settings.getString(dbFileNameKey);
+<a class="jxr_linenumber" name="L821" href="#L821">821</a>             }
+<a class="jxr_linenumber" name="L822" href="#L822">822</a>             <strong class="jxr_keyword">if</strong> (fileName == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L823" href="#L823">823</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Invalid properties file to get a file based connection string; '%s' must be defined."</span>,
+<a class="jxr_linenumber" name="L824" href="#L824">824</a>                         dbFileNameKey);
+<a class="jxr_linenumber" name="L825" href="#L825">825</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/InvalidSettingException.html">InvalidSettingException</a>(msg);
+<a class="jxr_linenumber" name="L826" href="#L826">826</a>             }
+<a class="jxr_linenumber" name="L827" href="#L827">827</a>             <strong class="jxr_keyword">if</strong> (connStr.startsWith(<span class="jxr_string">"jdbc:h2:file:"</span>) &amp;&amp; fileName.endsWith(<span class="jxr_string">".h2.db"</span>)) {
+<a class="jxr_linenumber" name="L828" href="#L828">828</a>                 fileName = fileName.substring(0, fileName.length() - 6);
+<a class="jxr_linenumber" name="L829" href="#L829">829</a>             }
+<a class="jxr_linenumber" name="L830" href="#L830">830</a>             <em class="jxr_comment">// yes, for H2 this path won't actually exists - but this is sufficient to get the value needed</em>
+<a class="jxr_linenumber" name="L831" href="#L831">831</a>             <strong class="jxr_keyword">final</strong> File dbFile = <strong class="jxr_keyword">new</strong> File(directory, fileName);
+<a class="jxr_linenumber" name="L832" href="#L832">832</a>             <strong class="jxr_keyword">final</strong> String cString = String.format(connStr, dbFile.getCanonicalPath());
+<a class="jxr_linenumber" name="L833" href="#L833">833</a>             LOGGER.debug(<span class="jxr_string">"Connection String: '{}'"</span>, cString);
+<a class="jxr_linenumber" name="L834" href="#L834">834</a>             <strong class="jxr_keyword">return</strong> cString;
+<a class="jxr_linenumber" name="L835" href="#L835">835</a>         }
+<a class="jxr_linenumber" name="L836" href="#L836">836</a>         <strong class="jxr_keyword">return</strong> connStr;
+<a class="jxr_linenumber" name="L837" href="#L837">837</a>     }
+<a class="jxr_linenumber" name="L838" href="#L838">838</a> 
+<a class="jxr_linenumber" name="L839" href="#L839">839</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L840" href="#L840">840</a> <em class="jxr_javadoccomment">     * Retrieves the directory that the JAR file exists in so that we can ensure we always use a common data directory for the</em>
+<a class="jxr_linenumber" name="L841" href="#L841">841</a> <em class="jxr_javadoccomment">     * embedded H2 database. This is public solely for some unit tests; otherwise this should be private.</em>
+<a class="jxr_linenumber" name="L842" href="#L842">842</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L843" href="#L843">843</a> <em class="jxr_javadoccomment">     * @return the data directory to store data files</em>
+<a class="jxr_linenumber" name="L844" href="#L844">844</a> <em class="jxr_javadoccomment">     * @throws IOException is thrown if an IOException occurs of course...</em>
+<a class="jxr_linenumber" name="L845" href="#L845">845</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L846" href="#L846">846</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> File getDataDirectory() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L847" href="#L847">847</a>         <strong class="jxr_keyword">final</strong> File path = Settings.getDataFile(Settings.KEYS.DATA_DIRECTORY);
+<a class="jxr_linenumber" name="L848" href="#L848">848</a>         <strong class="jxr_keyword">if</strong> (path.exists() || path.mkdirs()) {
+<a class="jxr_linenumber" name="L849" href="#L849">849</a>             <strong class="jxr_keyword">return</strong> path;
+<a class="jxr_linenumber" name="L850" href="#L850">850</a>         }
+<a class="jxr_linenumber" name="L851" href="#L851">851</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IOException(String.format(<span class="jxr_string">"Unable to create the data directory '%s'"</span>, path.getAbsolutePath()));
+<a class="jxr_linenumber" name="L852" href="#L852">852</a>     }
+<a class="jxr_linenumber" name="L853" href="#L853">853</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
