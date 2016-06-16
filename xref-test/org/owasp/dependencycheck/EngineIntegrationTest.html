@@ -38,41 +38,32 @@
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> * @author Jeremy Long</em>
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/owasp/dependencycheck/EngineIntegrationTest.html">EngineIntegrationTest</a> <strong class="jxr_keyword">extends</strong> <a href="../../../org/owasp/dependencycheck/utils/BaseTest.html">BaseTest</a> {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/owasp/dependencycheck/EngineIntegrationTest.html">EngineIntegrationTest</a> <strong class="jxr_keyword">extends</strong> <a href="../../../org/owasp/dependencycheck/BaseDBTestCase.html">BaseDBTestCase</a> {
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>      @Before
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setUp() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>          org.owasp.dependencycheck.BaseDBTestCase.ensureDBExists();
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>      }
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>      @After
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> tearDown() {
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>      }
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     * Test running the entire engine.</em>
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     * @throws Exception is thrown when an exception occurs.</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>      @Test
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEngine() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>          String testClasses = <span class="jxr_string">"target/test-classes"</span>;
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">boolean</strong> autoUpdate = Settings.getBoolean(Settings.KEYS.AUTO_UPDATE);
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>          Settings.setBoolean(Settings.KEYS.AUTO_UPDATE, false);
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>          Engine instance = <strong class="jxr_keyword">new</strong> Engine();
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>          Settings.setBoolean(Settings.KEYS.AUTO_UPDATE, autoUpdate);
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>          instance.scan(testClasses);
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          assertTrue(instance.getDependencies().size() &gt; 0);
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>          instance.analyzeDependencies();
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          CveDB cveDB = <strong class="jxr_keyword">new</strong> CveDB();
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          cveDB.open();
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>          DatabaseProperties dbProp = cveDB.getDatabaseProperties();
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>          cveDB.close();
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>          ReportGenerator rg = <strong class="jxr_keyword">new</strong> ReportGenerator(<span class="jxr_string">"DependencyCheck"</span>, instance.getDependencies(), instance.getAnalyzers(), dbProp);
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          rg.generateReports(<span class="jxr_string">"./target/"</span>, <span class="jxr_string">"ALL"</span>);
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>          instance.cleanup();
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>      }
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  }
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">     * Test running the entire engine.</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     * @throws Exception is thrown when an exception occurs.</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      @Test
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEngine() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          String testClasses = <span class="jxr_string">"target/test-classes"</span>;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          <strong class="jxr_keyword">boolean</strong> autoUpdate = Settings.getBoolean(Settings.KEYS.AUTO_UPDATE);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          Settings.setBoolean(Settings.KEYS.AUTO_UPDATE, false);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          Engine instance = <strong class="jxr_keyword">new</strong> Engine();
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          Settings.setBoolean(Settings.KEYS.AUTO_UPDATE, autoUpdate);
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          instance.scan(testClasses);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          assertTrue(instance.getDependencies().size() &gt; 0);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          instance.analyzeDependencies();
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          CveDB cveDB = <strong class="jxr_keyword">new</strong> CveDB();
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          cveDB.open();
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          DatabaseProperties dbProp = cveDB.getDatabaseProperties();
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          cveDB.close();
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          ReportGenerator rg = <strong class="jxr_keyword">new</strong> ReportGenerator(<span class="jxr_string">"DependencyCheck"</span>, instance.getDependencies(), instance.getAnalyzers(), dbProp);
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          rg.generateReports(<span class="jxr_string">"./target/"</span>, <span class="jxr_string">"ALL"</span>);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          instance.cleanup();
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      }
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>

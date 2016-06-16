@@ -75,58 +75,55 @@
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>      }
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>      <em class="jxr_comment">//&lt;/editor-fold&gt;</em>
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <em class="jxr_comment">// Python init files</em>
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> NameFileFilter IGNORED_FILES = <strong class="jxr_keyword">new</strong> NameFileFilter(<strong class="jxr_keyword">new</strong> String[] {
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <span class="jxr_string">"__init__.py"</span>,
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <span class="jxr_string">"__init__.pyc"</span>,
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <span class="jxr_string">"__init__.pyo"</span>
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>      });
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>  
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment">     * Collects information about the file name.</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment">     * @param dependency the dependency to analyze.</em>
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_javadoccomment">     * @param engine the engine that is scanning the dependencies</em>
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment">     * @throws AnalysisException is thrown if there is an error reading the JAR file.</em>
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>      @Override
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> analyze(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <em class="jxr_comment">//strip any path information that may get added by ArchiveAnalyzer, etc.</em>
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">final</strong> File f = dependency.getActualFile();
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>          <strong class="jxr_keyword">final</strong> String fileName = FilenameUtils.removeExtension(f.getName());
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>          <em class="jxr_comment">//add version evidence</em>
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> version = DependencyVersionUtil.parseVersion(fileName);
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>          <strong class="jxr_keyword">if</strong> (version != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>              <em class="jxr_comment">// If the version number is just a number like 2 or 23, reduce the confidence</em>
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>              <em class="jxr_comment">// a shade. This should hopefully correct for cases like log4j.jar or</em>
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>              <em class="jxr_comment">// struts2-core.jar</em>
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>              <strong class="jxr_keyword">if</strong> (version.getVersionParts() == <strong class="jxr_keyword">null</strong> || version.getVersionParts().size() &lt; 2) {
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>                  dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>                          version.toString(), Confidence.MEDIUM);
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  <em class="jxr_javadoccomment">     * Python init files</em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> NameFileFilter IGNORED_FILES = <strong class="jxr_keyword">new</strong> NameFileFilter(<strong class="jxr_keyword">new</strong> String[]{
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <span class="jxr_string">"__init__.py"</span>,
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <span class="jxr_string">"__init__.pyc"</span>,
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <span class="jxr_string">"__init__.pyo"</span>,
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      });
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment">     * Collects information about the file name.</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment">     * @param dependency the dependency to analyze.</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  <em class="jxr_javadoccomment">     * @param engine the engine that is scanning the dependencies</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_javadoccomment">     * @throws AnalysisException is thrown if there is an error reading the JAR</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  <em class="jxr_javadoccomment">     * file.</em>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      @Override
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> analyze(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          <em class="jxr_comment">//strip any path information that may get added by ArchiveAnalyzer, etc.</em>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          <strong class="jxr_keyword">final</strong> File f = dependency.getActualFile();
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          <strong class="jxr_keyword">final</strong> String fileName = FilenameUtils.removeExtension(f.getName());
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          <em class="jxr_comment">//add version evidence</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> version = DependencyVersionUtil.parseVersion(fileName);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          <strong class="jxr_keyword">if</strong> (version != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              <em class="jxr_comment">// If the version number is just a number like 2 or 23, reduce the confidence</em>
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>              <em class="jxr_comment">// a shade. This should hopefully correct for cases like log4j.jar or</em>
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              <em class="jxr_comment">// struts2-core.jar</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>             <strong class="jxr_keyword">if</strong> (version.getVersionParts() == <strong class="jxr_keyword">null</strong> || version.getVersionParts().size() &lt; 2) {
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>                 dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
-<a class="jxr_linenumber" name="L102" href="#L102">102</a>                         version.toString(), Confidence.HIGHEST);
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>             }
-<a class="jxr_linenumber" name="L104" href="#L104">104</a>             dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>                     fileName, Confidence.MEDIUM);
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>         }
-<a class="jxr_linenumber" name="L107" href="#L107">107</a> 
-<a class="jxr_linenumber" name="L108" href="#L108">108</a>         <em class="jxr_comment">//add as vendor and product evidence</em>
-<a class="jxr_linenumber" name="L109" href="#L109">109</a>         <strong class="jxr_keyword">if</strong> (fileName.contains(<span class="jxr_string">"-"</span>)) {
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>                     fileName, Confidence.HIGHEST);
-<a class="jxr_linenumber" name="L112" href="#L112">112</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
-<a class="jxr_linenumber" name="L113" href="#L113">113</a>                     fileName, Confidence.HIGHEST);
-<a class="jxr_linenumber" name="L114" href="#L114">114</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (!IGNORED_FILES.accept(f)) {
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>                     fileName, Confidence.HIGH);
-<a class="jxr_linenumber" name="L117" href="#L117">117</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
-<a class="jxr_linenumber" name="L118" href="#L118">118</a>                     fileName, Confidence.HIGH);
-<a class="jxr_linenumber" name="L119" href="#L119">119</a>         }
-<a class="jxr_linenumber" name="L120" href="#L120">120</a>     }
-<a class="jxr_linenumber" name="L121" href="#L121">121</a> }
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>                         version.toString(), Confidence.MEDIUM);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>                 dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"version"</span>,
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>                         version.toString(), Confidence.HIGHEST);
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             }
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                     fileName, Confidence.MEDIUM);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         }
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         <strong class="jxr_keyword">if</strong> (!IGNORED_FILES.accept(f)) {
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>                     fileName, Confidence.HIGH);
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"file"</span>, <span class="jxr_string">"name"</span>,
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>                     fileName, Confidence.HIGH);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         }
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>     }
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
