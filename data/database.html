@@ -244,12 +244,11 @@
             <h1>Using a Database Server</h1>
 <p><font color="red"><b>WARNING: This discusses an advanced setup and you may run into issues.</b></font></p>
 <p>Out of the box dependency-check uses a local H2 database. The location of the database file is configured using the data directory configuration option (see <a class="externalLink" href="https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html">CLI</a>).</p>
-<p>Some organizations may want to use a more robust centralized database. Currently, <a class="externalLink" href="http://www.h2database.com/html/tutorial.html#using_server">H2 in server mode</a> and <a class="externalLink" href="https://www.mysql.com/">MySQL</a> have been tested. In general, the setup is done by creating a central database, setting up a single instance of dependency-check, which can connect to the Internet, that is run in update-only mode once a day. Then the other dependency-check clients can connect, using a read-only connection, to perform the analysis. Please note that if the clients are unable to access the Internet the analysis may result in a few false negatives; see the note about Central <a href="./index.html">here</a>.</p>
+<p>Some organizations may want to use a more robust centralized database. Currently, <a class="externalLink" href="http://www.h2database.com/html/tutorial.html#using_server">H2 in server mode</a>, MySQL, PostgreSQL, Oracle, and MS SQL Server have been tested. In general, the setup is done by creating a central database, setting up a single instance of dependency-check, which can connect to the Internet, that is run in update-only mode once a day. Then the other dependency-check clients can connect, using a read-only connection, to perform the analysis. Please note that if the clients are unable to access the Internet the analysis may result in a few false negatives; see the note about Central <a href="./index.html">here</a>.</p>
 <p>To setup a centralized database the following generalized steps can be used:</p>
 
 <ol style="list-style-type: decimal">
-<li>Create the database and tables using either <a class="externalLink" href="https://github.com/jeremylong/DependencyCheck/blob/master/dependency-check-core/src/main/resources/data/initialize.sql">initialize.sql</a>
-   or <a class="externalLink" href="https://github.com/jeremylong/DependencyCheck/blob/master/dependency-check-core/src/main/resources/data/initialize_mysql.sql">initialize_mysql.sql</a>.</li>
+<li>Create the database and tables using either one of the intialization scripts found <a class="externalLink" href="https://github.com/jeremylong/DependencyCheck/tree/master/dependency-check-core/src/main/resources/data">here</a>.</li>
 
 <li>The account that the clients will connect using must have select granted on the tables.
      
