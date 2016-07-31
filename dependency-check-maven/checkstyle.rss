@@ -88,20 +88,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.Engine.java">org/owasp/dependencycheck/maven/Engine.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.AggregateMojo.java">org/owasp/dependencycheck/maven/AggregateMojo.java</a>
                 </td>
                 <td>
@@ -159,6 +145,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.package-info.java">org/owasp/dependencycheck/maven/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.MavenEngine.java">org/owasp/dependencycheck/maven/MavenEngine.java</a>
                 </td>
                 <td>
                   0

@@ -28,7 +28,7 @@
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> java.io.File;
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> java.io.InputStream;
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> java.sql.CallableStatement;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> java.sql.PreparedStatement;
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> java.sql.Connection;
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> java.sql.Driver;
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> java.sql.DriverManager;
@@ -360,11 +360,11 @@
 <a class="jxr_linenumber" name="L352" href="#L352">352</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L353" href="#L353">353</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> ensureSchemaVersion(Connection conn) <strong class="jxr_keyword">throws</strong> DatabaseException {
 <a class="jxr_linenumber" name="L354" href="#L354">354</a>         ResultSet rs = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L355" href="#L355">355</a>         CallableStatement cs = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>         PreparedStatement ps = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L356" href="#L356">356</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L357" href="#L357">357</a>             <em class="jxr_comment">//TODO convert this to use DatabaseProperties</em>
-<a class="jxr_linenumber" name="L358" href="#L358">358</a>             cs = conn.prepareCall(<span class="jxr_string">"SELECT value FROM properties WHERE id = 'version'"</span>);
-<a class="jxr_linenumber" name="L359" href="#L359">359</a>             rs = cs.executeQuery();
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>             ps = conn.prepareStatement(<span class="jxr_string">"SELECT value FROM properties WHERE id = 'version'"</span>);
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>             rs = ps.executeQuery();
 <a class="jxr_linenumber" name="L360" href="#L360">360</a>             <strong class="jxr_keyword">if</strong> (rs.next()) {
 <a class="jxr_linenumber" name="L361" href="#L361">361</a>                 <strong class="jxr_keyword">final</strong> <a href="../../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> appDbVersion = DependencyVersionUtil.parseVersion(DB_SCHEMA_VERSION);
 <a class="jxr_linenumber" name="L362" href="#L362">362</a>                 <strong class="jxr_keyword">final</strong> <a href="../../../../../org/owasp/dependencycheck/utils/DependencyVersion.html">DependencyVersion</a> db = DependencyVersionUtil.parseVersion(rs.getString(1));
@@ -384,7 +384,7 @@
 <a class="jxr_linenumber" name="L376" href="#L376">376</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../org/owasp/dependencycheck/data/nvdcve/DatabaseException.html">DatabaseException</a>(<span class="jxr_string">"Unable to check the database schema version"</span>);
 <a class="jxr_linenumber" name="L377" href="#L377">377</a>         } <strong class="jxr_keyword">finally</strong> {
 <a class="jxr_linenumber" name="L378" href="#L378">378</a>             DBUtils.closeResultSet(rs);
-<a class="jxr_linenumber" name="L379" href="#L379">379</a>             DBUtils.closeStatement(cs);
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>             DBUtils.closeStatement(ps);
 <a class="jxr_linenumber" name="L380" href="#L380">380</a>         }
 <a class="jxr_linenumber" name="L381" href="#L381">381</a>     }
 <a class="jxr_linenumber" name="L382" href="#L382">382</a> }
