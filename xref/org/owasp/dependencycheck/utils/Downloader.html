@@ -308,11 +308,11 @@
 <a class="jxr_linenumber" name="L300" href="#L300">300</a> <em class="jxr_javadoccomment">     * @throws DownloadFailedException a wrapper exception that contains the</em>
 <a class="jxr_linenumber" name="L301" href="#L301">301</a> <em class="jxr_javadoccomment">     * original exception as the cause</em>
 <a class="jxr_linenumber" name="L302" href="#L302">302</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L303" href="#L303">303</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkForCommonExceptionTypes(IOException ex) <strong class="jxr_keyword">throws</strong> DownloadFailedException {
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> checkForCommonExceptionTypes(IOException ex) <strong class="jxr_keyword">throws</strong> DownloadFailedException {
 <a class="jxr_linenumber" name="L304" href="#L304">304</a>         Throwable cause = ex;
 <a class="jxr_linenumber" name="L305" href="#L305">305</a>         <strong class="jxr_keyword">while</strong> (cause != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L306" href="#L306">306</a>             <strong class="jxr_keyword">if</strong> (cause instanceof java.net.UnknownHostException) {
-<a class="jxr_linenumber" name="L307" href="#L307">307</a>                 <strong class="jxr_keyword">final</strong> String msg = String.format(<span class="jxr_string">"Unable to resolve domain '%s'"</span>, cause.getMessage());
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>                 <strong class="jxr_keyword">final</strong> String msg = format(<span class="jxr_string">"Unable to resolve domain '%s'"</span>, cause.getMessage());
 <a class="jxr_linenumber" name="L308" href="#L308">308</a>                 LOGGER.error(msg);
 <a class="jxr_linenumber" name="L309" href="#L309">309</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(msg);
 <a class="jxr_linenumber" name="L310" href="#L310">310</a>             }

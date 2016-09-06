@@ -237,23 +237,24 @@
 <a class="jxr_linenumber" name="L229" href="#L229">229</a>                         LOGGER.warn(<span class="jxr_string">"Unable to download pom.xml for {} from Central; "</span>
 <a class="jxr_linenumber" name="L230" href="#L230">230</a>                                 + <span class="jxr_string">"this could result in undetected CPE/CVEs."</span>, dependency.getFileName());
 <a class="jxr_linenumber" name="L231" href="#L231">231</a>                     } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L232" href="#L232">232</a>                         <strong class="jxr_keyword">if</strong> (pomFile != <strong class="jxr_keyword">null</strong> &amp;&amp; !FileUtils.deleteQuietly(pomFile)) {
-<a class="jxr_linenumber" name="L233" href="#L233">233</a>                             pomFile.deleteOnExit();
-<a class="jxr_linenumber" name="L234" href="#L234">234</a>                         }
-<a class="jxr_linenumber" name="L235" href="#L235">235</a>                     }
-<a class="jxr_linenumber" name="L236" href="#L236">236</a>                 }
-<a class="jxr_linenumber" name="L237" href="#L237">237</a> 
-<a class="jxr_linenumber" name="L238" href="#L238">238</a>             }
-<a class="jxr_linenumber" name="L239" href="#L239">239</a>         } <strong class="jxr_keyword">catch</strong> (IllegalArgumentException iae) {
-<a class="jxr_linenumber" name="L240" href="#L240">240</a>             LOGGER.info(<span class="jxr_string">"invalid sha1-hash on {}"</span>, dependency.getFileName());
-<a class="jxr_linenumber" name="L241" href="#L241">241</a>         } <strong class="jxr_keyword">catch</strong> (FileNotFoundException fnfe) {
-<a class="jxr_linenumber" name="L242" href="#L242">242</a>             LOGGER.debug(<span class="jxr_string">"Artifact not found in repository: '{}"</span>, dependency.getFileName());
-<a class="jxr_linenumber" name="L243" href="#L243">243</a>         } <strong class="jxr_keyword">catch</strong> (IOException ioe) {
-<a class="jxr_linenumber" name="L244" href="#L244">244</a>             LOGGER.debug(<span class="jxr_string">"Could not connect to Central search"</span>, ioe);
-<a class="jxr_linenumber" name="L245" href="#L245">245</a>             errorFlag = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L246" href="#L246">246</a>         }
-<a class="jxr_linenumber" name="L247" href="#L247">247</a>     }
-<a class="jxr_linenumber" name="L248" href="#L248">248</a> }
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>                         <strong class="jxr_keyword">if</strong> (pomFile != <strong class="jxr_keyword">null</strong> &amp;&amp; pomFile.exists() &amp;&amp; !FileUtils.deleteQuietly(pomFile)) {
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>                             LOGGER.debug(<span class="jxr_string">"Failed to delete temporary pom file {}"</span>, pomFile.toString());
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>                             pomFile.deleteOnExit();
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>                         }
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>                     }
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>                 }
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>             }
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>         } <strong class="jxr_keyword">catch</strong> (IllegalArgumentException iae) {
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>             LOGGER.info(<span class="jxr_string">"invalid sha1-hash on {}"</span>, dependency.getFileName());
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>         } <strong class="jxr_keyword">catch</strong> (FileNotFoundException fnfe) {
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>             LOGGER.debug(<span class="jxr_string">"Artifact not found in repository: '{}"</span>, dependency.getFileName());
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>         } <strong class="jxr_keyword">catch</strong> (IOException ioe) {
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>             LOGGER.debug(<span class="jxr_string">"Could not connect to Central search"</span>, ioe);
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>             errorFlag = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>         }
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>     }
+<a class="jxr_linenumber" name="L249" href="#L249">249</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>

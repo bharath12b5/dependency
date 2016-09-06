@@ -333,396 +333,396 @@
 <a class="jxr_linenumber" name="L325" href="#L325">325</a>                     } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L326" href="#L326">326</a>                         pom = PomUtils.readPom(externalPom);
 <a class="jxr_linenumber" name="L327" href="#L327">327</a>                     }
-<a class="jxr_linenumber" name="L328" href="#L328">328</a>                     pom.processProperties(pomProperties);
-<a class="jxr_linenumber" name="L329" href="#L329">329</a>                     foundSomething |= setPomEvidence(dependency, pom, classes);
-<a class="jxr_linenumber" name="L330" href="#L330">330</a>                 }
-<a class="jxr_linenumber" name="L331" href="#L331">331</a>             } <strong class="jxr_keyword">catch</strong> (AnalysisException ex) {
-<a class="jxr_linenumber" name="L332" href="#L332">332</a>                 LOGGER.warn(<span class="jxr_string">"An error occurred while analyzing '{}'."</span>, dependency.getActualFilePath());
-<a class="jxr_linenumber" name="L333" href="#L333">333</a>                 LOGGER.trace(<span class="jxr_string">""</span>, ex);
-<a class="jxr_linenumber" name="L334" href="#L334">334</a>             }
-<a class="jxr_linenumber" name="L335" href="#L335">335</a>         }
-<a class="jxr_linenumber" name="L336" href="#L336">336</a>         <strong class="jxr_keyword">return</strong> foundSomething;
-<a class="jxr_linenumber" name="L337" href="#L337">337</a>     }
-<a class="jxr_linenumber" name="L338" href="#L338">338</a> 
-<a class="jxr_linenumber" name="L339" href="#L339">339</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L340" href="#L340">340</a> <em class="jxr_javadoccomment">     * Given a path to a pom.xml within a JarFile, this method attempts to load</em>
-<a class="jxr_linenumber" name="L341" href="#L341">341</a> <em class="jxr_javadoccomment">     * a sibling pom.properties if one exists.</em>
-<a class="jxr_linenumber" name="L342" href="#L342">342</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L343" href="#L343">343</a> <em class="jxr_javadoccomment">     * @param path the path to the pom.xml within the JarFile</em>
-<a class="jxr_linenumber" name="L344" href="#L344">344</a> <em class="jxr_javadoccomment">     * @param jar the JarFile to load the pom.properties from</em>
-<a class="jxr_linenumber" name="L345" href="#L345">345</a> <em class="jxr_javadoccomment">     * @return a Properties object or null if no pom.properties was found</em>
-<a class="jxr_linenumber" name="L346" href="#L346">346</a> <em class="jxr_javadoccomment">     * @throws IOException thrown if there is an exception reading the</em>
-<a class="jxr_linenumber" name="L347" href="#L347">347</a> <em class="jxr_javadoccomment">     * pom.properties</em>
-<a class="jxr_linenumber" name="L348" href="#L348">348</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L349" href="#L349">349</a>     <strong class="jxr_keyword">private</strong> Properties retrievePomProperties(String path, <strong class="jxr_keyword">final</strong> JarFile jar) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L350" href="#L350">350</a>         Properties pomProperties = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L351" href="#L351">351</a>         <strong class="jxr_keyword">final</strong> String propPath = path.substring(0, path.length() - 7) + <span class="jxr_string">"pom.properies"</span>;
-<a class="jxr_linenumber" name="L352" href="#L352">352</a>         <strong class="jxr_keyword">final</strong> ZipEntry propEntry = jar.getEntry(propPath);
-<a class="jxr_linenumber" name="L353" href="#L353">353</a>         <strong class="jxr_keyword">if</strong> (propEntry != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L354" href="#L354">354</a>             Reader reader = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L355" href="#L355">355</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L356" href="#L356">356</a>                 reader = <strong class="jxr_keyword">new</strong> InputStreamReader(jar.getInputStream(propEntry), <span class="jxr_string">"UTF-8"</span>);
-<a class="jxr_linenumber" name="L357" href="#L357">357</a>                 pomProperties = <strong class="jxr_keyword">new</strong> Properties();
-<a class="jxr_linenumber" name="L358" href="#L358">358</a>                 pomProperties.load(reader);
-<a class="jxr_linenumber" name="L359" href="#L359">359</a>                 LOGGER.debug(<span class="jxr_string">"Read pom.properties: {}"</span>, propPath);
-<a class="jxr_linenumber" name="L360" href="#L360">360</a>             } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L361" href="#L361">361</a>                 <strong class="jxr_keyword">if</strong> (reader != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L362" href="#L362">362</a>                     <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L363" href="#L363">363</a>                         reader.close();
-<a class="jxr_linenumber" name="L364" href="#L364">364</a>                     } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L365" href="#L365">365</a>                         LOGGER.trace(<span class="jxr_string">"close error"</span>, ex);
-<a class="jxr_linenumber" name="L366" href="#L366">366</a>                     }
-<a class="jxr_linenumber" name="L367" href="#L367">367</a>                 }
-<a class="jxr_linenumber" name="L368" href="#L368">368</a>             }
-<a class="jxr_linenumber" name="L369" href="#L369">369</a>         }
-<a class="jxr_linenumber" name="L370" href="#L370">370</a>         <strong class="jxr_keyword">return</strong> pomProperties;
-<a class="jxr_linenumber" name="L371" href="#L371">371</a>     }
-<a class="jxr_linenumber" name="L372" href="#L372">372</a> 
-<a class="jxr_linenumber" name="L373" href="#L373">373</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L374" href="#L374">374</a> <em class="jxr_javadoccomment">     * Searches a JarFile for pom.xml entries and returns a listing of these</em>
-<a class="jxr_linenumber" name="L375" href="#L375">375</a> <em class="jxr_javadoccomment">     * entries.</em>
-<a class="jxr_linenumber" name="L376" href="#L376">376</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L377" href="#L377">377</a> <em class="jxr_javadoccomment">     * @param jar the JarFile to search</em>
-<a class="jxr_linenumber" name="L378" href="#L378">378</a> <em class="jxr_javadoccomment">     * @return a list of pom.xml entries</em>
-<a class="jxr_linenumber" name="L379" href="#L379">379</a> <em class="jxr_javadoccomment">     * @throws IOException thrown if there is an exception reading a JarEntry</em>
-<a class="jxr_linenumber" name="L380" href="#L380">380</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L381" href="#L381">381</a>     <strong class="jxr_keyword">private</strong> List&lt;String&gt; retrievePomListing(<strong class="jxr_keyword">final</strong> JarFile jar) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L382" href="#L382">382</a>         <strong class="jxr_keyword">final</strong> List&lt;String&gt; pomEntries = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
-<a class="jxr_linenumber" name="L383" href="#L383">383</a>         <strong class="jxr_keyword">final</strong> Enumeration&lt;JarEntry&gt; entries = jar.entries();
-<a class="jxr_linenumber" name="L384" href="#L384">384</a>         <strong class="jxr_keyword">while</strong> (entries.hasMoreElements()) {
-<a class="jxr_linenumber" name="L385" href="#L385">385</a>             <strong class="jxr_keyword">final</strong> JarEntry entry = entries.nextElement();
-<a class="jxr_linenumber" name="L386" href="#L386">386</a>             <strong class="jxr_keyword">final</strong> String entryName = (<strong class="jxr_keyword">new</strong> File(entry.getName())).getName().toLowerCase();
-<a class="jxr_linenumber" name="L387" href="#L387">387</a>             <strong class="jxr_keyword">if</strong> (!entry.isDirectory() &amp;&amp; <span class="jxr_string">"pom.xml"</span>.equals(entryName)) {
-<a class="jxr_linenumber" name="L388" href="#L388">388</a>                 LOGGER.trace(<span class="jxr_string">"POM Entry found: {}"</span>, entry.getName());
-<a class="jxr_linenumber" name="L389" href="#L389">389</a>                 pomEntries.add(entry.getName());
-<a class="jxr_linenumber" name="L390" href="#L390">390</a>             }
-<a class="jxr_linenumber" name="L391" href="#L391">391</a>         }
-<a class="jxr_linenumber" name="L392" href="#L392">392</a>         <strong class="jxr_keyword">return</strong> pomEntries;
-<a class="jxr_linenumber" name="L393" href="#L393">393</a>     }
-<a class="jxr_linenumber" name="L394" href="#L394">394</a> 
-<a class="jxr_linenumber" name="L395" href="#L395">395</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L396" href="#L396">396</a> <em class="jxr_javadoccomment">     * Retrieves the specified POM from a jar file and converts it to a Model.</em>
-<a class="jxr_linenumber" name="L397" href="#L397">397</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L398" href="#L398">398</a> <em class="jxr_javadoccomment">     * @param path the path to the pom.xml file within the jar file</em>
-<a class="jxr_linenumber" name="L399" href="#L399">399</a> <em class="jxr_javadoccomment">     * @param jar the jar file to extract the pom from</em>
-<a class="jxr_linenumber" name="L400" href="#L400">400</a> <em class="jxr_javadoccomment">     * @param dependency the dependency being analyzed</em>
-<a class="jxr_linenumber" name="L401" href="#L401">401</a> <em class="jxr_javadoccomment">     * @return returns the POM object</em>
-<a class="jxr_linenumber" name="L402" href="#L402">402</a> <em class="jxr_javadoccomment">     * @throws AnalysisException is thrown if there is an exception extracting</em>
-<a class="jxr_linenumber" name="L403" href="#L403">403</a> <em class="jxr_javadoccomment">     * or parsing the POM {@link org.owasp.dependencycheck.xml.pom.Model} object</em>
-<a class="jxr_linenumber" name="L404" href="#L404">404</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L405" href="#L405">405</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../org/owasp/dependencycheck/xml/pom/Model.html">Model</a> extractPom(String path, JarFile jar, <a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency) <strong class="jxr_keyword">throws</strong> AnalysisException {
-<a class="jxr_linenumber" name="L406" href="#L406">406</a>         InputStream input = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L407" href="#L407">407</a>         FileOutputStream fos = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L408" href="#L408">408</a>         <strong class="jxr_keyword">final</strong> File tmpDir = getNextTempDirectory();
-<a class="jxr_linenumber" name="L409" href="#L409">409</a>         <strong class="jxr_keyword">final</strong> File file = <strong class="jxr_keyword">new</strong> File(tmpDir, <span class="jxr_string">"pom.xml"</span>);
-<a class="jxr_linenumber" name="L410" href="#L410">410</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L411" href="#L411">411</a>             <strong class="jxr_keyword">final</strong> ZipEntry entry = jar.getEntry(path);
-<a class="jxr_linenumber" name="L412" href="#L412">412</a>             input = jar.getInputStream(entry);
-<a class="jxr_linenumber" name="L413" href="#L413">413</a>             fos = <strong class="jxr_keyword">new</strong> FileOutputStream(file);
-<a class="jxr_linenumber" name="L414" href="#L414">414</a>             IOUtils.copy(input, fos);
-<a class="jxr_linenumber" name="L415" href="#L415">415</a>             dependency.setActualFilePath(file.getAbsolutePath());
-<a class="jxr_linenumber" name="L416" href="#L416">416</a>         } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L417" href="#L417">417</a>             LOGGER.warn(<span class="jxr_string">"An error occurred reading '{}' from '{}'."</span>, path, dependency.getFilePath());
-<a class="jxr_linenumber" name="L418" href="#L418">418</a>             LOGGER.error(<span class="jxr_string">""</span>, ex);
-<a class="jxr_linenumber" name="L419" href="#L419">419</a>         } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L420" href="#L420">420</a>             closeStream(fos);
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>             closeStream(input);
-<a class="jxr_linenumber" name="L422" href="#L422">422</a>         }
-<a class="jxr_linenumber" name="L423" href="#L423">423</a>         <strong class="jxr_keyword">return</strong> PomUtils.readPom(file);
-<a class="jxr_linenumber" name="L424" href="#L424">424</a>     }
-<a class="jxr_linenumber" name="L425" href="#L425">425</a> 
-<a class="jxr_linenumber" name="L426" href="#L426">426</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L427" href="#L427">427</a> <em class="jxr_javadoccomment">     * Silently closes an input stream ignoring errors.</em>
-<a class="jxr_linenumber" name="L428" href="#L428">428</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L429" href="#L429">429</a> <em class="jxr_javadoccomment">     * @param stream an input stream to close</em>
-<a class="jxr_linenumber" name="L430" href="#L430">430</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L431" href="#L431">431</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> closeStream(InputStream stream) {
-<a class="jxr_linenumber" name="L432" href="#L432">432</a>         <strong class="jxr_keyword">if</strong> (stream != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L433" href="#L433">433</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L434" href="#L434">434</a>                 stream.close();
-<a class="jxr_linenumber" name="L435" href="#L435">435</a>             } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L436" href="#L436">436</a>                 LOGGER.trace(<span class="jxr_string">""</span>, ex);
-<a class="jxr_linenumber" name="L437" href="#L437">437</a>             }
-<a class="jxr_linenumber" name="L438" href="#L438">438</a>         }
-<a class="jxr_linenumber" name="L439" href="#L439">439</a>     }
-<a class="jxr_linenumber" name="L440" href="#L440">440</a> 
-<a class="jxr_linenumber" name="L441" href="#L441">441</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L442" href="#L442">442</a> <em class="jxr_javadoccomment">     * Silently closes an output stream ignoring errors.</em>
-<a class="jxr_linenumber" name="L443" href="#L443">443</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L444" href="#L444">444</a> <em class="jxr_javadoccomment">     * @param stream an output stream to close</em>
-<a class="jxr_linenumber" name="L445" href="#L445">445</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L446" href="#L446">446</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> closeStream(OutputStream stream) {
-<a class="jxr_linenumber" name="L447" href="#L447">447</a>         <strong class="jxr_keyword">if</strong> (stream != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L448" href="#L448">448</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L449" href="#L449">449</a>                 stream.close();
-<a class="jxr_linenumber" name="L450" href="#L450">450</a>             } <strong class="jxr_keyword">catch</strong> (IOException ex) {
-<a class="jxr_linenumber" name="L451" href="#L451">451</a>                 LOGGER.trace(<span class="jxr_string">""</span>, ex);
-<a class="jxr_linenumber" name="L452" href="#L452">452</a>             }
-<a class="jxr_linenumber" name="L453" href="#L453">453</a>         }
-<a class="jxr_linenumber" name="L454" href="#L454">454</a>     }
-<a class="jxr_linenumber" name="L455" href="#L455">455</a> 
-<a class="jxr_linenumber" name="L456" href="#L456">456</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L457" href="#L457">457</a> <em class="jxr_javadoccomment">     * Sets evidence from the pom on the supplied dependency.</em>
-<a class="jxr_linenumber" name="L458" href="#L458">458</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L459" href="#L459">459</a> <em class="jxr_javadoccomment">     * @param dependency the dependency to set data on</em>
-<a class="jxr_linenumber" name="L460" href="#L460">460</a> <em class="jxr_javadoccomment">     * @param pom the information from the pom</em>
-<a class="jxr_linenumber" name="L461" href="#L461">461</a> <em class="jxr_javadoccomment">     * @param classes a collection of ClassNameInformation - containing data</em>
-<a class="jxr_linenumber" name="L462" href="#L462">462</a> <em class="jxr_javadoccomment">     * about the fully qualified class names within the JAR file being analyzed</em>
-<a class="jxr_linenumber" name="L463" href="#L463">463</a> <em class="jxr_javadoccomment">     * @return true if there was evidence within the pom that we could use;</em>
-<a class="jxr_linenumber" name="L464" href="#L464">464</a> <em class="jxr_javadoccomment">     * otherwise false</em>
-<a class="jxr_linenumber" name="L465" href="#L465">465</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L466" href="#L466">466</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> setPomEvidence(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/xml/pom/Model.html">Model</a> pom, List&lt;ClassNameInformation&gt; classes) {
-<a class="jxr_linenumber" name="L467" href="#L467">467</a>         <strong class="jxr_keyword">boolean</strong> foundSomething = false;
-<a class="jxr_linenumber" name="L468" href="#L468">468</a>         <strong class="jxr_keyword">boolean</strong> addAsIdentifier = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L469" href="#L469">469</a>         <strong class="jxr_keyword">if</strong> (pom == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L470" href="#L470">470</a>             <strong class="jxr_keyword">return</strong> foundSomething;
-<a class="jxr_linenumber" name="L471" href="#L471">471</a>         }
-<a class="jxr_linenumber" name="L472" href="#L472">472</a>         String groupid = pom.getGroupId();
-<a class="jxr_linenumber" name="L473" href="#L473">473</a>         String parentGroupId = pom.getParentGroupId();
-<a class="jxr_linenumber" name="L474" href="#L474">474</a>         String artifactid = pom.getArtifactId();
-<a class="jxr_linenumber" name="L475" href="#L475">475</a>         String parentArtifactId = pom.getParentArtifactId();
-<a class="jxr_linenumber" name="L476" href="#L476">476</a>         String version = pom.getVersion();
-<a class="jxr_linenumber" name="L477" href="#L477">477</a>         String parentVersion = pom.getParentVersion();
-<a class="jxr_linenumber" name="L478" href="#L478">478</a> 
-<a class="jxr_linenumber" name="L479" href="#L479">479</a>         <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"org.sonatype.oss"</span>.equals(parentGroupId) &amp;&amp; <span class="jxr_string">"oss-parent"</span>.equals(parentArtifactId)) {
-<a class="jxr_linenumber" name="L480" href="#L480">480</a>             parentGroupId = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L481" href="#L481">481</a>             parentArtifactId = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L482" href="#L482">482</a>             parentVersion = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L483" href="#L483">483</a>         }
-<a class="jxr_linenumber" name="L484" href="#L484">484</a> 
-<a class="jxr_linenumber" name="L485" href="#L485">485</a>         <strong class="jxr_keyword">if</strong> ((groupid == <strong class="jxr_keyword">null</strong> || groupid.isEmpty()) &amp;&amp; parentGroupId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentGroupId.isEmpty()) {
-<a class="jxr_linenumber" name="L486" href="#L486">486</a>             groupid = parentGroupId;
-<a class="jxr_linenumber" name="L487" href="#L487">487</a>         }
-<a class="jxr_linenumber" name="L488" href="#L488">488</a> 
-<a class="jxr_linenumber" name="L489" href="#L489">489</a>         <strong class="jxr_keyword">final</strong> String originalGroupID = groupid;
-<a class="jxr_linenumber" name="L490" href="#L490">490</a>         <strong class="jxr_keyword">if</strong> (groupid.startsWith(<span class="jxr_string">"org."</span>) || groupid.startsWith(<span class="jxr_string">"com."</span>)) {
-<a class="jxr_linenumber" name="L491" href="#L491">491</a>             groupid = groupid.substring(4);
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>                     <strong class="jxr_keyword">if</strong> (pom != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>                         pom.processProperties(pomProperties);
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>                         foundSomething |= setPomEvidence(dependency, pom, classes);
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>                     }
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>                 }
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>             } <strong class="jxr_keyword">catch</strong> (AnalysisException ex) {
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>                 LOGGER.warn(<span class="jxr_string">"An error occurred while analyzing '{}'."</span>, dependency.getActualFilePath());
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>                 LOGGER.trace(<span class="jxr_string">""</span>, ex);
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>             }
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>         }
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>         <strong class="jxr_keyword">return</strong> foundSomething;
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>     }
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> 
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> <em class="jxr_javadoccomment">     * Given a path to a pom.xml within a JarFile, this method attempts to load</em>
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> <em class="jxr_javadoccomment">     * a sibling pom.properties if one exists.</em>
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> <em class="jxr_javadoccomment">     * @param path the path to the pom.xml within the JarFile</em>
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> <em class="jxr_javadoccomment">     * @param jar the JarFile to load the pom.properties from</em>
+<a class="jxr_linenumber" name="L347" href="#L347">347</a> <em class="jxr_javadoccomment">     * @return a Properties object or null if no pom.properties was found</em>
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> <em class="jxr_javadoccomment">     * @throws IOException thrown if there is an exception reading the</em>
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> <em class="jxr_javadoccomment">     * pom.properties</em>
+<a class="jxr_linenumber" name="L350" href="#L350">350</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>     <strong class="jxr_keyword">private</strong> Properties retrievePomProperties(String path, <strong class="jxr_keyword">final</strong> JarFile jar) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>         Properties pomProperties = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>         <strong class="jxr_keyword">final</strong> String propPath = path.substring(0, path.length() - 7) + <span class="jxr_string">"pom.properies"</span>;
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>         <strong class="jxr_keyword">final</strong> ZipEntry propEntry = jar.getEntry(propPath);
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>         <strong class="jxr_keyword">if</strong> (propEntry != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>             Reader reader = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>                 reader = <strong class="jxr_keyword">new</strong> InputStreamReader(jar.getInputStream(propEntry), <span class="jxr_string">"UTF-8"</span>);
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>                 pomProperties = <strong class="jxr_keyword">new</strong> Properties();
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>                 pomProperties.load(reader);
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>                 LOGGER.debug(<span class="jxr_string">"Read pom.properties: {}"</span>, propPath);
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>             } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>                 <strong class="jxr_keyword">if</strong> (reader != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>                     <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>                         reader.close();
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>                     } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>                         LOGGER.trace(<span class="jxr_string">"close error"</span>, ex);
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>                     }
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>                 }
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>             }
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>         }
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>         <strong class="jxr_keyword">return</strong> pomProperties;
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>     }
+<a class="jxr_linenumber" name="L374" href="#L374">374</a> 
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L376" href="#L376">376</a> <em class="jxr_javadoccomment">     * Searches a JarFile for pom.xml entries and returns a listing of these</em>
+<a class="jxr_linenumber" name="L377" href="#L377">377</a> <em class="jxr_javadoccomment">     * entries.</em>
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> <em class="jxr_javadoccomment">     * @param jar the JarFile to search</em>
+<a class="jxr_linenumber" name="L380" href="#L380">380</a> <em class="jxr_javadoccomment">     * @return a list of pom.xml entries</em>
+<a class="jxr_linenumber" name="L381" href="#L381">381</a> <em class="jxr_javadoccomment">     * @throws IOException thrown if there is an exception reading a JarEntry</em>
+<a class="jxr_linenumber" name="L382" href="#L382">382</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>     <strong class="jxr_keyword">private</strong> List&lt;String&gt; retrievePomListing(<strong class="jxr_keyword">final</strong> JarFile jar) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>         <strong class="jxr_keyword">final</strong> List&lt;String&gt; pomEntries = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>         <strong class="jxr_keyword">final</strong> Enumeration&lt;JarEntry&gt; entries = jar.entries();
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>         <strong class="jxr_keyword">while</strong> (entries.hasMoreElements()) {
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>             <strong class="jxr_keyword">final</strong> JarEntry entry = entries.nextElement();
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>             <strong class="jxr_keyword">final</strong> String entryName = (<strong class="jxr_keyword">new</strong> File(entry.getName())).getName().toLowerCase();
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>             <strong class="jxr_keyword">if</strong> (!entry.isDirectory() &amp;&amp; <span class="jxr_string">"pom.xml"</span>.equals(entryName)) {
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>                 LOGGER.trace(<span class="jxr_string">"POM Entry found: {}"</span>, entry.getName());
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>                 pomEntries.add(entry.getName());
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>             }
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>         }
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>         <strong class="jxr_keyword">return</strong> pomEntries;
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>     }
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> 
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> <em class="jxr_javadoccomment">     * Retrieves the specified POM from a jar file and converts it to a Model.</em>
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> <em class="jxr_javadoccomment">     * @param path the path to the pom.xml file within the jar file</em>
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> <em class="jxr_javadoccomment">     * @param jar the jar file to extract the pom from</em>
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> <em class="jxr_javadoccomment">     * @param dependency the dependency being analyzed</em>
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> <em class="jxr_javadoccomment">     * @return returns the POM object</em>
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> <em class="jxr_javadoccomment">     * @throws AnalysisException is thrown if there is an exception extracting</em>
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> <em class="jxr_javadoccomment">     * or parsing the POM {@link org.owasp.dependencycheck.xml.pom.Model} object</em>
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../org/owasp/dependencycheck/xml/pom/Model.html">Model</a> extractPom(String path, JarFile jar, <a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency) <strong class="jxr_keyword">throws</strong> AnalysisException {
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>         InputStream input = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>         FileOutputStream fos = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>         <strong class="jxr_keyword">final</strong> File tmpDir = getNextTempDirectory();
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>         <strong class="jxr_keyword">final</strong> File file = <strong class="jxr_keyword">new</strong> File(tmpDir, <span class="jxr_string">"pom.xml"</span>);
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>             <strong class="jxr_keyword">final</strong> ZipEntry entry = jar.getEntry(path);
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>             <strong class="jxr_keyword">if</strong> (entry == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a>(String.format(<span class="jxr_string">"Pom (%s)does not exist in %s"</span>, path, jar.getName()));
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>             }
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>             input = jar.getInputStream(entry);
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>             fos = <strong class="jxr_keyword">new</strong> FileOutputStream(file);
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>             IOUtils.copy(input, fos);
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>             dependency.setActualFilePath(file.getAbsolutePath());
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>         } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>             LOGGER.warn(<span class="jxr_string">"An error occurred reading '{}' from '{}'."</span>, path, dependency.getFilePath());
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>             LOGGER.error(<span class="jxr_string">""</span>, ex);
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>             closeStream(fos);
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>             closeStream(input);
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>         }
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>         <strong class="jxr_keyword">return</strong> PomUtils.readPom(file);
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>     }
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> 
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> <em class="jxr_javadoccomment">     * Silently closes an input stream ignoring errors.</em>
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> <em class="jxr_javadoccomment">     * @param stream an input stream to close</em>
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> closeStream(InputStream stream) {
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>         <strong class="jxr_keyword">if</strong> (stream != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L438" href="#L438">438</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>                 stream.close();
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>             } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>                 LOGGER.trace(<span class="jxr_string">""</span>, ex);
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>             }
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>         }
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>     }
+<a class="jxr_linenumber" name="L445" href="#L445">445</a> 
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L447" href="#L447">447</a> <em class="jxr_javadoccomment">     * Silently closes an output stream ignoring errors.</em>
+<a class="jxr_linenumber" name="L448" href="#L448">448</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L449" href="#L449">449</a> <em class="jxr_javadoccomment">     * @param stream an output stream to close</em>
+<a class="jxr_linenumber" name="L450" href="#L450">450</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> closeStream(OutputStream stream) {
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>         <strong class="jxr_keyword">if</strong> (stream != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>                 stream.close();
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>             } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>                 LOGGER.trace(<span class="jxr_string">""</span>, ex);
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>             }
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>         }
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>     }
+<a class="jxr_linenumber" name="L460" href="#L460">460</a> 
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L462" href="#L462">462</a> <em class="jxr_javadoccomment">     * Sets evidence from the pom on the supplied dependency.</em>
+<a class="jxr_linenumber" name="L463" href="#L463">463</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L464" href="#L464">464</a> <em class="jxr_javadoccomment">     * @param dependency the dependency to set data on</em>
+<a class="jxr_linenumber" name="L465" href="#L465">465</a> <em class="jxr_javadoccomment">     * @param pom the information from the pom</em>
+<a class="jxr_linenumber" name="L466" href="#L466">466</a> <em class="jxr_javadoccomment">     * @param classes a collection of ClassNameInformation - containing data</em>
+<a class="jxr_linenumber" name="L467" href="#L467">467</a> <em class="jxr_javadoccomment">     * about the fully qualified class names within the JAR file being analyzed</em>
+<a class="jxr_linenumber" name="L468" href="#L468">468</a> <em class="jxr_javadoccomment">     * @return true if there was evidence within the pom that we could use;</em>
+<a class="jxr_linenumber" name="L469" href="#L469">469</a> <em class="jxr_javadoccomment">     * otherwise false</em>
+<a class="jxr_linenumber" name="L470" href="#L470">470</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> setPomEvidence(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/xml/pom/Model.html">Model</a> pom, List&lt;ClassNameInformation&gt; classes) {
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>         <strong class="jxr_keyword">boolean</strong> foundSomething = false;
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>         <strong class="jxr_keyword">boolean</strong> addAsIdentifier = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>         <strong class="jxr_keyword">if</strong> (pom == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>             <strong class="jxr_keyword">return</strong> foundSomething;
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>         }
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>         String groupid = pom.getGroupId();
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>         String parentGroupId = pom.getParentGroupId();
+<a class="jxr_linenumber" name="L479" href="#L479">479</a>         String artifactid = pom.getArtifactId();
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>         String parentArtifactId = pom.getParentArtifactId();
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>         String version = pom.getVersion();
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>         String parentVersion = pom.getParentVersion();
+<a class="jxr_linenumber" name="L483" href="#L483">483</a> 
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>         <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"org.sonatype.oss"</span>.equals(parentGroupId) &amp;&amp; <span class="jxr_string">"oss-parent"</span>.equals(parentArtifactId)) {
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>             parentGroupId = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>             parentArtifactId = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>             parentVersion = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>         }
+<a class="jxr_linenumber" name="L489" href="#L489">489</a> 
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>         <strong class="jxr_keyword">if</strong> ((groupid == <strong class="jxr_keyword">null</strong> || groupid.isEmpty()) &amp;&amp; parentGroupId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentGroupId.isEmpty()) {
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>             groupid = parentGroupId;
 <a class="jxr_linenumber" name="L492" href="#L492">492</a>         }
 <a class="jxr_linenumber" name="L493" href="#L493">493</a> 
-<a class="jxr_linenumber" name="L494" href="#L494">494</a>         <strong class="jxr_keyword">if</strong> ((artifactid == <strong class="jxr_keyword">null</strong> || artifactid.isEmpty()) &amp;&amp; parentArtifactId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentArtifactId.isEmpty()) {
-<a class="jxr_linenumber" name="L495" href="#L495">495</a>             artifactid = parentArtifactId;
-<a class="jxr_linenumber" name="L496" href="#L496">496</a>         }
-<a class="jxr_linenumber" name="L497" href="#L497">497</a> 
-<a class="jxr_linenumber" name="L498" href="#L498">498</a>         <strong class="jxr_keyword">final</strong> String originalArtifactID = artifactid;
-<a class="jxr_linenumber" name="L499" href="#L499">499</a>         <strong class="jxr_keyword">if</strong> (artifactid.startsWith(<span class="jxr_string">"org."</span>) || artifactid.startsWith(<span class="jxr_string">"com."</span>)) {
-<a class="jxr_linenumber" name="L500" href="#L500">500</a>             artifactid = artifactid.substring(4);
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>         <strong class="jxr_keyword">final</strong> String originalGroupID = groupid;
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>         <strong class="jxr_keyword">if</strong> (groupid != <strong class="jxr_keyword">null</strong> &amp;&amp; (groupid.startsWith(<span class="jxr_string">"org."</span>) || groupid.startsWith(<span class="jxr_string">"com."</span>))) {
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>             groupid = groupid.substring(4);
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>         }
+<a class="jxr_linenumber" name="L498" href="#L498">498</a> 
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>         <strong class="jxr_keyword">if</strong> ((artifactid == <strong class="jxr_keyword">null</strong> || artifactid.isEmpty()) &amp;&amp; parentArtifactId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentArtifactId.isEmpty()) {
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>             artifactid = parentArtifactId;
 <a class="jxr_linenumber" name="L501" href="#L501">501</a>         }
 <a class="jxr_linenumber" name="L502" href="#L502">502</a> 
-<a class="jxr_linenumber" name="L503" href="#L503">503</a>         <strong class="jxr_keyword">if</strong> ((version == <strong class="jxr_keyword">null</strong> || version.isEmpty()) &amp;&amp; parentVersion != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentVersion.isEmpty()) {
-<a class="jxr_linenumber" name="L504" href="#L504">504</a>             version = parentVersion;
-<a class="jxr_linenumber" name="L505" href="#L505">505</a>         }
-<a class="jxr_linenumber" name="L506" href="#L506">506</a> 
-<a class="jxr_linenumber" name="L507" href="#L507">507</a>         <strong class="jxr_keyword">if</strong> (groupid != <strong class="jxr_keyword">null</strong> &amp;&amp; !groupid.isEmpty()) {
-<a class="jxr_linenumber" name="L508" href="#L508">508</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L509" href="#L509">509</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"groupid"</span>, groupid, Confidence.HIGHEST);
-<a class="jxr_linenumber" name="L510" href="#L510">510</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"groupid"</span>, groupid, Confidence.LOW);
-<a class="jxr_linenumber" name="L511" href="#L511">511</a>             addMatchingValues(classes, groupid, dependency.getVendorEvidence());
-<a class="jxr_linenumber" name="L512" href="#L512">512</a>             addMatchingValues(classes, groupid, dependency.getProductEvidence());
-<a class="jxr_linenumber" name="L513" href="#L513">513</a>             <strong class="jxr_keyword">if</strong> (parentGroupId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentGroupId.isEmpty() &amp;&amp; !parentGroupId.equals(groupid)) {
-<a class="jxr_linenumber" name="L514" href="#L514">514</a>                 dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-groupid"</span>, parentGroupId, Confidence.MEDIUM);
-<a class="jxr_linenumber" name="L515" href="#L515">515</a>                 dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-groupid"</span>, parentGroupId, Confidence.LOW);
-<a class="jxr_linenumber" name="L516" href="#L516">516</a>                 addMatchingValues(classes, parentGroupId, dependency.getVendorEvidence());
-<a class="jxr_linenumber" name="L517" href="#L517">517</a>                 addMatchingValues(classes, parentGroupId, dependency.getProductEvidence());
-<a class="jxr_linenumber" name="L518" href="#L518">518</a>             }
-<a class="jxr_linenumber" name="L519" href="#L519">519</a>         } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L520" href="#L520">520</a>             addAsIdentifier = false;
-<a class="jxr_linenumber" name="L521" href="#L521">521</a>         }
-<a class="jxr_linenumber" name="L522" href="#L522">522</a> 
-<a class="jxr_linenumber" name="L523" href="#L523">523</a>         <strong class="jxr_keyword">if</strong> (artifactid != <strong class="jxr_keyword">null</strong> &amp;&amp; !artifactid.isEmpty()) {
-<a class="jxr_linenumber" name="L524" href="#L524">524</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L525" href="#L525">525</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"artifactid"</span>, artifactid, Confidence.HIGHEST);
-<a class="jxr_linenumber" name="L526" href="#L526">526</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"artifactid"</span>, artifactid, Confidence.LOW);
-<a class="jxr_linenumber" name="L527" href="#L527">527</a>             addMatchingValues(classes, artifactid, dependency.getVendorEvidence());
-<a class="jxr_linenumber" name="L528" href="#L528">528</a>             addMatchingValues(classes, artifactid, dependency.getProductEvidence());
-<a class="jxr_linenumber" name="L529" href="#L529">529</a>             <strong class="jxr_keyword">if</strong> (parentArtifactId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentArtifactId.isEmpty() &amp;&amp; !parentArtifactId.equals(artifactid)) {
-<a class="jxr_linenumber" name="L530" href="#L530">530</a>                 dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-artifactid"</span>, parentArtifactId, Confidence.MEDIUM);
-<a class="jxr_linenumber" name="L531" href="#L531">531</a>                 dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-artifactid"</span>, parentArtifactId, Confidence.LOW);
-<a class="jxr_linenumber" name="L532" href="#L532">532</a>                 addMatchingValues(classes, parentArtifactId, dependency.getVendorEvidence());
-<a class="jxr_linenumber" name="L533" href="#L533">533</a>                 addMatchingValues(classes, parentArtifactId, dependency.getProductEvidence());
-<a class="jxr_linenumber" name="L534" href="#L534">534</a>             }
-<a class="jxr_linenumber" name="L535" href="#L535">535</a>         } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L536" href="#L536">536</a>             addAsIdentifier = false;
-<a class="jxr_linenumber" name="L537" href="#L537">537</a>         }
-<a class="jxr_linenumber" name="L538" href="#L538">538</a> 
-<a class="jxr_linenumber" name="L539" href="#L539">539</a>         <strong class="jxr_keyword">if</strong> (version != <strong class="jxr_keyword">null</strong> &amp;&amp; !version.isEmpty()) {
-<a class="jxr_linenumber" name="L540" href="#L540">540</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L541" href="#L541">541</a>             dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"version"</span>, version, Confidence.HIGHEST);
-<a class="jxr_linenumber" name="L542" href="#L542">542</a>             <strong class="jxr_keyword">if</strong> (parentVersion != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentVersion.isEmpty() &amp;&amp; !parentVersion.equals(version)) {
-<a class="jxr_linenumber" name="L543" href="#L543">543</a>                 dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-version"</span>, version, Confidence.LOW);
-<a class="jxr_linenumber" name="L544" href="#L544">544</a>             }
-<a class="jxr_linenumber" name="L545" href="#L545">545</a>         } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L546" href="#L546">546</a>             addAsIdentifier = false;
-<a class="jxr_linenumber" name="L547" href="#L547">547</a>         }
-<a class="jxr_linenumber" name="L548" href="#L548">548</a> 
-<a class="jxr_linenumber" name="L549" href="#L549">549</a>         <strong class="jxr_keyword">if</strong> (addAsIdentifier) {
-<a class="jxr_linenumber" name="L550" href="#L550">550</a>             dependency.addIdentifier(<span class="jxr_string">"maven"</span>, String.format(<span class="jxr_string">"%s:%s:%s"</span>, originalGroupID, originalArtifactID, version), <strong class="jxr_keyword">null</strong>, Confidence.HIGH);
-<a class="jxr_linenumber" name="L551" href="#L551">551</a>         }
-<a class="jxr_linenumber" name="L552" href="#L552">552</a> 
-<a class="jxr_linenumber" name="L553" href="#L553">553</a>         <em class="jxr_comment">// org name</em>
-<a class="jxr_linenumber" name="L554" href="#L554">554</a>         <strong class="jxr_keyword">final</strong> String org = pom.getOrganization();
-<a class="jxr_linenumber" name="L555" href="#L555">555</a>         <strong class="jxr_keyword">if</strong> (org != <strong class="jxr_keyword">null</strong> &amp;&amp; !org.isEmpty()) {
-<a class="jxr_linenumber" name="L556" href="#L556">556</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"organization name"</span>, org, Confidence.HIGH);
-<a class="jxr_linenumber" name="L557" href="#L557">557</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"organization name"</span>, org, Confidence.LOW);
-<a class="jxr_linenumber" name="L558" href="#L558">558</a>             addMatchingValues(classes, org, dependency.getVendorEvidence());
-<a class="jxr_linenumber" name="L559" href="#L559">559</a>             addMatchingValues(classes, org, dependency.getProductEvidence());
-<a class="jxr_linenumber" name="L560" href="#L560">560</a>         }
-<a class="jxr_linenumber" name="L561" href="#L561">561</a>         <em class="jxr_comment">//pom name</em>
-<a class="jxr_linenumber" name="L562" href="#L562">562</a>         <strong class="jxr_keyword">final</strong> String pomName = pom.getName();
-<a class="jxr_linenumber" name="L563" href="#L563">563</a>         <strong class="jxr_keyword">if</strong> (pomName
-<a class="jxr_linenumber" name="L564" href="#L564">564</a>                 != <strong class="jxr_keyword">null</strong> &amp;&amp; !pomName.isEmpty()) {
-<a class="jxr_linenumber" name="L565" href="#L565">565</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L566" href="#L566">566</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"name"</span>, pomName, Confidence.HIGH);
-<a class="jxr_linenumber" name="L567" href="#L567">567</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"name"</span>, pomName, Confidence.HIGH);
-<a class="jxr_linenumber" name="L568" href="#L568">568</a>             addMatchingValues(classes, pomName, dependency.getVendorEvidence());
-<a class="jxr_linenumber" name="L569" href="#L569">569</a>             addMatchingValues(classes, pomName, dependency.getProductEvidence());
-<a class="jxr_linenumber" name="L570" href="#L570">570</a>         }
-<a class="jxr_linenumber" name="L571" href="#L571">571</a> 
-<a class="jxr_linenumber" name="L572" href="#L572">572</a>         <em class="jxr_comment">//Description</em>
-<a class="jxr_linenumber" name="L573" href="#L573">573</a>         <strong class="jxr_keyword">final</strong> String description = pom.getDescription();
-<a class="jxr_linenumber" name="L574" href="#L574">574</a>         <strong class="jxr_keyword">if</strong> (description != <strong class="jxr_keyword">null</strong> &amp;&amp; !description.isEmpty() &amp;&amp; !description.startsWith(<span class="jxr_string">"POM was created by"</span>)) {
-<a class="jxr_linenumber" name="L575" href="#L575">575</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L576" href="#L576">576</a>             <strong class="jxr_keyword">final</strong> String trimmedDescription = addDescription(dependency, description, <span class="jxr_string">"pom"</span>, <span class="jxr_string">"description"</span>);
-<a class="jxr_linenumber" name="L577" href="#L577">577</a>             addMatchingValues(classes, trimmedDescription, dependency.getVendorEvidence());
-<a class="jxr_linenumber" name="L578" href="#L578">578</a>             addMatchingValues(classes, trimmedDescription, dependency.getProductEvidence());
-<a class="jxr_linenumber" name="L579" href="#L579">579</a>         }
-<a class="jxr_linenumber" name="L580" href="#L580">580</a> 
-<a class="jxr_linenumber" name="L581" href="#L581">581</a>         <strong class="jxr_keyword">final</strong> String projectURL = pom.getProjectURL();
-<a class="jxr_linenumber" name="L582" href="#L582">582</a>         <strong class="jxr_keyword">if</strong> (projectURL != <strong class="jxr_keyword">null</strong> &amp;&amp; !projectURL.trim().isEmpty()) {
-<a class="jxr_linenumber" name="L583" href="#L583">583</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"url"</span>, projectURL, Confidence.HIGHEST);
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>         <strong class="jxr_keyword">final</strong> String originalArtifactID = artifactid;
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>         <strong class="jxr_keyword">if</strong> (artifactid != <strong class="jxr_keyword">null</strong> &amp;&amp; (artifactid.startsWith(<span class="jxr_string">"org."</span>) || artifactid.startsWith(<span class="jxr_string">"com."</span>))) {
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>             artifactid = artifactid.substring(4);
+<a class="jxr_linenumber" name="L506" href="#L506">506</a>         }
+<a class="jxr_linenumber" name="L507" href="#L507">507</a> 
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>         <strong class="jxr_keyword">if</strong> ((version == <strong class="jxr_keyword">null</strong> || version.isEmpty()) &amp;&amp; parentVersion != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentVersion.isEmpty()) {
+<a class="jxr_linenumber" name="L509" href="#L509">509</a>             version = parentVersion;
+<a class="jxr_linenumber" name="L510" href="#L510">510</a>         }
+<a class="jxr_linenumber" name="L511" href="#L511">511</a> 
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>         <strong class="jxr_keyword">if</strong> (groupid != <strong class="jxr_keyword">null</strong> &amp;&amp; !groupid.isEmpty()) {
+<a class="jxr_linenumber" name="L513" href="#L513">513</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"groupid"</span>, groupid, Confidence.HIGHEST);
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"groupid"</span>, groupid, Confidence.LOW);
+<a class="jxr_linenumber" name="L516" href="#L516">516</a>             addMatchingValues(classes, groupid, dependency.getVendorEvidence());
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>             addMatchingValues(classes, groupid, dependency.getProductEvidence());
+<a class="jxr_linenumber" name="L518" href="#L518">518</a>             <strong class="jxr_keyword">if</strong> (parentGroupId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentGroupId.isEmpty() &amp;&amp; !parentGroupId.equals(groupid)) {
+<a class="jxr_linenumber" name="L519" href="#L519">519</a>                 dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-groupid"</span>, parentGroupId, Confidence.MEDIUM);
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>                 dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-groupid"</span>, parentGroupId, Confidence.LOW);
+<a class="jxr_linenumber" name="L521" href="#L521">521</a>                 addMatchingValues(classes, parentGroupId, dependency.getVendorEvidence());
+<a class="jxr_linenumber" name="L522" href="#L522">522</a>                 addMatchingValues(classes, parentGroupId, dependency.getProductEvidence());
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>             }
+<a class="jxr_linenumber" name="L524" href="#L524">524</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L525" href="#L525">525</a>             addAsIdentifier = false;
+<a class="jxr_linenumber" name="L526" href="#L526">526</a>         }
+<a class="jxr_linenumber" name="L527" href="#L527">527</a> 
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>         <strong class="jxr_keyword">if</strong> (artifactid != <strong class="jxr_keyword">null</strong> &amp;&amp; !artifactid.isEmpty()) {
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L530" href="#L530">530</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"artifactid"</span>, artifactid, Confidence.HIGHEST);
+<a class="jxr_linenumber" name="L531" href="#L531">531</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"artifactid"</span>, artifactid, Confidence.LOW);
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>             addMatchingValues(classes, artifactid, dependency.getVendorEvidence());
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>             addMatchingValues(classes, artifactid, dependency.getProductEvidence());
+<a class="jxr_linenumber" name="L534" href="#L534">534</a>             <strong class="jxr_keyword">if</strong> (parentArtifactId != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentArtifactId.isEmpty() &amp;&amp; !parentArtifactId.equals(artifactid)) {
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>                 dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-artifactid"</span>, parentArtifactId, Confidence.MEDIUM);
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>                 dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-artifactid"</span>, parentArtifactId, Confidence.LOW);
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>                 addMatchingValues(classes, parentArtifactId, dependency.getVendorEvidence());
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>                 addMatchingValues(classes, parentArtifactId, dependency.getProductEvidence());
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>             }
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>             addAsIdentifier = false;
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>         }
+<a class="jxr_linenumber" name="L543" href="#L543">543</a> 
+<a class="jxr_linenumber" name="L544" href="#L544">544</a>         <strong class="jxr_keyword">if</strong> (version != <strong class="jxr_keyword">null</strong> &amp;&amp; !version.isEmpty()) {
+<a class="jxr_linenumber" name="L545" href="#L545">545</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>             dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"version"</span>, version, Confidence.HIGHEST);
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>             <strong class="jxr_keyword">if</strong> (parentVersion != <strong class="jxr_keyword">null</strong> &amp;&amp; !parentVersion.isEmpty() &amp;&amp; !parentVersion.equals(version)) {
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>                 dependency.getVersionEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"parent-version"</span>, version, Confidence.LOW);
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>             }
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>             addAsIdentifier = false;
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>         }
+<a class="jxr_linenumber" name="L553" href="#L553">553</a> 
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>         <strong class="jxr_keyword">if</strong> (addAsIdentifier) {
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>             dependency.addIdentifier(<span class="jxr_string">"maven"</span>, String.format(<span class="jxr_string">"%s:%s:%s"</span>, originalGroupID, originalArtifactID, version), <strong class="jxr_keyword">null</strong>, Confidence.HIGH);
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>         }
+<a class="jxr_linenumber" name="L557" href="#L557">557</a> 
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>         <em class="jxr_comment">// org name</em>
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>         <strong class="jxr_keyword">final</strong> String org = pom.getOrganization();
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>         <strong class="jxr_keyword">if</strong> (org != <strong class="jxr_keyword">null</strong> &amp;&amp; !org.isEmpty()) {
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"organization name"</span>, org, Confidence.HIGH);
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"organization name"</span>, org, Confidence.LOW);
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>             addMatchingValues(classes, org, dependency.getVendorEvidence());
+<a class="jxr_linenumber" name="L564" href="#L564">564</a>             addMatchingValues(classes, org, dependency.getProductEvidence());
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>         }
+<a class="jxr_linenumber" name="L566" href="#L566">566</a>         <em class="jxr_comment">//pom name</em>
+<a class="jxr_linenumber" name="L567" href="#L567">567</a>         <strong class="jxr_keyword">final</strong> String pomName = pom.getName();
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>         <strong class="jxr_keyword">if</strong> (pomName
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>                 != <strong class="jxr_keyword">null</strong> &amp;&amp; !pomName.isEmpty()) {
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>             dependency.getProductEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"name"</span>, pomName, Confidence.HIGH);
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"name"</span>, pomName, Confidence.HIGH);
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>             addMatchingValues(classes, pomName, dependency.getVendorEvidence());
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>             addMatchingValues(classes, pomName, dependency.getProductEvidence());
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>         }
+<a class="jxr_linenumber" name="L576" href="#L576">576</a> 
+<a class="jxr_linenumber" name="L577" href="#L577">577</a>         <em class="jxr_comment">//Description</em>
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>         <strong class="jxr_keyword">final</strong> String description = pom.getDescription();
+<a class="jxr_linenumber" name="L579" href="#L579">579</a>         <strong class="jxr_keyword">if</strong> (description != <strong class="jxr_keyword">null</strong> &amp;&amp; !description.isEmpty() &amp;&amp; !description.startsWith(<span class="jxr_string">"POM was created by"</span>)) {
+<a class="jxr_linenumber" name="L580" href="#L580">580</a>             foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L581" href="#L581">581</a>             <strong class="jxr_keyword">final</strong> String trimmedDescription = addDescription(dependency, description, <span class="jxr_string">"pom"</span>, <span class="jxr_string">"description"</span>);
+<a class="jxr_linenumber" name="L582" href="#L582">582</a>             addMatchingValues(classes, trimmedDescription, dependency.getVendorEvidence());
+<a class="jxr_linenumber" name="L583" href="#L583">583</a>             addMatchingValues(classes, trimmedDescription, dependency.getProductEvidence());
 <a class="jxr_linenumber" name="L584" href="#L584">584</a>         }
 <a class="jxr_linenumber" name="L585" href="#L585">585</a> 
-<a class="jxr_linenumber" name="L586" href="#L586">586</a>         extractLicense(pom, dependency);
-<a class="jxr_linenumber" name="L587" href="#L587">587</a>         <strong class="jxr_keyword">return</strong> foundSomething;
-<a class="jxr_linenumber" name="L588" href="#L588">588</a>     }
-<a class="jxr_linenumber" name="L589" href="#L589">589</a> 
-<a class="jxr_linenumber" name="L590" href="#L590">590</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L591" href="#L591">591</a> <em class="jxr_javadoccomment">     * Analyzes the path information of the classes contained within the</em>
-<a class="jxr_linenumber" name="L592" href="#L592">592</a> <em class="jxr_javadoccomment">     * JarAnalyzer to try and determine possible vendor or product names. If any</em>
-<a class="jxr_linenumber" name="L593" href="#L593">593</a> <em class="jxr_javadoccomment">     * are found they are stored in the packageVendor and packageProduct</em>
-<a class="jxr_linenumber" name="L594" href="#L594">594</a> <em class="jxr_javadoccomment">     * hashSets.</em>
-<a class="jxr_linenumber" name="L595" href="#L595">595</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L596" href="#L596">596</a> <em class="jxr_javadoccomment">     * @param classNames a list of class names</em>
-<a class="jxr_linenumber" name="L597" href="#L597">597</a> <em class="jxr_javadoccomment">     * @param dependency a dependency to analyze</em>
-<a class="jxr_linenumber" name="L598" href="#L598">598</a> <em class="jxr_javadoccomment">     * @param addPackagesAsEvidence a flag indicating whether or not package</em>
-<a class="jxr_linenumber" name="L599" href="#L599">599</a> <em class="jxr_javadoccomment">     * names should be added as evidence.</em>
-<a class="jxr_linenumber" name="L600" href="#L600">600</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L601" href="#L601">601</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> analyzePackageNames(List&lt;ClassNameInformation&gt; classNames,
-<a class="jxr_linenumber" name="L602" href="#L602">602</a>             <a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <strong class="jxr_keyword">boolean</strong> addPackagesAsEvidence) {
-<a class="jxr_linenumber" name="L603" href="#L603">603</a>         <strong class="jxr_keyword">final</strong> Map&lt;String, Integer&gt; vendorIdentifiers = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Integer&gt;();
-<a class="jxr_linenumber" name="L604" href="#L604">604</a>         <strong class="jxr_keyword">final</strong> Map&lt;String, Integer&gt; productIdentifiers = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Integer&gt;();
-<a class="jxr_linenumber" name="L605" href="#L605">605</a>         analyzeFullyQualifiedClassNames(classNames, vendorIdentifiers, productIdentifiers);
-<a class="jxr_linenumber" name="L606" href="#L606">606</a> 
-<a class="jxr_linenumber" name="L607" href="#L607">607</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> classCount = classNames.size();
-<a class="jxr_linenumber" name="L608" href="#L608">608</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> vendor = dependency.getVendorEvidence();
-<a class="jxr_linenumber" name="L609" href="#L609">609</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> product = dependency.getProductEvidence();
-<a class="jxr_linenumber" name="L610" href="#L610">610</a> 
-<a class="jxr_linenumber" name="L611" href="#L611">611</a>         <strong class="jxr_keyword">for</strong> (Map.Entry&lt;String, Integer&gt; entry : vendorIdentifiers.entrySet()) {
-<a class="jxr_linenumber" name="L612" href="#L612">612</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">float</strong> ratio = entry.getValue() / (<strong class="jxr_keyword">float</strong>) classCount;
-<a class="jxr_linenumber" name="L613" href="#L613">613</a>             <strong class="jxr_keyword">if</strong> (ratio &gt; 0.5) {
-<a class="jxr_linenumber" name="L614" href="#L614">614</a>                 <em class="jxr_comment">//TODO remove weighting</em>
-<a class="jxr_linenumber" name="L615" href="#L615">615</a>                 vendor.addWeighting(entry.getKey());
-<a class="jxr_linenumber" name="L616" href="#L616">616</a>                 <strong class="jxr_keyword">if</strong> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {
-<a class="jxr_linenumber" name="L617" href="#L617">617</a>                     vendor.addEvidence(<span class="jxr_string">"jar"</span>, <span class="jxr_string">"package name"</span>, entry.getKey(), Confidence.LOW);
-<a class="jxr_linenumber" name="L618" href="#L618">618</a>                 }
-<a class="jxr_linenumber" name="L619" href="#L619">619</a>             }
-<a class="jxr_linenumber" name="L620" href="#L620">620</a>         }
-<a class="jxr_linenumber" name="L621" href="#L621">621</a>         <strong class="jxr_keyword">for</strong> (Map.Entry&lt;String, Integer&gt; entry : productIdentifiers.entrySet()) {
-<a class="jxr_linenumber" name="L622" href="#L622">622</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">float</strong> ratio = entry.getValue() / (<strong class="jxr_keyword">float</strong>) classCount;
-<a class="jxr_linenumber" name="L623" href="#L623">623</a>             <strong class="jxr_keyword">if</strong> (ratio &gt; 0.5) {
-<a class="jxr_linenumber" name="L624" href="#L624">624</a>                 product.addWeighting(entry.getKey());
-<a class="jxr_linenumber" name="L625" href="#L625">625</a>                 <strong class="jxr_keyword">if</strong> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {
-<a class="jxr_linenumber" name="L626" href="#L626">626</a>                     product.addEvidence(<span class="jxr_string">"jar"</span>, <span class="jxr_string">"package name"</span>, entry.getKey(), Confidence.LOW);
-<a class="jxr_linenumber" name="L627" href="#L627">627</a>                 }
-<a class="jxr_linenumber" name="L628" href="#L628">628</a>             }
-<a class="jxr_linenumber" name="L629" href="#L629">629</a>         }
-<a class="jxr_linenumber" name="L630" href="#L630">630</a>     }
-<a class="jxr_linenumber" name="L631" href="#L631">631</a> 
-<a class="jxr_linenumber" name="L632" href="#L632">632</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L633" href="#L633">633</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
-<a class="jxr_linenumber" name="L634" href="#L634">634</a> <em class="jxr_javadoccomment">     * Reads the manifest from the JAR file and collects the entries. Some</em>
-<a class="jxr_linenumber" name="L635" href="#L635">635</a> <em class="jxr_javadoccomment">     * vendorKey entries are:&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L636" href="#L636">636</a> <em class="jxr_javadoccomment">     * &lt;ul&gt;&lt;li&gt;Implementation Title&lt;/li&gt;</em>
-<a class="jxr_linenumber" name="L637" href="#L637">637</a> <em class="jxr_javadoccomment">     * &lt;li&gt;Implementation Version&lt;/li&gt; &lt;li&gt;Implementation Vendor&lt;/li&gt;</em>
-<a class="jxr_linenumber" name="L638" href="#L638">638</a> <em class="jxr_javadoccomment">     * &lt;li&gt;Implementation VendorId&lt;/li&gt; &lt;li&gt;Bundle Name&lt;/li&gt; &lt;li&gt;Bundle</em>
-<a class="jxr_linenumber" name="L639" href="#L639">639</a> <em class="jxr_javadoccomment">     * Version&lt;/li&gt; &lt;li&gt;Bundle Vendor&lt;/li&gt; &lt;li&gt;Bundle Description&lt;/li&gt; &lt;li&gt;Main</em>
-<a class="jxr_linenumber" name="L640" href="#L640">640</a> <em class="jxr_javadoccomment">     * Class&lt;/li&gt; &lt;/ul&gt;</em>
-<a class="jxr_linenumber" name="L641" href="#L641">641</a> <em class="jxr_javadoccomment">     * However, all but a handful of specific entries are read in.</em>
-<a class="jxr_linenumber" name="L642" href="#L642">642</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L643" href="#L643">643</a> <em class="jxr_javadoccomment">     * @param dependency A reference to the dependency</em>
-<a class="jxr_linenumber" name="L644" href="#L644">644</a> <em class="jxr_javadoccomment">     * @param classInformation a collection of class information</em>
-<a class="jxr_linenumber" name="L645" href="#L645">645</a> <em class="jxr_javadoccomment">     * @return whether evidence was identified parsing the manifest</em>
-<a class="jxr_linenumber" name="L646" href="#L646">646</a> <em class="jxr_javadoccomment">     * @throws IOException if there is an issue reading the JAR file</em>
-<a class="jxr_linenumber" name="L647" href="#L647">647</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L648" href="#L648">648</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> parseManifest(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, List&lt;ClassNameInformation&gt; classInformation) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L649" href="#L649">649</a>         <strong class="jxr_keyword">boolean</strong> foundSomething = false;
-<a class="jxr_linenumber" name="L650" href="#L650">650</a>         JarFile jar = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L651" href="#L651">651</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L652" href="#L652">652</a>             jar = <strong class="jxr_keyword">new</strong> JarFile(dependency.getActualFilePath());
-<a class="jxr_linenumber" name="L653" href="#L653">653</a>             <strong class="jxr_keyword">final</strong> Manifest manifest = jar.getManifest();
-<a class="jxr_linenumber" name="L654" href="#L654">654</a>             <strong class="jxr_keyword">if</strong> (manifest == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L655" href="#L655">655</a>                 <strong class="jxr_keyword">if</strong> (!dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-sources.jar"</span>)
-<a class="jxr_linenumber" name="L656" href="#L656">656</a>                         &amp;&amp; !dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-javadoc.jar"</span>)
-<a class="jxr_linenumber" name="L657" href="#L657">657</a>                         &amp;&amp; !dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-src.jar"</span>)
-<a class="jxr_linenumber" name="L658" href="#L658">658</a>                         &amp;&amp; !dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-doc.jar"</span>)) {
-<a class="jxr_linenumber" name="L659" href="#L659">659</a>                     LOGGER.debug(<span class="jxr_string">"Jar file '{}' does not contain a manifest."</span>,
-<a class="jxr_linenumber" name="L660" href="#L660">660</a>                             dependency.getFileName());
-<a class="jxr_linenumber" name="L661" href="#L661">661</a>                 }
-<a class="jxr_linenumber" name="L662" href="#L662">662</a>                 <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L663" href="#L663">663</a>             }
-<a class="jxr_linenumber" name="L664" href="#L664">664</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> vendorEvidence = dependency.getVendorEvidence();
-<a class="jxr_linenumber" name="L665" href="#L665">665</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> productEvidence = dependency.getProductEvidence();
-<a class="jxr_linenumber" name="L666" href="#L666">666</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> versionEvidence = dependency.getVersionEvidence();
-<a class="jxr_linenumber" name="L667" href="#L667">667</a>             String source = <span class="jxr_string">"Manifest"</span>;
-<a class="jxr_linenumber" name="L668" href="#L668">668</a>             String specificationVersion = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L669" href="#L669">669</a>             <strong class="jxr_keyword">boolean</strong> hasImplementationVersion = false;
-<a class="jxr_linenumber" name="L670" href="#L670">670</a>             Attributes atts = manifest.getMainAttributes();
-<a class="jxr_linenumber" name="L671" href="#L671">671</a>             <strong class="jxr_keyword">for</strong> (Entry&lt;Object, Object&gt; entry : atts.entrySet()) {
-<a class="jxr_linenumber" name="L672" href="#L672">672</a>                 String key = entry.getKey().toString();
-<a class="jxr_linenumber" name="L673" href="#L673">673</a>                 String value = atts.getValue(key);
-<a class="jxr_linenumber" name="L674" href="#L674">674</a>                 <strong class="jxr_keyword">if</strong> (HTML_DETECTION_PATTERN.matcher(value).find()) {
-<a class="jxr_linenumber" name="L675" href="#L675">675</a>                     value = Jsoup.parse(value).text();
-<a class="jxr_linenumber" name="L676" href="#L676">676</a>                 }
-<a class="jxr_linenumber" name="L677" href="#L677">677</a>                 <strong class="jxr_keyword">if</strong> (IGNORE_VALUES.contains(value)) {
-<a class="jxr_linenumber" name="L678" href="#L678">678</a>                     <strong class="jxr_keyword">continue</strong>;
-<a class="jxr_linenumber" name="L679" href="#L679">679</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_TITLE.toString())) {
-<a class="jxr_linenumber" name="L680" href="#L680">680</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L681" href="#L681">681</a>                     productEvidence.addEvidence(source, key, value, Confidence.HIGH);
-<a class="jxr_linenumber" name="L682" href="#L682">682</a>                     addMatchingValues(classInformation, value, productEvidence);
-<a class="jxr_linenumber" name="L683" href="#L683">683</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VERSION.toString())) {
-<a class="jxr_linenumber" name="L684" href="#L684">684</a>                     hasImplementationVersion = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L586" href="#L586">586</a>         <strong class="jxr_keyword">final</strong> String projectURL = pom.getProjectURL();
+<a class="jxr_linenumber" name="L587" href="#L587">587</a>         <strong class="jxr_keyword">if</strong> (projectURL != <strong class="jxr_keyword">null</strong> &amp;&amp; !projectURL.trim().isEmpty()) {
+<a class="jxr_linenumber" name="L588" href="#L588">588</a>             dependency.getVendorEvidence().addEvidence(<span class="jxr_string">"pom"</span>, <span class="jxr_string">"url"</span>, projectURL, Confidence.HIGHEST);
+<a class="jxr_linenumber" name="L589" href="#L589">589</a>         }
+<a class="jxr_linenumber" name="L590" href="#L590">590</a> 
+<a class="jxr_linenumber" name="L591" href="#L591">591</a>         extractLicense(pom, dependency);
+<a class="jxr_linenumber" name="L592" href="#L592">592</a>         <strong class="jxr_keyword">return</strong> foundSomething;
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>     }
+<a class="jxr_linenumber" name="L594" href="#L594">594</a> 
+<a class="jxr_linenumber" name="L595" href="#L595">595</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L596" href="#L596">596</a> <em class="jxr_javadoccomment">     * Analyzes the path information of the classes contained within the</em>
+<a class="jxr_linenumber" name="L597" href="#L597">597</a> <em class="jxr_javadoccomment">     * JarAnalyzer to try and determine possible vendor or product names. If any</em>
+<a class="jxr_linenumber" name="L598" href="#L598">598</a> <em class="jxr_javadoccomment">     * are found they are stored in the packageVendor and packageProduct</em>
+<a class="jxr_linenumber" name="L599" href="#L599">599</a> <em class="jxr_javadoccomment">     * hashSets.</em>
+<a class="jxr_linenumber" name="L600" href="#L600">600</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L601" href="#L601">601</a> <em class="jxr_javadoccomment">     * @param classNames a list of class names</em>
+<a class="jxr_linenumber" name="L602" href="#L602">602</a> <em class="jxr_javadoccomment">     * @param dependency a dependency to analyze</em>
+<a class="jxr_linenumber" name="L603" href="#L603">603</a> <em class="jxr_javadoccomment">     * @param addPackagesAsEvidence a flag indicating whether or not package</em>
+<a class="jxr_linenumber" name="L604" href="#L604">604</a> <em class="jxr_javadoccomment">     * names should be added as evidence.</em>
+<a class="jxr_linenumber" name="L605" href="#L605">605</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L606" href="#L606">606</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> analyzePackageNames(List&lt;ClassNameInformation&gt; classNames,
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>             <a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <strong class="jxr_keyword">boolean</strong> addPackagesAsEvidence) {
+<a class="jxr_linenumber" name="L608" href="#L608">608</a>         <strong class="jxr_keyword">final</strong> Map&lt;String, Integer&gt; vendorIdentifiers = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Integer&gt;();
+<a class="jxr_linenumber" name="L609" href="#L609">609</a>         <strong class="jxr_keyword">final</strong> Map&lt;String, Integer&gt; productIdentifiers = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Integer&gt;();
+<a class="jxr_linenumber" name="L610" href="#L610">610</a>         analyzeFullyQualifiedClassNames(classNames, vendorIdentifiers, productIdentifiers);
+<a class="jxr_linenumber" name="L611" href="#L611">611</a> 
+<a class="jxr_linenumber" name="L612" href="#L612">612</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> classCount = classNames.size();
+<a class="jxr_linenumber" name="L613" href="#L613">613</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> vendor = dependency.getVendorEvidence();
+<a class="jxr_linenumber" name="L614" href="#L614">614</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> product = dependency.getProductEvidence();
+<a class="jxr_linenumber" name="L615" href="#L615">615</a> 
+<a class="jxr_linenumber" name="L616" href="#L616">616</a>         <strong class="jxr_keyword">for</strong> (Map.Entry&lt;String, Integer&gt; entry : vendorIdentifiers.entrySet()) {
+<a class="jxr_linenumber" name="L617" href="#L617">617</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">float</strong> ratio = entry.getValue() / (<strong class="jxr_keyword">float</strong>) classCount;
+<a class="jxr_linenumber" name="L618" href="#L618">618</a>             <strong class="jxr_keyword">if</strong> (ratio &gt; 0.5) {
+<a class="jxr_linenumber" name="L619" href="#L619">619</a>                 <em class="jxr_comment">//TODO remove weighting</em>
+<a class="jxr_linenumber" name="L620" href="#L620">620</a>                 vendor.addWeighting(entry.getKey());
+<a class="jxr_linenumber" name="L621" href="#L621">621</a>                 <strong class="jxr_keyword">if</strong> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {
+<a class="jxr_linenumber" name="L622" href="#L622">622</a>                     vendor.addEvidence(<span class="jxr_string">"jar"</span>, <span class="jxr_string">"package name"</span>, entry.getKey(), Confidence.LOW);
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>                 }
+<a class="jxr_linenumber" name="L624" href="#L624">624</a>             }
+<a class="jxr_linenumber" name="L625" href="#L625">625</a>         }
+<a class="jxr_linenumber" name="L626" href="#L626">626</a>         <strong class="jxr_keyword">for</strong> (Map.Entry&lt;String, Integer&gt; entry : productIdentifiers.entrySet()) {
+<a class="jxr_linenumber" name="L627" href="#L627">627</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">float</strong> ratio = entry.getValue() / (<strong class="jxr_keyword">float</strong>) classCount;
+<a class="jxr_linenumber" name="L628" href="#L628">628</a>             <strong class="jxr_keyword">if</strong> (ratio &gt; 0.5) {
+<a class="jxr_linenumber" name="L629" href="#L629">629</a>                 product.addWeighting(entry.getKey());
+<a class="jxr_linenumber" name="L630" href="#L630">630</a>                 <strong class="jxr_keyword">if</strong> (addPackagesAsEvidence &amp;&amp; entry.getKey().length() &gt; 1) {
+<a class="jxr_linenumber" name="L631" href="#L631">631</a>                     product.addEvidence(<span class="jxr_string">"jar"</span>, <span class="jxr_string">"package name"</span>, entry.getKey(), Confidence.LOW);
+<a class="jxr_linenumber" name="L632" href="#L632">632</a>                 }
+<a class="jxr_linenumber" name="L633" href="#L633">633</a>             }
+<a class="jxr_linenumber" name="L634" href="#L634">634</a>         }
+<a class="jxr_linenumber" name="L635" href="#L635">635</a>     }
+<a class="jxr_linenumber" name="L636" href="#L636">636</a> 
+<a class="jxr_linenumber" name="L637" href="#L637">637</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L638" href="#L638">638</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L639" href="#L639">639</a> <em class="jxr_javadoccomment">     * Reads the manifest from the JAR file and collects the entries. Some</em>
+<a class="jxr_linenumber" name="L640" href="#L640">640</a> <em class="jxr_javadoccomment">     * vendorKey entries are:&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L641" href="#L641">641</a> <em class="jxr_javadoccomment">     * &lt;ul&gt;&lt;li&gt;Implementation Title&lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L642" href="#L642">642</a> <em class="jxr_javadoccomment">     * &lt;li&gt;Implementation Version&lt;/li&gt; &lt;li&gt;Implementation Vendor&lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L643" href="#L643">643</a> <em class="jxr_javadoccomment">     * &lt;li&gt;Implementation VendorId&lt;/li&gt; &lt;li&gt;Bundle Name&lt;/li&gt; &lt;li&gt;Bundle</em>
+<a class="jxr_linenumber" name="L644" href="#L644">644</a> <em class="jxr_javadoccomment">     * Version&lt;/li&gt; &lt;li&gt;Bundle Vendor&lt;/li&gt; &lt;li&gt;Bundle Description&lt;/li&gt; &lt;li&gt;Main</em>
+<a class="jxr_linenumber" name="L645" href="#L645">645</a> <em class="jxr_javadoccomment">     * Class&lt;/li&gt; &lt;/ul&gt;</em>
+<a class="jxr_linenumber" name="L646" href="#L646">646</a> <em class="jxr_javadoccomment">     * However, all but a handful of specific entries are read in.</em>
+<a class="jxr_linenumber" name="L647" href="#L647">647</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L648" href="#L648">648</a> <em class="jxr_javadoccomment">     * @param dependency A reference to the dependency</em>
+<a class="jxr_linenumber" name="L649" href="#L649">649</a> <em class="jxr_javadoccomment">     * @param classInformation a collection of class information</em>
+<a class="jxr_linenumber" name="L650" href="#L650">650</a> <em class="jxr_javadoccomment">     * @return whether evidence was identified parsing the manifest</em>
+<a class="jxr_linenumber" name="L651" href="#L651">651</a> <em class="jxr_javadoccomment">     * @throws IOException if there is an issue reading the JAR file</em>
+<a class="jxr_linenumber" name="L652" href="#L652">652</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L653" href="#L653">653</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> parseManifest(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, List&lt;ClassNameInformation&gt; classInformation) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L654" href="#L654">654</a>         <strong class="jxr_keyword">boolean</strong> foundSomething = false;
+<a class="jxr_linenumber" name="L655" href="#L655">655</a>         JarFile jar = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L656" href="#L656">656</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L657" href="#L657">657</a>             jar = <strong class="jxr_keyword">new</strong> JarFile(dependency.getActualFilePath());
+<a class="jxr_linenumber" name="L658" href="#L658">658</a>             <strong class="jxr_keyword">final</strong> Manifest manifest = jar.getManifest();
+<a class="jxr_linenumber" name="L659" href="#L659">659</a>             <strong class="jxr_keyword">if</strong> (manifest == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L660" href="#L660">660</a>                 <strong class="jxr_keyword">if</strong> (!dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-sources.jar"</span>)
+<a class="jxr_linenumber" name="L661" href="#L661">661</a>                         &amp;&amp; !dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-javadoc.jar"</span>)
+<a class="jxr_linenumber" name="L662" href="#L662">662</a>                         &amp;&amp; !dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-src.jar"</span>)
+<a class="jxr_linenumber" name="L663" href="#L663">663</a>                         &amp;&amp; !dependency.getFileName().toLowerCase().endsWith(<span class="jxr_string">"-doc.jar"</span>)) {
+<a class="jxr_linenumber" name="L664" href="#L664">664</a>                     LOGGER.debug(<span class="jxr_string">"Jar file '{}' does not contain a manifest."</span>,
+<a class="jxr_linenumber" name="L665" href="#L665">665</a>                             dependency.getFileName());
+<a class="jxr_linenumber" name="L666" href="#L666">666</a>                 }
+<a class="jxr_linenumber" name="L667" href="#L667">667</a>                 <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L668" href="#L668">668</a>             }
+<a class="jxr_linenumber" name="L669" href="#L669">669</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> vendorEvidence = dependency.getVendorEvidence();
+<a class="jxr_linenumber" name="L670" href="#L670">670</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> productEvidence = dependency.getProductEvidence();
+<a class="jxr_linenumber" name="L671" href="#L671">671</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/dependency/EvidenceCollection.html">EvidenceCollection</a> versionEvidence = dependency.getVersionEvidence();
+<a class="jxr_linenumber" name="L672" href="#L672">672</a>             String source = <span class="jxr_string">"Manifest"</span>;
+<a class="jxr_linenumber" name="L673" href="#L673">673</a>             String specificationVersion = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L674" href="#L674">674</a>             <strong class="jxr_keyword">boolean</strong> hasImplementationVersion = false;
+<a class="jxr_linenumber" name="L675" href="#L675">675</a>             Attributes atts = manifest.getMainAttributes();
+<a class="jxr_linenumber" name="L676" href="#L676">676</a>             <strong class="jxr_keyword">for</strong> (Entry&lt;Object, Object&gt; entry : atts.entrySet()) {
+<a class="jxr_linenumber" name="L677" href="#L677">677</a>                 String key = entry.getKey().toString();
+<a class="jxr_linenumber" name="L678" href="#L678">678</a>                 String value = atts.getValue(key);
+<a class="jxr_linenumber" name="L679" href="#L679">679</a>                 <strong class="jxr_keyword">if</strong> (HTML_DETECTION_PATTERN.matcher(value).find()) {
+<a class="jxr_linenumber" name="L680" href="#L680">680</a>                     value = Jsoup.parse(value).text();
+<a class="jxr_linenumber" name="L681" href="#L681">681</a>                 }
+<a class="jxr_linenumber" name="L682" href="#L682">682</a>                 <strong class="jxr_keyword">if</strong> (IGNORE_VALUES.contains(value)) {
+<a class="jxr_linenumber" name="L683" href="#L683">683</a>                     <strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L684" href="#L684">684</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_TITLE.toString())) {
 <a class="jxr_linenumber" name="L685" href="#L685">685</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L686" href="#L686">686</a>                     versionEvidence.addEvidence(source, key, value, Confidence.HIGH);
-<a class="jxr_linenumber" name="L687" href="#L687">687</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"specification-version"</span>.equalsIgnoreCase(key)) {
-<a class="jxr_linenumber" name="L688" href="#L688">688</a>                     specificationVersion = key;
-<a class="jxr_linenumber" name="L689" href="#L689">689</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VENDOR.toString())) {
+<a class="jxr_linenumber" name="L686" href="#L686">686</a>                     productEvidence.addEvidence(source, key, value, Confidence.HIGH);
+<a class="jxr_linenumber" name="L687" href="#L687">687</a>                     addMatchingValues(classInformation, value, productEvidence);
+<a class="jxr_linenumber" name="L688" href="#L688">688</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VERSION.toString())) {
+<a class="jxr_linenumber" name="L689" href="#L689">689</a>                     hasImplementationVersion = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L690" href="#L690">690</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L691" href="#L691">691</a>                     vendorEvidence.addEvidence(source, key, value, Confidence.HIGH);
-<a class="jxr_linenumber" name="L692" href="#L692">692</a>                     addMatchingValues(classInformation, value, vendorEvidence);
-<a class="jxr_linenumber" name="L693" href="#L693">693</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(IMPLEMENTATION_VENDOR_ID)) {
-<a class="jxr_linenumber" name="L694" href="#L694">694</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L695" href="#L695">695</a>                     vendorEvidence.addEvidence(source, key, value, Confidence.MEDIUM);
-<a class="jxr_linenumber" name="L696" href="#L696">696</a>                     addMatchingValues(classInformation, value, vendorEvidence);
-<a class="jxr_linenumber" name="L697" href="#L697">697</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(BUNDLE_DESCRIPTION)) {
-<a class="jxr_linenumber" name="L698" href="#L698">698</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L699" href="#L699">699</a>                     addDescription(dependency, value, <span class="jxr_string">"manifest"</span>, key);
-<a class="jxr_linenumber" name="L700" href="#L700">700</a>                     addMatchingValues(classInformation, value, productEvidence);
-<a class="jxr_linenumber" name="L701" href="#L701">701</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(BUNDLE_NAME)) {
-<a class="jxr_linenumber" name="L702" href="#L702">702</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L703" href="#L703">703</a>                     productEvidence.addEvidence(source, key, value, Confidence.MEDIUM);
-<a class="jxr_linenumber" name="L704" href="#L704">704</a>                     addMatchingValues(classInformation, value, productEvidence);
-<a class="jxr_linenumber" name="L705" href="#L705">705</a> <em class="jxr_comment">//                //the following caused false positives.</em>
-<a class="jxr_linenumber" name="L706" href="#L706">706</a> <em class="jxr_comment">//                } else if (key.equalsIgnoreCase(BUNDLE_VENDOR)) {</em>
-<a class="jxr_linenumber" name="L707" href="#L707">707</a> <em class="jxr_comment">//                    foundSomething = true;</em>
-<a class="jxr_linenumber" name="L708" href="#L708">708</a> <em class="jxr_comment">//                    vendorEvidence.addEvidence(source, key, value, Confidence.HIGH);</em>
-<a class="jxr_linenumber" name="L709" href="#L709">709</a> <em class="jxr_comment">//                    addMatchingValues(classInformation, value, vendorEvidence);</em>
-<a class="jxr_linenumber" name="L710" href="#L710">710</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(BUNDLE_VERSION)) {
-<a class="jxr_linenumber" name="L711" href="#L711">711</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L712" href="#L712">712</a>                     versionEvidence.addEvidence(source, key, value, Confidence.HIGH);
-<a class="jxr_linenumber" name="L713" href="#L713">713</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.MAIN_CLASS.toString())) {
-<a class="jxr_linenumber" name="L714" href="#L714">714</a>                     <strong class="jxr_keyword">continue</strong>;
-<a class="jxr_linenumber" name="L715" href="#L715">715</a>                     <em class="jxr_comment">//skipping main class as if this has important information to add</em>
-<a class="jxr_linenumber" name="L716" href="#L716">716</a>                     <em class="jxr_comment">// it will be added during class name analysis...  if other fields</em>
-<a class="jxr_linenumber" name="L717" href="#L717">717</a>                     <em class="jxr_comment">// have the information from the class name then they will get added...</em>
+<a class="jxr_linenumber" name="L691" href="#L691">691</a>                     versionEvidence.addEvidence(source, key, value, Confidence.HIGH);
+<a class="jxr_linenumber" name="L692" href="#L692">692</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"specification-version"</span>.equalsIgnoreCase(key)) {
+<a class="jxr_linenumber" name="L693" href="#L693">693</a>                     specificationVersion = value;
+<a class="jxr_linenumber" name="L694" href="#L694">694</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.IMPLEMENTATION_VENDOR.toString())) {
+<a class="jxr_linenumber" name="L695" href="#L695">695</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L696" href="#L696">696</a>                     vendorEvidence.addEvidence(source, key, value, Confidence.HIGH);
+<a class="jxr_linenumber" name="L697" href="#L697">697</a>                     addMatchingValues(classInformation, value, vendorEvidence);
+<a class="jxr_linenumber" name="L698" href="#L698">698</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(IMPLEMENTATION_VENDOR_ID)) {
+<a class="jxr_linenumber" name="L699" href="#L699">699</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L700" href="#L700">700</a>                     vendorEvidence.addEvidence(source, key, value, Confidence.MEDIUM);
+<a class="jxr_linenumber" name="L701" href="#L701">701</a>                     addMatchingValues(classInformation, value, vendorEvidence);
+<a class="jxr_linenumber" name="L702" href="#L702">702</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(BUNDLE_DESCRIPTION)) {
+<a class="jxr_linenumber" name="L703" href="#L703">703</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L704" href="#L704">704</a>                     addDescription(dependency, value, <span class="jxr_string">"manifest"</span>, key);
+<a class="jxr_linenumber" name="L705" href="#L705">705</a>                     addMatchingValues(classInformation, value, productEvidence);
+<a class="jxr_linenumber" name="L706" href="#L706">706</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(BUNDLE_NAME)) {
+<a class="jxr_linenumber" name="L707" href="#L707">707</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L708" href="#L708">708</a>                     productEvidence.addEvidence(source, key, value, Confidence.MEDIUM);
+<a class="jxr_linenumber" name="L709" href="#L709">709</a>                     addMatchingValues(classInformation, value, productEvidence);
+<a class="jxr_linenumber" name="L710" href="#L710">710</a> <em class="jxr_comment">//                //the following caused false positives.</em>
+<a class="jxr_linenumber" name="L711" href="#L711">711</a> <em class="jxr_comment">//                } else if (key.equalsIgnoreCase(BUNDLE_VENDOR)) {</em>
+<a class="jxr_linenumber" name="L712" href="#L712">712</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(BUNDLE_VERSION)) {
+<a class="jxr_linenumber" name="L713" href="#L713">713</a>                     foundSomething = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L714" href="#L714">714</a>                     versionEvidence.addEvidence(source, key, value, Confidence.HIGH);
+<a class="jxr_linenumber" name="L715" href="#L715">715</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (key.equalsIgnoreCase(Attributes.Name.MAIN_CLASS.toString())) {
+<a class="jxr_linenumber" name="L716" href="#L716">716</a>                     <strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L717" href="#L717">717</a>                     <em class="jxr_comment">//skipping main class as if this has important information to add it will be added during class name analysis...</em>
 <a class="jxr_linenumber" name="L718" href="#L718">718</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L719" href="#L719">719</a>                     key = key.toLowerCase();
 <a class="jxr_linenumber" name="L720" href="#L720">720</a>                     <strong class="jxr_keyword">if</strong> (!IGNORE_KEYS.contains(key)
