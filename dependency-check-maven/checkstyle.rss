@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2013 - 2016 OWASP</copyright>
     <item>
-      <title>File: 22,
+      <title>File: 17,
              Errors: 1,
              Warnings: 0,
              Infos: 0
@@ -46,35 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.slf4j.impl.package-info.java">org/slf4j/impl/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#target.classes.mojo.properties">target/classes/mojo.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.slf4j.MavenLoggerAdapter.java">org/owasp/dependencycheck/maven/slf4j/MavenLoggerAdapter.java</a>
                 </td>
                 <td>
                   0
@@ -200,34 +172,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.slf4j.MavenLoggerFactory.java">org/owasp/dependencycheck/maven/slf4j/MavenLoggerFactory.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.slf4j.impl.StaticLoggerBinder.java">org/slf4j/impl/StaticLoggerBinder.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#LICENSE.txt">LICENSE.txt</a>
                 </td>
                 <td>
@@ -299,20 +243,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#target.maven-plugin-help.properties">target/maven-plugin-help.properties</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.slf4j.package-info.java">org/owasp/dependencycheck/maven/slf4j/package-info.java</a>
                 </td>
                 <td>
                   0
