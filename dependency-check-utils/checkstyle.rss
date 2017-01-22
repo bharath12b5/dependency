@@ -23,9 +23,9 @@ under the License.
     <link>https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils</link>
     <description>Dependency-Check Utils - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2012 - 2016 OWASP</copyright>
+    <copyright>&#169;2012 - 2017 OWASP</copyright>
     <item>
-      <title>File: 12,
+      <title>File: 13,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -102,20 +102,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.URLConnectionFailureException.java">org/owasp/dependencycheck/utils/URLConnectionFailureException.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.InvalidSettingException.java">org/owasp/dependencycheck/utils/InvalidSettingException.java</a>
                 </td>
                 <td>
@@ -144,34 +130,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.Checksum.java">org/owasp/dependencycheck/utils/Checksum.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.ExpectedOjectInputStream.java">org/owasp/dependencycheck/utils/ExpectedOjectInputStream.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.ExtractionException.java">org/owasp/dependencycheck/utils/ExtractionException.java</a>
                 </td>
                 <td>
@@ -187,6 +145,62 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.package-info.java">org/owasp/dependencycheck/utils/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.URLConnectionFailureException.java">org/owasp/dependencycheck/utils/URLConnectionFailureException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.Checksum.java">org/owasp/dependencycheck/utils/Checksum.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.XmlUtils.java">org/owasp/dependencycheck/utils/XmlUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-utils/checkstyle.html#org.owasp.dependencycheck.utils.ExpectedOjectInputStream.java">org/owasp/dependencycheck/utils/ExpectedOjectInputStream.java</a>
                 </td>
                 <td>
                   0

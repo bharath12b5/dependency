@@ -23,10 +23,10 @@ under the License.
     <link>https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven</link>
     <description>Dependency-Check Maven Plugin - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2013 - 2016 OWASP</copyright>
+    <copyright>&#169;2013 - 2017 OWASP</copyright>
     <item>
-      <title>File: 17,
-             Errors: 1,
+      <title>File: 21,
+             Errors: 2,
              Warnings: 0,
              Infos: 0
       </title>
@@ -47,6 +47,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#target.classes.mojo.properties">target/classes/mojo.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#src.it.false-positives.invoker.properties">src/it/false-positives/invoker.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#src.it.629-jackson-datafromat.invoker.properties">src/it/629-jackson-datafromat/invoker.properties</a>
                 </td>
                 <td>
                   0
@@ -111,26 +139,26 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  2
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#src.it.617-hierarchical-cross-deps.invoker.properties">src/it/617-hierarchical-cross-deps/invoker.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.package-info.java">org/owasp/dependencycheck/maven/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#org.owasp.dependencycheck.maven.MavenEngine.java">org/owasp/dependencycheck/maven/MavenEngine.java</a>
                 </td>
                 <td>
                   0
@@ -229,6 +257,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#NOTICE.txt">NOTICE.txt</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#src.it.618-aggregator-update-only.invoker.properties">src/it/618-aggregator-update-only/invoker.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/jeremylong/DependencyCheck.git/dependency-check-maven/checkstyle.html#src.it.618-aggregator-purge.invoker.properties">src/it/618-aggregator-purge/invoker.properties</a>
                 </td>
                 <td>
                   0

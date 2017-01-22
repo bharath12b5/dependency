@@ -110,7 +110,7 @@
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>                     org.apache.commons.io.FileUtils.copyFile(file, outputPath);
 <a class="jxr_linenumber" name="L103" href="#L103">103</a>                 } <strong class="jxr_keyword">catch</strong> (IOException ex) {
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>                     <strong class="jxr_keyword">final</strong> String msg = format(<span class="jxr_string">"Download failed, unable to copy '%s' to '%s'"</span>, url.toString(), outputPath.getAbsolutePath());
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(msg);
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(msg, ex);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>                 }
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>             } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>                 <strong class="jxr_keyword">final</strong> String msg = format(<span class="jxr_string">"Download failed, file ('%s') does not exist"</span>, url.toString());
@@ -194,7 +194,7 @@
 <a class="jxr_linenumber" name="L186" href="#L186">186</a>                 <strong class="jxr_keyword">final</strong> String msg = format(<span class="jxr_string">"Error saving '%s' to file '%s'%nConnection Timeout: %d%nEncoding: %s%n"</span>,
 <a class="jxr_linenumber" name="L187" href="#L187">187</a>                         url.toString(), outputPath.getAbsolutePath(), conn.getConnectTimeout(), encoding);
 <a class="jxr_linenumber" name="L188" href="#L188">188</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(msg, ex);
-<a class="jxr_linenumber" name="L189" href="#L189">189</a>             } <strong class="jxr_keyword">catch</strong> (Throwable ex) {
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>             } <strong class="jxr_keyword">catch</strong> (Exception ex) {
 <a class="jxr_linenumber" name="L190" href="#L190">190</a>                 <strong class="jxr_keyword">final</strong> String msg = format(<span class="jxr_string">"Unexpected exception saving '%s' to file '%s'%nConnection Timeout: %d%nEncoding: %s%n"</span>,
 <a class="jxr_linenumber" name="L191" href="#L191">191</a>                         url.toString(), outputPath.getAbsolutePath(), conn.getConnectTimeout(), encoding);
 <a class="jxr_linenumber" name="L192" href="#L192">192</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(msg, ex);
@@ -257,7 +257,7 @@
 <a class="jxr_linenumber" name="L249" href="#L249">249</a>                 lastModifiedFile = <strong class="jxr_keyword">new</strong> File(url.toURI());
 <a class="jxr_linenumber" name="L250" href="#L250">250</a>             } <strong class="jxr_keyword">catch</strong> (URISyntaxException ex) {
 <a class="jxr_linenumber" name="L251" href="#L251">251</a>                 <strong class="jxr_keyword">final</strong> String msg = format(<span class="jxr_string">"Unable to locate '%s'"</span>, url.toString());
-<a class="jxr_linenumber" name="L252" href="#L252">252</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(msg);
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(msg, ex);
 <a class="jxr_linenumber" name="L253" href="#L253">253</a>             }
 <a class="jxr_linenumber" name="L254" href="#L254">254</a>             timestamp = lastModifiedFile.lastModified();
 <a class="jxr_linenumber" name="L255" href="#L255">255</a>         } <strong class="jxr_keyword">else</strong> {
@@ -289,7 +289,7 @@
 <a class="jxr_linenumber" name="L281" href="#L281">281</a>                         <strong class="jxr_keyword">return</strong> getLastModified(url, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L282" href="#L282">282</a>                     }
 <a class="jxr_linenumber" name="L283" href="#L283">283</a>                 } <strong class="jxr_keyword">catch</strong> (InvalidSettingException ex1) {
-<a class="jxr_linenumber" name="L284" href="#L284">284</a>                     LOGGER.debug(<span class="jxr_string">"invalid setting?"</span>, ex);
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>                     LOGGER.debug(<span class="jxr_string">"invalid setting?"</span>, ex1);
 <a class="jxr_linenumber" name="L285" href="#L285">285</a>                 }
 <a class="jxr_linenumber" name="L286" href="#L286">286</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/utils/DownloadFailedException.html">DownloadFailedException</a>(format(<span class="jxr_string">"Error making HTTP %s request."</span>, httpMethod), ex);
 <a class="jxr_linenumber" name="L287" href="#L287">287</a>             } <strong class="jxr_keyword">finally</strong> {
@@ -359,13 +359,16 @@
 <a class="jxr_linenumber" name="L351" href="#L351">351</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L352" href="#L352">352</a>             quickQuery = Settings.getBoolean(Settings.KEYS.DOWNLOADER_QUICK_QUERY_TIMESTAMP, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L353" href="#L353">353</a>         } <strong class="jxr_keyword">catch</strong> (InvalidSettingException e) {
-<a class="jxr_linenumber" name="L354" href="#L354">354</a>             quickQuery = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L355" href="#L355">355</a>         }
-<a class="jxr_linenumber" name="L356" href="#L356">356</a>         <strong class="jxr_keyword">return</strong> quickQuery;
-<a class="jxr_linenumber" name="L357" href="#L357">357</a>     }
-<a class="jxr_linenumber" name="L358" href="#L358">358</a> }
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>             <strong class="jxr_keyword">if</strong> (LOGGER.isTraceEnabled()) {
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>                 LOGGER.trace(<span class="jxr_string">"Invalid settings : {}"</span>, e.getMessage(), e);
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>             }
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>             quickQuery = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>         }
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>         <strong class="jxr_keyword">return</strong> quickQuery;
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>     }
+<a class="jxr_linenumber" name="L361" href="#L361">361</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2017 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

@@ -385,14 +385,14 @@
 <tr>  <td class="numLineCover">&nbsp;211</td>  <td class="nbHitsCovered"><a title="Line 211: Conditional coverage 100% (2/2).">&nbsp;2</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 211: Conditional coverage 100% (2/2).">                <span class="keyword">for</span> (Pair&lt;String, String&gt; pair : data) {</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;212</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    <span class="comment">//todo figure out why there are null products</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;213</td>  <td class="nbHitsUncovered"><a title="Line 213: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">&nbsp;52774</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 213: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">                    <span class="keyword">if</span> (pair.getLeft() != <span class="keyword">null</span> &amp;&amp; pair.getRight() != <span class="keyword">null</span>) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;214</td>  <td class="nbHitsCovered">&nbsp;52772</td>  <td class="src"><pre class="src">&nbsp;                        v.setStringValue(pair.getLeft());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered">&nbsp;52772</td>  <td class="src"><pre class="src">&nbsp;                        p.setStringValue(pair.getRight());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;52772</td>  <td class="src"><pre class="src">&nbsp;                        indexWriter.addDocument(doc);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;217</td>  <td class="nbHitsCovered">&nbsp;52772</td>  <td class="src"><pre class="src">&nbsp;                        resetFieldAnalyzer();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;213</td>  <td class="nbHitsUncovered"><a title="Line 213: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">&nbsp;53114</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 213: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">                    <span class="keyword">if</span> (pair.getLeft() != <span class="keyword">null</span> &amp;&amp; pair.getRight() != <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;214</td>  <td class="nbHitsCovered">&nbsp;53112</td>  <td class="src"><pre class="src">&nbsp;                        v.setStringValue(pair.getLeft());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered">&nbsp;53112</td>  <td class="src"><pre class="src">&nbsp;                        p.setStringValue(pair.getRight());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;53112</td>  <td class="src"><pre class="src">&nbsp;                        indexWriter.addDocument(doc);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;217</td>  <td class="nbHitsCovered">&nbsp;53112</td>  <td class="src"><pre class="src">&nbsp;                        resetFieldAnalyzer();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;218</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;219</td>  <td class="nbHitsCovered">&nbsp;52774</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;219</td>  <td class="nbHitsCovered">&nbsp;53114</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;220</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            } <span class="keyword">catch</span> (DatabaseException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;221</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                LOGGER.debug(<span class="string">""</span>, ex);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;222</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                <span class="keyword">throw</span> <span class="keyword">new</span> IndexException(<span class="string">"Error reading CPE data"</span>, ex);</span></pre></td></tr>
@@ -437,15 +437,15 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;251</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">void</span> resetFieldAnalyzer() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;252</td>  <td class="nbHitsUncovered"><a title="Line 252: Conditional coverage 50% (1/2).">&nbsp;52783</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 252: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (productFieldAnalyzer != <span class="keyword">null</span>) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;253</td>  <td class="nbHitsCovered">&nbsp;52783</td>  <td class="src"><pre class="src">&nbsp;            productFieldAnalyzer.clear();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;252</td>  <td class="nbHitsUncovered"><a title="Line 252: Conditional coverage 50% (1/2).">&nbsp;53123</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 252: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (productFieldAnalyzer != <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;253</td>  <td class="nbHitsCovered">&nbsp;53123</td>  <td class="src"><pre class="src">&nbsp;            productFieldAnalyzer.clear();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;254</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;255</td>  <td class="nbHitsUncovered"><a title="Line 255: Conditional coverage 50% (1/2).">&nbsp;52783</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 255: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (vendorFieldAnalyzer != <span class="keyword">null</span>) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsCovered">&nbsp;52783</td>  <td class="src"><pre class="src">&nbsp;            vendorFieldAnalyzer.clear();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;255</td>  <td class="nbHitsUncovered"><a title="Line 255: Conditional coverage 50% (1/2).">&nbsp;53123</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 255: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (vendorFieldAnalyzer != <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsCovered">&nbsp;53123</td>  <td class="src"><pre class="src">&nbsp;            vendorFieldAnalyzer.clear();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;257</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;258</td>  <td class="nbHitsCovered">&nbsp;52783</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;258</td>  <td class="nbHitsCovered">&nbsp;53123</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;259</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;260</td>  <td class="nbHits">&nbsp;</td>
@@ -523,7 +523,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;300</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Document getDocument(<span class="keyword">int</span> documentId) <span class="keyword">throws</span> IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;301</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> indexSearcher.doc(documentId);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;301</td>  <td class="nbHitsCovered">&nbsp;21</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> indexSearcher.doc(documentId);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;302</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;303</td>  <td class="nbHits">&nbsp;</td>
@@ -551,6 +551,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 11/5/16 7:41 AM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 1/22/17 4:19 PM.</div>
 </body>
 </html>

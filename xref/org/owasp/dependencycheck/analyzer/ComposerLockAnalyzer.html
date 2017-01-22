@@ -108,7 +108,7 @@
 <a class="jxr_linenumber" name="L100" href="#L100">100</a> <em class="jxr_javadoccomment">     * @throws AnalysisException if there's a failure during analysis</em>
 <a class="jxr_linenumber" name="L101" href="#L101">101</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>     @Override
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> analyzeFileType(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> analyzeDependency(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>         FileInputStream fis = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>             fis = <strong class="jxr_keyword">new</strong> FileInputStream(dependency.getActualFile());
@@ -189,6 +189,6 @@
 <a class="jxr_linenumber" name="L181" href="#L181">181</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2017 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

@@ -189,7 +189,7 @@
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>     }
 <a class="jxr_linenumber" name="L182" href="#L182">182</a> 
 <a class="jxr_linenumber" name="L183" href="#L183">183</a>     @Override
-<a class="jxr_linenumber" name="L184" href="#L184">184</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> analyzeFileType(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine)
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> analyzeDependency(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine)
 <a class="jxr_linenumber" name="L185" href="#L185">185</a>             <strong class="jxr_keyword">throws</strong> <a href="../../../../org/owasp/dependencycheck/analyzer/exception/AnalysisException.html">AnalysisException</a> {
 <a class="jxr_linenumber" name="L186" href="#L186">186</a>         <strong class="jxr_keyword">final</strong> File actualFile = dependency.getActualFile();
 <a class="jxr_linenumber" name="L187" href="#L187">187</a>         <strong class="jxr_keyword">if</strong> (WHL_FILTER.accept(actualFile)) {
@@ -281,7 +281,7 @@
 <a class="jxr_linenumber" name="L273" href="#L273">273</a> <em class="jxr_javadoccomment">     * Deletes any files extracted from the Wheel during analysis.</em>
 <a class="jxr_linenumber" name="L274" href="#L274">274</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L275" href="#L275">275</a>     @Override
-<a class="jxr_linenumber" name="L276" href="#L276">276</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> close() {
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> closeAnalyzer() {
 <a class="jxr_linenumber" name="L277" href="#L277">277</a>         <strong class="jxr_keyword">if</strong> (tempFileLocation != <strong class="jxr_keyword">null</strong> &amp;&amp; tempFileLocation.exists()) {
 <a class="jxr_linenumber" name="L278" href="#L278">278</a>             LOGGER.debug(<span class="jxr_string">"Attempting to delete temporary files"</span>);
 <a class="jxr_linenumber" name="L279" href="#L279">279</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> success = FileUtils.delete(tempFileLocation);
@@ -415,6 +415,6 @@
 <a class="jxr_linenumber" name="L407" href="#L407">407</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2017 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

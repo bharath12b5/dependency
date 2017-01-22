@@ -12,7 +12,7 @@
 <div class="separator">&nbsp;</div>
 <table class="report">
 <thead><tr>  <td class="heading">Classes in this File</td>  <td class="heading"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Line Coverage</a></td>  <td class="heading"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Branch Coverage</a></td>  <td class="heading"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Complexity</a></td></tr></thead>
-  <tr><td><a href="org.owasp.dependencycheck.data.nvdcve.CveDB.html">CveDB</a></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40">45%</td><td class="percentgraph"><div class="percentgraph"><div class="greenbar" style="width:45px"><span class="text">201/437</span></div></div></td></tr></table></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40">52%</td><td class="percentgraph"><div class="percentgraph"><div class="greenbar" style="width:52px"><span class="text">74/140</span></div></div></td></tr></table></td><td class="value"><span class="hidden">5.636363636363637;</span>5.636</td></tr>
+  <tr><td><a href="org.owasp.dependencycheck.data.nvdcve.CveDB.html">CveDB</a></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40">47%</td><td class="percentgraph"><div class="percentgraph"><div class="greenbar" style="width:47px"><span class="text">206/437</span></div></div></td></tr></table></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40">57%</td><td class="percentgraph"><div class="percentgraph"><div class="greenbar" style="width:57px"><span class="text">80/140</span></div></div></td></tr></table></td><td class="value"><span class="hidden">5.636363636363637;</span>5.636</td></tr>
 
 </table>
 <div class="separator">&nbsp;</div>
@@ -220,7 +220,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;111</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> Connection getConnection() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;112</td>  <td class="nbHitsCovered">&nbsp;47</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> conn;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;112</td>  <td class="nbHitsCovered">&nbsp;50</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> conn;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;113</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;114</td>  <td class="nbHits">&nbsp;</td>
@@ -258,7 +258,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;132</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> close() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;133</td>  <td class="nbHitsCovered"><a title="Line 133: Conditional coverage 100% (2/2).">&nbsp;22</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 133: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (conn != <span class="keyword">null</span>) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;133</td>  <td class="nbHitsCovered"><a title="Line 133: Conditional coverage 100% (2/2).">&nbsp;26</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 133: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (conn != <span class="keyword">null</span>) {</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;134</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">try</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;135</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                conn.close();</pre></td></tr>
@@ -272,7 +272,7 @@
 <tr>  <td class="numLineCover">&nbsp;143</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;            conn = <span class="keyword">null</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;144</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;145</td>  <td class="nbHitsCovered">&nbsp;22</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;145</td>  <td class="nbHitsCovered">&nbsp;26</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;146</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;147</td>  <td class="nbHits">&nbsp;</td>
@@ -331,10 +331,10 @@
   <td class="src"><pre class="src">&nbsp;    @SuppressWarnings(<span class="string">"FinalizeDeclaration"</span>)</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;175</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">void</span> finalize() <span class="keyword">throws</span> Throwable {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;176</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        LOGGER.debug(<span class="string">"Entering finalize"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;177</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        close();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;178</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>.finalize();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;179</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;176</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;        LOGGER.debug(<span class="string">"Entering finalize"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;177</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;        close();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;178</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>.finalize();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;179</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;180</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;181</td>  <td class="nbHits">&nbsp;</td>
@@ -397,11 +397,11 @@
 <tr>  <td class="numLineCover">&nbsp;213</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            rs = ps.executeQuery();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;214</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered"><a title="Line 215: Conditional coverage 100% (2/2).">&nbsp;134</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 215: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;130</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> VulnerableSoftware vs = <span class="keyword">new</span> VulnerableSoftware();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;217</td>  <td class="nbHitsCovered">&nbsp;130</td>  <td class="src"><pre class="src">&nbsp;                vs.setCpe(rs.getString(1));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;218</td>  <td class="nbHitsCovered">&nbsp;130</td>  <td class="src"><pre class="src">&nbsp;                cpe.add(vs);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;219</td>  <td class="nbHitsCovered">&nbsp;130</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered"><a title="Line 215: Conditional coverage 100% (2/2).">&nbsp;152</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 215: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;148</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> VulnerableSoftware vs = <span class="keyword">new</span> VulnerableSoftware();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;217</td>  <td class="nbHitsCovered">&nbsp;148</td>  <td class="src"><pre class="src">&nbsp;                vs.setCpe(rs.getString(1));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;218</td>  <td class="nbHitsCovered">&nbsp;148</td>  <td class="src"><pre class="src">&nbsp;                cpe.add(vs);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;219</td>  <td class="nbHitsCovered">&nbsp;148</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;220</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (SQLException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;221</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            LOGGER.error(<span class="string">"An unexpected SQL Exception occurred; please see the verbose log for more details."</span>);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;222</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            LOGGER.debug(<span class="string">""</span>, ex);</span></pre></td></tr>
@@ -438,8 +438,8 @@
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;242</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            ps = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_VENDOR_PRODUCT_LIST"</span>));</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;243</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            rs = ps.executeQuery();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;244</td>  <td class="nbHitsCovered"><a title="Line 244: Conditional coverage 100% (2/2).">&nbsp;52776</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 244: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;245</td>  <td class="nbHitsCovered">&nbsp;52774</td>  <td class="src"><pre class="src">&nbsp;                data.add(<span class="keyword">new</span> Pair&lt;String, String&gt;(rs.getString(1), rs.getString(2)));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;244</td>  <td class="nbHitsCovered"><a title="Line 244: Conditional coverage 100% (2/2).">&nbsp;53116</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 244: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;245</td>  <td class="nbHitsCovered">&nbsp;53114</td>  <td class="src"><pre class="src">&nbsp;                data.add(<span class="keyword">new</span> Pair&lt;String, String&gt;(rs.getString(1), rs.getString(2)));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;246</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;247</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (SQLException ex) {</span></pre></td></tr>
@@ -474,8 +474,8 @@
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;267</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;            ps = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_PROPERTIES"</span>));</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;268</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;            rs = ps.executeQuery();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;269</td>  <td class="nbHitsCovered"><a title="Line 269: Conditional coverage 100% (2/2).">&nbsp;273</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 269: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;270</td>  <td class="nbHitsCovered">&nbsp;260</td>  <td class="src"><pre class="src">&nbsp;                prop.setProperty(rs.getString(1), rs.getString(2));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;269</td>  <td class="nbHitsCovered"><a title="Line 269: Conditional coverage 100% (2/2).">&nbsp;286</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 269: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;270</td>  <td class="nbHitsCovered">&nbsp;273</td>  <td class="src"><pre class="src">&nbsp;                prop.setProperty(rs.getString(1), rs.getString(2));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;271</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;272</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (SQLException ex) {</span></pre></td></tr>
@@ -588,34 +588,34 @@
 <tr>  <td class="numLine">&nbsp;349</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;350</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Map&lt;String, Boolean&gt; vulnSoftware = <span class="keyword">new</span> HashMap&lt;String, Boolean&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;351</td>  <td class="nbHitsCovered"><a title="Line 351: Conditional coverage 100% (2/2).">&nbsp;309</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 351: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;352</td>  <td class="nbHitsCovered">&nbsp;305</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String cveId = rs.getString(1);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;353</td>  <td class="nbHitsCovered"><a title="Line 353: Conditional coverage 100% (2/2).">&nbsp;305</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 353: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (!currentCVE.equals(cveId)) { <span class="comment">//check for match and add</span></a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;354</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> Entry&lt;String, Boolean&gt; matchedCPE = getMatchingSoftware(vulnSoftware, cpe.getVendor(), cpe.getProduct(), detectedVersion);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;355</td>  <td class="nbHitsCovered"><a title="Line 355: Conditional coverage 100% (2/2).">&nbsp;12</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 355: Conditional coverage 100% (2/2).">                    <span class="keyword">if</span> (matchedCPE != <span class="keyword">null</span>) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;351</td>  <td class="nbHitsCovered"><a title="Line 351: Conditional coverage 100% (2/2).">&nbsp;341</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 351: Conditional coverage 100% (2/2).">            <span class="keyword">while</span> (rs.next()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;352</td>  <td class="nbHitsCovered">&nbsp;337</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String cveId = rs.getString(1);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;353</td>  <td class="nbHitsCovered"><a title="Line 353: Conditional coverage 100% (2/2).">&nbsp;337</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 353: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (!currentCVE.equals(cveId)) { <span class="comment">//check for match and add</span></a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;354</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> Entry&lt;String, Boolean&gt; matchedCPE = getMatchingSoftware(vulnSoftware, cpe.getVendor(), cpe.getProduct(), detectedVersion);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;355</td>  <td class="nbHitsCovered"><a title="Line 355: Conditional coverage 100% (2/2).">&nbsp;13</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 355: Conditional coverage 100% (2/2).">                    <span class="keyword">if</span> (matchedCPE != <span class="keyword">null</span>) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;356</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                        <span class="keyword">final</span> Vulnerability v = getVulnerability(currentCVE);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;357</td>  <td class="nbHitsUncovered"><a title="Line 357: Conditional coverage 50% (1/2).">&nbsp;6</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 357: Conditional coverage 50% (1/2).">                        v.setMatchedCPE(matchedCPE.getKey(), matchedCPE.getValue() ? <span class="string">"Y"</span> : <span class="keyword">null</span>);</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;358</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                        vulnerabilities.add(v);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;359</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;360</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;                    vulnSoftware.clear();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;361</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;                    currentCVE = cveId;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;360</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                    vulnSoftware.clear();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;361</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                    currentCVE = cveId;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;362</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;363</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;364</td>  <td class="nbHitsCovered">&nbsp;305</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String cpeId = rs.getString(2);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;365</td>  <td class="nbHitsCovered">&nbsp;305</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String previous = rs.getString(3);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;366</td>  <td class="nbHitsUncovered"><a title="Line 366: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;305</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 366: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">final</span> Boolean p = previous != <span class="keyword">null</span> &amp;&amp; !previous.isEmpty();</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;367</td>  <td class="nbHitsCovered">&nbsp;305</td>  <td class="src"><pre class="src">&nbsp;                vulnSoftware.put(cpeId, p);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;368</td>  <td class="nbHitsCovered">&nbsp;305</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;364</td>  <td class="nbHitsCovered">&nbsp;337</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String cpeId = rs.getString(2);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;365</td>  <td class="nbHitsCovered">&nbsp;337</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> String previous = rs.getString(3);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;366</td>  <td class="nbHitsUncovered"><a title="Line 366: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;337</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 366: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">                <span class="keyword">final</span> Boolean p = previous != <span class="keyword">null</span> &amp;&amp; !previous.isEmpty();</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;367</td>  <td class="nbHitsCovered">&nbsp;337</td>  <td class="src"><pre class="src">&nbsp;                vulnSoftware.put(cpeId, p);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;368</td>  <td class="nbHitsCovered">&nbsp;337</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;369</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="comment">//remember to process the last set of CVE/CPE entries</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;370</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Entry&lt;String, Boolean&gt; matchedCPE = getMatchingSoftware(vulnSoftware, cpe.getVendor(), cpe.getProduct(), detectedVersion);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;371</td>  <td class="nbHitsCovered"><a title="Line 371: Conditional coverage 100% (2/2).">&nbsp;4</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 371: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (matchedCPE != <span class="keyword">null</span>) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;372</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> Vulnerability v = getVulnerability(currentCVE);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;373</td>  <td class="nbHitsUncovered"><a title="Line 373: Conditional coverage 50% (1/2).">&nbsp;2</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 373: Conditional coverage 50% (1/2).">                v.setMatchedCPE(matchedCPE.getKey(), matchedCPE.getValue() ? <span class="string">"Y"</span> : <span class="keyword">null</span>);</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;374</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                vulnerabilities.add(v);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;372</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> Vulnerability v = getVulnerability(currentCVE);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;373</td>  <td class="nbHitsCovered"><a title="Line 373: Conditional coverage 100% (2/2).">&nbsp;3</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 373: Conditional coverage 100% (2/2).">                v.setMatchedCPE(matchedCPE.getKey(), matchedCPE.getValue() ? <span class="string">"Y"</span> : <span class="keyword">null</span>);</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;374</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                vulnerabilities.add(v);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;375</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;376</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (SQLException ex) {</span></pre></td></tr>
@@ -646,79 +646,79 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;392</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">synchronized</span> Vulnerability getVulnerability(String cve) <span class="keyword">throws</span> DatabaseException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;393</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        PreparedStatement psV = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;394</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        PreparedStatement psR = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;395</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        PreparedStatement psS = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;396</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        ResultSet rsV = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;397</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        ResultSet rsR = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;398</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        ResultSet rsS = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;399</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        Vulnerability vuln = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;393</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        PreparedStatement psV = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;394</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        PreparedStatement psR = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;395</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        PreparedStatement psS = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;396</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        ResultSet rsV = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;397</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        ResultSet rsR = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;398</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        ResultSet rsS = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;399</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        Vulnerability vuln = <span class="keyword">null</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;400</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;401</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;402</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            psV = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_VULNERABILITY"</span>));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;403</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            psV.setString(1, cve);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;404</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            rsV = psV.executeQuery();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;405</td>  <td class="nbHitsUncovered"><a title="Line 405: Conditional coverage 50% (1/2).">&nbsp;8</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 405: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (rsV.next()) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;406</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln = <span class="keyword">new</span> Vulnerability();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;407</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setName(cve);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;408</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setDescription(rsV.getString(2));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;409</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                String cwe = rsV.getString(3);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;410</td>  <td class="nbHitsUncovered"><a title="Line 410: Conditional coverage 50% (1/2).">&nbsp;8</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 410: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (cwe != <span class="keyword">null</span>) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;411</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> String name = CweDB.getCweName(cwe);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;412</td>  <td class="nbHitsCovered"><a title="Line 412: Conditional coverage 100% (2/2).">&nbsp;8</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 412: Conditional coverage 100% (2/2).">                    <span class="keyword">if</span> (name != <span class="keyword">null</span>) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;413</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                        cwe += <span class="string">' '</span> + name;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;402</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            psV = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_VULNERABILITY"</span>));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;403</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            psV.setString(1, cve);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;404</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            rsV = psV.executeQuery();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;405</td>  <td class="nbHitsUncovered"><a title="Line 405: Conditional coverage 50% (1/2).">&nbsp;9</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 405: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (rsV.next()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;406</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln = <span class="keyword">new</span> Vulnerability();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;407</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setName(cve);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;408</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setDescription(rsV.getString(2));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;409</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                String cwe = rsV.getString(3);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;410</td>  <td class="nbHitsUncovered"><a title="Line 410: Conditional coverage 50% (1/2).">&nbsp;9</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 410: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (cwe != <span class="keyword">null</span>) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;411</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> String name = CweDB.getCweName(cwe);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;412</td>  <td class="nbHitsCovered"><a title="Line 412: Conditional coverage 100% (2/2).">&nbsp;9</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 412: Conditional coverage 100% (2/2).">                    <span class="keyword">if</span> (name != <span class="keyword">null</span>) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;413</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                        cwe += <span class="string">' '</span> + name;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;414</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;415</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;416</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> <span class="keyword">int</span> cveId = rsV.getInt(1);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;417</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCwe(cwe);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;418</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssScore(rsV.getFloat(4));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;419</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAccessVector(rsV.getString(5));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;420</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAccessComplexity(rsV.getString(6));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;421</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAuthentication(rsV.getString(7));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;422</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssConfidentialityImpact(rsV.getString(8));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;423</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssIntegrityImpact(rsV.getString(9));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;424</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAvailabilityImpact(rsV.getString(10));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;416</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> <span class="keyword">int</span> cveId = rsV.getInt(1);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;417</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCwe(cwe);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;418</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssScore(rsV.getFloat(4));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;419</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAccessVector(rsV.getString(5));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;420</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAccessComplexity(rsV.getString(6));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;421</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAuthentication(rsV.getString(7));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;422</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssConfidentialityImpact(rsV.getString(8));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;423</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssIntegrityImpact(rsV.getString(9));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;424</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                vuln.setCvssAvailabilityImpact(rsV.getString(10));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;425</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;426</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                psR = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_REFERENCES"</span>));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;427</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                psR.setInt(1, cveId);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;428</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                rsR = psR.executeQuery();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;429</td>  <td class="nbHitsCovered"><a title="Line 429: Conditional coverage 100% (2/2).">&nbsp;76</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 429: Conditional coverage 100% (2/2).">                <span class="keyword">while</span> (rsR.next()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;430</td>  <td class="nbHitsCovered">&nbsp;68</td>  <td class="src"><pre class="src">&nbsp;                    vuln.addReference(rsR.getString(1), rsR.getString(2), rsR.getString(3));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;426</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                psR = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_REFERENCES"</span>));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;427</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                psR.setInt(1, cveId);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;428</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                rsR = psR.executeQuery();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;429</td>  <td class="nbHitsCovered"><a title="Line 429: Conditional coverage 100% (2/2).">&nbsp;80</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 429: Conditional coverage 100% (2/2).">                <span class="keyword">while</span> (rsR.next()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;430</td>  <td class="nbHitsCovered">&nbsp;71</td>  <td class="src"><pre class="src">&nbsp;                    vuln.addReference(rsR.getString(1), rsR.getString(2), rsR.getString(3));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;431</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;432</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                psS = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_SOFTWARE"</span>));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;433</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                psS.setInt(1, cveId);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;434</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                rsS = psS.executeQuery();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;435</td>  <td class="nbHitsCovered"><a title="Line 435: Conditional coverage 100% (2/2).">&nbsp;244</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 435: Conditional coverage 100% (2/2).">                <span class="keyword">while</span> (rsS.next()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;436</td>  <td class="nbHitsCovered">&nbsp;236</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> String cpe = rsS.getString(1);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;437</td>  <td class="nbHitsCovered">&nbsp;236</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> String prevVersion = rsS.getString(2);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;438</td>  <td class="nbHitsCovered"><a title="Line 438: Conditional coverage 100% (2/2).">&nbsp;236</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 438: Conditional coverage 100% (2/2).">                    <span class="keyword">if</span> (prevVersion == <span class="keyword">null</span>) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;439</td>  <td class="nbHitsCovered">&nbsp;228</td>  <td class="src"><pre class="src">&nbsp;                        vuln.addVulnerableSoftware(cpe);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;432</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                psS = getConnection().prepareStatement(statementBundle.getString(<span class="string">"SELECT_SOFTWARE"</span>));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;433</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                psS.setInt(1, cveId);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;434</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                rsS = psS.executeQuery();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;435</td>  <td class="nbHitsCovered"><a title="Line 435: Conditional coverage 100% (2/2).">&nbsp;277</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 435: Conditional coverage 100% (2/2).">                <span class="keyword">while</span> (rsS.next()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;436</td>  <td class="nbHitsCovered">&nbsp;268</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> String cpe = rsS.getString(1);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;437</td>  <td class="nbHitsCovered">&nbsp;268</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">final</span> String prevVersion = rsS.getString(2);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;438</td>  <td class="nbHitsCovered"><a title="Line 438: Conditional coverage 100% (2/2).">&nbsp;268</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 438: Conditional coverage 100% (2/2).">                    <span class="keyword">if</span> (prevVersion == <span class="keyword">null</span>) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;439</td>  <td class="nbHitsCovered">&nbsp;259</td>  <td class="src"><pre class="src">&nbsp;                        vuln.addVulnerableSoftware(cpe);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;440</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    } <span class="keyword">else</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;441</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                        vuln.addVulnerableSoftware(cpe, prevVersion);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;441</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                        vuln.addVulnerableSoftware(cpe, prevVersion);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;442</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;443</td>  <td class="nbHitsCovered">&nbsp;236</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;443</td>  <td class="nbHitsCovered">&nbsp;268</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;444</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;445</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (SQLException ex) {</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;446</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> DatabaseException(<span class="string">"Error retrieving "</span> + cve, ex);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;447</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">finally</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;448</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeResultSet(rsV);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;449</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeResultSet(rsR);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;450</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeResultSet(rsS);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;451</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeStatement(psV);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;452</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeStatement(psR);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;453</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeStatement(psS);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;454</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;455</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> vuln;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;448</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeResultSet(rsV);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;449</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeResultSet(rsR);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;450</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeResultSet(rsS);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;451</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeStatement(psV);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;452</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeStatement(psR);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;453</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;            DBUtils.closeStatement(psS);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;454</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;455</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> vuln;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;456</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;457</td>  <td class="nbHits">&nbsp;</td>
@@ -1065,48 +1065,48 @@
   <td class="src"><pre class="src">&nbsp;            DependencyVersion identifiedVersion) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;708</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;709</td>  <td class="nbHitsUncovered"><a title="Line 709: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 709: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">        <span class="keyword">final</span> <span class="keyword">boolean</span> isVersionTwoADifferentProduct = <span class="string">"apache"</span>.equals(vendor) &amp;&amp; <span class="string">"struts"</span>.equals(product);</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;709</td>  <td class="nbHitsUncovered"><a title="Line 709: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">&nbsp;17</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 709: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">        <span class="keyword">final</span> <span class="keyword">boolean</span> isVersionTwoADifferentProduct = <span class="string">"apache"</span>.equals(vendor) &amp;&amp; <span class="string">"struts"</span>.equals(product);</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;710</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;711</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Set&lt;String&gt; majorVersionsAffectingAllPrevious = <span class="keyword">new</span> HashSet&lt;String&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;712</td>  <td class="nbHitsUncovered"><a title="Line 712: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 712: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">        <span class="keyword">final</span> <span class="keyword">boolean</span> matchesAnyPrevious = identifiedVersion == <span class="keyword">null</span> || <span class="string">"-"</span>.equals(identifiedVersion.toString());</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;713</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        String majorVersionMatch = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;714</td>  <td class="nbHitsCovered"><a title="Line 714: Conditional coverage 100% (2/2).">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 714: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Entry&lt;String, Boolean&gt; entry : vulnerableSoftware.entrySet()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;715</td>  <td class="nbHitsCovered">&nbsp;305</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> DependencyVersion v = parseDependencyVersion(entry.getKey());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;716</td>  <td class="nbHitsUncovered"><a title="Line 716: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;305</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 716: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">            <span class="keyword">if</span> (v == <span class="keyword">null</span> || <span class="string">"-"</span>.equals(v.toString())) { <span class="comment">//all versions</span></a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;711</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Set&lt;String&gt; majorVersionsAffectingAllPrevious = <span class="keyword">new</span> HashSet&lt;String&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;712</td>  <td class="nbHitsUncovered"><a title="Line 712: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;17</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 712: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">        <span class="keyword">final</span> <span class="keyword">boolean</span> matchesAnyPrevious = identifiedVersion == <span class="keyword">null</span> || <span class="string">"-"</span>.equals(identifiedVersion.toString());</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;713</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;        String majorVersionMatch = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;714</td>  <td class="nbHitsCovered"><a title="Line 714: Conditional coverage 100% (2/2).">&nbsp;17</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 714: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Entry&lt;String, Boolean&gt; entry : vulnerableSoftware.entrySet()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;715</td>  <td class="nbHitsCovered">&nbsp;337</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> DependencyVersion v = parseDependencyVersion(entry.getKey());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;716</td>  <td class="nbHitsUncovered"><a title="Line 716: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;337</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 716: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">            <span class="keyword">if</span> (v == <span class="keyword">null</span> || <span class="string">"-"</span>.equals(v.toString())) { <span class="comment">//all versions</span></a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;717</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                <span class="keyword">return</span> entry;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;718</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;719</td>  <td class="nbHitsCovered"><a title="Line 719: Conditional coverage 100% (2/2).">&nbsp;305</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 719: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (entry.getValue()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;720</td>  <td class="nbHitsUncovered"><a title="Line 720: Conditional coverage 50% (1/2).">&nbsp;8</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 720: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (matchesAnyPrevious) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;719</td>  <td class="nbHitsCovered"><a title="Line 719: Conditional coverage 100% (2/2).">&nbsp;337</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 719: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (entry.getValue()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;720</td>  <td class="nbHitsUncovered"><a title="Line 720: Conditional coverage 50% (1/2).">&nbsp;9</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 720: Conditional coverage 50% (1/2).">                <span class="keyword">if</span> (matchesAnyPrevious) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;721</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    <span class="keyword">return</span> entry;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;722</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;723</td>  <td class="nbHitsUncovered"><a title="Line 723: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">&nbsp;8</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 723: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">                <span class="keyword">if</span> (identifiedVersion != <span class="keyword">null</span> &amp;&amp; identifiedVersion.getVersionParts().get(0).equals(v.getVersionParts().get(0))) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;724</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                    majorVersionMatch = v.getVersionParts().get(0);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;723</td>  <td class="nbHitsUncovered"><a title="Line 723: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">&nbsp;9</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 723: Conditional coverage 75% (3/4) [each condition: 50%, 100%].">                <span class="keyword">if</span> (identifiedVersion != <span class="keyword">null</span> &amp;&amp; identifiedVersion.getVersionParts().get(0).equals(v.getVersionParts().get(0))) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;724</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                    majorVersionMatch = v.getVersionParts().get(0);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;725</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;726</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                majorVersionsAffectingAllPrevious.add(v.getVersionParts().get(0));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;726</td>  <td class="nbHitsCovered">&nbsp;9</td>  <td class="src"><pre class="src">&nbsp;                majorVersionsAffectingAllPrevious.add(v.getVersionParts().get(0));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;727</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;728</td>  <td class="nbHitsCovered">&nbsp;305</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;729</td>  <td class="nbHitsUncovered"><a title="Line 729: Conditional coverage 50% (1/2).">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 729: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (matchesAnyPrevious) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;728</td>  <td class="nbHitsCovered">&nbsp;337</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;729</td>  <td class="nbHitsUncovered"><a title="Line 729: Conditional coverage 50% (1/2).">&nbsp;17</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 729: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (matchesAnyPrevious) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;730</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">null</span>;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;731</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;732</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;733</td>  <td class="nbHitsCovered"><a title="Line 733: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 733: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">final</span> <span class="keyword">boolean</span> canSkipVersions = majorVersionMatch != <span class="keyword">null</span> &amp;&amp; majorVersionsAffectingAllPrevious.size() &gt; 1;</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;733</td>  <td class="nbHitsCovered"><a title="Line 733: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;17</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 733: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">final</span> <span class="keyword">boolean</span> canSkipVersions = majorVersionMatch != <span class="keyword">null</span> &amp;&amp; majorVersionsAffectingAllPrevious.size() &gt; 1;</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;734</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">//yes, we are iterating over this twice. The first time we are skipping versions those that affect all versions</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;735</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">//then later we process those that affect all versions. This could be done with sorting...</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;736</td>  <td class="nbHitsCovered"><a title="Line 736: Conditional coverage 100% (2/2).">&nbsp;16</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 736: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Entry&lt;String, Boolean&gt; entry : vulnerableSoftware.entrySet()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;737</td>  <td class="nbHitsCovered"><a title="Line 737: Conditional coverage 100% (2/2).">&nbsp;263</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 737: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (!entry.getValue()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;738</td>  <td class="nbHitsCovered">&nbsp;255</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> DependencyVersion v = parseDependencyVersion(entry.getKey());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;736</td>  <td class="nbHitsCovered"><a title="Line 736: Conditional coverage 100% (2/2).">&nbsp;17</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 736: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Entry&lt;String, Boolean&gt; entry : vulnerableSoftware.entrySet()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;737</td>  <td class="nbHitsCovered"><a title="Line 737: Conditional coverage 100% (2/2).">&nbsp;295</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 737: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (!entry.getValue()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;738</td>  <td class="nbHitsCovered">&nbsp;286</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> DependencyVersion v = parseDependencyVersion(entry.getKey());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;739</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//this can't dereference a null 'majorVersionMatch' as canSkipVersions accounts for this.</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;740</td>  <td class="nbHitsCovered"><a title="Line 740: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;255</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 740: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">                <span class="keyword">if</span> (canSkipVersions &amp;&amp; !majorVersionMatch.equals(v.getVersionParts().get(0))) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;740</td>  <td class="nbHitsCovered"><a title="Line 740: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;286</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 740: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">                <span class="keyword">if</span> (canSkipVersions &amp;&amp; !majorVersionMatch.equals(v.getVersionParts().get(0))) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;741</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">continue</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;742</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
@@ -1114,19 +1114,19 @@
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//this can't dereference a null 'identifiedVersion' because if it was null we would have exited</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;744</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//in the above loop or just after loop (if matchesAnyPrevious return null).</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;745</td>  <td class="nbHitsCovered"><a title="Line 745: Conditional coverage 100% (2/2).">&nbsp;247</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 745: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (identifiedVersion.equals(v)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;745</td>  <td class="nbHitsCovered"><a title="Line 745: Conditional coverage 100% (2/2).">&nbsp;278</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 745: Conditional coverage 100% (2/2).">                <span class="keyword">if</span> (identifiedVersion.equals(v)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;746</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">return</span> entry;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;747</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;748</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;749</td>  <td class="nbHitsCovered">&nbsp;247</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;750</td>  <td class="nbHitsCovered"><a title="Line 750: Conditional coverage 100% (2/2).">&nbsp;8</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 750: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Entry&lt;String, Boolean&gt; entry : vulnerableSoftware.entrySet()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;751</td>  <td class="nbHitsUncovered"><a title="Line 751: Conditional coverage 50% (1/2).">&nbsp;82</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 751: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (entry.getValue()) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;752</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                <span class="keyword">final</span> DependencyVersion v = parseDependencyVersion(entry.getKey());</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;749</td>  <td class="nbHitsCovered">&nbsp;279</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;750</td>  <td class="nbHitsCovered"><a title="Line 750: Conditional coverage 100% (2/2).">&nbsp;9</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 750: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (Entry&lt;String, Boolean&gt; entry : vulnerableSoftware.entrySet()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;751</td>  <td class="nbHitsCovered"><a title="Line 751: Conditional coverage 100% (2/2).">&nbsp;105</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 751: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (entry.getValue()) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;752</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> DependencyVersion v = parseDependencyVersion(entry.getKey());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;753</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//this can't dereference a null 'majorVersionMatch' as canSkipVersions accounts for this.</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;754</td>  <td class="nbHitsUncovered"><a title="Line 754: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 754: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">                <span class="keyword">if</span> (canSkipVersions &amp;&amp; !majorVersionMatch.equals(v.getVersionParts().get(0))) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;754</td>  <td class="nbHitsUncovered"><a title="Line 754: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">&nbsp;1</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 754: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">                <span class="keyword">if</span> (canSkipVersions &amp;&amp; !majorVersionMatch.equals(v.getVersionParts().get(0))) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;755</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    <span class="keyword">continue</span>;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;756</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
@@ -1134,16 +1134,16 @@
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//this can't dereference a null 'identifiedVersion' because if it was null we would have exited</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;758</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">//in the above loop or just after loop (if matchesAnyPrevious return null).</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;759</td>  <td class="nbHitsUncovered"><a title="Line 759: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 759: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">                <span class="keyword">if</span> (entry.getValue() &amp;&amp; identifiedVersion.compareTo(v) &lt;= 0) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;760</td>  <td class="nbHitsUncovered"><a title="Line 760: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 760: Conditional coverage 0% (0/4) [each condition: 0%, 0%].">                    <span class="keyword">if</span> (!(isVersionTwoADifferentProduct &amp;&amp; !identifiedVersion.getVersionParts().get(0).equals(v.getVersionParts().get(0)))) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;761</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                        <span class="keyword">return</span> entry;</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;759</td>  <td class="nbHitsUncovered"><a title="Line 759: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;1</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 759: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">                <span class="keyword">if</span> (entry.getValue() &amp;&amp; identifiedVersion.compareTo(v) &lt;= 0) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;760</td>  <td class="nbHitsUncovered"><a title="Line 760: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">&nbsp;1</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 760: Conditional coverage 25% (1/4) [each condition: 50%, 0%].">                    <span class="keyword">if</span> (!(isVersionTwoADifferentProduct &amp;&amp; !identifiedVersion.getVersionParts().get(0).equals(v.getVersionParts().get(0)))) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;761</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;                        <span class="keyword">return</span> entry;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;762</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;763</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;764</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;765</td>  <td class="nbHitsCovered">&nbsp;82</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;765</td>  <td class="nbHitsCovered">&nbsp;104</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;766</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">null</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;767</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
@@ -1165,16 +1165,16 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;776</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> DependencyVersion parseDependencyVersion(String cpeStr) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;777</td>  <td class="nbHitsCovered">&nbsp;560</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> VulnerableSoftware cpe = <span class="keyword">new</span> VulnerableSoftware();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;777</td>  <td class="nbHitsCovered">&nbsp;624</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> VulnerableSoftware cpe = <span class="keyword">new</span> VulnerableSoftware();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;778</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;779</td>  <td class="nbHitsCovered">&nbsp;560</td>  <td class="src"><pre class="src">&nbsp;            cpe.parseName(cpeStr);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;779</td>  <td class="nbHitsCovered">&nbsp;624</td>  <td class="src"><pre class="src">&nbsp;            cpe.parseName(cpeStr);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;780</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">catch</span> (UnsupportedEncodingException ex) {</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;781</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="comment">//never going to happen.</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;782</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            LOGGER.trace(<span class="string">""</span>, ex);</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;783</td>  <td class="nbHitsCovered">&nbsp;560</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;784</td>  <td class="nbHitsCovered">&nbsp;560</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> parseDependencyVersion(cpe);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;783</td>  <td class="nbHitsCovered">&nbsp;624</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;784</td>  <td class="nbHitsCovered">&nbsp;624</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> parseDependencyVersion(cpe);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;785</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;786</td>  <td class="nbHits">&nbsp;</td>
@@ -1197,22 +1197,22 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> DependencyVersion parseDependencyVersion(VulnerableSoftware cpe) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;795</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> DependencyVersion cpeVersion;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;796</td>  <td class="nbHitsUncovered"><a title="Line 796: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;564</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 796: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">        <span class="keyword">if</span> (cpe.getVersion() != <span class="keyword">null</span> &amp;&amp; !cpe.getVersion().isEmpty()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;796</td>  <td class="nbHitsUncovered"><a title="Line 796: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;628</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 796: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">        <span class="keyword">if</span> (cpe.getVersion() != <span class="keyword">null</span> &amp;&amp; !cpe.getVersion().isEmpty()) {</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;797</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String versionText;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;798</td>  <td class="nbHitsUncovered"><a title="Line 798: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;564</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 798: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">            <span class="keyword">if</span> (cpe.getUpdate() != <span class="keyword">null</span> &amp;&amp; !cpe.getUpdate().isEmpty()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;798</td>  <td class="nbHitsUncovered"><a title="Line 798: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">&nbsp;628</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 798: Conditional coverage 75% (3/4) [each condition: 100%, 50%].">            <span class="keyword">if</span> (cpe.getUpdate() != <span class="keyword">null</span> &amp;&amp; !cpe.getUpdate().isEmpty()) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;799</td>  <td class="nbHitsCovered">&nbsp;113</td>  <td class="src"><pre class="src">&nbsp;                versionText = String.format(<span class="string">"%s.%s"</span>, cpe.getVersion(), cpe.getUpdate());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;800</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;801</td>  <td class="nbHitsCovered">&nbsp;451</td>  <td class="src"><pre class="src">&nbsp;                versionText = cpe.getVersion();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;801</td>  <td class="nbHitsCovered">&nbsp;515</td>  <td class="src"><pre class="src">&nbsp;                versionText = cpe.getVersion();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;802</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;803</td>  <td class="nbHitsCovered">&nbsp;564</td>  <td class="src"><pre class="src">&nbsp;            cpeVersion = DependencyVersionUtil.parseVersion(versionText);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;804</td>  <td class="nbHitsCovered">&nbsp;564</td>  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;803</td>  <td class="nbHitsCovered">&nbsp;628</td>  <td class="src"><pre class="src">&nbsp;            cpeVersion = DependencyVersionUtil.parseVersion(versionText);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;804</td>  <td class="nbHitsCovered">&nbsp;628</td>  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;805</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            cpeVersion = <span class="keyword">new</span> DependencyVersion(<span class="string">"-"</span>);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;806</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;807</td>  <td class="nbHitsCovered">&nbsp;564</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> cpeVersion;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;807</td>  <td class="nbHitsCovered">&nbsp;628</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> cpeVersion;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;808</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;809</td>  <td class="nbHits">&nbsp;</td>
@@ -1284,6 +1284,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 11/5/16 7:41 AM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 1/22/17 4:19 PM.</div>
 </body>
 </html>

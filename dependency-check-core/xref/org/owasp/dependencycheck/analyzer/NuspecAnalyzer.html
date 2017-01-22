@@ -135,7 +135,7 @@
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> <em class="jxr_javadoccomment">     * @throws AnalysisException when there's an exception during analysis</em>
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>     @Override
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> analyzeFileType(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> analyzeDependency(<a href="../../../../org/owasp/dependencycheck/dependency/Dependency.html">Dependency</a> dependency, <a href="../../../../org/owasp/dependencycheck/Engine.html">Engine</a> engine) <strong class="jxr_keyword">throws</strong> AnalysisException {
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>         LOGGER.debug(<span class="jxr_string">"Checking Nuspec file {}"</span>, dependency);
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../org/owasp/dependencycheck/data/nuget/NuspecParser.html">NuspecParser</a> parser = <strong class="jxr_keyword">new</strong> <a href="../../../../org/owasp/dependencycheck/data/nuget/XPathNuspecParser.html">XPathNuspecParser</a>();
@@ -174,6 +174,6 @@
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2017 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

@@ -52,7 +52,7 @@
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>      @Test
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetChecksum() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>          String algorithm = <span class="jxr_string">"MD5"</span>;
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>          File file = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.getClass().getClassLoader().getResource(<span class="jxr_string">"checkSumTest.file"</span>).getPath());
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          File file = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.getClass().getClassLoader().getResource(<span class="jxr_string">"checkSumTest.file"</span>).toURI().getPath());
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>          byte[] expResult = {-16, -111, 92, 95, 70, -72, -49, -94, -125, -27, -83, 103, -96, -101, 55, -109};
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>          byte[] result = Checksum.getChecksum(algorithm, file);
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">boolean</strong> arraysAreEqual = <strong class="jxr_keyword">true</strong>;
@@ -102,7 +102,7 @@
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>      @Test
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetMD5Checksum() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>          File file = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.getClass().getClassLoader().getResource(<span class="jxr_string">"checkSumTest.file"</span>).getPath());
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          File file = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.getClass().getClassLoader().getResource(<span class="jxr_string">"checkSumTest.file"</span>).toURI().getPath());
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>          <em class="jxr_comment">//String expResult = "F0915C5F46B8CFA283E5AD67A09B3793";</em>
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>          String expResult = <span class="jxr_string">"f0915c5f46b8cfa283e5ad67a09b3793"</span>;
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>         String result = Checksum.getMD5Checksum(file);
@@ -116,7 +116,7 @@
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>     @Test
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetSHA1Checksum() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>         File file = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.getClass().getClassLoader().getResource(<span class="jxr_string">"checkSumTest.file"</span>).getPath());
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         File file = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.getClass().getClassLoader().getResource(<span class="jxr_string">"checkSumTest.file"</span>).toURI().getPath());
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>         <em class="jxr_comment">//String expResult = "B8A9FF28B21BCB1D0B50E24A5243D8B51766851A";</em>
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>         String expResult = <span class="jxr_string">"b8a9ff28b21bcb1d0b50e24a5243d8b51766851a"</span>;
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>         String result = Checksum.getSHA1Checksum(file);
@@ -137,6 +137,6 @@
 <a class="jxr_linenumber" name="L129" href="#L129">129</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2017 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

@@ -73,7 +73,7 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>              FileInputStream fis = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>              ZipInputStream zin = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>              <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>                  File path = <strong class="jxr_keyword">new</strong> File(BaseDBTestCase.<strong class="jxr_keyword">class</strong>.getClassLoader().getResource(<span class="jxr_string">"data.zip"</span>).getPath());
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                  File path = <strong class="jxr_keyword">new</strong> File(BaseDBTestCase.<strong class="jxr_keyword">class</strong>.getClassLoader().getResource(<span class="jxr_string">"data.zip"</span>).toURI().getPath());
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>                  fis = <strong class="jxr_keyword">new</strong> FileInputStream(path);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>                  zin = <strong class="jxr_keyword">new</strong> ZipInputStream(<strong class="jxr_keyword">new</strong> BufferedInputStream(fis));
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>                  ZipEntry entry;
@@ -136,6 +136,6 @@
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2017 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>

@@ -34,13 +34,13 @@
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> java.util.concurrent.Callable;
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> javax.xml.parsers.ParserConfigurationException;
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> javax.xml.parsers.SAXParser;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> javax.xml.parsers.SAXParserFactory;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.CveDB;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseException;
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseProperties;
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.update.exception.UpdateException;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.VulnerableSoftware;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.Settings;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.CveDB;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseException;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.nvdcve.DatabaseProperties;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.data.update.exception.UpdateException;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.dependency.VulnerableSoftware;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.Settings;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> org.owasp.dependencycheck.utils.XmlUtils;
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> org.slf4j.Logger;
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> org.slf4j.LoggerFactory;
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> org.xml.sax.SAXException;
@@ -150,56 +150,54 @@
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> importXML(File file, File oldVersion) <strong class="jxr_keyword">throws</strong> ParserConfigurationException,
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>             SAXException, IOException, SQLException, DatabaseException, ClassNotFoundException {
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 
-<a class="jxr_linenumber" name="L145" href="#L145">145</a>         <strong class="jxr_keyword">final</strong> SAXParserFactory factory = SAXParserFactory.newInstance();
-<a class="jxr_linenumber" name="L146" href="#L146">146</a>         factory.setFeature(<span class="jxr_string">"http://apache.org/xml/features/disallow-doctype-decl"</span>, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L147" href="#L147">147</a>         <strong class="jxr_keyword">final</strong> SAXParser saxParser = factory.newSAXParser();
-<a class="jxr_linenumber" name="L148" href="#L148">148</a> 
-<a class="jxr_linenumber" name="L149" href="#L149">149</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve12Handler.html">NvdCve12Handler</a> cve12Handler = <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve12Handler.html">NvdCve12Handler</a>();
-<a class="jxr_linenumber" name="L150" href="#L150">150</a>         saxParser.parse(oldVersion, cve12Handler);
-<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;VulnerableSoftware&gt;&gt; prevVersionVulnMap = cve12Handler.getVulnerabilities();
-<a class="jxr_linenumber" name="L152" href="#L152">152</a> 
-<a class="jxr_linenumber" name="L153" href="#L153">153</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve20Handler.html">NvdCve20Handler</a> cve20Handler = <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve20Handler.html">NvdCve20Handler</a>();
-<a class="jxr_linenumber" name="L154" href="#L154">154</a>         cve20Handler.setCveDB(cveDB);
-<a class="jxr_linenumber" name="L155" href="#L155">155</a>         cve20Handler.setPrevVersionVulnMap(prevVersionVulnMap);
-<a class="jxr_linenumber" name="L156" href="#L156">156</a>         saxParser.parse(file, cve20Handler);
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>     }
-<a class="jxr_linenumber" name="L158" href="#L158">158</a> 
-<a class="jxr_linenumber" name="L159" href="#L159">159</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> <em class="jxr_javadoccomment">     * Processes the NVD CVE XML file and imports the data into the DB.</em>
-<a class="jxr_linenumber" name="L161" href="#L161">161</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_javadoccomment">     * @throws UpdateException thrown if there is an error loading the data into</em>
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> <em class="jxr_javadoccomment">     * the database</em>
-<a class="jxr_linenumber" name="L164" href="#L164">164</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L165" href="#L165">165</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> processFiles() <strong class="jxr_keyword">throws</strong> UpdateException {
-<a class="jxr_linenumber" name="L166" href="#L166">166</a>         LOGGER.info(<span class="jxr_string">"Processing Started for NVD CVE - {}"</span>, filePair.getNvdCveInfo().getId());
-<a class="jxr_linenumber" name="L167" href="#L167">167</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> startProcessing = System.currentTimeMillis();
-<a class="jxr_linenumber" name="L168" href="#L168">168</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L169" href="#L169">169</a>             importXML(filePair.getFirst(), filePair.getSecond());
-<a class="jxr_linenumber" name="L170" href="#L170">170</a>             cveDB.commit();
-<a class="jxr_linenumber" name="L171" href="#L171">171</a>             properties.save(filePair.getNvdCveInfo());
-<a class="jxr_linenumber" name="L172" href="#L172">172</a>         } <strong class="jxr_keyword">catch</strong> (FileNotFoundException ex) {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>         <strong class="jxr_keyword">final</strong> SAXParser saxParser = XmlUtils.buildSecureSaxParser();
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve12Handler.html">NvdCve12Handler</a> cve12Handler = <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve12Handler.html">NvdCve12Handler</a>();
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>         saxParser.parse(oldVersion, cve12Handler);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>         <strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;VulnerableSoftware&gt;&gt; prevVersionVulnMap = cve12Handler.getVulnerabilities();
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> 
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve20Handler.html">NvdCve20Handler</a> cve20Handler = <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/nvd/NvdCve20Handler.html">NvdCve20Handler</a>();
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>         cve20Handler.setCveDB(cveDB);
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>         cve20Handler.setPrevVersionVulnMap(prevVersionVulnMap);
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>         saxParser.parse(file, cve20Handler);
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>     }
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> <em class="jxr_javadoccomment">     * Processes the NVD CVE XML file and imports the data into the DB.</em>
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> <em class="jxr_javadoccomment">     * @throws UpdateException thrown if there is an error loading the data into</em>
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> <em class="jxr_javadoccomment">     * the database</em>
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> processFiles() <strong class="jxr_keyword">throws</strong> UpdateException {
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>         LOGGER.info(<span class="jxr_string">"Processing Started for NVD CVE - {}"</span>, filePair.getNvdCveInfo().getId());
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> startProcessing = System.currentTimeMillis();
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>             importXML(filePair.getFirst(), filePair.getSecond());
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>             cveDB.commit();
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>             properties.save(filePair.getNvdCveInfo());
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>         } <strong class="jxr_keyword">catch</strong> (FileNotFoundException ex) {
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>         } <strong class="jxr_keyword">catch</strong> (ParserConfigurationException ex) {
 <a class="jxr_linenumber" name="L173" href="#L173">173</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
-<a class="jxr_linenumber" name="L174" href="#L174">174</a>         } <strong class="jxr_keyword">catch</strong> (ParserConfigurationException ex) {
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>         } <strong class="jxr_keyword">catch</strong> (SAXException ex) {
 <a class="jxr_linenumber" name="L175" href="#L175">175</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
-<a class="jxr_linenumber" name="L176" href="#L176">176</a>         } <strong class="jxr_keyword">catch</strong> (SAXException ex) {
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         } <strong class="jxr_keyword">catch</strong> (IOException ex) {
 <a class="jxr_linenumber" name="L177" href="#L177">177</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
-<a class="jxr_linenumber" name="L178" href="#L178">178</a>         } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>         } <strong class="jxr_keyword">catch</strong> (SQLException ex) {
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
-<a class="jxr_linenumber" name="L180" href="#L180">180</a>         } <strong class="jxr_keyword">catch</strong> (SQLException ex) {
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>         } <strong class="jxr_keyword">catch</strong> (DatabaseException ex) {
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>         } <strong class="jxr_keyword">catch</strong> (DatabaseException ex) {
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>         } <strong class="jxr_keyword">catch</strong> (ClassNotFoundException ex) {
 <a class="jxr_linenumber" name="L183" href="#L183">183</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
-<a class="jxr_linenumber" name="L184" href="#L184">184</a>         } <strong class="jxr_keyword">catch</strong> (ClassNotFoundException ex) {
-<a class="jxr_linenumber" name="L185" href="#L185">185</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/owasp/dependencycheck/data/update/exception/UpdateException.html">UpdateException</a>(ex);
-<a class="jxr_linenumber" name="L186" href="#L186">186</a>         } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L187" href="#L187">187</a>             filePair.cleanup();
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>         }
-<a class="jxr_linenumber" name="L189" href="#L189">189</a>         LOGGER.info(<span class="jxr_string">"Processing Complete for NVD CVE - {}  ({} ms)"</span>, filePair.getNvdCveInfo().getId(),
-<a class="jxr_linenumber" name="L190" href="#L190">190</a>                 System.currentTimeMillis() - startProcessing);
-<a class="jxr_linenumber" name="L191" href="#L191">191</a>     }
-<a class="jxr_linenumber" name="L192" href="#L192">192</a> }
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>             filePair.cleanup();
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>         }
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>         LOGGER.info(<span class="jxr_string">"Processing Complete for NVD CVE - {}  ({} ms)"</span>, filePair.getNvdCveInfo().getId(),
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>                 System.currentTimeMillis() - startProcessing);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>     }
+<a class="jxr_linenumber" name="L190" href="#L190">190</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2012&#x2013;2016 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2012&#x2013;2017 <a href="http://www.owasp.org">OWASP</a>. All rights reserved.</div>
 </body>
 </html>
